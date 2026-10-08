@@ -76,14 +76,15 @@ function buildSpecies(g,rows){
  return out;
 }
 try{
- const packs=window.ER_NAME_PACKS||{},descPack=window.ER_DESC_PACK||'';
- const [mr,ar,dd,g]=await Promise.all([unpack(packs.moves),unpack(packs.abilities),unpack(descPack),game()]);
+ const packs=window.ER_NAME_PACKS||{},longPack=window.ER_DESC_PACK||'',shortPack=window.ER_DESC_SHORT_PACK||'';
+ const [mr,ar,longDD,shortDD,g]=await Promise.all([unpack(packs.moves),unpack(packs.abilities),unpack(longPack),unpack(shortPack),game()]);
  const mm=uniqueMap(mr),am=uniqueMap(ar),oldM=new Map((window.ER_MOVES||[]).map(r=>[+r[0],r[r.length-1]])),oldA=new Map((window.ER_ABILITIES||[]).map(r=>[+r[0],r[r.length-1]]));
- const dm=new Map(((dd&&dd[0])||[]).map((v,i)=>[i+1,String(v||'')])),da=new Map(((dd&&dd[1])||[]).map((v,i)=>[i+1,String(v||'')]));
+ const dml=new Map(((longDD&&longDD[0])||[]).map((v,i)=>[i+1,String(v||'')])),dal=new Map(((longDD&&longDD[1])||[]).map((v,i)=>[i+1,String(v||'')]));
+ const dms=new Map(((shortDD&&shortDD[0])||[]).map((v,i)=>[i+1,String(v||'')])),das=new Map(((shortDD&&shortDD[1])||[]).map((v,i)=>[i+1,String(v||'')]));
  window.ER_MOVES=(g.moves||[]).filter(x=>x&&Number(x.id)!==0&&x.name).map(x=>[Number(x.id),mm.get(norm(x.name))||oldM.get(Number(x.id))||x.name]);
  window.ER_ABILITIES=(g.abilities||[]).filter(x=>x&&Number(x.id)!==0&&x.name).map(x=>[Number(x.id),am.get(norm(x.name))||oldA.get(Number(x.id))||x.name]);
- (g.moves||[]).forEach(x=>{if(!x)return;const d=dm.get(Number(x.id));if(d){x.desc=d;x.lDesc=d}});
- (g.abilities||[]).forEach(x=>{if(!x)return;const d=da.get(Number(x.id));if(d)x.desc=d});
+ (g.moves||[]).forEach(x=>{if(!x)return;const id=Number(x.id),sd=dms.get(id),ld=dml.get(id);if(sd)x.desc=sd;if(ld)x.lDesc=ld});
+ (g.abilities||[]).forEach(x=>{if(!x)return;const id=Number(x.id),sd=das.get(id),ld=dal.get(id);if(sd)x.desc=sd;if(ld)x.lDesc=ld});
  window.ER_SPECIES=buildSpecies(g,window.ER_SPECIES||[]);
  window.ER_OFFICIAL_DATA=g;
  const patched=JSON.stringify(g);
@@ -93,5 +94,12 @@ try{
  window.ER_MOVES=(window.ER_MOVES||[]).filter(r=>+r[0]!==0);
  window.ER_ABILITIES=(window.ER_ABILITIES||[]).filter(r=>+r[0]!==0)
 }
-const s=document.createElement('script');s.src='app.js?v=20261008-5';document.body.appendChild(s)
+try{
+ const bin=Uint8Array.from(atob(window.ER_APP_V2_PACK||''),c=>c.charCodeAt(0));
+ const text=await new Response(new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+ const s=document.createElement('script');s.textContent=text;document.body.appendChild(s)
+}catch(e){
+ console.warn('Packed app fallback',e);
+ const s=document.createElement('script');s.src='app.js?v=20261008-5';document.body.appendChild(s)
+}
 })();
