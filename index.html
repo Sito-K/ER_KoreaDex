@@ -19,29 +19,68 @@
       <div class="brand-mark">ER</div>
       <div><strong>Elite Redux</strong><span>Korean Dex · Mobile</span></div>
     </div>
-    <div class="search-wrap"><span class="search-icon">⌕</span><input id="globalSearch" autocomplete="off" autocapitalize="off" enterkeyhint="search" placeholder="포켓몬 · 기술 · 특성 · 도구 · 트레이너 검색" /><kbd>/</kbd></div>
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input id="globalSearch" autocomplete="off" autocapitalize="off" enterkeyhint="search" placeholder="포켓몬 · 기술 · 특성 · 도구 검색" />
+      <kbd>/</kbd>
+    </div>
     <button class="icon-btn" id="themeBtn" title="테마 전환" aria-label="테마 전환">◐</button>
   </header>
-  <div class="statusbar" id="statusBar"><span class="dot loading"></span><span id="statusText">Elite Redux 데이터를 불러오는 중…</span></div>
+
+  <div class="statusbar" id="statusBar">
+    <span class="dot loading"></span><span id="statusText">Elite Redux 데이터를 불러오는 중…</span>
+  </div>
+
   <main class="shell">
-    <aside class="sidebar"><nav id="navTabs">
-      <button class="nav active" data-view="pokemon"><span>◉</span> 포켓몬 <b id="countPokemon">–</b></button>
-      <button class="nav" data-view="moves"><span>⚡</span> 기술 <b id="countMoves">–</b></button>
-      <button class="nav" data-view="abilities"><span>✦</span> 특성 <b id="countAbilities">–</b></button>
-      <button class="nav" data-view="items"><span>◆</span> 도구 <b id="countItems">–</b></button>
-      <button class="nav" data-view="trainers"><span>♟</span> 트레이너 <b id="countTrainers">–</b></button>
-    </nav><div class="side-card"><small>ROM 기준</small><strong>STAGE433</strong><p>실제 한국어 문자열을 우선 표시합니다.</p></div></aside>
+    <aside class="sidebar">
+      <nav id="navTabs">
+        <button class="nav active" data-view="pokemon"><span>◉</span> 포켓몬 <b id="countPokemon">–</b></button>
+        <button class="nav" data-view="moves"><span>⚡</span> 기술 <b id="countMoves">–</b></button>
+        <button class="nav" data-view="abilities"><span>✦</span> 특성 <b id="countAbilities">–</b></button>
+        <button class="nav" data-view="items"><span>◆</span> 도구 <b id="countItems">–</b></button>
+        <button class="nav" data-view="trainers"><span>♟</span> 트레이너 <b id="countTrainers">–</b></button>
+      </nav>
+      <div class="side-card">
+        <small>ROM 기준</small><strong>STAGE433</strong><p>실제 한국어 문자열을 우선 표시합니다.</p>
+      </div>
+    </aside>
+
     <section class="content">
-      <div id="hero" class="hero"><div><span class="eyebrow">ELITE REDUX 2.65.3b · KOREAN</span><h1>한글판 기준 웹 도감</h1><p>모바일에서 검색하고 터치하기 쉽게 만든 Elite Redux 전용 한글 도감입니다.</p></div><div class="hero-stats" id="heroStats"></div></div>
-      <div class="toolbar" id="toolbar"><div class="segmented" id="typeFilters"></div><select id="sortSelect" aria-label="정렬"><option value="id">번호순</option><option value="name">이름순</option><option value="bst">종족값 합계순</option></select></div>
-      <div class="view-title"><h2 id="viewTitle">포켓몬</h2><span id="viewSubtitle"></span></div><div id="results" class="grid"></div><div id="empty" class="empty hidden">검색 결과가 없습니다.</div>
+      <div id="hero" class="hero">
+        <div><span class="eyebrow">ELITE REDUX 2.65.3b · KOREAN</span><h1>한글판 기준 웹 도감</h1><p>모바일에서 검색하고 터치하기 쉽게 만든 Elite Redux 전용 한글 도감입니다.</p></div>
+        <div class="hero-stats" id="heroStats"></div>
+      </div>
+
+      <div class="toolbar" id="toolbar">
+        <div class="segmented" id="typeFilters"></div>
+        <select id="sortSelect" aria-label="정렬"><option value="id">번호순</option><option value="name">이름순</option><option value="bst">종족값 합계순</option></select>
+      </div>
+
+      <div class="view-title"><h2 id="viewTitle">포켓몬</h2><span id="viewSubtitle"></span></div>
+      <div id="results" class="grid"></div>
+      <div id="empty" class="empty hidden">검색 결과가 없습니다.</div>
     </section>
   </main>
-  <nav class="mobile-bottom-nav" aria-label="도감 메뉴"><button class="nav active" data-view="pokemon"><span>◉</span><em>포켓몬</em></button><button class="nav" data-view="moves"><span>⚡</span><em>기술</em></button><button class="nav" data-view="abilities"><span>✦</span><em>특성</em></button><button class="nav" data-view="items"><span>◆</span><em>도구</em></button><button class="nav" data-view="trainers"><span>♟</span><em>트레이너</em></button></nav>
+
+  <nav class="mobile-bottom-nav" aria-label="도감 메뉴">
+    <button class="nav active" data-view="pokemon"><span>◉</span><em>포켓몬</em></button>
+    <button class="nav" data-view="moves"><span>⚡</span><em>기술</em></button>
+    <button class="nav" data-view="abilities"><span>✦</span><em>특성</em></button>
+    <button class="nav" data-view="items"><span>◆</span><em>도구</em></button>
+    <button class="nav" data-view="trainers"><span>♟</span><em>트레이너</em></button>
+  </nav>
+
   <div class="modal-backdrop hidden" id="modalBackdrop"><article class="modal" id="modal"><button class="modal-close" id="modalClose" aria-label="닫기">×</button><div id="modalContent"></div></article></div>
+
   <script src="species-1.js"></script><script src="species-2.js"></script><script src="species-3.js"></script><script src="species-4.js"></script>
   <script src="moves-1.js"></script><script src="moves-2.js"></script><script src="moves-3.js"></script>
   <script src="abilities-1.js"></script><script src="abilities-2.js"></script><script src="abilities-3.js"></script>
   <script src="items-1.js"></script><script src="items-2.js"></script><script src="items-3.js"></script>
-  <script src="trainers-1.js"></script><script src="trainers-2.js"></script><script src="types.js"></script><script src="data-init.js"></script><script src="app.js"></script>
-</body></html>
+  <script src="trainers-1.js"></script><script src="trainers-2.js"></script><script src="types.js"></script>
+  <script src="data-init.js?v=20261008-namefix3"></script>
+  <script src="moves-names.js?v=20261008-namefix3"></script>
+  <script src="abilities-names.js?v=20261008-namefix3"></script>
+  <script src="items-names.js?v=20261008-namefix3"></script>
+  <script src="bootstrap.js?v=20261008-namefix3"></script>
+</body>
+</html>
