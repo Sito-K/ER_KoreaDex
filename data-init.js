@@ -1,0 +1,9 @@
+window.KO_DATA={
+  speciesByEn:Object.fromEntries((window.ER_SPECIES||[]).map(([id,en,ko])=>[en,{id,ko}])),
+  moves:Object.fromEntries((window.ER_MOVES||[]).map(([id,ko])=>[id,{id,ko}])),
+  abilities:Object.fromEntries((window.ER_ABILITIES||[]).map(([id,ko])=>[id,{id,ko}])),
+  items:Object.fromEntries((window.ER_ITEMS||[]).map(([id,ko])=>[id,{id,ko}])),
+  trainers:(window.ER_TRAINERS||[]).map(([id,ko])=>({id,ko})),
+  types:window.ER_TYPES||[],
+  stats:['HP','공격','방어','특수공격','특수방어','스피드']
+};
