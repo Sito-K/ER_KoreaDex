@@ -1,1 +1,0 @@
-window.ER_DETAIL_PACKS=window.ER_DETAIL_PACKS||{};window.ER_DETAIL_PACKS.moves='H4sIAAAAAAAC/...';
