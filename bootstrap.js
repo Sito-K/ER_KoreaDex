@@ -28,7 +28,7 @@
     for(const u of urls){try{const r=await fetch(u,{cache:'force-cache'});if(r.ok)return await r.json();last=new Error(`${r.status}`);}catch(e){last=e;}}
     throw last||new Error('NextDex 데이터를 불러오지 못했습니다.');
   }
-  function remap(external, names){
+  function remap(external,names){
     const out={}; let matched=0;
     for(const x of external||[]){
       const hit=names[normEn(x?.name||x?.en||'')];
@@ -37,19 +37,25 @@
     }
     return [out,matched];
   }
+  function localItems(rows){
+    const out={};
+    (rows||[]).forEach((r,id)=>{const [en,ko]=r||[];if(ko)out[id]={id,en:en||'',ko};});
+    return out;
+  }
   try{
     const packs=window.ER_NAME_PACKS||{};
     const [mr,ar,ir,g]=await Promise.all([unpack(packs.moves),unpack(packs.abilities),unpack(packs.items),getGameData()]);
-    const mm=safeMap(mr), am=safeMap(ar), im=safeMap(ir);
-    const [moves,mc]=remap(g.moves,mm), [abilities,ac]=remap(g.abilities,am), [items,ic]=remap(g.items,im);
+    const mm=safeMap(mr), am=safeMap(ar);
+    const [moves,mc]=remap(g.moves,mm), [abilities,ac]=remap(g.abilities,am);
+    const items=localItems(ir);
     K.moves=moves; K.abilities=abilities; K.items=items; K.normEn=normEn;
-    K.nameFix={moves:{source:mr.length,matched:mc},abilities:{source:ar.length,matched:ac},items:{source:ir.length,matched:ic}};
+    K.nameFix={moves:{source:mr.length,matched:mc},abilities:{source:ar.length,matched:ac},items:{source:ir.length,matched:Object.keys(items).length}};
     window.KO_DATA=K;
-    status(`STAGE433 교차검증 완료 · 기술 ${mc}/${mr.length} · 특성 ${ac}/${ar.length} · 도구 ${ic}/${ir.length}`);
+    status(`STAGE433 교차검증 완료 · 기술 ${mc}/${mr.length} · 특성 ${ac}/${ar.length} · 도구 ${Object.keys(items).length}/${ir.length}`);
   }catch(e){
     console.error('STAGE433 safe remap failed',e);
     K.moves={}; K.abilities={}; K.items={}; window.KO_DATA=K;
     status('교차검증 데이터 로드 실패 · 잘못된 한국어명 방지를 위해 기술/특성/도구는 원문명으로 표시합니다.');
   }
-  const s=document.createElement('script');s.src='app.js?v=20261008-namefix3';document.body.appendChild(s);
+  const s=document.createElement('script');s.src='app.js?v=20261008-namefix4';document.body.appendChild(s);
 })();
