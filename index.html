@@ -7,10 +7,11 @@
 <title>Elite Redux 한글 도감 · Clean Rebuild</title>
 <link rel="stylesheet" href="styles.css?v=20261009-clean3">
 <link rel="stylesheet" href="stage4.css?v=20261009-clean4">
+<link rel="stylesheet" href="stage5.css?v=20261009-clean5">
 </head>
 <body>
 <header class="top">
-  <div class="brand"><b>ER</b><div><strong>Elite Redux 한글 도감</strong><small>CLEAN REBUILD · STAGE 4</small></div></div>
+  <div class="brand"><b>ER</b><div><strong>Elite Redux 한글 도감</strong><small>CLEAN REBUILD · STAGE 5</small></div></div>
   <label class="search"><span>⌕</span><input id="q" type="search" placeholder="한국어 / 영어 포켓몬 이름 검색" autocomplete="off"></label>
 </header>
 <main>
@@ -18,7 +19,7 @@
     <div><small>ELITE REDUX 2.65.3b</small><h1>한글 도감 재구축</h1><p>압축·외부 주입 없이 검증된 정적 한국어 데이터만 단계적으로 연결합니다.</p></div>
     <div class="status"><b id="count">0</b><span id="countLabel">불러온 이름</span></div>
   </section>
-  <section class="notice">STAGE 4: 기존 포켓몬·기술·특성 이름을 유지하고 기술 1,031개와 특성 1,033개의 한국어 짧은 설명을 정적 데이터로 추가했습니다.</section>
+  <section class="notice">STAGE 5: STAGE 4의 짧은 설명을 유지하고 기술 1,031개·특성 1,033개의 긴 한국어 설명과 상세 보기를 추가했습니다. 기술/특성 카드를 누르면 상세 설명을 볼 수 있습니다.</section>
   <nav class="tabs" aria-label="도감 분류">
     <button class="tab active" data-view="pokemon">포켓몬</button>
     <button class="tab" data-view="moves">기술</button>
@@ -28,6 +29,15 @@
   <div id="grid" class="grid"></div>
   <div id="empty" class="empty" hidden>검색 결과가 없습니다.</div>
 </main>
+<div id="detailBackdrop" class="detail-backdrop" hidden>
+  <section class="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="detail-top"><div><div id="detailType" class="detail-type"></div><h2 id="detailTitle" class="detail-title"></h2></div><button id="detailClose" class="detail-close" type="button" aria-label="상세 보기 닫기">×</button></div>
+    <div class="detail-body">
+      <section class="detail-section"><h3>요약 설명</h3><p id="detailShort" class="detail-text"></p></section>
+      <section class="detail-section"><h3>상세 설명</h3><p id="detailLong" class="detail-text"></p></section>
+    </div>
+  </section>
+</div>
 <script src="species-1.js?v=clean1"></script>
 <script src="species-2.js?v=clean1"></script>
 <script src="species-3.js?v=clean1"></script>
@@ -46,6 +56,16 @@
 <script src="ability-short-2.js?v=clean4"></script>
 <script src="ability-short-3.js?v=clean4"></script>
 <script src="ability-short-4.js?v=clean4"></script>
-<script src="app.js?v=20261009-clean4"></script>
+<script src="move-long-1.js?v=clean5"></script>
+<script src="move-long-2.js?v=clean5"></script>
+<script src="move-long-3.js?v=clean5"></script>
+<script src="move-long-4.js?v=clean5"></script>
+<script src="ability-long-1.js?v=clean5"></script>
+<script src="ability-long-2a.js?v=clean5"></script>
+<script src="ability-long-2b.js?v=clean5"></script>
+<script src="ability-long-3a.js?v=clean5"></script>
+<script src="ability-long-3b.js?v=clean5"></script>
+<script src="ability-long-4.js?v=clean5"></script>
+<script src="app.js?v=20261009-clean5"></script>
 </body>
 </html>
