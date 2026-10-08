@@ -1,10 +1,9 @@
 (async()=>{'use strict';
 const nativeFetch=window.fetch.bind(window);
 const norm=s=>String(s||'').normalize('NFKD').toLowerCase().replace(/♀/g,' female ').replace(/♂/g,' male ').replace(/[^a-z0-9]+/g,'');
-async function gunzipText(b64){if(!b64)return'';const bin=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));if(typeof DecompressionStream==='function'){try{return await new Response(new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'))).text()}catch(e){console.warn('native gzip failed',e)}}if(window.pako&&typeof window.pako.ungzip==='function')return new TextDecoder().decode(window.pako.ungzip(bin));throw Error('gzip unsupported')}
-async function unpack(b64){const text=await gunzipText(b64);return text?JSON.parse(text):[]}
+async function unpack(b64){if(!b64)return[];const bin=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));if(typeof DecompressionStream!=='function')throw Error('gzip unsupported');const text=await new Response(new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'))).text();return JSON.parse(text)}
 function uniqueMap(rows){const out=new Map(),bad=new Set();for(const [en,ko] of rows||[]){const k=norm(en);if(!k||!ko||bad.has(k))continue;if(out.has(k)&&out.get(k)!==ko){out.delete(k);bad.add(k)}else out.set(k,ko)}return out}
-async function game(){for(const u of ['https://cdn.jsdelivr.net/gh/ForwardFeed/ER-nextdex@main/static/js/data/gameDataV2.65beta.json','https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65beta.json']){try{const r=await nativeFetch(u,{cache:'no-store'});if(r.ok)return await r.json()}catch(e){}}throw Error('NextDex load failed')}
+async function game(){for(const u of ['https://cdn.jsdelivr.net/gh/ForwardFeed/ER-nextdex@main/static/js/data/gameDataV2.65beta.json','https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65beta.json']){try{const r=await nativeFetch(u,{cache:'force-cache'});if(r.ok)return await r.json()}catch(e){}}throw Error('NextDex load failed')}
 const FORM={
 ALOLAN:'알로라의 모습',ALOLA:'알로라의 모습',GALARIAN:'가라르의 모습',GALAR:'가라르의 모습',HISUIAN:'히스이의 모습',HISUI:'히스이의 모습',PALDEAN:'팔데아의 모습',PALDEA:'팔데아의 모습',
 ORIGIN:'오리진폼',THERIAN:'영물폼',INCARNATE:'화신폼',ATTACK:'어택폼',DEFENSE:'디펜스폼',SPEED:'스피드폼',MEGA:'메가진화',MEGA_X:'메가진화 X',MEGA_Y:'메가진화 Y',PRIMAL:'원시회귀',REDUX:'리덕스폼',GMAX:'거다이맥스',
@@ -21,26 +20,86 @@ ROCK_STAR:'하드록',BELLE:'마담',POP_STAR:'아이돌',PHD:'닥터',LIBRE:'�
 SPRING:'봄의 모습',SUMMER:'여름의 모습',AUTUMN:'가을의 모습',WINTER:'겨울의 모습',SMALL:'작은 사이즈',AVERAGE:'보통 사이즈',LARGE:'큰 사이즈',SUPER:'특대 사이즈',
 FAMILY_OF_THREE:'세 식구',FAMILY_OF_FOUR:'네 식구',COMBAT:'컴뱃종',BLAZE:'블레이즈종',AQUA:'워터종'
 };
-const PART={RED:'빨강',ORANGE:'주황',YELLOW:'노랑',GREEN:'초록',BLUE:'파랑',INDIGO:'남색',VIOLET:'보라',PINK:'분홍',WHITE:'하양',BLACK:'검정',BROWN:'갈색',MALE:'수컷',FEMALE:'암컷',SPRING:'봄',SUMMER:'여름',AUTUMN:'가을',WINTER:'겨울',SUN:'태양',MOON:'달',DAWN:'새벽',DUSK:'황혼',MEGA:'메가',REDUX:'리덕스',GMAX:'거다이맥스',ORIGIN:'오리진',THERIAN:'영물',INCARNATE:'화신',ATTACK:'어택',DEFENSE:'디펜스',SPEED:'스피드',RUBY:'루비',MATCHA:'말차',MINT:'민트',LEMON:'레몬',SALTED:'솔티',VANILLA:'바닐라',CREAM:'크림',STRAWBERRY:'딸기',BERRY:'베리',LOVE:'하트',STAR:'스타',CLOVER:'네잎클로버',FLOWER:'꽃',RIBBON:'리본',HEART:'하트',DIAMOND:'다이아',ELEGANT:'우아',MARINE:'마린',MEADOW:'목초',MODERN:'모던',MONSOON:'우기',OCEAN:'오션',POLAR:'설국',RIVER:'대하',SANDSTORM:'사막',SAVANNA:'사바나',TUNDRA:'빙설'};
-function labelToken(t){t=String(t||'').replace(/^FORM_/,'').replace(/_FORM(E)?$/,'');if(!t)return'';if(FORM[t])return FORM[t];if(/REDUX/.test(t))return'리덕스폼';if(/MEGA_X/.test(t))return'메가진화 X';if(/MEGA_Y/.test(t))return'메가진화 Y';if(/MEGA/.test(t))return'메가진화';if(/GMAX|GIGANTAMAX/.test(t))return'거다이맥스';const parts=t.split('_'),out=[];for(const p of parts){if(PART[p])out.push(PART[p]);else if(/^[XYZ0-9]+$/.test(p))out.push(p);else return'특수폼'}return out.length?out.join(' ')+'폼':'특수폼'}
-function buildSpecies(g,rows){const byName=uniqueMap((rows||[]).map(r=>[r?.[1],r?.[2]]));const sp=g.species||[],owner=new Map();sp.forEach((m,i)=>{if(!m)return;(m.forms||[]).forEach(v=>{v=+v;if(Number.isInteger(v)&&v>=0&&v!==i&&!owner.has(v))owner.set(v,i)})});const rootIndex=i=>{let c=+i,seen=new Set();while(owner.has(c)&&!seen.has(c)){seen.add(c);c=owner.get(c)}return c};const baseKo=m=>byName.get(norm(m?.name))||'';const out=[];sp.forEach((m,i)=>{if(!m||!m.name)return;let ko=baseKo(m);if(!ko){const ri=rootIndex(i),r=sp[ri]||m,rootKo=baseKo(r);if(rootKo){const a=String(r.NAME||'').replace(/^SPECIES_/,''),b=String(m.NAME||'').replace(/^SPECIES_/,'');let t='';if(a&&b.startsWith(a+'_'))t=b.slice(a.length+1);else{const rn=String(r.name||''),mn=String(m.name||'');if(rn&&mn.toLowerCase().startsWith(rn.toLowerCase()))t=mn.slice(rn.length).replace(/^[ _-]+/,'').replace(/[ -]+/g,'_').toUpperCase();else t=b}if(t==='MEGA')ko='메가'+rootKo;else if(t==='MEGA_X')ko='메가'+rootKo+'X';else if(t==='MEGA_Y')ko='메가'+rootKo+'Y';else if(t==='PRIMAL')ko='원시'+rootKo;else ko=`${rootKo} (${labelToken(t)})`}}if(!ko)ko='포켓몬';out.push([Number(m.id??i),String(m.name),ko])});return out}
+const PART={
+RED:'빨강',ORANGE:'주황',YELLOW:'노랑',GREEN:'초록',BLUE:'파랑',INDIGO:'남색',VIOLET:'보라',PINK:'분홍',WHITE:'하양',BLACK:'검정',BROWN:'갈색',
+MALE:'수컷',FEMALE:'암컷',SPRING:'봄',SUMMER:'여름',AUTUMN:'가을',WINTER:'겨울',SUN:'태양',MOON:'달',DAWN:'새벽',DUSK:'황혼',
+MEGA:'메가',REDUX:'리덕스',GMAX:'거다이맥스',ORIGIN:'오리진',THERIAN:'영물',INCARNATE:'화신',ATTACK:'어택',DEFENSE:'디펜스',SPEED:'스피드',
+RUBY:'루비',MATCHA:'말차',MINT:'민트',LEMON:'레몬',SALTED:'솔티',RUBY_SWIRL:'루비믹스',CARAMEL_SWIRL:'캐러멜믹스',RAINBOW_SWIRL:'트리플믹스',
+VANILLA:'바닐라',CREAM:'크림',STRAWBERRY:'딸기',BERRY:'베리',LOVE:'하트',STAR:'스타',CLOVER:'네잎클로버',FLOWER:'꽃',RIBBON:'리본',
+HEART:'하트',DIAMOND:'다이아',DEBUTANTE:'아가씨',MATRON:'마담',DANDY:'젠틀맨',LA_REINE:'퀸',KABUKI:'가부키',PHARAOH:'킹덤',NATURAL:'내추럴',
+ELEGANT:'우아',MARINE:'마린',MEADOW:'목초',MODERN:'모던',MONSOON:'우기',OCEAN:'오션',POLAR:'설국',RIVER:'대하',SANDSTORM:'사막',SAVANNA:'사바나',SUN:'태양',TUNDRA:'빙설'
+};
+function labelToken(t){
+ t=String(t||'').replace(/^FORM_/,'').replace(/_FORM(E)?$/,'');
+ if(!t)return'';
+ if(FORM[t])return FORM[t];
+ if(/REDUX/.test(t))return'리덕스폼';
+ if(/MEGA_X/.test(t))return'메가진화 X';
+ if(/MEGA_Y/.test(t))return'메가진화 Y';
+ if(/MEGA/.test(t))return'메가진화';
+ if(/GMAX|GIGANTAMAX/.test(t))return'거다이맥스';
+ const parts=t.split('_'),out=[];let ok=true;
+ for(const p of parts){if(PART[p])out.push(PART[p]);else if(/^[XYZ0-9]+$/.test(p))out.push(p);else{ok=false;break}}
+ return ok&&out.length?out.join(' ')+'폼':'특수폼';
+}
+function buildSpecies(g,rows){
+ const byName=uniqueMap((rows||[]).map(r=>[r?.[1],r?.[2]]));
+ const sp=g.species||[],owner=new Map();
+ sp.forEach((m,i)=>{if(!m)return;(m.forms||[]).forEach(v=>{v=+v;if(Number.isInteger(v)&&v>=0&&v!==i&&!owner.has(v))owner.set(v,i)})});
+ const rootIndex=i=>{let c=+i,seen=new Set();while(owner.has(c)&&!seen.has(c)){seen.add(c);c=owner.get(c)}return c};
+ const baseKo=m=>byName.get(norm(m?.name))||'';
+ const out=[];
+ sp.forEach((m,i)=>{
+   if(!m||!m.name)return;
+   let ko=baseKo(m);
+   if(!ko){
+     const ri=rootIndex(i),r=sp[ri]||m,rootKo=baseKo(r);
+     if(rootKo){
+       const a=String(r.NAME||'').replace(/^SPECIES_/,''),b=String(m.NAME||'').replace(/^SPECIES_/,'');
+       let t='';
+       if(a&&b.startsWith(a+'_'))t=b.slice(a.length+1);
+       else{
+         const rn=String(r.name||''),mn=String(m.name||'');
+         if(rn&&mn.toLowerCase().startsWith(rn.toLowerCase()))t=mn.slice(rn.length).replace(/^[_\s-]+/,'').replace(/[\s-]+/g,'_').toUpperCase();
+         else t=b;
+       }
+       if(t==='MEGA')ko='메가'+rootKo;
+       else if(t==='MEGA_X')ko='메가'+rootKo+'X';
+       else if(t==='MEGA_Y')ko='메가'+rootKo+'Y';
+       else if(t==='PRIMAL')ko='원시'+rootKo;
+       else ko=`${rootKo} (${labelToken(t)})`;
+     }
+   }
+   if(!ko)ko='포켓몬';
+   out.push([Number(m.id??i),String(m.name),ko]);
+ });
+ return out;
+}
 try{
  const packs=window.ER_NAME_PACKS||{},longPack=window.ER_DESC_PACK||'',shortPack=window.ER_DESC_SHORT_PACK||'';
  const [mr,ar,longDD,shortDD,g]=await Promise.all([unpack(packs.moves),unpack(packs.abilities),unpack(longPack),unpack(shortPack),game()]);
  const mm=uniqueMap(mr),am=uniqueMap(ar),oldM=new Map((window.ER_MOVES||[]).map(r=>[+r[0],r[r.length-1]])),oldA=new Map((window.ER_ABILITIES||[]).map(r=>[+r[0],r[r.length-1]]));
  const dml=new Map(((longDD&&longDD[0])||[]).map((v,i)=>[i+1,String(v||'')])),dal=new Map(((longDD&&longDD[1])||[]).map((v,i)=>[i+1,String(v||'')]));
  const dms=new Map(((shortDD&&shortDD[0])||[]).map((v,i)=>[i+1,String(v||'')])),das=new Map(((shortDD&&shortDD[1])||[]).map((v,i)=>[i+1,String(v||'')]));
- const moveKo=new Map(),abilityKo=new Map();
- window.ER_MOVES=(g.moves||[]).filter(x=>x&&Number(x.id)!==0&&x.name).map(x=>{const id=Number(x.id),ko=mm.get(norm(x.name))||oldM.get(id)||x.name;moveKo.set(id,ko);return[id,ko]});
- window.ER_ABILITIES=(g.abilities||[]).filter(x=>x&&Number(x.id)!==0&&x.name).map(x=>{const id=Number(x.id),ko=am.get(norm(x.name))||oldA.get(id)||x.name;abilityKo.set(id,ko);return[id,ko]});
- (g.moves||[]).forEach(x=>{if(!x)return;const id=Number(x.id),sd=dms.get(id),ld=dml.get(id),ko=moveKo.get(id);if(ko){x.nameEn=x.name;x.nameKo=ko;x.displayName=ko;x.name=ko}if(sd){x.desc=sd;x.description=sd;x.shortDesc=sd;x.shortDescription=sd}if(ld){x.lDesc=ld;x.longDesc=ld;x.longDescription=ld;x.fullDesc=ld}});
- (g.abilities||[]).forEach(x=>{if(!x)return;const id=Number(x.id),sd=das.get(id),ld=dal.get(id),ko=abilityKo.get(id);if(ko){x.nameEn=x.name;x.nameKo=ko;x.displayName=ko;x.name=ko}if(sd){x.desc=sd;x.description=sd;x.shortDesc=sd;x.shortDescription=sd}if(ld){x.lDesc=ld;x.longDesc=ld;x.longDescription=ld;x.fullDesc=ld}});
- const speciesRows=buildSpecies(g,window.ER_SPECIES||[]),speciesKo=new Map(speciesRows.map(r=>[+r[0],r[2]]));window.ER_SPECIES=speciesRows;
- (g.species||[]).forEach((x,i)=>{if(!x)return;const id=Number(x.id??i),ko=speciesKo.get(id);if(ko){x.nameEn=x.name;x.nameKo=ko;x.displayName=ko;x.name=ko}});
+ window.ER_MOVES=(g.moves||[]).filter(x=>x&&Number(x.id)!==0&&x.name).map(x=>[Number(x.id),mm.get(norm(x.name))||oldM.get(Number(x.id))||x.name]);
+ window.ER_ABILITIES=(g.abilities||[]).filter(x=>x&&Number(x.id)!==0&&x.name).map(x=>[Number(x.id),am.get(norm(x.name))||oldA.get(Number(x.id))||x.name]);
+ (g.moves||[]).forEach(x=>{if(!x)return;const id=Number(x.id),sd=dms.get(id),ld=dml.get(id);if(sd)x.desc=sd;if(ld)x.lDesc=ld});
+ (g.abilities||[]).forEach(x=>{if(!x)return;const id=Number(x.id),sd=das.get(id),ld=dal.get(id);if(sd)x.desc=sd;if(ld)x.lDesc=ld});
+ window.ER_SPECIES=buildSpecies(g,window.ER_SPECIES||[]);
  window.ER_OFFICIAL_DATA=g;
- window.ER_KOREAN_READY={moves:dms.size,moveLong:dml.size,abilities:das.size,abilityLong:dal.size,species:speciesRows.length};
  const patched=JSON.stringify(g);
- window.fetch=async(input,init)=>{const u=typeof input==='string'?input:String(input?.url||input||'');if(u.includes('gameDataV2.65beta.json'))return new Response(patched,{status:200,headers:{'Content-Type':'application/json; charset=utf-8'}});return nativeFetch(input,init)};
-}catch(e){console.warn('Korean data verification fallback',e);window.ER_MOVES=(window.ER_MOVES||[]).filter(r=>+r[0]!==0);window.ER_ABILITIES=(window.ER_ABILITIES||[]).filter(r=>+r[0]!==0)}
-try{const appPack=(window.ER_APP_V3_PARTS||[]).join('')||window.ER_APP_V2_PACK||'';const text=await gunzipText(appPack);const s=document.createElement('script');s.textContent=text;document.body.appendChild(s)}catch(e){console.warn('Packed app v3 fallback',e);const s=document.createElement('script');s.src='app.js?v=20261008-5';document.body.appendChild(s)}
+ window.fetch=async(input,init)=>{const u=typeof input==='string'?input:String(input?.url||input||'');if(u.includes('gameDataV2.65beta.json'))return new Response(patched,{status:200,headers:{'Content-Type':'application/json; charset=utf-8'}});return nativeFetch(input,init)}
+}catch(e){
+ console.warn('Korean data verification fallback',e);
+ window.ER_MOVES=(window.ER_MOVES||[]).filter(r=>+r[0]!==0);
+ window.ER_ABILITIES=(window.ER_ABILITIES||[]).filter(r=>+r[0]!==0)
+}
+try{
+ const bin=Uint8Array.from(atob(window.ER_APP_V2_PACK||''),c=>c.charCodeAt(0));
+ const text=await new Response(new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+ const s=document.createElement('script');s.textContent=text;document.body.appendChild(s)
+}catch(e){
+ console.warn('Packed app fallback',e);
+ const s=document.createElement('script');s.src='app.js?v=20261008-5';document.body.appendChild(s)
+}
 })();
