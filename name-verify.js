@@ -1,7 +1,8 @@
 (async()=>{'use strict';
 const nativeFetch=window.fetch.bind(window);
 const norm=s=>String(s||'').normalize('NFKD').toLowerCase().replace(/♀/g,' female ').replace(/♂/g,' male ').replace(/[^a-z0-9]+/g,'');
-async function unpack(b64){if(!b64)return[];const bin=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));if(typeof DecompressionStream!=='function')throw Error('gzip unsupported');const text=await new Response(new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'))).text();return JSON.parse(text)}
+async function gunzipText(b64){if(!b64)return'';const bin=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));if(typeof DecompressionStream==='function'){try{return await new Response(new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'))).text()}catch(e){console.warn('native gzip failed, using pako',e)}}if(window.pako&&typeof window.pako.ungzip==='function')return new TextDecoder().decode(window.pako.ungzip(bin));throw Error('gzip unsupported')}
+async function unpack(b64){const text=await gunzipText(b64);return text?JSON.parse(text):[]}
 function uniqueMap(rows){const out=new Map(),bad=new Set();for(const [en,ko] of rows||[]){const k=norm(en);if(!k||!ko||bad.has(k))continue;if(out.has(k)&&out.get(k)!==ko){out.delete(k);bad.add(k)}else out.set(k,ko)}return out}
 async function game(){for(const u of ['https://cdn.jsdelivr.net/gh/ForwardFeed/ER-nextdex@main/static/js/data/gameDataV2.65beta.json','https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65beta.json']){try{const r=await nativeFetch(u,{cache:'force-cache'});if(r.ok)return await r.json()}catch(e){}}throw Error('NextDex load failed')}
 const FORM={
@@ -43,7 +44,10 @@ function labelToken(t){
  return ok&&out.length?out.join(' ')+'폼':'특수폼';
 }
 function buildSpecies(g,rows){
- const byName=uniqueMap((rows||[]).map(r=>[r?.[1],r?.[2]]));
+ const sourceRows=(rows||[]).filter(r=>r&&r[1]&&r[2]);
+ const byName=uniqueMap(sourceRows.map(r=>[r[1],r[2]]));
+ const baseEntries=sourceRows.map(r=>[String(r[1]),String(r[2])]).sort((a,b)=>b[0].length-a[0].length);
+ const canon=v=>String(v||'').toUpperCase().replace(/[^A-Z0-9]+/g,'_').replace(/^_+|_+$/g,'');
  const sp=g.species||[],owner=new Map();
  sp.forEach((m,i)=>{if(!m)return;(m.forms||[]).forEach(v=>{v=+v;if(Number.isInteger(v)&&v>=0&&v!==i&&!owner.has(v))owner.set(v,i)})});
  const rootIndex=i=>{let c=+i,seen=new Set();while(owner.has(c)&&!seen.has(c)){seen.add(c);c=owner.get(c)}return c};
@@ -53,13 +57,17 @@ function buildSpecies(g,rows){
    if(!m||!m.name)return;
    let ko=baseKo(m);
    if(!ko){
-     const ri=rootIndex(i),r=sp[ri]||m,rootKo=baseKo(r);
+     let ri=rootIndex(i),r=sp[ri]||m,rootKo=baseKo(r),baseEn=String(r?.name||'');
+     if(!rootKo){
+       const mn=String(m.name||''),code=String(m.NAME||'').replace(/^SPECIES_/,'');
+       for(const [en,k] of baseEntries){const c=canon(en);if((mn.toLowerCase().startsWith(en.toLowerCase())||code===c||code.startsWith(c+'_'))&&k){rootKo=k;baseEn=en;break}}
+     }
      if(rootKo){
-       const a=String(r.NAME||'').replace(/^SPECIES_/,''),b=String(m.NAME||'').replace(/^SPECIES_/,'');
+       const a=canon(baseEn||r?.name),b=String(m.NAME||'').replace(/^SPECIES_/,'');
        let t='';
        if(a&&b.startsWith(a+'_'))t=b.slice(a.length+1);
        else{
-         const rn=String(r.name||''),mn=String(m.name||'');
+         const rn=String(baseEn||r?.name||''),mn=String(m.name||'');
          if(rn&&mn.toLowerCase().startsWith(rn.toLowerCase()))t=mn.slice(rn.length).replace(/^[_\s-]+/,'').replace(/[\s-]+/g,'_').toUpperCase();
          else t=b;
        }
@@ -70,7 +78,7 @@ function buildSpecies(g,rows){
        else ko=`${rootKo} (${labelToken(t)})`;
      }
    }
-   if(!ko)ko='포켓몬';
+   if(!ko)ko=`포켓몬 #${Number(m.id??i)}`;
    out.push([Number(m.id??i),String(m.name),ko]);
  });
  return out;
@@ -95,11 +103,11 @@ try{
  window.ER_ABILITIES=(window.ER_ABILITIES||[]).filter(r=>+r[0]!==0)
 }
 try{
- const bin=Uint8Array.from(atob(window.ER_APP_V2_PACK||''),c=>c.charCodeAt(0));
- const text=await new Response(new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+ const appPack=(window.ER_APP_V3_PARTS||[]).join('')||window.ER_APP_V3_PACK||window.ER_APP_V2_PACK||'';
+ const text=await gunzipText(appPack);
  const s=document.createElement('script');s.textContent=text;document.body.appendChild(s)
 }catch(e){
- console.warn('Packed app fallback',e);
+ console.warn('Packed app v3 fallback',e);
  const s=document.createElement('script');s.src='app.js?v=20261008-5';document.body.appendChild(s)
 }
 })();
