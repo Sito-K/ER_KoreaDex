@@ -1,0 +1,47 @@
+name: Verify Stage 27 mobile-safe detail modal
+on:
+  push:
+    paths:
+      - 'index.html'
+      - 'stage27-mobile-modal.css'
+      - '.github/workflows/verify-stage27.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify Stage 27 mobile modal invariants
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const css=fs.readFileSync('stage27-mobile-modal.css','utf8');
+          const index=fs.readFileSync('index.html','utf8');
+          const requiredCss=[
+            '@media (max-width:650px)',
+            '.detail-dialog',
+            '.s25-reference-dialog',
+            'display:flex',
+            'flex-direction:column',
+            'height:calc(100dvh',
+            'overflow:hidden!important',
+            '.detail-top',
+            'position:relative!important',
+            '.detail-close',
+            'min-width:44px',
+            'min-height:44px',
+            '.detail-body',
+            'overflow-y:auto!important',
+            'env(safe-area-inset-top)',
+            'env(safe-area-inset-bottom)'
+          ];
+          for(const x of requiredCss)if(!css.includes(x))throw Error('Stage27 CSS missing '+x);
+          if(!index.includes('STAGE 27'))throw Error('Stage27 title/brand missing');
+          if(!index.includes('stage27-mobile-modal.css?v=20261009-stage27'))throw Error('Stage27 stylesheet not loaded');
+          if(!index.includes('stage26-item-names.js?v=20261009-stage26'))throw Error('Stage26 item localization lost');
+          if(!index.includes('stage25.js?v=20261009-stage25modal'))throw Error('independent move/ability modal lost');
+          console.log('STAGE27 OK',JSON.stringify({mobileHeaderFixed:true,bodyOnlyScroll:true,minCloseTarget:44,safeArea:true,stage26Preserved:true}));
+          NODE
