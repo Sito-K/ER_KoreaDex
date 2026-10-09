@@ -1,0 +1,150 @@
+const fs=require('fs'),vm=require('vm');
+
+const SOURCE='https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65.4.json';
+const MASTER_FILES=['master-species-2654-1.js','master-species-2654-2.js','master-species-2654-3.js','master-species-2654-4.js'];
+const TYPE_KO={NORMAL:'노말',FIRE:'불꽃',WATER:'물',GRASS:'풀',ELECTRIC:'전기',ICE:'얼음',FIGHTING:'격투',POISON:'독',GROUND:'땅',FLYING:'비행',PSYCHIC:'에스퍼',BUG:'벌레',ROCK:'바위',GHOST:'고스트',DRAGON:'드래곤',DARK:'악',STEEL:'강철',FAIRY:'페어리',STELLAR:'스텔라',MYSTERY:'???',NONE:''};
+const FORM={
+  ALOLAN:'알로라의 모습',ALOLA:'알로라의 모습',GALARIAN:'가라르의 모습',GALAR:'가라르의 모습',HISUIAN:'히스이의 모습',HISUI:'히스이의 모습',PALDEAN:'팔데아의 모습',PALDEA:'팔데아의 모습',
+  ORIGIN:'오리진폼',THERIAN:'영물폼',INCARNATE:'화신폼',ATTACK:'어택폼',DEFENSE:'디펜스폼',SPEED:'스피드폼',PRIMAL:'원시회귀',REDUX:'리덕스폼',GMAX:'거다이맥스',
+  SANDY:'모래땅도롱',TRASH:'슈레도롱',PLANT:'초목도롱',EAST:'동쪽바다',WEST:'서쪽바다',HEAT:'히트로토무',WASH:'워시로토무',FROST:'프로스트로토무',FAN:'스핀로토무',MOW:'커트로토무',
+  BLACK:'블랙큐레무',WHITE:'화이트큐레무',BLADE:'블레이드폼',SHIELD:'실드폼',ASH:'지우폼',COMPLETE:'퍼펙트폼',MIDDAY:'한낮의 모습',MIDNIGHT:'한밤중의 모습',DUSK:'황혼의 모습',
+  SCHOOL:'군집의 모습',SOLO:'단독의 모습',METEOR:'유성의 모습',CORE:'코어의 모습',DUSK_MANE:'황혼의 갈기',DAWN_WINGS:'새벽의 날개',ULTRA:'울트라폼',AMPED:'하이한 모습',LOW_KEY:'로우한 모습',
+  HANGRY:'배고픈 모습',CROWNED_SWORD:'검왕의 모습',CROWNED_SHIELD:'방패왕의 모습',ETERNAMAX:'무한다이맥스',SINGLE_STRIKE:'일격의 태세',RAPID_STRIKE:'연격의 태세',RAPID_STRIKE_STYLE:'연격의 태세',
+  ICE_RIDER:'백마 탄 모습',SHADOW_RIDER:'흑마 탄 모습',HERO:'마이티폼',ZERO:'나이브폼',CURLY:'늘어진 모습',DROOPY:'처진 모습',STRETCHY:'뻗은 모습',TWO_SEGMENT:'두 마디폼',THREE_SEGMENT:'세 마디폼',
+  CHEST:'상자폼',ROAMING:'도보폼',TEAL_MASK:'벽록의 가면',HEARTHFLAME_MASK:'화덕의 가면',WELLSPRING_MASK:'우물의 가면',CORNERSTONE_MASK:'주춧돌의 가면',TERASTAL:'테라스탈폼',STELLAR:'스텔라폼',
+  BLOODMOON:'붉은 달의 모습',ZEN:'달마모드',ZEN_GALAR:'가라르 달마모드',STANDARD:'노말모드',SUNSHINE:'포지폼',OVERCAST:'네거폼',RESOLUTE:'각오의 모습',PIROUETTE:'스텝폼',UNBOUND:'굴레를 벗어난 모습',
+  BAILE:'플라멩코스타일',POM_POM:'파칙파칙스타일',PAU:'훌라훌라스타일',SENSU:'하늘하늘스타일',DISGUISED:'둔갑한 모습',BUSTED:'들킨 모습',ICE_FACE:'아이스페이스',NOICE:'나이스페이스',
+  ORIGINAL_CAP:'오리지널캡',HOENN_CAP:'호연캡',SINNOH_CAP:'신오캡',UNOVA_CAP:'하나캡',KALOS_CAP:'칼로스캡',ALOLA_CAP:'알로라캡',PARTNER_CAP:'너로정했다캡',WORLD_CAP:'월드캡',
+  SPRING:'봄의 모습',SUMMER:'여름의 모습',AUTUMN:'가을의 모습',WINTER:'겨울의 모습',SMALL:'작은 사이즈',AVERAGE:'보통 사이즈',LARGE:'큰 사이즈',SUPER:'특대 사이즈',
+  FAMILY_OF_THREE:'세 식구',FAMILY_OF_FOUR:'네 식구',COMBAT:'컴뱃종',BLAZE:'블레이즈종',AQUA:'워터종',MALE:'수컷',FEMALE:'암컷',SUNNY:'태양의 모습',RAINY:'빗방울의 모습',SNOWY:'설운의 모습',PARTNER:'파트너',EX:'EX',
+  ENGULFED:'화염에 휩싸인 모습'
+};
+const PART={RED:'빨강',ORANGE:'주황',YELLOW:'노랑',GREEN:'초록',BLUE:'파랑',INDIGO:'남색',VIOLET:'보라',PINK:'분홍',WHITE:'하양',BLACK:'검정',BROWN:'갈색',MALE:'수컷',FEMALE:'암컷',SPRING:'봄',SUMMER:'여름',AUTUMN:'가을',WINTER:'겨울',SUN:'태양',MOON:'달',DAWN:'새벽',DUSK:'황혼',MEGA:'메가',REDUX:'리덕스',GMAX:'거다이맥스',ORIGIN:'오리진',THERIAN:'영물',INCARNATE:'화신',ATTACK:'어택',DEFENSE:'디펜스',SPEED:'스피드',FUZZ:'퍼즈',B:'B'};
+
+// Exact 2.65.4 exceptions only. Never use neighboring numeric IDs or dex-1 fallback.
+const ALIASES={
+  SPECIES_FARFETCHD_GALARIAN:{masterId:1574,token:'GALARIAN',reason:'official punctuation/suffix differs from master Farfetch\'d'},
+  SPECIES_LUMBERING_SLOTH_ENGULFED:{masterId:1847,token:'ENGULFED',reason:'official 2.65.4 expanded Lumber Sloth name'},
+  SPECIES_KECLEONG:{baseEn:'Kecleong',baseKo:'케클레옹',token:'',reason:'official 2.65.4 renamed/replaced species; master ID2501 still says Dewgong, so stale Korean value is intentionally not reused'}
+};
+
+function norm(s){return String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()}
+function key(s){return String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]+/g,'_').replace(/^_+|_+$/g,'')}
+function typeKo(v){const k=String(v??'').replace(/^TYPE_/,'').trim().toUpperCase().replace(/[ -]+/g,'_');return TYPE_KO[k]??String(v??'')}
+function label(t){
+  t=String(t||'').replace(/^SPECIES_/,'').replace(/^FORM_/,'').replace(/_FORM(E)?$/,'');
+  if(!t)return '';
+  if(FORM[t])return FORM[t];
+  if(/^UNOWN_[A-Z]$/.test(t))return t.slice(-1)+'폼';
+  if(/^UNOWN_(EMARK|EXCLAMATION)$/.test(t))return '!폼';
+  if(/^UNOWN_(QMARK|QUESTION)$/.test(t))return '?폼';
+  if(/REDUX/.test(t))return '리덕스폼';
+  if(/GMAX|GIGANTAMAX/.test(t))return '거다이맥스';
+  const out=[];
+  for(const p of t.split('_')){if(FORM[p])out.push(FORM[p]);else if(PART[p])out.push(PART[p]);else if(/^[A-Z0-9]+$/.test(p)&&p.length<=3)out.push(p);else return '특수폼'}
+  return out.length?out.join(' ')+'폼':'특수폼';
+}
+function displayKo(baseKo,token,id){
+  const t=String(token||'');
+  const mega=t.match(/(?:^|_)MEGA(?:_([XY]))?$/);
+  if(mega){
+    const parent=t.replace(/_?MEGA(?:_[XY])?$/,'').replace(/^_+|_+$/g,'');
+    const variant=mega[1]?` ${mega[1]}`:'';
+    const context=parent?label(parent):'';
+    return `메가${baseKo}${variant}${context&&context!=='특수폼'?` (${context})`:''}`;
+  }
+  if(t==='PRIMAL')return `원시${baseKo}`;
+  if(!t)return baseKo;
+  const lab=label(t);
+  return lab==='특수폼'?`${baseKo} (특수폼 #${id})`:`${baseKo} (${lab})`;
+}
+function loadMaster(){
+  const c={window:{}};vm.createContext(c);
+  for(const f of MASTER_FILES)vm.runInContext(fs.readFileSync(f,'utf8'),c,{filename:f});
+  return c.window.ER_MASTER_SPECIES_2654||[];
+}
+
+(async()=>{
+  const master=loadMaster();
+  if(master.length!==1922)throw Error(`Expected 1922 O-status master species rows, got ${master.length}`);
+  const byId=new Map(master.map(r=>[Number(r[0]),{id:Number(r[0]),en:String(r[1]||''),ko:String(r[2]||'')} ]));
+  const nameBuckets=new Map();
+  for(const r of master){const n=norm(r[1]);if(!n)continue;if(!nameBuckets.has(n))nameBuckets.set(n,[]);nameBuckets.get(n).push({id:+r[0],en:String(r[1]),ko:String(r[2])})}
+  const agreedName=new Map();
+  for(const [n,a] of nameBuckets){const ks=[...new Set(a.map(x=>x.ko).filter(Boolean))];if(ks.length===1)agreedName.set(n,{en:a[0].en,ko:ks[0],ids:a.map(x=>x.id)})}
+  const keyRows=[...agreedName.values()].map(r=>({...r,key:key(r.en)})).filter(r=>r.key).sort((a,b)=>b.key.length-a.key.length);
+
+  const res=await fetch(SOURCE);if(!res.ok)throw Error(`NextDex HTTP ${res.status}`);const g=await res.json();
+  const typeTable=Array.isArray(g.typeT)?g.typeT:[];
+  const mons=(Array.isArray(g.species)?g.species:[]).filter(m=>m&&m.name&&Number(m?.dex?.id)>0&&Number(m.id)>0);
+  if(mons.length!==1922)throw Error(`Expected official 2.65.4 species count 1922, got ${mons.length}`);
+
+  const unresolved=[],mismatches=[],aliasesUsed=[];
+  const matchModes={id:0,name:0,key:0,alias:0};
+  const rows=[],forms=[];let megaCount=0,formCount=0,baseCount=0,missingTypes=0,missingStats=0;
+
+  function select(m){
+    const id=Number(m.id),name=String(m.name||''),sprite=String(m.NAME||'').replace(/^SPECIES_/,'');
+    const alias=ALIASES[String(m.NAME||'')];
+    if(alias){
+      if(alias.masterId){const row=byId.get(alias.masterId);if(!row)throw Error(`Alias master row missing for ${m.NAME}`);return {row,mode:'alias',token:alias.token??'',reason:alias.reason}}
+      return {row:{id,en:alias.baseEn,ko:alias.baseKo},mode:'alias',token:alias.token??'',reason:alias.reason};
+    }
+    const idr=byId.get(id);
+    if(idr){const k=key(idr.en);if(norm(idr.en)===norm(name)||sprite===k||sprite.startsWith(k+'_'))return {row:idr,mode:'id'}}
+    const direct=agreedName.get(norm(name));if(direct)return {row:direct,mode:'name'};
+    for(const r of keyRows){if(sprite===r.key||sprite.startsWith(r.key+'_'))return {row:r,mode:'key'}}
+    return null;
+  }
+
+  for(const m of mons){
+    const id=Number(m.id),dex=Number(m?.dex?.id)||0,sprite=String(m.NAME||'').replace(/^SPECIES_/,'');
+    const sel=select(m);
+    if(!sel){unresolved.push({id,name:m.name,sprite,dex});continue}
+    matchModes[sel.mode]++;
+    const baseEn=sel.row.en,baseKo=sel.row.ko,baseKey=key(baseEn);
+    let token=sel.token??'';
+    if(sel.token==null){
+      if(baseKey&&sprite.startsWith(baseKey+'_'))token=sprite.slice(baseKey.length+1);
+      else if(norm(m.name)!==norm(baseEn)){const n=norm(m.name),b=norm(baseEn);if(n.startsWith(b+' '))token=key(n.slice(b.length+1))}
+    }
+    if(sel.mode==='alias')aliasesUsed.push({id,official:m.name,NAME:m.NAME,master:sel.row,token,reason:sel.reason});
+    const idr=byId.get(id);
+    if(idr&&norm(idr.en)!==norm(baseEn))mismatches.push({id,official:m.name,NAME:m.NAME,masterAtSameId:idr,selected:{en:baseEn,ko:baseKo},mode:sel.mode});
+
+    const isMega=/(?:^|_)MEGA(?:_[XY])?$/.test(token)||/(?:^|_)MEGA(?:_[XY])?$/.test(sprite);
+    const isForm=Boolean(token);
+    if(isMega)megaCount++;else if(isForm)formCount++;else baseCount++;
+    const ko=displayKo(baseKo,token,id);
+    const rawTypes=Array.isArray(m?.stats?.types)?m.stats.types:[];
+    const types=[...new Set(rawTypes.map(v=>typeof v==='number'?typeTable[v]:v).map(typeKo).filter(Boolean))];
+    const base=Array.isArray(m?.stats?.base)?m.stats.base.slice(0,6).map(v=>Number(v)||0):[];
+    if(!types.length)missingTypes++;if(base.length<6||base.some(v=>v<=0))missingStats++;
+    forms.push([id,String(m.name||baseEn),ko,dex,isForm?1:0,token]);
+    rows.push([id,dex,ko,String(m.name||baseEn),sprite,types[0]||'',types[1]||'',base[0]||0,base[1]||0,base[2]||0,base[3]||0,base[4]||0,base[5]||0,isForm?1:0,token]);
+  }
+
+  const findName=n=>rows.filter(r=>norm(r[3]).includes(norm(n)));
+  const audit={
+    source:'ForwardFeed/ER-nextdex gameDataV2.65.4.json',
+    master:'Elite_Redux_2.65.4.1b_Korean_MASTER_STAGE100_CONFIRMED_OXK_20261008.xlsx / STAGE101 sync',
+    generatedAt:new Date().toISOString(),officialSpecies:mons.length,generatedSpecies:rows.length,masterAppliedSpecies:master.length,
+    matchModes,baseCount,formCount,megaCount,unresolvedCount:unresolved.length,unresolved,mismatchCount:mismatches.length,mismatches,
+    aliasesUsed,missingTypes,missingStats,
+    checks:{bewarden:findName('Bewarden'),pentawug:findName('Pentawug'),kecleong:findName('Kecleong'),luxzero:findName('Luxzero'),kilozuna:findName('Kilozuna'),swampage:findName('Swampage')}
+  };
+  fs.writeFileSync('forms.js',`window.ER_FORM_META=${JSON.stringify({source:audit.source,species:forms.length,forms:formCount+megaCount,mega:megaCount,generatedAt:audit.generatedAt,master:'STAGE101 latest'})};\nwindow.ER_OFFICIAL_SPECIES=${JSON.stringify(forms)};\n`);
+  fs.writeFileSync('pokemon-data.js',`window.ER_POKEMON_META=${JSON.stringify(audit)};\nwindow.ER_POKEMON_DATA=${JSON.stringify(rows)};\n`);
+  fs.writeFileSync('stage14-audit.json',JSON.stringify(audit,null,2)+'\n');
+
+  const bew=audit.checks.bewarden,penta=audit.checks.pentawug,kec=audit.checks.kecleong;
+  if(unresolved.length)throw Error(`Unresolved official species: ${unresolved.length}`);
+  if(rows.length!==1922)throw Error(`Generated row count ${rows.length}`);
+  if(!bew.length||bew.some(r=>!String(r[2]).includes('이븐대장')||String(r[2]).includes('바닥펜타')))throw Error('Bewarden mapping verification failed');
+  if(!penta.length||penta.some(r=>!String(r[2]).includes('바닥펜타')))throw Error('Pentawug mapping verification failed');
+  if(kec.length!==1||kec[0][2]!=='케클레옹')throw Error('Kecleong safe override failed');
+  if(!audit.checks.luxzero.every(r=>String(r[2]).includes('렌트제로')))throw Error('Luxzero latest-master check failed');
+  if(!audit.checks.kilozuna.every(r=>String(r[2]).includes('하리즈나')))throw Error('Kilozuna latest-master check failed');
+  if(!audit.checks.swampage.every(r=>String(r[2]).includes('대짱룡')))throw Error('Swampage latest-master check failed');
+  console.log(JSON.stringify({official:mons.length,generated:rows.length,master:master.length,matchModes,baseCount,formCount,megaCount,unresolved:unresolved.length,mismatches:mismatches.length,aliasesUsed,bewarden:bew,pentawug:penta,kecleong:kec},null,2));
+})().catch(e=>{console.error(e);process.exit(1)});
