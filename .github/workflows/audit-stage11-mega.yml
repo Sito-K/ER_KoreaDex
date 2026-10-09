@@ -1,0 +1,58 @@
+name: Audit Stage 11 Mega forms
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/audit-stage11-mega.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Audit Mega parent links
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          (async()=>{
+            const res=await fetch('https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65beta.json');
+            if(!res.ok)throw new Error('NextDex '+res.status);
+            const g=await res.json();
+            const species=(g.species||[]).filter(x=>x&&x.NAME&&x.name&&Number(x?.dex?.id)>0);
+            const byConst=new Map(species.map(x=>[String(x.NAME).replace(/^SPECIES_/,''),x]));
+            const formSrc=fs.readFileSync('forms.js','utf8');
+            const m=formSrc.match(/window\.ER_OFFICIAL_SPECIES=(\[[\s\S]*\]);\s*$/);
+            const forms=m?JSON.parse(m[1]):[];
+            const current=new Map(forms.map(r=>[Number(r[0]),r]));
+            const megas=[];const bad=[];
+            for(const x of species){
+              const key=String(x.NAME).replace(/^SPECIES_/,'');
+              const mm=key.match(/^(.*)_MEGA(?:_([XY]))?$/);
+              if(!mm)continue;
+              const parentKey=mm[1],variant=mm[2]||'';
+              const parent=byConst.get(parentKey)||null;
+              const cur=current.get(Number(x.id))||null;
+              const rec={id:Number(x.id),name:x.name,key,dex:Number(x.dex.id),parentKey,parentId:parent?Number(parent.id):null,parentName:parent?.name||null,parentDex:parent?Number(parent.dex.id):null,variant,currentKo:cur?.[2]||null,currentDex:cur?Number(cur[3]):null,currentToken:cur?.[5]||null};
+              rec.ok=!!parent&&rec.dex===rec.parentDex&&rec.currentDex===rec.parentDex&&/^MEGA(?:_[XY])?$/.test(String(rec.currentToken||''));
+              megas.push(rec);if(!rec.ok)bad.push(rec);
+            }
+            fs.writeFileSync('mega-audit.json',JSON.stringify({generatedAt:new Date().toISOString(),megaCount:megas.length,badCount:bad.length,bad,megas},null,2));
+            console.log(JSON.stringify({megaCount:megas.length,badCount:bad.length,bad},null,2));
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+      - name: Commit audit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add mega-audit.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit Stage 11 Mega parent links"
+          git push origin HEAD:main
