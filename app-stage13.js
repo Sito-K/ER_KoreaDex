@@ -11,6 +11,8 @@ for(const x of species)x.category=category(x);
 const speciesById=new Map(species.map(x=>[x.id,x]));
 const formGroups=new Map();for(const x of species){if(!formGroups.has(x.dex))formGroups.set(x.dex,[]);formGroups.get(x.dex).push(x)}
 let moves=[],abilities=[];const dataReady={moves:false,abilities:false},dataLoading={moves:null,abilities:null};
+const moveSearchEn=new Map((Array.isArray(window.ER_MOVE_META)?window.ER_MOVE_META:[]).map(r=>[Number(r[0]),String(r[1]||'')]));
+const abilitySearchEn=new Map((Array.isArray(window.ER_ABILITY_META)?window.ER_ABILITY_META:[]).map(r=>[Number(r[0]),String(r[1]||'')]));
 const TYPE_ORDER=['노말','불꽃','물','풀','전기','얼음','격투','독','땅','비행','에스퍼','벌레','바위','고스트','드래곤','악','강철','페어리','스텔라'];
 const STAT_LABELS=[['hp','체력'],['atk','공격'],['spa','특공'],['def','방어'],['spd','특방'],['spe','스피드']];
 const PAGE_SIZE={pokemon:48,moves:80,abilities:80};
@@ -22,8 +24,8 @@ let view='pokemon',filtered=[],renderedCount=0,tabGeneration=0;const activeCateg
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function current(){return view==='moves'?moves:view==='abilities'?abilities:species}
 function bst(x){if(!x.stats)return 0;return x.stats.hp+x.stats.atk+x.stats.def+x.stats.spa+x.stats.spd+x.stats.spe}
-function matches(x,term){if(!term)return true;if(view==='pokemon')return x.ko.toLocaleLowerCase('ko-KR').includes(term)||x.en.toLowerCase().includes(term)||String(x.dex).includes(term)||String(x.id).includes(term)||x.types.some(t=>t.includes(term));return x.ko.toLocaleLowerCase('ko-KR').includes(term)||String(x.id).includes(term)||(x.desc||'').toLocaleLowerCase('ko-KR').includes(term)||(x.long||'').toLocaleLowerCase('ko-KR').includes(term)}
-function meta(){if(view==='moves')return['기술 도감','불러온 기술','한국어 기술 이름 / 설명 / 기술 ID 검색'];if(view==='abilities')return['특성 도감','불러온 특성','한국어 특성 이름 / 설명 / 특성 ID 검색'];return['포켓몬 도감','불러온 포켓몬·폼','포켓몬 이름 또는 도감 번호를 검색해주세요']}
+function matches(x,term){if(!term)return true;if(view==='pokemon')return x.ko.toLocaleLowerCase('ko-KR').includes(term)||x.en.toLowerCase().includes(term)||String(x.dex).includes(term)||String(x.id).includes(term)||x.types.some(t=>t.includes(term));const en=(view==='moves'?moveSearchEn:abilitySearchEn).get(Number(x.id))||'';return x.ko.toLocaleLowerCase('ko-KR').includes(term)||en.toLocaleLowerCase('en-US').includes(term)}
+function meta(){if(view==='moves')return['기술 도감','불러온 기술','기술 이름 검색'];if(view==='abilities')return['특성 도감','불러온 특성','특성 이름 검색'];return['포켓몬 도감','불러온 포켓몬·폼','포켓몬 이름 또는 도감 번호를 검색해주세요']}
 function spriteUrl(x){return x.sprite?`https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/sprites/${encodeURIComponent(x.sprite)}.png`:''}
 function typeChips(types){return types.length?types.map(t=>`<span class="type-chip" data-type="${esc(t)}">${esc(t)}</span>`).join(''):'<span class="stats-unavailable">타입 데이터 준비 중</span>'}
 function statCells(x){if(!x.stats)return '<div class="stats-unavailable">종족값 데이터 준비 중</div>';return `<div class="mini-stats">${STAT_LABELS.map(([k,l])=>`<div><span>${l}</span><b>${x.stats[k]}</b></div>`).join('')}</div>`}
