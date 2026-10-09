@@ -1,0 +1,27 @@
+name: Build Stage 21 encounters
+on:
+  push:
+    paths:
+      - 'stage21-build.js'
+      - '.github/workflows/build-stage21.yml'
+      - 'pokemon-data.js'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build Stage 21 encounter data
+        run: node stage21-build.js
+      - name: Commit Stage 21 generated data
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add stage21-data.js stage21-audit.json
+          git diff --cached --quiet || git commit -m "Generate Stage 21 encounter data"
+          git push
