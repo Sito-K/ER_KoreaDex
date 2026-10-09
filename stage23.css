@@ -1,0 +1,26 @@
+:root{--s23-violet:#c4b5fd;--s23-pink:#f0abfc;--s23-cyan:#67e8f9;--s23-blue:#93c5fd;--s23-green:#86efac;--s23-mint:#6ee7b7;--s23-yellow:#fde68a;--s23-orange:#fdba74;--s23-soft:#cbd5e1}
+/* STAGE23: semantic color hierarchy only; keep core names/body copy bright and readable. */
+#stage22DetailNav button[data-target="stage20EvolutionDetail"]{color:var(--s23-violet);border-color:rgba(196,181,253,.28);background:rgba(139,92,246,.10)}
+#stage22DetailNav button[data-target="stage19SpeciesDetail"]{color:var(--s23-cyan);border-color:rgba(103,232,249,.28);background:rgba(6,182,212,.10)}
+#stage22DetailNav button[data-target="stage21EncounterDetail"]{color:var(--s23-green);border-color:rgba(134,239,172,.28);background:rgba(34,197,94,.10)}
+#stage22DetailNav button[data-target]:hover{filter:brightness(1.12)}
+#stage20EvolutionDetail .s22-fold>summary{color:var(--s23-violet)}
+#stage19SpeciesDetail .s22-fold>summary{color:var(--s23-cyan)}
+#stage21EncounterDetail .s22-fold>summary{color:var(--s23-green)}
+.s20-head h3{color:var(--s23-violet)}
+.s20-block h4{color:#ddd6fe}.s20-special h4{color:var(--s23-pink)}
+.s20-group h5{color:#a5b4fc}.s20-cond{color:var(--s23-yellow)}
+.s20-code{color:#e9d5ff;background:rgba(168,85,247,.12)}.s20-go{color:var(--s23-violet)}
+.s19-head h3{color:var(--s23-cyan)}
+.s19-block h4{color:#a5f3fc}.s19-ability-group:nth-child(1)>strong{color:var(--s23-blue)}
+.s19-ability-group:nth-child(2)>strong{color:#5eead4}.s19-learn summary{color:var(--s23-blue)}
+.s19-learn summary span{color:var(--s23-yellow)}.s19-level b{color:var(--s23-yellow)}
+.s19-chip small,.s19-level small{color:#94a3b8}
+.s21-head h3{color:var(--s23-green)}
+.s21-group summary{color:var(--s23-mint)}.s21-group summary span{color:var(--s23-yellow)}
+.s21-place strong{color:#bbf7d0}.s21-tags span:nth-child(1){color:#a7f3d0;background:rgba(16,185,129,.12)}
+.s21-tags span:nth-child(2){color:var(--s23-yellow);background:rgba(245,158,11,.12)}
+.s21-tags span:nth-child(3){color:#bae6fd;background:rgba(14,165,233,.12)}
+.s21-script .s21-tags span{color:#f5d0fe;background:rgba(217,70,239,.12)}
+.detail-section>h3,#detailFormsSection>h3{color:#cbd5e1}
+@media(max-width:640px){.s20-cond{color:#fde68a}.s21-place strong{color:#dcfce7}}
