@@ -1,0 +1,69 @@
+/* STAGE27: keep modal close controls permanently reachable on mobile Safari/iOS.
+   The modal header is outside the scroll container; only .detail-body scrolls. */
+@media (max-width:650px){
+  .detail-backdrop,
+  .s25-reference-backdrop{
+    align-items:end;
+    padding:max(8px,env(safe-area-inset-top)) 0 0;
+  }
+
+  .detail-dialog,
+  .s25-reference-dialog{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:calc(100dvh - max(8px,env(safe-area-inset-top)));
+    max-height:calc(100dvh - max(8px,env(safe-area-inset-top)));
+    overflow:hidden!important;
+    border-radius:20px 20px 0 0;
+  }
+
+  .detail-top{
+    position:relative!important;
+    top:auto!important;
+    flex:0 0 auto;
+    min-height:64px;
+    z-index:20;
+    padding:14px 14px 11px;
+    background:#151a22;
+  }
+
+  .detail-top>div:first-child{
+    min-width:0;
+    padding-right:4px;
+  }
+
+  .detail-title{
+    overflow-wrap:anywhere;
+  }
+
+  .detail-close{
+    position:relative;
+    z-index:21;
+    flex:0 0 44px;
+    width:44px;
+    min-width:44px;
+    height:44px;
+    min-height:44px;
+    margin:0;
+    touch-action:manipulation;
+  }
+
+  .detail-body{
+    flex:1 1 auto;
+    min-height:0;
+    overflow-x:hidden;
+    overflow-y:auto!important;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:calc(22px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width:650px) and (not (height:100dvh)){
+  .detail-dialog,
+  .s25-reference-dialog{
+    height:calc(100vh - max(8px,env(safe-area-inset-top)));
+    max-height:calc(100vh - max(8px,env(safe-area-inset-top)));
+  }
+}
