@@ -49,8 +49,8 @@ jobs:
           const parenStones=[...built.map].filter(([code,name])=>/ITE(?:_(?:R_B|R|A|G|H|S|X|Y|Z))?$/.test(code)&&/[()]/.test(name));
           if(parenStones.length)throw Error('parenthetical Mega Stone names remain '+JSON.stringify(parenStones));
           const ui=fs.readFileSync('stage20.js','utf8');
-          for(const x of ['ER_STAGE26_ITEM_NAMES','s26-item-ko','메가·특수 변화에 사용되는 아이템은 한국어 이름으로 표시'])if(!ui.includes(x))throw Error('evolution item UI wiring missing '+x);
+          for(const x of ['ER_STAGE26_ITEM_NAMES','s26-item-ko','해당 사항 없음'])if(!ui.includes(x))throw Error('evolution item UI wiring missing '+x);
           const index=fs.readFileSync('index.html','utf8');
-          for(const x of ['STAGE 28','stage26-item-names.js?v=20261009-stage28','stage20.js?v=20261009-stage26'])if(!index.includes(x))throw Error('Stage28 index wiring missing '+x);
-          console.log('STAGE28 ITEM NAMES OK '+JSON.stringify({uniqueEvolutionItems:codes.size,mapped:built.map.size,unresolved:0,conflicts:0,parentheticalMegaStones:0}));
+          for(const x of ['Version 0.1','stage26-item-names.js?v=20261009-stage28','stage20.js?v=20261009-nodata'])if(!index.includes(x))throw Error('public v0.1 index wiring missing '+x);
+          console.log('EVOLUTION ITEM NAMES OK '+JSON.stringify({uniqueEvolutionItems:codes.size,mapped:built.map.size,unresolved:0,conflicts:0,parentheticalMegaStones:0}));
           NODE
