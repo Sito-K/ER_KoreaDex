@@ -1,0 +1,119 @@
+{
+  "stage": "STAGE20",
+  "generatedAt": "2026-10-09T04:13:41.955Z",
+  "baseline": "STAGE19 user-confirmed normal",
+  "source": "https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65.4.json",
+  "counts": {
+    "officialSpecies": 1922,
+    "webSpecies": 1922,
+    "payloadSpecies": 1922,
+    "rawRelations": 1044,
+    "displayRelations": 1042,
+    "ordinaryRelations": 739,
+    "specialRelations": 303,
+    "indexToIdRemaps": 515,
+    "withOrdinary": 1185,
+    "withSpecial": 566,
+    "unsetTargets": 2,
+    "missingSource": 0,
+    "unresolvedTargets": 0,
+    "unknownKinds": 0
+  },
+  "ordinaryKinds": [
+    "EVO_LEVEL",
+    "EVO_LEVEL_FEMALE",
+    "EVO_LEVEL_MALE"
+  ],
+  "specialKinds": [
+    "EVO_MEGA_EVOLUTION",
+    "EVO_MOVE_MEGA_EVOLUTION",
+    "EVO_PRIMAL_REVERSION"
+  ],
+  "unsetTargets": [
+    {
+      "fromId": 593,
+      "from": "Jellicent",
+      "rawIndex": -1,
+      "kind": "EVO_MEGA_EVOLUTION",
+      "reason": "ITEM_JELLICENTITE"
+    },
+    {
+      "fromId": 779,
+      "from": "Bruxish",
+      "rawIndex": -1,
+      "kind": "EVO_MEGA_EVOLUTION",
+      "reason": "ITEM_BRUXISHITE"
+    }
+  ],
+  "missingSource": [],
+  "unresolvedTargets": [],
+  "unknownKinds": [],
+  "samples": {
+    "bulbasaur": [
+      [
+        1,
+        2,
+        "EVO_LEVEL",
+        "16",
+        "",
+        2
+      ]
+    ],
+    "snorunt": [
+      [
+        361,
+        362,
+        "EVO_LEVEL",
+        "23",
+        "",
+        362
+      ],
+      [
+        361,
+        478,
+        "EVO_LEVEL_FEMALE",
+        "23",
+        "",
+        478
+      ]
+    ],
+    "blastoise": [
+      [
+        9,
+        1504,
+        "EVO_MEGA_EVOLUTION",
+        "ITEM_BLASTOISINITE",
+        "",
+        1121
+      ],
+      [
+        9,
+        2189,
+        "EVO_MEGA_EVOLUTION",
+        "ITEM_BLASTOISINITE_X",
+        "",
+        1609
+      ]
+    ],
+    "rayquaza": [
+      [
+        384,
+        1548,
+        "EVO_MOVE_MEGA_EVOLUTION",
+        "MOVE_DRAGON_ASCENT",
+        "화룡점정",
+        1165
+      ]
+    ],
+    "kyogre": [
+      [
+        382,
+        1549,
+        "EVO_PRIMAL_REVERSION",
+        "ITEM_BLUE_ORB",
+        "",
+        1166
+      ]
+    ]
+  }
+}
