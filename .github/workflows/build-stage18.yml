@@ -1,0 +1,26 @@
+name: Build Stage 18 moves and abilities
+on:
+  push:
+    paths:
+      - 'stage18-build.js'
+      - '.github/workflows/build-stage18.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build Stage 18 audit and metadata
+        run: node stage18-build.js
+      - name: Commit Stage 18 generated data
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add stage18-audit.json move-meta.js ability-meta.js
+          git diff --cached --quiet || git commit -m "Generate Stage 18 move and ability data"
+          git push
