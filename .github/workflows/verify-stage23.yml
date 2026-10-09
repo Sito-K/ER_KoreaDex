@@ -1,25 +1,8 @@
-name: Verify Stage 23 semantic colors
+name: Historical Verify Stage 23 semantic colors
 on:
-  push:
-    paths:
-      - 'index.html'
-      - 'stage23.css'
-      - '.github/workflows/verify-stage23.yml'
   workflow_dispatch:
 jobs:
-  verify:
+  archived:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Verify Stage 23 color hierarchy
-        run: |
-          node - <<'NODE'
-          const fs=require('fs');
-          const index=fs.readFileSync('index.html','utf8');
-          const css=fs.readFileSync('stage23.css','utf8');
-          for(const x of ['STAGE 23','stage23.css?v=20261009-stage23']) if(!index.includes(x)) throw Error(`index missing ${x}`);
-          const required=['stage20EvolutionDetail','stage19SpeciesDetail','stage21EncounterDetail','--s23-violet','--s23-cyan','--s23-green','--s23-yellow','.s20-cond','.s19-level b','.s21-place strong'];
-          for(const x of required) if(!css.includes(x)) throw Error(`stage23.css missing ${x}`);
-          if(css.length<1200) throw Error('stage23.css unexpectedly short');
-          console.log('STAGE23 OK', {bytes:css.length});
-          NODE
+      - run: echo "STAGE23 is a historical user-confirmed baseline; current verification is handled by the latest stage workflow."
