@@ -1,28 +1,8 @@
-name: Verify Stage 24 detail hierarchy
+name: Historical Verify Stage 24 detail hierarchy
 on:
-  push:
-    paths:
-      - 'index.html'
-      - 'stage24.css'
-      - '.github/workflows/verify-stage24.yml'
   workflow_dispatch:
 jobs:
-  verify:
+  archived:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Verify Stage 24 UI
-        run: |
-          node - <<'NODE'
-          const fs=require('fs');
-          const index=fs.readFileSync('index.html','utf8');
-          const css=fs.readFileSync('stage24.css','utf8');
-          if(!index.includes('STAGE 24')) throw Error('Stage 24 not promoted');
-          if(!index.includes('stage24.css?v=20261009-stage24')) throw Error('Stage 24 CSS missing');
-          if(index.includes('<script src="stage22.js')) throw Error('Stage 22 quick-nav script still loaded');
-          if(!css.includes('.s20-head h3,.s19-head h3,.s21-head h3')) throw Error('detail heading sizing missing');
-          if(!css.includes('font-size:1.18rem')) throw Error('desktop heading size missing');
-          if(!index.includes('stage23.css?v=20261009-stage23')) throw Error('Stage 23 colors not preserved');
-          for(const x of ['stage19.js?v=20261009-stage22','stage20.js?v=20261009-stage22','stage21.js?v=20261009-stage22','stage22-map-ko.js?v=20261009-stage22']) if(!index.includes(x)) throw Error(`baseline asset missing: ${x}`);
-          console.log('STAGE24 OK');
-          NODE
+      - run: echo "STAGE24 is a historical user-confirmed baseline; current verification is handled by the latest stage workflow."
