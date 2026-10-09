@@ -1,0 +1,41 @@
+name: Verify Stage 10 Pokemon names
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'stage10-names.js'
+      - 'pokemon-data.js'
+      - '.github/workflows/verify-stage10-names.yml'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify all risky names are corrected before app render
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          const p=fs.readFileSync('pokemon-data.js','utf8');
+          const f=fs.readFileSync('forms.js','utf8');
+          const fix=fs.readFileSync('stage10-names.js','utf8');
+          const ctx={window:{}};vm.createContext(ctx);vm.runInContext(f,ctx);vm.runInContext(p,ctx);vm.runInContext(fix,ctx);
+          const expected={
+            'Iron Exo':'무쇠외골격','Iron Heart':'무쇠심장','Clawtificer':'쌍포스터','Kilozuna':'킬로주나','Fogging':'포깅','Breezing':'브리징','Storming':'스토밍','Merrykarp':'메리카프','Gyarevelry':'갸라벨리','Crag Hopper':'크래그호퍼','Kipmodo':'킵모도','Marshmodo':'마시모도','Swampage':'스왐페이지','Rexcadrill':'렉스카드릴','Selenumbra':'셀레넘브라','Eraticate':'에라티케이트','Terrow':'테로우','Luxzero':'럭스제로','Frostuccino':'프로스투치노','Slate':'슬레이트'
+          };
+          const rows=ctx.window.ER_POKEMON_DATA||[];const failures=[],seen=[];
+          for(const [en,ko] of Object.entries(expected)){
+            const matches=rows.filter(r=>r[3]===en||String(r[3]||'').startsWith(en+' '));
+            if(!matches.length){failures.push(`${en}: missing`);continue}
+            const root=matches.find(r=>r[3]===en);
+            if(root&&root[2]!==ko)failures.push(`${en}: ${root[2]} != ${ko}`);
+            seen.push([en,ko,matches.length,matches.map(r=>[r[3],r[2]])]);
+          }
+          console.log(JSON.stringify({verified:seen.length,seen},null,2));
+          if(failures.length){console.error(failures.join('\n'));process.exit(1)}
+          NODE
