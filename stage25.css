@@ -1,0 +1,18 @@
+/* STAGE25: all Pokemon detail groups stay visible; move/ability chips open explanation detail. */
+.s25-always{display:block!important}
+.s19-block-title,.s20-block-title,.s21-group-head,.s19-learn-head{display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:850}
+.s19-block-title{color:var(--s23-cyan,#67e8f9);font-size:.9rem;margin-bottom:10px}
+.s19-block-title span,.s19-learn-head span,.s20-block-title span,.s21-group-head span{font-size:.7rem;color:var(--s23-yellow,#fde68a);font-weight:750}
+.s19-block-body,.s20-block-body{display:grid;gap:10px}
+.s19-learn{padding-top:11px;border-top:1px solid rgba(148,163,184,.16)}
+.s19-learn-head{color:var(--s23-blue,#93c5fd);font-size:.86rem}
+.s19-moves{margin-top:9px}
+.s20-block-title{font-size:.9rem;margin-bottom:9px;color:#ddd6fe}.s20-special .s20-block-title{color:var(--s23-pink,#f0abfc)}
+.s21-group-head{color:var(--s23-mint,#6ee7b7);font-size:.86rem;margin-bottom:9px}
+.s19-detail-link{appearance:none;-webkit-appearance:none;font:inherit;color:inherit;cursor:pointer;text-align:left}
+.s19-detail-link:hover,.s19-detail-link:focus-visible{border-color:rgba(103,232,249,.55);background:rgba(14,165,233,.12);outline:none;transform:translateY(-1px)}
+.s19-ability-group:nth-child(1) .s19-detail-link{box-shadow:inset 0 0 0 1px rgba(147,197,253,.05)}
+.s19-ability-group:nth-child(2) .s19-detail-link{box-shadow:inset 0 0 0 1px rgba(94,234,212,.05)}
+.s19-level{cursor:pointer;color:inherit}
+.s19-detail-link span{min-width:0}
+@media(max-width:640px){.s19-block-title,.s20-block-title,.s21-group-head{font-size:.82rem}.s19-learn-head{font-size:.8rem}.s19-detail-link{min-height:31px}}
