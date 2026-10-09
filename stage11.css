@@ -1,0 +1,8 @@
+.card{content-visibility:auto;contain-intrinsic-size:280px 220px}
+.load-more-wrap{display:flex;justify-content:center;padding:24px 0 8px}
+.load-more{min-width:220px;border:1px solid #d9dee7;background:#fff;color:#202632;border-radius:999px;padding:13px 20px;font:700 14px/1.2 inherit;box-shadow:0 4px 14px rgba(25,35,55,.06);cursor:pointer}
+.load-more:hover{background:#f7f9fc}
+.load-more[hidden]{display:none}
+.load-state{display:block;margin-top:8px;color:#747d8b;font-size:12px;text-align:center}
+.data-loading{padding:44px 16px;text-align:center;color:#687283;font-weight:700}
+@media(max-width:720px){.card{contain-intrinsic-size:250px 190px}.load-more-wrap{padding-top:18px}.load-more{width:100%;max-width:360px}}
