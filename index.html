@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f131a">
-<title>Elite Redux 한글 도감 · STAGE 13</title>
+<title>Elite Redux 한글 도감 · STAGE 14</title>
 <link rel="stylesheet" href="styles.css?v=20261009-clean3">
 <link rel="stylesheet" href="stage4.css?v=20261009-clean4">
 <link rel="stylesheet" href="stage5.css?v=20261009-clean5">
@@ -15,18 +15,19 @@
 <link rel="stylesheet" href="stage11.css?v=20261009-stage11">
 <link rel="stylesheet" href="stage12.css?v=20261009-stage12">
 <link rel="stylesheet" href="stage13.css?v=20261009-stage13">
+<link rel="stylesheet" href="stage14.css?v=20261009-stage14">
 </head>
 <body>
 <header class="top">
-  <div class="brand"><b>ER</b><div><strong>Elite Redux 한글 도감</strong><small>CLEAN REBUILD · STAGE 13</small></div></div>
+  <div class="brand"><b>ER</b><div><strong>Elite Redux 한글 도감</strong><small>CLEAN REBUILD · STAGE 14</small></div></div>
   <label class="search"><span>⌕</span><input id="q" type="search" placeholder="포켓몬 이름 또는 도감 번호를 검색해주세요" autocomplete="off"></label>
 </header>
 <main>
   <section class="hero">
-    <div><small>ELITE REDUX 2.65.3b</small><h1>포켓몬 도감</h1><p>공식 NextDex v2.65beta 데이터를 기준으로 포켓몬·폼·메가진화·타입·종족값을 한글 목록에서 확인합니다.</p></div>
+    <div><small>ELITE REDUX 2.65.4</small><h1>포켓몬 도감</h1><p>공식 NextDex v2.65.4 데이터와 최신 STAGE101 한국어 마스터를 대조해 포켓몬·폼·메가진화·타입·종족값을 표시합니다.</p></div>
     <div class="status"><b id="count">0</b><span id="countLabel">불러온 포켓몬·폼</span></div>
   </section>
-  <section class="notice">STAGE 13 TEST: 기본·폼·메가 분류 필터와 타입(속성) 필터를 함께 사용할 수 있습니다. 선택된 분류 버튼은 강한 색상과 체크 표시로 구분됩니다.</section>
+  <section class="notice">STAGE 14: 공식 NextDex 2.65.4의 1,922개 항목을 최신 한국어 마스터와 전수 대조했습니다. 숫자 ID 이웃값 fallback은 제거했고, 목록은 아래로 스크롤하면 48개씩 자동으로 계속 불러옵니다.</section>
   <nav class="tabs" aria-label="도감 분류">
     <button class="tab active" data-view="pokemon">포켓몬</button>
     <button class="tab" data-view="moves">기술</button>
@@ -76,11 +77,10 @@
 <script src="species-2.js?v=clean1"></script>
 <script src="species-3.js?v=clean1"></script>
 <script src="species-4.js?v=clean1"></script>
-<script src="forms.js?v=clean6"></script>
-<script src="pokemon-data.js?v=stage7"></script>
-<script src="stage10-names.js?v=20261009-stage10"></script>
-<script src="stage11-mega.js?v=20261009-stage11"></script>
-<script src="app-stage13.js?v=20261009-stage13"></script>
+<script src="forms.js?v=20261009-stage14"></script>
+<script src="pokemon-data.js?v=20261009-stage14"></script>
+<script src="app-stage13.js?v=20261009-stage14"></script>
+<script src="stage14-infinite.js?v=20261009-stage14"></script>
 <script src="stage8.js?v=20261009-stage8"></script>
 <script src="stage9.js?v=20261009-stage9"></script>
 </body>
