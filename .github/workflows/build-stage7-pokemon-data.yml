@@ -1,0 +1,78 @@
+name: Build Stage 7 Pokemon card data
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-stage7-pokemon-data.yml'
+      - 'forms.js'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-pokemon-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Generate pokemon-data.js from official NextDex v2.65beta
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const url='https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65beta.json';
+          const TYPE_KO={
+            NORMAL:'노말',FIRE:'불꽃',WATER:'물',GRASS:'풀',ELECTRIC:'전기',ICE:'얼음',
+            FIGHTING:'격투',POISON:'독',GROUND:'땅',FLYING:'비행',PSYCHIC:'에스퍼',BUG:'벌레',
+            ROCK:'바위',GHOST:'고스트',DRAGON:'드래곤',DARK:'악',STEEL:'강철',FAIRY:'페어리',STELLAR:'스텔라',
+            MYSTERY:'???',NONE:''
+          };
+          function typeKo(v){
+            const key=String(v??'').replace(/^TYPE_/,'').trim().toUpperCase().replace(/[ -]+/g,'_');
+            return TYPE_KO[key]??String(v??'');
+          }
+          function loadForms(){
+            const s=fs.readFileSync('forms.js','utf8');
+            const m=s.match(/window\.ER_OFFICIAL_SPECIES=(\[[\s\S]*\]);\s*$/);
+            if(!m)throw Error('Cannot parse ER_OFFICIAL_SPECIES from forms.js');
+            return JSON.parse(m[1]);
+          }
+          (async()=>{
+            const res=await fetch(url);if(!res.ok)throw Error(`NextDex HTTP ${res.status}`);
+            const g=await res.json();
+            const forms=loadForms();
+            const formById=new Map(forms.map(r=>[Number(r[0]),r]));
+            const typeTable=Array.isArray(g.typeT)?g.typeT:[];
+            const mons=(Array.isArray(g.species)?g.species:[]).filter(m=>m&&m.name&&Number(m?.dex?.id)>0&&Number(m.id)>0);
+            const rows=[];let missingKo=0,missingTypes=0,missingStats=0,missingSprite=0,formCount=0;
+            for(const m of mons){
+              const id=Number(m.id),f=formById.get(id),dex=Number(m?.dex?.id)||Number(f?.[3])||0;
+              const ko=String(f?.[2]||'').trim(),en=String(m.name||f?.[1]||'').trim();
+              const sprite=String(m.NAME||'').replace(/^SPECIES_/,'');
+              const rawTypes=Array.isArray(m?.stats?.types)?m.stats.types:[];
+              const types=[...new Set(rawTypes.map(v=>typeof v==='number'?typeTable[v]:v).map(typeKo).filter(Boolean))];
+              const base=Array.isArray(m?.stats?.base)?m.stats.base.slice(0,6).map(v=>Number(v)||0):[];
+              if(!ko)missingKo++;if(!types.length)missingTypes++;if(base.length<6||base.some(v=>v<=0))missingStats++;if(!sprite)missingSprite++;
+              const isForm=Boolean(f?.[4]);if(isForm)formCount++;
+              rows.push([id,dex,ko||en,en,sprite,types[0]||'',types[1]||'',base[0]||0,base[1]||0,base[2]||0,base[3]||0,base[4]||0,base[5]||0,isForm?1:0,String(f?.[5]||'')]);
+            }
+            const officialIds=new Set(rows.map(r=>r[0]));
+            const stage6Only=forms.filter(r=>!officialIds.has(Number(r[0]))).map(r=>Number(r[0]));
+            const meta={source:'ForwardFeed/ER-nextdex gameDataV2.65beta.json',generatedAt:new Date().toISOString(),species:rows.length,forms:formCount,stage6Names:forms.length,missingKorean:missingKo,missingTypes,missingStats,missingSprite,stage6Only:stage6Only.length,stage6OnlyIds:stage6Only.slice(0,50)};
+            fs.writeFileSync('pokemon-data.js',`window.ER_POKEMON_META=${JSON.stringify(meta)};\nwindow.ER_POKEMON_DATA=${JSON.stringify(rows)};\n`);
+            console.log(meta);
+            if(rows.length!==1906)throw Error(`Expected 1906 species/forms, got ${rows.length}`);
+            if(missingKo)throw Error(`Missing Korean names: ${missingKo}`);
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+      - name: Commit generated Stage 7 data
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add pokemon-data.js
+          git diff --cached --quiet && exit 0
+          git commit -m "Generate Stage 7 Pokemon card data"
+          git push origin HEAD:main
