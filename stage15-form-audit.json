@@ -1,6 +1,6 @@
 {
   "stage": "STAGE15",
-  "generatedAt": "2026-10-09T03:13:20.720Z",
+  "generatedAt": "2026-10-09T03:14:25.553Z",
   "scope": "STAGE14 baseline + Duraludon Mega correction + full form-name anomaly inventory",
   "counts": {
     "forms": 1922,
@@ -1316,10 +1316,10 @@
       "before": [
         2211,
         "Duraludon Mega",
-        "메가두랄루돈 (파트너)",
+        "메가두랄루돈",
         884,
         1,
-        "PARTNER_MEGA"
+        "MEGA"
       ],
       "after": [
         2211,
@@ -1336,7 +1336,7 @@
       "before": [
         2211,
         884,
-        "메가두랄루돈 (파트너)",
+        "메가두랄루돈",
         "Duraludon Mega",
         "DURALUDON_PARTNER_MEGA",
         "강철",
@@ -1348,7 +1348,7 @@
         75,
         90,
         1,
-        "PARTNER_MEGA"
+        "MEGA"
       ],
       "after": [
         2211,
