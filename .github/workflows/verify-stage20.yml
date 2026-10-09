@@ -1,50 +1,8 @@
-name: Verify Stage 20 evolutions
+name: Historical Verify Stage 20 evolutions
 on:
-  push:
-    paths:
-      - 'stage20-data.js'
-      - 'stage20-audit.json'
-      - 'stage20.js'
-      - 'stage20.css'
-      - 'index.html'
-      - '.github/workflows/verify-stage20.yml'
   workflow_dispatch:
 jobs:
-  verify:
+  archived:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - name: Verify Stage 20 evolution invariants
-        run: |
-          node --check stage20.js
-          node <<'NODE'
-          const fs=require('fs'),vm=require('vm');
-          const audit=JSON.parse(fs.readFileSync('stage20-audit.json','utf8')),c=audit.counts||{};
-          const expected={officialSpecies:1922,webSpecies:1922,payloadSpecies:1922,rawRelations:1044,displayRelations:1042,ordinaryRelations:739,specialRelations:303,unsetTargets:2,missingSource:0,unresolvedTargets:0,unknownKinds:0};
-          for(const [k,v] of Object.entries(expected))if(Number(c[k])!==v)throw Error(`${k}: ${c[k]} != ${v}`);
-          if(c.indexToIdRemaps<500)throw Error(`index remap audit unexpectedly low: ${c.indexToIdRemaps}`);
-          const ctx={window:{}};vm.createContext(ctx);vm.runInContext(fs.readFileSync('stage20-data.js','utf8'),ctx,{filename:'stage20-data.js'});
-          const d=ctx.window.ER_STAGE20_DATA;if(!d||d.meta?.stage!=='STAGE20'||!Array.isArray(d.species)||d.species.length!==1922)throw Error('Stage20 payload missing');
-          const by=new Map(d.species.map(r=>[Number(r[0]),r]));
-          if(by.size!==1922)throw Error('duplicate Stage20 species IDs');
-          const allIds=new Set(by.keys());let ord=0,special=0;
-          for(const r of d.species){for(const rel of [...(r[3]||[]),...(r[4]||[]),...(r[5]||[]),...(r[6]||[])])if(!allIds.has(Number(rel[0])))throw Error(`missing relation target ${rel[0]} for ${r[0]}`);ord+=(r[3]||[]).length;special+=(r[5]||[]).length}
-          if(ord!==739||special!==303)throw Error(`outgoing relation counts ${ord}/${special}`);
-          const has=(id,slot,target,kind,reason)=>((by.get(id)?.[slot])||[]).some(x=>Number(x[0])===target&&x[1]===kind&&x[2]===reason);
-          if(!has(1,3,2,'EVO_LEVEL','16'))throw Error('Bulbasaur evolution missing');
-          if(!has(361,3,478,'EVO_LEVEL_FEMALE','23'))throw Error('Snorunt female evolution missing');
-          if(!has(9,5,1504,'EVO_MEGA_EVOLUTION','ITEM_BLASTOISINITE'))throw Error('Blastoise Mega index->ID remap missing');
-          if(!has(9,5,2189,'EVO_MEGA_EVOLUTION','ITEM_BLASTOISINITE_X'))throw Error('Blastoise Mega X remap missing');
-          if(!has(384,5,1548,'EVO_MOVE_MEGA_EVOLUTION','MOVE_DRAGON_ASCENT'))throw Error('Rayquaza Mega evolution missing');
-          const ray=(by.get(384)?.[5]||[]).find(x=>Number(x[0])===1548);if(ray?.[3]!=='화룡점정')throw Error(`Dragon Ascent Korean name: ${ray?.[3]}`);
-          if(!has(382,5,1549,'EVO_PRIMAL_REVERSION','ITEM_BLUE_ORB'))throw Error('Kyogre Primal relation missing');
-          if(!has(2,4,1,'EVO_LEVEL','16'))throw Error('reverse evolution missing');
-          if(!has(1504,6,9,'EVO_MEGA_EVOLUTION','ITEM_BLASTOISINITE'))throw Error('reverse Mega relation missing');
-          if(audit.unsetTargets?.length!==2||!audit.unsetTargets.some(x=>x.fromId===593)||!audit.unsetTargets.some(x=>x.fromId===779))throw Error('official unset targets changed');
-          const ui=fs.readFileSync('stage20.js','utf8');for(const s of ['진화 정보','메가 · 특수 변화','EVO_LEVEL_FEMALE','stage20-data.js?v=20261009-stage20'])if(!ui.includes(s))throw Error(`UI missing ${s}`);
-          const html=fs.readFileSync('index.html','utf8');for(const s of ['STAGE 20','stage20.css?v=20261009-stage20','stage20.js?v=20261009-stage20'])if(!html.includes(s))throw Error(`index missing ${s}`);
-          console.log('STAGE20 verification OK');
-          NODE
+      - run: echo "STAGE20 is a historical user-confirmed baseline; current verification is handled by the latest stage workflow."
