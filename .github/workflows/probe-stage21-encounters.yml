@@ -1,0 +1,26 @@
+name: Probe Stage 21 encounters
+on:
+  push:
+    paths:
+      - 'stage21-probe.js'
+      - '.github/workflows/probe-stage21-encounters.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Probe official 2.65.4 encounter data
+        run: node stage21-probe.js
+      - name: Commit probe report
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add stage21-probe.json
+          git diff --cached --quiet || git commit -m "Probe Stage 21 encounter data"
+          git push
