@@ -1,0 +1,47 @@
+name: Verify Stage 16 form names
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'forms.js'
+      - 'pokemon-data.js'
+      - 'stage16-form-audit.json'
+      - 'stage16-fix.js'
+      - '.github/workflows/verify-stage16.yml'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify Stage 16 invariants and form names
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          function load(path){const c={window:{}};vm.createContext(c);vm.runInContext(fs.readFileSync(path,'utf8'),c,{filename:path});return c.window;}
+          const fw=load('forms.js'),pw=load('pokemon-data.js');
+          const f=fw.ER_OFFICIAL_SPECIES||[],p=pw.ER_POKEMON_DATA||[];
+          if(f.length!==1922||p.length!==1922)throw Error(`count ${f.length}/${p.length}`);
+          const fm=new Map(f.map(r=>[+r[0],r])),pm=new Map(p.map(r=>[+r[0],r]));
+          const expected={29:'니드런♀',32:'니드런♂',1588:'옷갈아입기 피카츄',1592:'닥터 피카츄',1636:'도롱충이 (모래땅도롱)',1641:'깝질무 (동쪽바다)',1667:'배쓰나이 (청색근의 모습)',1668:'불비달마 (달마모드)',1688:'지우개굴닌자',1707:'비비용 (볼의 모양)',1716:'플라엣테 (영원의 꽃)',1729:'트리미앙 (킹덤컷)',1739:'지가르데 (10%폼)',1785:'마기아나 (500년 전의 색)',1786:'윽우지 (그대로 삼킨 모습)',1799:'빙큐보 (나이스페이스)',1825:'켄타로스 (팔데아의 모습 / 워터종)',1831:'파밀리쥐 (네 식구)',1838:'시비꼬 (화이트 페더)',1849:'대쓰여너 (암컷의 모습)',1892:'메가앱솔Z',2159:'메가루카리오Z',2166:'메가날쌩마 (가라르의 모습)',2211:'메가두랄루돈',2567:'배쓰나이 (백색근의 모습)',2639:'따라큐 (에이펙스폼 / 들킨 모습)'};
+          for(const [id,name] of Object.entries(expected)){const r=fm.get(+id),q=pm.get(+id);if(!r||r[2]!==name||!q||q[2]!==name)throw Error(`name ${id}: ${JSON.stringify(r)} / ${JSON.stringify(q)}`)}
+          if(fm.get(29)[4]!==0||fm.get(29)[5]!==''||fm.get(32)[4]!==0||fm.get(32)[5]!=='')throw Error('Nidoran classification not fixed');
+          const d=fm.get(2211);if(d[5]!=='MEGA')throw Error('Duraludon token lost');
+          const partner=f.filter(r=>r[5]==='PARTNER_MEGA').map(r=>r[1]).sort();
+          if(JSON.stringify(partner)!==JSON.stringify(['Eevee Mega','Meowth Mega','Pikachu Mega']))throw Error(`partner ${JSON.stringify(partner)}`);
+          const special=f.filter(r=>String(r[2]).includes('특수폼 #'));
+          const awkward=f.filter(r=>/SEA폼|메가 가라르의 모습폼|\(10폼\)|\(PH D폼\)|\(메가 Z폼\)/.test(String(r[2])));
+          if(special.length||awkward.length)throw Error(`residual labels ${special.length}/${awkward.length}`);
+          const cross=f.filter(r=>{const q=pm.get(+r[0]);return !q||String(r[2])!==String(q[2])||+r[4]!==+q[13]||String(r[5]||'')!==String(q[14]||'')});
+          if(cross.length)throw Error(`cross mismatch ${cross.length}`);
+          const audit=JSON.parse(fs.readFileSync('stage16-form-audit.json','utf8'));
+          if(audit.stage!=='STAGE16'||audit.counts.changes!==184||audit.counts.remainingSpecial!==0||audit.counts.awkward!==0||audit.counts.crossMismatches!==0)throw Error('bad Stage16 audit');
+          const html=fs.readFileSync('index.html','utf8');if(!html.includes('STAGE 16')||!html.includes('stage16'))throw Error('index not Stage16');
+          console.log('STAGE16 OK',{count:f.length,changes:audit.counts.changes,official:audit.counts.officialOrEstablished,custom:audit.counts.erDescriptiveOrPattern,partner});
+          NODE
