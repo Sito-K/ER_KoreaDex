@@ -48,6 +48,7 @@ jobs:
             const typeTable=Array.isArray(g.typeT)?g.typeT:[];
             const mons=(Array.isArray(g.species)?g.species:[]).filter(m=>m&&m.name&&Number(m?.dex?.id)>0&&Number(m.id)>0);
             const rows=[];let missingKo=0,missingTypes=0,missingStats=0,missingSprite=0,formCount=0;
+            const missingKoIds=[],missingTypeIds=[],missingStatIds=[],missingSpriteIds=[];
             for(const m of mons){
               const id=Number(m.id),f=formById.get(id),dex=Number(m?.dex?.id)||Number(f?.[3])||0;
               const ko=String(f?.[2]||'').trim(),en=String(m.name||f?.[1]||'').trim();
@@ -55,13 +56,16 @@ jobs:
               const rawTypes=Array.isArray(m?.stats?.types)?m.stats.types:[];
               const types=[...new Set(rawTypes.map(v=>typeof v==='number'?typeTable[v]:v).map(typeKo).filter(Boolean))];
               const base=Array.isArray(m?.stats?.base)?m.stats.base.slice(0,6).map(v=>Number(v)||0):[];
-              if(!ko)missingKo++;if(!types.length)missingTypes++;if(base.length<6||base.some(v=>v<=0))missingStats++;if(!sprite)missingSprite++;
+              if(!ko){missingKo++;missingKoIds.push(id)}
+              if(!types.length){missingTypes++;missingTypeIds.push(id)}
+              if(base.length<6||base.some(v=>v<=0)){missingStats++;missingStatIds.push(id)}
+              if(!sprite){missingSprite++;missingSpriteIds.push(id)}
               const isForm=Boolean(f?.[4]);if(isForm)formCount++;
               rows.push([id,dex,ko||en,en,sprite,types[0]||'',types[1]||'',base[0]||0,base[1]||0,base[2]||0,base[3]||0,base[4]||0,base[5]||0,isForm?1:0,String(f?.[5]||'')]);
             }
             const officialIds=new Set(rows.map(r=>r[0]));
             const stage6Only=forms.filter(r=>!officialIds.has(Number(r[0]))).map(r=>Number(r[0]));
-            const meta={source:'ForwardFeed/ER-nextdex gameDataV2.65beta.json',generatedAt:new Date().toISOString(),species:rows.length,forms:formCount,stage6Names:forms.length,missingKorean:missingKo,missingTypes,missingStats,missingSprite,stage6Only:stage6Only.length,stage6OnlyIds:stage6Only.slice(0,50)};
+            const meta={source:'ForwardFeed/ER-nextdex gameDataV2.65beta.json',generatedAt:new Date().toISOString(),species:rows.length,forms:formCount,stage6Names:forms.length,missingKorean:missingKo,missingKoreanIds:missingKoIds,missingTypes,missingTypeIds,missingStats,missingStatIds,missingSprite,missingSpriteIds,stage6Only:stage6Only.length,stage6OnlyIds:stage6Only.slice(0,50)};
             fs.writeFileSync('pokemon-data.js',`window.ER_POKEMON_META=${JSON.stringify(meta)};\nwindow.ER_POKEMON_DATA=${JSON.stringify(rows)};\n`);
             console.log(meta);
             if(rows.length!==1906)throw Error(`Expected 1906 species/forms, got ${rows.length}`);
