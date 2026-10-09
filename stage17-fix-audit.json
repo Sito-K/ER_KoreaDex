@@ -1,0 +1,262 @@
+{
+  "stage": "STAGE17",
+  "generatedAt": "2026-10-09T03:33:02.320Z",
+  "baseline": "STAGE16 user-confirmed normal",
+  "scope": "normalize 18 official Mega variant category tokens only",
+  "changesCount": 18,
+  "changes": [
+    {
+      "id": 1856,
+      "before": {
+        "formToken": "MEGA_APE_SHIFT",
+        "pokemonToken": "MEGA_APE_SHIFT",
+        "en": "Slaking Mega Ape Shift",
+        "sprite": "SLAKING_MEGA_APE_SHIFT",
+        "ko": "메가게을킹 (에이프 시프트)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 1892,
+      "before": {
+        "formToken": "MEGA_Z",
+        "pokemonToken": "MEGA_Z",
+        "en": "Absol Mega Z",
+        "sprite": "ABSOL_MEGA_Z",
+        "ko": "메가앱솔Z"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 1894,
+      "before": {
+        "formToken": "MEGA_Z",
+        "pokemonToken": "MEGA_Z",
+        "en": "Garchomp Mega Z",
+        "sprite": "GARCHOMP_MEGA_Z",
+        "ko": "메가한카리아스Z"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2146,
+      "before": {
+        "formToken": "MEGA_REDUX",
+        "pokemonToken": "MEGA_REDUX",
+        "en": "Alakazam Mega Redux",
+        "sprite": "ALAKAZAM_MEGA_REDUX",
+        "ko": "메가후딘 (리덕스폼)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2147,
+      "before": {
+        "formToken": "MEGA_REDUX",
+        "pokemonToken": "MEGA_REDUX",
+        "en": "Beedrill Mega Redux",
+        "sprite": "BEEDRILL_MEGA_REDUX",
+        "ko": "메가독침붕 (리덕스폼)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2148,
+      "before": {
+        "formToken": "MEGA_REDUX",
+        "pokemonToken": "MEGA_REDUX",
+        "en": "Machamp Mega Redux",
+        "sprite": "MACHAMP_MEGA_REDUX",
+        "ko": "메가괴력몬 (리덕스폼)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2149,
+      "before": {
+        "formToken": "MEGA_REDUX",
+        "pokemonToken": "MEGA_REDUX",
+        "en": "Skarmory Mega",
+        "sprite": "SKARMORY_MEGA_REDUX",
+        "ko": "메가무장조 (리덕스폼)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2150,
+      "before": {
+        "formToken": "MEGA_REDUX",
+        "pokemonToken": "MEGA_REDUX",
+        "en": "Arcanine Mega",
+        "sprite": "ARCANINE_MEGA_REDUX",
+        "ko": "메가윈디 (리덕스폼)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2151,
+      "before": {
+        "formToken": "MEGA_REDUX",
+        "pokemonToken": "MEGA_REDUX",
+        "en": "Garchomp Mega Redux",
+        "sprite": "GARCHOMP_MEGA_REDUX",
+        "ko": "메가한카리아스 (리덕스폼)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2152,
+      "before": {
+        "formToken": "MEGA_REDUX",
+        "pokemonToken": "MEGA_REDUX",
+        "en": "Mawile Mega Redux",
+        "sprite": "MAWILE_MEGA_REDUX",
+        "ko": "메가입치트 (리덕스폼)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2153,
+      "before": {
+        "formToken": "MEGA_REDUX",
+        "pokemonToken": "MEGA_REDUX",
+        "en": "Sableye Mega Redux",
+        "sprite": "SABLEYE_MEGA_REDUX",
+        "ko": "메가깜까미 (리덕스폼)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2154,
+      "before": {
+        "formToken": "MEGA_REDUX",
+        "pokemonToken": "MEGA_REDUX",
+        "en": "Houndoom Mega Redux",
+        "sprite": "HOUNDOOM_MEGA_REDUX",
+        "ko": "메가헬가 (리덕스폼)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2159,
+      "before": {
+        "formToken": "MEGA_Z",
+        "pokemonToken": "MEGA_Z",
+        "en": "Lucario Mega Z",
+        "sprite": "LUCARIO_MEGA_Z",
+        "ko": "메가루카리오Z"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2166,
+      "before": {
+        "formToken": "MEGA_GALARIAN",
+        "pokemonToken": "MEGA_GALARIAN",
+        "en": "Rapidash Mega Galarian",
+        "sprite": "RAPIDASH_MEGA_GALARIAN",
+        "ko": "메가날쌩마 (가라르의 모습)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2191,
+      "before": {
+        "formToken": "MEGA_Z",
+        "pokemonToken": "MEGA_Z",
+        "en": "Charizard Mega Z",
+        "sprite": "CHARIZARD_MEGA_Z",
+        "ko": "메가리자몽Z"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2229,
+      "before": {
+        "formToken": "MEGA_GALARIAN",
+        "pokemonToken": "MEGA_GALARIAN",
+        "en": "Slowbro Mega Galarian",
+        "sprite": "SLOWBRO_MEGA_GALARIAN",
+        "ko": "메가야도란 (가라르의 모습)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2230,
+      "before": {
+        "formToken": "MEGA_GALARIAN",
+        "pokemonToken": "MEGA_GALARIAN",
+        "en": "Slowking Mega Galarian",
+        "sprite": "SLOWKING_MEGA_GALARIAN",
+        "ko": "메가야도킹 (가라르의 모습)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    },
+    {
+      "id": 2562,
+      "before": {
+        "formToken": "MEGA_REDUX",
+        "pokemonToken": "MEGA_REDUX",
+        "en": "Tyranitar Mega Redux",
+        "sprite": "TYRANITAR_MEGA_REDUX",
+        "ko": "메가마기라스 (리덕스폼)"
+      },
+      "after": {
+        "token": "MEGA",
+        "isForm": true
+      }
+    }
+  ],
+  "crossMismatches": 0
+}
