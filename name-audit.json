@@ -1,0 +1,882 @@
+{
+  "generatedAt": "2026-10-09T01:22:16.793Z",
+  "riskCount": 20,
+  "risk": [
+    {
+      "dex": 1063,
+      "officialId": 2564,
+      "officialName": "Iron Exo",
+      "constant": "SPECIES_IRON_EXO",
+      "currentByOldId": {
+        "id": 1062,
+        "en": "Bewarden",
+        "ko": "이븐대장"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Onix",
+          "ko": "롱스톤",
+          "id": 94,
+          "d": 4
+        },
+        {
+          "en": "Pineco",
+          "ko": "피콘",
+          "id": 203,
+          "d": 4
+        },
+        {
+          "en": "Aron",
+          "ko": "가보리",
+          "id": 303,
+          "d": 4
+        },
+        {
+          "en": "Bronzor",
+          "ko": "동미러",
+          "id": 435,
+          "d": 4
+        },
+        {
+          "en": "Iron Moth",
+          "ko": "무쇠독나방",
+          "id": 993,
+          "d": 4
+        }
+      ]
+    },
+    {
+      "dex": 1066,
+      "officialId": 2572,
+      "officialName": "Iron Heart",
+      "constant": "SPECIES_LEDIAN_PARADOX",
+      "currentByOldId": {
+        "id": 1065,
+        "en": "Granitun",
+        "ko": "단지래왕"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Iron Treads",
+          "ko": "무쇠바퀴",
+          "id": 989,
+          "d": 4
+        },
+        {
+          "en": "Iron Hands",
+          "ko": "무쇠손",
+          "id": 991,
+          "d": 4
+        },
+        {
+          "en": "Iron Leaves",
+          "ko": "무쇠잎새",
+          "id": 1009,
+          "d": 4
+        },
+        {
+          "en": "Crobat",
+          "ko": "크로뱃",
+          "id": 168,
+          "d": 5
+        },
+        {
+          "en": "Volbeat",
+          "ko": "볼비트",
+          "id": 312,
+          "d": 5
+        }
+      ]
+    },
+    {
+      "dex": 1074,
+      "officialId": 2506,
+      "officialName": "Clawtificer",
+      "constant": "SPECIES_CLAWITZER_REDUX",
+      "currentByOldId": {
+        "id": 1073,
+        "en": "Iron Voca",
+        "ko": "무쇠보컬"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Clawitzer",
+          "ko": "블로스터",
+          "id": 692,
+          "d": 4
+        },
+        {
+          "en": "Glastrier",
+          "ko": "블리자포스",
+          "id": 895,
+          "d": 5
+        },
+        {
+          "en": "Blastoise",
+          "ko": "거북왕",
+          "id": 8,
+          "d": 6
+        },
+        {
+          "en": "Carnivine",
+          "ko": "무스틈니",
+          "id": 454,
+          "d": 6
+        },
+        {
+          "en": "Electivire",
+          "ko": "에레키블",
+          "id": 465,
+          "d": 6
+        }
+      ]
+    },
+    {
+      "dex": 1079,
+      "officialId": 2663,
+      "officialName": "Kilozuna",
+      "constant": "SPECIES_KILOZUNA",
+      "currentByOldId": {
+        "id": 1078,
+        "en": "Dududunsparce",
+        "ko": "노고고고치"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Kakuna",
+          "ko": "딱충이",
+          "id": 13,
+          "d": 4
+        },
+        {
+          "en": "Nidorina",
+          "ko": "니드리나",
+          "id": 29,
+          "d": 4
+        },
+        {
+          "en": "Nidoran♀",
+          "ko": "니드런♀",
+          "id": 28,
+          "d": 5
+        },
+        {
+          "en": "Nidoran♂",
+          "ko": "니드런♂",
+          "id": 31,
+          "d": 5
+        },
+        {
+          "en": "Nidorino",
+          "ko": "니드리노",
+          "id": 32,
+          "d": 5
+        }
+      ]
+    },
+    {
+      "dex": 1080,
+      "officialId": 2665,
+      "officialName": "Fogging",
+      "constant": "SPECIES_FOGGING",
+      "currentByOldId": {
+        "id": 1079,
+        "en": "Ogerpon",
+        "ko": "오거폰"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Koffing",
+          "ko": "또가스",
+          "id": 108,
+          "d": 3
+        },
+        {
+          "en": "Dewgong",
+          "ko": "쥬레곤",
+          "id": 86,
+          "d": 4
+        },
+        {
+          "en": "Weezing",
+          "ko": "또도가스",
+          "id": 109,
+          "d": 4
+        },
+        {
+          "en": "Seaking",
+          "ko": "왕콘치",
+          "id": 118,
+          "d": 4
+        },
+        {
+          "en": "Slowking",
+          "ko": "야도킹",
+          "id": 198,
+          "d": 4
+        }
+      ]
+    },
+    {
+      "dex": 1081,
+      "officialId": 2666,
+      "officialName": "Breezing",
+      "constant": "SPECIES_BREEZING",
+      "currentByOldId": {
+        "id": 1080,
+        "en": "Ogerpon",
+        "ko": "오거폰"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Weezing",
+          "ko": "또도가스",
+          "id": 109,
+          "d": 2
+        },
+        {
+          "en": "Bronzong",
+          "ko": "동탁군",
+          "id": 436,
+          "d": 3
+        },
+        {
+          "en": "Seaking",
+          "ko": "왕콘치",
+          "id": 118,
+          "d": 4
+        },
+        {
+          "en": "Ursaring",
+          "ko": "링곰",
+          "id": 216,
+          "d": 4
+        },
+        {
+          "en": "Deerling",
+          "ko": "사철록",
+          "id": 584,
+          "d": 4
+        }
+      ]
+    },
+    {
+      "dex": 1082,
+      "officialId": 2667,
+      "officialName": "Storming",
+      "constant": "SPECIES_STORMING",
+      "currentByOldId": {
+        "id": 1081,
+        "en": "Ogerpon",
+        "ko": "오거폰"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Starmie",
+          "ko": "아쿠스타",
+          "id": 120,
+          "d": 3
+        },
+        {
+          "en": "Slowking",
+          "ko": "야도킹",
+          "id": 198,
+          "d": 3
+        },
+        {
+          "en": "Koffing",
+          "ko": "또가스",
+          "id": 108,
+          "d": 4
+        },
+        {
+          "en": "Seaking",
+          "ko": "왕콘치",
+          "id": 118,
+          "d": 4
+        },
+        {
+          "en": "Slaking",
+          "ko": "게을킹",
+          "id": 288,
+          "d": 4
+        }
+      ]
+    },
+    {
+      "dex": 1083,
+      "officialId": 2674,
+      "officialName": "Merrykarp",
+      "constant": "SPECIES_MERRYKARP",
+      "currentByOldId": {
+        "id": 1082,
+        "en": "Ogerpon",
+        "ko": "오거폰"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Magikarp",
+          "ko": "잉어킹",
+          "id": 128,
+          "d": 4
+        },
+        {
+          "en": "Terrakion",
+          "ko": "테라키온",
+          "id": 638,
+          "d": 5
+        },
+        {
+          "en": "Seerkat",
+          "ko": "보르도사",
+          "id": 1083,
+          "d": 5
+        },
+        {
+          "en": "Charizard",
+          "ko": "리자몽",
+          "id": 5,
+          "d": 6
+        },
+        {
+          "en": "Ekans",
+          "ko": "아보",
+          "id": 22,
+          "d": 6
+        }
+      ]
+    },
+    {
+      "dex": 1084,
+      "officialId": 2675,
+      "officialName": "Gyarevelry",
+      "constant": "SPECIES_GYAREVALRY",
+      "currentByOldId": {
+        "id": 1083,
+        "en": "Seerkat",
+        "ko": "보르도사"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Graveler",
+          "ko": "데구리",
+          "id": 74,
+          "d": 5
+        },
+        {
+          "en": "Gardevoir",
+          "ko": "가디안",
+          "id": 281,
+          "d": 5
+        },
+        {
+          "en": "Gyaradeath",
+          "ko": "갸라데스",
+          "id": 1040,
+          "d": 5
+        },
+        {
+          "en": "Grimer",
+          "ko": "질퍽이",
+          "id": 87,
+          "d": 6
+        },
+        {
+          "en": "Gastly",
+          "ko": "고오스",
+          "id": 91,
+          "d": 6
+        }
+      ]
+    },
+    {
+      "dex": 1085,
+      "officialId": 1088,
+      "officialName": "Crag Hopper",
+      "constant": "SPECIES_JAGGED_CHUNGULIS",
+      "currentByOldId": {
+        "id": 1084,
+        "en": "Tentagrewl",
+        "ko": "독괴파리"
+      },
+      "currentByOfficialId": {
+        "id": 1088,
+        "en": "Dedelibird",
+        "ko": "데딜리버드"
+      },
+      "candidates": [
+        {
+          "en": "Dragonair",
+          "ko": "신뇽",
+          "id": 147,
+          "d": 5
+        },
+        {
+          "en": "Crabrawler",
+          "ko": "오기지게",
+          "id": 738,
+          "d": 5
+        },
+        {
+          "en": "Crabruiser",
+          "ko": "모난폭게",
+          "id": 1058,
+          "d": 5
+        },
+        {
+          "en": "Charmander",
+          "ko": "파이리",
+          "id": 3,
+          "d": 6
+        },
+        {
+          "en": "Caterpie",
+          "ko": "캐터피",
+          "id": 9,
+          "d": 6
+        }
+      ]
+    },
+    {
+      "dex": 1086,
+      "officialId": 2236,
+      "officialName": "Kipmodo",
+      "constant": "SPECIES_KIPMODO",
+      "currentByOldId": {
+        "id": 1085,
+        "en": "Cacjack",
+        "ko": "잭선인"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Kommo-o",
+          "ko": "짜랑고우거",
+          "id": 783,
+          "d": 3
+        },
+        {
+          "en": "Skiploom",
+          "ko": "두코",
+          "id": 187,
+          "d": 4
+        },
+        {
+          "en": "Aipom",
+          "ko": "에이팜",
+          "id": 189,
+          "d": 4
+        },
+        {
+          "en": "Hippowdon",
+          "ko": "하마돈",
+          "id": 449,
+          "d": 4
+        },
+        {
+          "en": "Skiddo",
+          "ko": "메이클",
+          "id": 671,
+          "d": 4
+        }
+      ]
+    },
+    {
+      "dex": 1087,
+      "officialId": 2237,
+      "officialName": "Marshmodo",
+      "constant": "SPECIES_MARSHMODO",
+      "currentByOldId": {
+        "id": 1086,
+        "en": "Tyranjoula",
+        "ko": "전툴렉스"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Marshtomp",
+          "ko": "늪짱이",
+          "id": 258,
+          "d": 3
+        },
+        {
+          "en": "Marshadow",
+          "ko": "마샤도",
+          "id": 801,
+          "d": 3
+        },
+        {
+          "en": "Maushold",
+          "ko": "파밀리쥐",
+          "id": 924,
+          "d": 4
+        },
+        {
+          "en": "Machop",
+          "ko": "알통몬",
+          "id": 65,
+          "d": 5
+        },
+        {
+          "en": "Machoke",
+          "ko": "근육몬",
+          "id": 66,
+          "d": 5
+        }
+      ]
+    },
+    {
+      "dex": 1088,
+      "officialId": 2238,
+      "officialName": "Swampage",
+      "constant": "SPECIES_SWAMPAGE",
+      "currentByOldId": {
+        "id": 1087,
+        "en": "Crag Chungus",
+        "ko": "분쇄하는귀"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Swampert",
+          "ko": "대짱이",
+          "id": 259,
+          "d": 3
+        },
+        {
+          "en": "Pansage",
+          "ko": "야나프",
+          "id": 510,
+          "d": 4
+        },
+        {
+          "en": "Simisage",
+          "ko": "야나키",
+          "id": 511,
+          "d": 4
+        },
+        {
+          "en": "Swanna",
+          "ko": "스완나",
+          "id": 580,
+          "d": 4
+        },
+        {
+          "en": "Drampa",
+          "ko": "할비롱",
+          "id": 779,
+          "d": 4
+        }
+      ]
+    },
+    {
+      "dex": 1097,
+      "officialId": 2282,
+      "officialName": "Rexcadrill",
+      "constant": "SPECIES_REXCADRILL",
+      "currentByOldId": {
+        "id": 1096,
+        "en": "Grotom",
+        "ko": "그로토무"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Excadrill",
+          "ko": "몰드류",
+          "id": 529,
+          "d": 1
+        },
+        {
+          "en": "Beedrill",
+          "ko": "독침붕",
+          "id": 14,
+          "d": 4
+        },
+        {
+          "en": "Marill",
+          "ko": "마릴",
+          "id": 182,
+          "d": 5
+        },
+        {
+          "en": "Azumarill",
+          "ko": "마릴리",
+          "id": 183,
+          "d": 5
+        },
+        {
+          "en": "Tentacruel",
+          "ko": "독파리",
+          "id": 72,
+          "d": 6
+        }
+      ]
+    },
+    {
+      "dex": 1098,
+      "officialId": 2287,
+      "officialName": "Selenumbra",
+      "constant": "SPECIES_SELENUMBRA",
+      "currentByOldId": {
+        "id": 1097,
+        "en": "Orchestot",
+        "ko": "오케라페"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Silicobra",
+          "ko": "모래뱀",
+          "id": 842,
+          "d": 5
+        },
+        {
+          "en": "Slowbro",
+          "ko": "야도란",
+          "id": 79,
+          "d": 6
+        },
+        {
+          "en": "Seadra",
+          "ko": "시드라",
+          "id": 116,
+          "d": 6
+        },
+        {
+          "en": "Ledyba",
+          "ko": "레디바",
+          "id": 164,
+          "d": 6
+        },
+        {
+          "en": "Sunflora",
+          "ko": "해루미",
+          "id": 191,
+          "d": 6
+        }
+      ]
+    },
+    {
+      "dex": 1113,
+      "officialId": 2304,
+      "officialName": "Eraticate",
+      "constant": "SPECIES_ERATICATE",
+      "currentByOldId": {
+        "id": 1112,
+        "en": "Gargablox",
+        "ko": "콜로블록"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Raticate",
+          "ko": "레트라",
+          "id": 19,
+          "d": 1
+        },
+        {
+          "en": "Rattata",
+          "ko": "꼬렛",
+          "id": 18,
+          "d": 4
+        },
+        {
+          "en": "Feraligatr",
+          "ko": "장크로다일",
+          "id": 159,
+          "d": 4
+        },
+        {
+          "en": "Raichu",
+          "ko": "라이츄",
+          "id": 25,
+          "d": 5
+        },
+        {
+          "en": "Rapidash",
+          "ko": "날쌩마",
+          "id": 77,
+          "d": 5
+        }
+      ]
+    },
+    {
+      "dex": 1117,
+      "officialId": 2681,
+      "officialName": "Terrow",
+      "constant": "SPECIES_FEAROW_REDUX_EVO",
+      "currentByOldId": {
+        "id": 1116,
+        "en": "Iron Spirals",
+        "ko": "무쇠나선"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Fearow",
+          "ko": "깨비드릴조",
+          "id": 21,
+          "d": 2
+        },
+        {
+          "en": "Spearow",
+          "ko": "깨비참",
+          "id": 20,
+          "d": 3
+        },
+        {
+          "en": "Tauros",
+          "ko": "켄타로스",
+          "id": 127,
+          "d": 3
+        },
+        {
+          "en": "Murkrow",
+          "ko": "니로우",
+          "id": 197,
+          "d": 3
+        },
+        {
+          "en": "Throh",
+          "ko": "던지미",
+          "id": 537,
+          "d": 3
+        }
+      ]
+    },
+    {
+      "dex": 1118,
+      "officialId": 2307,
+      "officialName": "Luxzero Mega",
+      "constant": "SPECIES_LUXZERO_MEGA",
+      "currentByOldId": {
+        "id": 1117,
+        "en": "Iron Saber",
+        "ko": "무쇠광검"
+      },
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Pheromosa",
+          "ko": "페로코체",
+          "id": 794,
+          "d": 6
+        },
+        {
+          "en": "Butterfree",
+          "ko": "버터플",
+          "id": 11,
+          "d": 7
+        },
+        {
+          "en": "Lunatone",
+          "ko": "루나톤",
+          "id": 336,
+          "d": 7
+        },
+        {
+          "en": "Luxio",
+          "ko": "럭시오",
+          "id": 403,
+          "d": 7
+        },
+        {
+          "en": "Luxray",
+          "ko": "렌트라",
+          "id": 404,
+          "d": 7
+        }
+      ]
+    },
+    {
+      "dex": 1123,
+      "officialId": 2249,
+      "officialName": "Frostuccino",
+      "constant": "SPECIES_FROSTUCCINO",
+      "currentByOldId": null,
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Frostula",
+          "ko": "깨비빙거미",
+          "id": 1075,
+          "d": 5
+        },
+        {
+          "en": "Articuno",
+          "ko": "프리져",
+          "id": 143,
+          "d": 6
+        },
+        {
+          "en": "Minccino",
+          "ko": "치라미",
+          "id": 571,
+          "d": 6
+        },
+        {
+          "en": "Cinccino",
+          "ko": "치라치노",
+          "id": 572,
+          "d": 6
+        },
+        {
+          "en": "Beniccino",
+          "ko": "치라벨벳",
+          "id": 1106,
+          "d": 6
+        }
+      ]
+    },
+    {
+      "dex": 1222,
+      "officialId": 2900,
+      "officialName": "Slate",
+      "constant": "SPECIES_SLATE",
+      "currentByOldId": null,
+      "currentByOfficialId": null,
+      "candidates": [
+        {
+          "en": "Natu",
+          "ko": "네이티",
+          "id": 176,
+          "d": 3
+        },
+        {
+          "en": "Xatu",
+          "ko": "네이티오",
+          "id": 177,
+          "d": 3
+        },
+        {
+          "en": "Slakoth",
+          "ko": "게을로",
+          "id": 286,
+          "d": 3
+        },
+        {
+          "en": "Glalie",
+          "ko": "얼음귀신",
+          "id": 361,
+          "d": 3
+        },
+        {
+          "en": "Sealeo",
+          "ko": "씨레오",
+          "id": 363,
+          "d": 3
+        }
+      ]
+    }
+  ]
+}
