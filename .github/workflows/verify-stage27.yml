@@ -39,9 +39,9 @@ jobs:
             'env(safe-area-inset-bottom)'
           ];
           for(const x of requiredCss)if(!css.includes(x))throw Error('Stage27 CSS missing '+x);
-          if(!index.includes('STAGE 27'))throw Error('Stage27 title/brand missing');
+          if(!index.includes('STAGE 28'))throw Error('current Stage28 title/brand missing');
           if(!index.includes('stage27-mobile-modal.css?v=20261009-stage27'))throw Error('Stage27 stylesheet not loaded');
-          if(!index.includes('stage26-item-names.js?v=20261009-stage26'))throw Error('Stage26 item localization lost');
+          if(!index.includes('stage26-item-names.js?v=20261009-stage28'))throw Error('Stage28 item naming lost');
           if(!index.includes('stage25.js?v=20261009-stage25modal'))throw Error('independent move/ability modal lost');
-          console.log('STAGE27 OK',JSON.stringify({mobileHeaderFixed:true,bodyOnlyScroll:true,minCloseTarget:44,safeArea:true,stage26Preserved:true}));
+          console.log('STAGE27 MOBILE UI PRESERVED',JSON.stringify({mobileHeaderFixed:true,bodyOnlyScroll:true,minCloseTarget:44,safeArea:true,currentStage:28}));
           NODE
