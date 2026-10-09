@@ -45,8 +45,10 @@ jobs:
           if(s19.includes('선택 특성')||s19.includes('Innate 특성'))throw Error('old ability labels remain');
           if(!s19.includes("abilityGroup('특성'")||!s19.includes("abilityGroup('고유 특성'"))throw Error('new ability labels missing');
           if(!s19.includes('s19-detail-link')||!s19.includes('ER_STAGE25_DETAIL'))throw Error('clickable move/ability links missing');
-          if(!s25.includes('stage25-detail-data.js')||!s25.includes('ER_STAGE18')||!s25.includes('augmentDetail'))throw Error('detail explanation bridge missing');
+          for(const x of ['stage25-detail-data.js','ER_STAGE18','augmentDetail','s25-reference-mode','setReferenceMode(true)','setReferenceMode(false)'])if(!s25.includes(x))throw Error(`detail explanation bridge missing ${x}`);
+          for(const x of ['#detailPokemonExtra','#detailFormsSection','#stage19SpeciesDetail','#stage20EvolutionDetail','#stage21EncounterDetail'])if(!css.includes(x))throw Error(`reference mode hide selector missing ${x}`);
+          if(!css.includes('#detailBackdrop.s25-reference-mode'))throw Error('reference mode CSS missing');
           if(!css.includes('.s19-detail-link')||!css.includes('.s25-always'))throw Error('Stage25 UI styles missing');
           for(const x of ['STAGE 25','stage25.css?v=20261009-stage25','stage25.js?v=20261009-stage25','stage19.js?v=20261009-stage25','stage20.js?v=20261009-stage25','stage21.js?v=20261009-stage25'])if(!index.includes(x))throw Error(`index missing ${x}`);
-          console.log('STAGE25 OK',JSON.stringify({moves:audit.moves,abilities:audit.abilities}));
+          console.log('STAGE25 FIX OK',JSON.stringify({moves:audit.moves,abilities:audit.abilities,referenceMode:true}));
           NODE
