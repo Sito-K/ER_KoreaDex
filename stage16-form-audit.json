@@ -1,0 +1,2796 @@
+{
+  "stage": "STAGE16",
+  "generatedAt": "2026-10-09T03:26:41.587Z",
+  "baseline": "STAGE15 user-confirmed normal",
+  "scope": "full form-name cleanup without changing battle stats/types",
+  "counts": {
+    "forms": 1922,
+    "pokemonData": 1922,
+    "changes": 184,
+    "officialOrEstablished": 138,
+    "erDescriptiveOrPattern": 46,
+    "remainingSpecial": 0,
+    "awkward": 0,
+    "crossMismatches": 0,
+    "partnerMega": 3
+  },
+  "invariants": {
+    "duraludon": [
+      2211,
+      "Duraludon Mega",
+      "메가두랄루돈",
+      884,
+      1,
+      "MEGA"
+    ],
+    "partnerMega": [
+      "Eevee Mega",
+      "Meowth Mega",
+      "Pikachu Mega"
+    ]
+  },
+  "changes": [
+    {
+      "id": 29,
+      "en": "Nidoran♀",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "니드런♀ (F폼)",
+        "isForm": 1,
+        "token": "F"
+      },
+      "after": {
+        "ko": "니드런♀",
+        "isForm": 0,
+        "token": ""
+      }
+    },
+    {
+      "id": 32,
+      "en": "Nidoran♂",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "니드런♂ (M폼)",
+        "isForm": 1,
+        "token": "M"
+      },
+      "after": {
+        "ko": "니드런♂",
+        "isForm": 0,
+        "token": ""
+      }
+    },
+    {
+      "id": 1588,
+      "en": "Pikachu Cosplay",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "피카츄 (특수폼 #1588)",
+        "isForm": 1,
+        "token": "COSPLAY"
+      },
+      "after": {
+        "ko": "옷갈아입기 피카츄",
+        "isForm": 1,
+        "token": "COSPLAY"
+      }
+    },
+    {
+      "id": 1589,
+      "en": "Pikachu Rock Star",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "피카츄 (특수폼 #1589)",
+        "isForm": 1,
+        "token": "ROCK_STAR"
+      },
+      "after": {
+        "ko": "하드록 피카츄",
+        "isForm": 1,
+        "token": "ROCK_STAR"
+      }
+    },
+    {
+      "id": 1590,
+      "en": "Pikachu Belle",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "피카츄 (특수폼 #1590)",
+        "isForm": 1,
+        "token": "BELLE"
+      },
+      "after": {
+        "ko": "마담 피카츄",
+        "isForm": 1,
+        "token": "BELLE"
+      }
+    },
+    {
+      "id": 1591,
+      "en": "Pikachu Pop Star",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "피카츄 (특수폼 #1591)",
+        "isForm": 1,
+        "token": "POP_STAR"
+      },
+      "after": {
+        "ko": "아이돌 피카츄",
+        "isForm": 1,
+        "token": "POP_STAR"
+      }
+    },
+    {
+      "id": 1592,
+      "en": "Pikachu Ph D",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "피카츄 (PH D폼)",
+        "isForm": 1,
+        "token": "PH_D"
+      },
+      "after": {
+        "ko": "닥터 피카츄",
+        "isForm": 1,
+        "token": "PH_D"
+      }
+    },
+    {
+      "id": 1593,
+      "en": "Pikachu Libre",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "피카츄 (특수폼 #1593)",
+        "isForm": 1,
+        "token": "LIBRE"
+      },
+      "after": {
+        "ko": "마스크드 피카츄",
+        "isForm": 1,
+        "token": "LIBRE"
+      }
+    },
+    {
+      "id": 1602,
+      "en": "Pichu Spiky",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "피츄 (특수폼 #1602)",
+        "isForm": 1,
+        "token": "SPIKY_EARED"
+      },
+      "after": {
+        "ko": "삐쭉귀 피츄",
+        "isForm": 1,
+        "token": "SPIKY_EARED"
+      }
+    },
+    {
+      "id": 1628,
+      "en": "Unown Emark",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "안농 (특수폼 #1628)",
+        "isForm": 1,
+        "token": "EMARK"
+      },
+      "after": {
+        "ko": "안농 (!폼)",
+        "isForm": 1,
+        "token": "EMARK"
+      }
+    },
+    {
+      "id": 1629,
+      "en": "Unown Qmark",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "안농 (특수폼 #1629)",
+        "isForm": 1,
+        "token": "QMARK"
+      },
+      "after": {
+        "ko": "안농 (?폼)",
+        "isForm": 1,
+        "token": "QMARK"
+      }
+    },
+    {
+      "id": 1636,
+      "en": "Burmy Sandy",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "도롱충이 (특수폼 #1636)",
+        "isForm": 1,
+        "token": "SANDY_CLOAK"
+      },
+      "after": {
+        "ko": "도롱충이 (모래땅도롱)",
+        "isForm": 1,
+        "token": "SANDY_CLOAK"
+      }
+    },
+    {
+      "id": 1637,
+      "en": "Burmy Trash",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "도롱충이 (특수폼 #1637)",
+        "isForm": 1,
+        "token": "TRASH_CLOAK"
+      },
+      "after": {
+        "ko": "도롱충이 (슈레도롱)",
+        "isForm": 1,
+        "token": "TRASH_CLOAK"
+      }
+    },
+    {
+      "id": 1638,
+      "en": "Wormadam Sandy",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "도롱마담 (특수폼 #1638)",
+        "isForm": 1,
+        "token": "SANDY_CLOAK"
+      },
+      "after": {
+        "ko": "도롱마담 (모래땅도롱)",
+        "isForm": 1,
+        "token": "SANDY_CLOAK"
+      }
+    },
+    {
+      "id": 1639,
+      "en": "Wormadam Trash",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "도롱마담 (특수폼 #1639)",
+        "isForm": 1,
+        "token": "TRASH_CLOAK"
+      },
+      "after": {
+        "ko": "도롱마담 (슈레도롱)",
+        "isForm": 1,
+        "token": "TRASH_CLOAK"
+      }
+    },
+    {
+      "id": 422,
+      "en": "Shellos",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "깝질무",
+        "isForm": 0,
+        "token": ""
+      },
+      "after": {
+        "ko": "깝질무 (서쪽바다)",
+        "isForm": 0,
+        "token": ""
+      }
+    },
+    {
+      "id": 423,
+      "en": "Gastrodon",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "트리토돈",
+        "isForm": 0,
+        "token": ""
+      },
+      "after": {
+        "ko": "트리토돈 (서쪽바다)",
+        "isForm": 0,
+        "token": ""
+      }
+    },
+    {
+      "id": 1641,
+      "en": "Shellos East",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "깝질무 (동쪽바다 SEA폼)",
+        "isForm": 1,
+        "token": "EAST_SEA"
+      },
+      "after": {
+        "ko": "깝질무 (동쪽바다)",
+        "isForm": 1,
+        "token": "EAST_SEA"
+      }
+    },
+    {
+      "id": 1642,
+      "en": "Gastrodon East",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "트리토돈 (동쪽바다 SEA폼)",
+        "isForm": 1,
+        "token": "EAST_SEA"
+      },
+      "after": {
+        "ko": "트리토돈 (동쪽바다)",
+        "isForm": 1,
+        "token": "EAST_SEA"
+      }
+    },
+    {
+      "id": 1650,
+      "en": "Arceus Fighting",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1650)",
+        "isForm": 1,
+        "token": "FIGHTING"
+      },
+      "after": {
+        "ko": "아르세우스 (격투타입)",
+        "isForm": 1,
+        "token": "FIGHTING"
+      }
+    },
+    {
+      "id": 1651,
+      "en": "Arceus Flying",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1651)",
+        "isForm": 1,
+        "token": "FLYING"
+      },
+      "after": {
+        "ko": "아르세우스 (비행타입)",
+        "isForm": 1,
+        "token": "FLYING"
+      }
+    },
+    {
+      "id": 1652,
+      "en": "Arceus Poison",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1652)",
+        "isForm": 1,
+        "token": "POISON"
+      },
+      "after": {
+        "ko": "아르세우스 (독타입)",
+        "isForm": 1,
+        "token": "POISON"
+      }
+    },
+    {
+      "id": 1653,
+      "en": "Arceus Ground",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1653)",
+        "isForm": 1,
+        "token": "GROUND"
+      },
+      "after": {
+        "ko": "아르세우스 (땅타입)",
+        "isForm": 1,
+        "token": "GROUND"
+      }
+    },
+    {
+      "id": 1654,
+      "en": "Arceus Rock",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1654)",
+        "isForm": 1,
+        "token": "ROCK"
+      },
+      "after": {
+        "ko": "아르세우스 (바위타입)",
+        "isForm": 1,
+        "token": "ROCK"
+      }
+    },
+    {
+      "id": 1655,
+      "en": "Arceus Bug",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (BUG폼)",
+        "isForm": 1,
+        "token": "BUG"
+      },
+      "after": {
+        "ko": "아르세우스 (벌레타입)",
+        "isForm": 1,
+        "token": "BUG"
+      }
+    },
+    {
+      "id": 1656,
+      "en": "Arceus Ghost",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1656)",
+        "isForm": 1,
+        "token": "GHOST"
+      },
+      "after": {
+        "ko": "아르세우스 (고스트타입)",
+        "isForm": 1,
+        "token": "GHOST"
+      }
+    },
+    {
+      "id": 1657,
+      "en": "Arceus Steel",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1657)",
+        "isForm": 1,
+        "token": "STEEL"
+      },
+      "after": {
+        "ko": "아르세우스 (강철타입)",
+        "isForm": 1,
+        "token": "STEEL"
+      }
+    },
+    {
+      "id": 1658,
+      "en": "Arceus Fire",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1658)",
+        "isForm": 1,
+        "token": "FIRE"
+      },
+      "after": {
+        "ko": "아르세우스 (불꽃타입)",
+        "isForm": 1,
+        "token": "FIRE"
+      }
+    },
+    {
+      "id": 1659,
+      "en": "Arceus Water",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1659)",
+        "isForm": 1,
+        "token": "WATER"
+      },
+      "after": {
+        "ko": "아르세우스 (물타입)",
+        "isForm": 1,
+        "token": "WATER"
+      }
+    },
+    {
+      "id": 1660,
+      "en": "Arceus Grass",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1660)",
+        "isForm": 1,
+        "token": "GRASS"
+      },
+      "after": {
+        "ko": "아르세우스 (풀타입)",
+        "isForm": 1,
+        "token": "GRASS"
+      }
+    },
+    {
+      "id": 1661,
+      "en": "Arceus Electric",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1661)",
+        "isForm": 1,
+        "token": "ELECTRIC"
+      },
+      "after": {
+        "ko": "아르세우스 (전기타입)",
+        "isForm": 1,
+        "token": "ELECTRIC"
+      }
+    },
+    {
+      "id": 1662,
+      "en": "Arceus Psychic",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1662)",
+        "isForm": 1,
+        "token": "PSYCHIC"
+      },
+      "after": {
+        "ko": "아르세우스 (에스퍼타입)",
+        "isForm": 1,
+        "token": "PSYCHIC"
+      }
+    },
+    {
+      "id": 1663,
+      "en": "Arceus Ice",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (ICE폼)",
+        "isForm": 1,
+        "token": "ICE"
+      },
+      "after": {
+        "ko": "아르세우스 (얼음타입)",
+        "isForm": 1,
+        "token": "ICE"
+      }
+    },
+    {
+      "id": 1664,
+      "en": "Arceus Dragon",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1664)",
+        "isForm": 1,
+        "token": "DRAGON"
+      },
+      "after": {
+        "ko": "아르세우스 (드래곤타입)",
+        "isForm": 1,
+        "token": "DRAGON"
+      }
+    },
+    {
+      "id": 1665,
+      "en": "Arceus Dark",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1665)",
+        "isForm": 1,
+        "token": "DARK"
+      },
+      "after": {
+        "ko": "아르세우스 (악타입)",
+        "isForm": 1,
+        "token": "DARK"
+      }
+    },
+    {
+      "id": 1666,
+      "en": "Arceus Fairy",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "아르세우스 (특수폼 #1666)",
+        "isForm": 1,
+        "token": "FAIRY"
+      },
+      "after": {
+        "ko": "아르세우스 (페어리타입)",
+        "isForm": 1,
+        "token": "FAIRY"
+      }
+    },
+    {
+      "id": 550,
+      "en": "Basculin",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "배쓰나이",
+        "isForm": 0,
+        "token": ""
+      },
+      "after": {
+        "ko": "배쓰나이 (적색근의 모습)",
+        "isForm": 0,
+        "token": ""
+      }
+    },
+    {
+      "id": 1667,
+      "en": "Basculin Blue",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "배쓰나이 (특수폼 #1667)",
+        "isForm": 1,
+        "token": "BLUE_STRIPED"
+      },
+      "after": {
+        "ko": "배쓰나이 (청색근의 모습)",
+        "isForm": 1,
+        "token": "BLUE_STRIPED"
+      }
+    },
+    {
+      "id": 2567,
+      "en": "Basculin White",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "배쓰나이 (특수폼 #2567)",
+        "isForm": 1,
+        "token": "WHITESTRIPED"
+      },
+      "after": {
+        "ko": "배쓰나이 (백색근의 모습)",
+        "isForm": 1,
+        "token": "WHITESTRIPED"
+      }
+    },
+    {
+      "id": 555,
+      "en": "Darmanitan",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "불비달마",
+        "isForm": 0,
+        "token": ""
+      },
+      "after": {
+        "ko": "불비달마 (노말모드)",
+        "isForm": 0,
+        "token": ""
+      }
+    },
+    {
+      "id": 1668,
+      "en": "Darmanitan Zen",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "불비달마 (특수폼 #1668)",
+        "isForm": 1,
+        "token": "ZEN_MODE"
+      },
+      "after": {
+        "ko": "불비달마 (달마모드)",
+        "isForm": 1,
+        "token": "ZEN_MODE"
+      }
+    },
+    {
+      "id": 1669,
+      "en": "Darmanitan Zen Mode Galarian",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "불비달마 (특수폼 #1669)",
+        "isForm": 1,
+        "token": "ZEN_MODE_GALARIAN"
+      },
+      "after": {
+        "ko": "불비달마 (가라르의 모습 / 달마모드)",
+        "isForm": 1,
+        "token": "ZEN_MODE_GALARIAN"
+      }
+    },
+    {
+      "id": 1683,
+      "en": "Genesect Douse Drive",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "게노세크트 (특수폼 #1683)",
+        "isForm": 1,
+        "token": "DOUSE_DRIVE"
+      },
+      "after": {
+        "ko": "게노세크트 (아쿠아카세트)",
+        "isForm": 1,
+        "token": "DOUSE_DRIVE"
+      }
+    },
+    {
+      "id": 1684,
+      "en": "Genesect Shock Drive",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "게노세크트 (특수폼 #1684)",
+        "isForm": 1,
+        "token": "SHOCK_DRIVE"
+      },
+      "after": {
+        "ko": "게노세크트 (번개카세트)",
+        "isForm": 1,
+        "token": "SHOCK_DRIVE"
+      }
+    },
+    {
+      "id": 1685,
+      "en": "Genesect Burn Drive",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "게노세크트 (특수폼 #1685)",
+        "isForm": 1,
+        "token": "BURN_DRIVE"
+      },
+      "after": {
+        "ko": "게노세크트 (블레이즈카세트)",
+        "isForm": 1,
+        "token": "BURN_DRIVE"
+      }
+    },
+    {
+      "id": 1686,
+      "en": "Genesect Chill Drive",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "게노세크트 (특수폼 #1686)",
+        "isForm": 1,
+        "token": "CHILL_DRIVE"
+      },
+      "after": {
+        "ko": "게노세크트 (프리즈카세트)",
+        "isForm": 1,
+        "token": "CHILL_DRIVE"
+      }
+    },
+    {
+      "id": 1687,
+      "en": "Greninja Battle Bond",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "개굴닌자 (특수폼 #1687)",
+        "isForm": 1,
+        "token": "BATTLE_BOND"
+      },
+      "after": {
+        "ko": "개굴닌자 (유대변화)",
+        "isForm": 1,
+        "token": "BATTLE_BOND"
+      }
+    },
+    {
+      "id": 1688,
+      "en": "Ash-Greninja",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "개굴닌자 (지우폼)",
+        "isForm": 1,
+        "token": "ASH"
+      },
+      "after": {
+        "ko": "지우개굴닌자",
+        "isForm": 1,
+        "token": "ASH"
+      }
+    },
+    {
+      "id": 1689,
+      "en": "Vivillon Polar",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1689)",
+        "isForm": 1,
+        "token": "POLAR"
+      },
+      "after": {
+        "ko": "비비용 (설국의 모양)",
+        "isForm": 1,
+        "token": "POLAR"
+      }
+    },
+    {
+      "id": 1690,
+      "en": "Vivillon Tundra",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1690)",
+        "isForm": 1,
+        "token": "TUNDRA"
+      },
+      "after": {
+        "ko": "비비용 (설원의 모양)",
+        "isForm": 1,
+        "token": "TUNDRA"
+      }
+    },
+    {
+      "id": 1691,
+      "en": "Vivillon Continental",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1691)",
+        "isForm": 1,
+        "token": "CONTINENTAL"
+      },
+      "after": {
+        "ko": "비비용 (대륙의 모양)",
+        "isForm": 1,
+        "token": "CONTINENTAL"
+      }
+    },
+    {
+      "id": 1692,
+      "en": "Vivillon Gardens",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1692)",
+        "isForm": 1,
+        "token": "GARDEN"
+      },
+      "after": {
+        "ko": "비비용 (정원의 모양)",
+        "isForm": 1,
+        "token": "GARDEN"
+      }
+    },
+    {
+      "id": 1693,
+      "en": "Vivillon Elegant",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1693)",
+        "isForm": 1,
+        "token": "ELEGANT"
+      },
+      "after": {
+        "ko": "비비용 (우아한 모양)",
+        "isForm": 1,
+        "token": "ELEGANT"
+      }
+    },
+    {
+      "id": 1694,
+      "en": "Vivillon Meadow",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1694)",
+        "isForm": 1,
+        "token": "MEADOW"
+      },
+      "after": {
+        "ko": "비비용 (화원의 모양)",
+        "isForm": 1,
+        "token": "MEADOW"
+      }
+    },
+    {
+      "id": 1695,
+      "en": "Vivillon Modern",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1695)",
+        "isForm": 1,
+        "token": "MODERN"
+      },
+      "after": {
+        "ko": "비비용 (모던한 모양)",
+        "isForm": 1,
+        "token": "MODERN"
+      }
+    },
+    {
+      "id": 1696,
+      "en": "Vivillon Marine",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1696)",
+        "isForm": 1,
+        "token": "MARINE"
+      },
+      "after": {
+        "ko": "비비용 (마린의 모양)",
+        "isForm": 1,
+        "token": "MARINE"
+      }
+    },
+    {
+      "id": 1697,
+      "en": "Vivillon Archipelago",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1697)",
+        "isForm": 1,
+        "token": "ARCHIPELAGO"
+      },
+      "after": {
+        "ko": "비비용 (군도의 모양)",
+        "isForm": 1,
+        "token": "ARCHIPELAGO"
+      }
+    },
+    {
+      "id": 1698,
+      "en": "Vivillon High Plains",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1698)",
+        "isForm": 1,
+        "token": "HIGH_PLAINS"
+      },
+      "after": {
+        "ko": "비비용 (황야의 모양)",
+        "isForm": 1,
+        "token": "HIGH_PLAINS"
+      }
+    },
+    {
+      "id": 1699,
+      "en": "Vivillon Sandstorm",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1699)",
+        "isForm": 1,
+        "token": "SANDSTORM"
+      },
+      "after": {
+        "ko": "비비용 (사진의 모양)",
+        "isForm": 1,
+        "token": "SANDSTORM"
+      }
+    },
+    {
+      "id": 1700,
+      "en": "Vivillon River",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1700)",
+        "isForm": 1,
+        "token": "RIVER"
+      },
+      "after": {
+        "ko": "비비용 (대하의 모양)",
+        "isForm": 1,
+        "token": "RIVER"
+      }
+    },
+    {
+      "id": 1701,
+      "en": "Vivillon Monsoon",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1701)",
+        "isForm": 1,
+        "token": "MONSOON"
+      },
+      "after": {
+        "ko": "비비용 (스콜의 모양)",
+        "isForm": 1,
+        "token": "MONSOON"
+      }
+    },
+    {
+      "id": 1702,
+      "en": "Vivillon Savanna",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1702)",
+        "isForm": 1,
+        "token": "SAVANNA"
+      },
+      "after": {
+        "ko": "비비용 (사바나의 모양)",
+        "isForm": 1,
+        "token": "SAVANNA"
+      }
+    },
+    {
+      "id": 1703,
+      "en": "Vivillon Sun",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (태양폼)",
+        "isForm": 1,
+        "token": "SUN"
+      },
+      "after": {
+        "ko": "비비용 (태양의 모양)",
+        "isForm": 1,
+        "token": "SUN"
+      }
+    },
+    {
+      "id": 1704,
+      "en": "Vivillon Ocean",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1704)",
+        "isForm": 1,
+        "token": "OCEAN"
+      },
+      "after": {
+        "ko": "비비용 (오션의 모양)",
+        "isForm": 1,
+        "token": "OCEAN"
+      }
+    },
+    {
+      "id": 1705,
+      "en": "Vivillon Jungle",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1705)",
+        "isForm": 1,
+        "token": "JUNGLE"
+      },
+      "after": {
+        "ko": "비비용 (정글의 모양)",
+        "isForm": 1,
+        "token": "JUNGLE"
+      }
+    },
+    {
+      "id": 1706,
+      "en": "Vivillon Fancy",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1706)",
+        "isForm": 1,
+        "token": "FANCY"
+      },
+      "after": {
+        "ko": "비비용 (팬시한 모양)",
+        "isForm": 1,
+        "token": "FANCY"
+      }
+    },
+    {
+      "id": 1707,
+      "en": "Vivillon Pokéball",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "비비용 (특수폼 #1707)",
+        "isForm": 1,
+        "token": "POKE_BALL"
+      },
+      "after": {
+        "ko": "비비용 (볼의 모양)",
+        "isForm": 1,
+        "token": "POKE_BALL"
+      }
+    },
+    {
+      "id": 1708,
+      "en": "Flabebe Yellow",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "플라베베 (특수폼 #1708)",
+        "isForm": 1,
+        "token": "YELLOW_FLOWER"
+      },
+      "after": {
+        "ko": "플라베베 (노란 꽃)",
+        "isForm": 1,
+        "token": "YELLOW_FLOWER"
+      }
+    },
+    {
+      "id": 1709,
+      "en": "Flabebe Orange",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "플라베베 (특수폼 #1709)",
+        "isForm": 1,
+        "token": "ORANGE_FLOWER"
+      },
+      "after": {
+        "ko": "플라베베 (오렌지색 꽃)",
+        "isForm": 1,
+        "token": "ORANGE_FLOWER"
+      }
+    },
+    {
+      "id": 1710,
+      "en": "Flabebe Blue",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "플라베베 (특수폼 #1710)",
+        "isForm": 1,
+        "token": "BLUE_FLOWER"
+      },
+      "after": {
+        "ko": "플라베베 (파란 꽃)",
+        "isForm": 1,
+        "token": "BLUE_FLOWER"
+      }
+    },
+    {
+      "id": 1711,
+      "en": "Flabebe White",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "플라베베 (특수폼 #1711)",
+        "isForm": 1,
+        "token": "WHITE_FLOWER"
+      },
+      "after": {
+        "ko": "플라베베 (하얀 꽃)",
+        "isForm": 1,
+        "token": "WHITE_FLOWER"
+      }
+    },
+    {
+      "id": 1712,
+      "en": "Floette Yellow",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "플라엣테 (특수폼 #1712)",
+        "isForm": 1,
+        "token": "YELLOW_FLOWER"
+      },
+      "after": {
+        "ko": "플라엣테 (노란 꽃)",
+        "isForm": 1,
+        "token": "YELLOW_FLOWER"
+      }
+    },
+    {
+      "id": 1713,
+      "en": "Floette Orange",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "플라엣테 (특수폼 #1713)",
+        "isForm": 1,
+        "token": "ORANGE_FLOWER"
+      },
+      "after": {
+        "ko": "플라엣테 (오렌지색 꽃)",
+        "isForm": 1,
+        "token": "ORANGE_FLOWER"
+      }
+    },
+    {
+      "id": 1714,
+      "en": "Floette Blue",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "플라엣테 (특수폼 #1714)",
+        "isForm": 1,
+        "token": "BLUE_FLOWER"
+      },
+      "after": {
+        "ko": "플라엣테 (파란 꽃)",
+        "isForm": 1,
+        "token": "BLUE_FLOWER"
+      }
+    },
+    {
+      "id": 1715,
+      "en": "Floette White",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "플라엣테 (특수폼 #1715)",
+        "isForm": 1,
+        "token": "WHITE_FLOWER"
+      },
+      "after": {
+        "ko": "플라엣테 (하얀 꽃)",
+        "isForm": 1,
+        "token": "WHITE_FLOWER"
+      }
+    },
+    {
+      "id": 1716,
+      "en": "Floette Eternal Flower",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "플라엣테 (특수폼 #1716)",
+        "isForm": 1,
+        "token": "ETERNAL_FLOWER"
+      },
+      "after": {
+        "ko": "플라엣테 (영원의 꽃)",
+        "isForm": 1,
+        "token": "ETERNAL_FLOWER"
+      }
+    },
+    {
+      "id": 1717,
+      "en": "Florges Yellow",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "플라제스 (특수폼 #1717)",
+        "isForm": 1,
+        "token": "YELLOW_FLOWER"
+      },
+      "after": {
+        "ko": "플라제스 (노란 꽃)",
+        "isForm": 1,
+        "token": "YELLOW_FLOWER"
+      }
+    },
+    {
+      "id": 1718,
+      "en": "Florges Orange",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "플라제스 (특수폼 #1718)",
+        "isForm": 1,
+        "token": "ORANGE_FLOWER"
+      },
+      "after": {
+        "ko": "플라제스 (오렌지색 꽃)",
+        "isForm": 1,
+        "token": "ORANGE_FLOWER"
+      }
+    },
+    {
+      "id": 1719,
+      "en": "Florges Blue",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "플라제스 (특수폼 #1719)",
+        "isForm": 1,
+        "token": "BLUE_FLOWER"
+      },
+      "after": {
+        "ko": "플라제스 (파란 꽃)",
+        "isForm": 1,
+        "token": "BLUE_FLOWER"
+      }
+    },
+    {
+      "id": 1720,
+      "en": "Florges White",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "플라제스 (특수폼 #1720)",
+        "isForm": 1,
+        "token": "WHITE_FLOWER"
+      },
+      "after": {
+        "ko": "플라제스 (하얀 꽃)",
+        "isForm": 1,
+        "token": "WHITE_FLOWER"
+      }
+    },
+    {
+      "id": 1721,
+      "en": "Furfrou Heart",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "트리미앙 (특수폼 #1721)",
+        "isForm": 1,
+        "token": "HEART_TRIM"
+      },
+      "after": {
+        "ko": "트리미앙 (하트컷)",
+        "isForm": 1,
+        "token": "HEART_TRIM"
+      }
+    },
+    {
+      "id": 1722,
+      "en": "Furfrou Star",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "트리미앙 (특수폼 #1722)",
+        "isForm": 1,
+        "token": "STAR_TRIM"
+      },
+      "after": {
+        "ko": "트리미앙 (스타컷)",
+        "isForm": 1,
+        "token": "STAR_TRIM"
+      }
+    },
+    {
+      "id": 1723,
+      "en": "Furfrou Diamond",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "트리미앙 (특수폼 #1723)",
+        "isForm": 1,
+        "token": "DIAMOND_TRIM"
+      },
+      "after": {
+        "ko": "트리미앙 (다이아컷)",
+        "isForm": 1,
+        "token": "DIAMOND_TRIM"
+      }
+    },
+    {
+      "id": 1724,
+      "en": "Furfrou Debutante",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "트리미앙 (특수폼 #1724)",
+        "isForm": 1,
+        "token": "DEBUTANTE_TRIM"
+      },
+      "after": {
+        "ko": "트리미앙 (레이디컷)",
+        "isForm": 1,
+        "token": "DEBUTANTE_TRIM"
+      }
+    },
+    {
+      "id": 1725,
+      "en": "Furfrou Matron",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "트리미앙 (특수폼 #1725)",
+        "isForm": 1,
+        "token": "MATRON_TRIM"
+      },
+      "after": {
+        "ko": "트리미앙 (마담컷)",
+        "isForm": 1,
+        "token": "MATRON_TRIM"
+      }
+    },
+    {
+      "id": 1726,
+      "en": "Furfrou Dandy",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "트리미앙 (특수폼 #1726)",
+        "isForm": 1,
+        "token": "DANDY_TRIM"
+      },
+      "after": {
+        "ko": "트리미앙 (젠틀컷)",
+        "isForm": 1,
+        "token": "DANDY_TRIM"
+      }
+    },
+    {
+      "id": 1727,
+      "en": "Furfrou La Reine",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "트리미앙 (특수폼 #1727)",
+        "isForm": 1,
+        "token": "LA_REINE_TRIM"
+      },
+      "after": {
+        "ko": "트리미앙 (퀸컷)",
+        "isForm": 1,
+        "token": "LA_REINE_TRIM"
+      }
+    },
+    {
+      "id": 1728,
+      "en": "Furfrou Kabuki",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "트리미앙 (특수폼 #1728)",
+        "isForm": 1,
+        "token": "KABUKI_TRIM"
+      },
+      "after": {
+        "ko": "트리미앙 (가부키컷)",
+        "isForm": 1,
+        "token": "KABUKI_TRIM"
+      }
+    },
+    {
+      "id": 1729,
+      "en": "Furfrou Pharaoh",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "트리미앙 (특수폼 #1729)",
+        "isForm": 1,
+        "token": "PHARAOH_TRIM"
+      },
+      "after": {
+        "ko": "트리미앙 (킹덤컷)",
+        "isForm": 1,
+        "token": "PHARAOH_TRIM"
+      }
+    },
+    {
+      "id": 1738,
+      "en": "Xerneas Active",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "제르네아스 (특수폼 #1738)",
+        "isForm": 1,
+        "token": "ACTIVE"
+      },
+      "after": {
+        "ko": "제르네아스 (액티브모드)",
+        "isForm": 1,
+        "token": "ACTIVE"
+      }
+    },
+    {
+      "id": 1739,
+      "en": "Zygarde 10",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "지가르데 (10폼)",
+        "isForm": 1,
+        "token": "10"
+      },
+      "after": {
+        "ko": "지가르데 (10%폼)",
+        "isForm": 1,
+        "token": "10"
+      }
+    },
+    {
+      "id": 1740,
+      "en": "Zygarde 10 Power Construct",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "지가르데 (특수폼 #1740)",
+        "isForm": 1,
+        "token": "10_POWER_CONSTRUCT"
+      },
+      "after": {
+        "ko": "지가르데 (10%폼)",
+        "isForm": 1,
+        "token": "10_POWER_CONSTRUCT"
+      }
+    },
+    {
+      "id": 1741,
+      "en": "Zygarde 50 Power Construct",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "지가르데 (특수폼 #1741)",
+        "isForm": 1,
+        "token": "50_POWER_CONSTRUCT"
+      },
+      "after": {
+        "ko": "지가르데 (50%폼)",
+        "isForm": 1,
+        "token": "50_POWER_CONSTRUCT"
+      }
+    },
+    {
+      "id": 1747,
+      "en": "Rockruff Own Tempo",
+      "sourceClass": "OFFICIAL_TERM",
+      "before": {
+        "ko": "암멍이 (특수폼 #1747)",
+        "isForm": 1,
+        "token": "OWN_TEMPO"
+      },
+      "after": {
+        "ko": "암멍이 (마이페이스)",
+        "isForm": 1,
+        "token": "OWN_TEMPO"
+      }
+    },
+    {
+      "id": 1751,
+      "en": "Silvally Fighting",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1751)",
+        "isForm": 1,
+        "token": "FIGHTING"
+      },
+      "after": {
+        "ko": "실버디 (격투타입)",
+        "isForm": 1,
+        "token": "FIGHTING"
+      }
+    },
+    {
+      "id": 1752,
+      "en": "Silvally Flying",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1752)",
+        "isForm": 1,
+        "token": "FLYING"
+      },
+      "after": {
+        "ko": "실버디 (비행타입)",
+        "isForm": 1,
+        "token": "FLYING"
+      }
+    },
+    {
+      "id": 1753,
+      "en": "Silvally Poison",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1753)",
+        "isForm": 1,
+        "token": "POISON"
+      },
+      "after": {
+        "ko": "실버디 (독타입)",
+        "isForm": 1,
+        "token": "POISON"
+      }
+    },
+    {
+      "id": 1754,
+      "en": "Silvally Ground",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1754)",
+        "isForm": 1,
+        "token": "GROUND"
+      },
+      "after": {
+        "ko": "실버디 (땅타입)",
+        "isForm": 1,
+        "token": "GROUND"
+      }
+    },
+    {
+      "id": 1755,
+      "en": "Silvally Rock",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1755)",
+        "isForm": 1,
+        "token": "ROCK"
+      },
+      "after": {
+        "ko": "실버디 (바위타입)",
+        "isForm": 1,
+        "token": "ROCK"
+      }
+    },
+    {
+      "id": 1756,
+      "en": "Silvally Bug",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (BUG폼)",
+        "isForm": 1,
+        "token": "BUG"
+      },
+      "after": {
+        "ko": "실버디 (벌레타입)",
+        "isForm": 1,
+        "token": "BUG"
+      }
+    },
+    {
+      "id": 1757,
+      "en": "Silvally Ghost",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1757)",
+        "isForm": 1,
+        "token": "GHOST"
+      },
+      "after": {
+        "ko": "실버디 (고스트타입)",
+        "isForm": 1,
+        "token": "GHOST"
+      }
+    },
+    {
+      "id": 1758,
+      "en": "Silvally Steel",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1758)",
+        "isForm": 1,
+        "token": "STEEL"
+      },
+      "after": {
+        "ko": "실버디 (강철타입)",
+        "isForm": 1,
+        "token": "STEEL"
+      }
+    },
+    {
+      "id": 1759,
+      "en": "Silvally Fire",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1759)",
+        "isForm": 1,
+        "token": "FIRE"
+      },
+      "after": {
+        "ko": "실버디 (불꽃타입)",
+        "isForm": 1,
+        "token": "FIRE"
+      }
+    },
+    {
+      "id": 1760,
+      "en": "Silvally Water",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1760)",
+        "isForm": 1,
+        "token": "WATER"
+      },
+      "after": {
+        "ko": "실버디 (물타입)",
+        "isForm": 1,
+        "token": "WATER"
+      }
+    },
+    {
+      "id": 1761,
+      "en": "Silvally Grass",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1761)",
+        "isForm": 1,
+        "token": "GRASS"
+      },
+      "after": {
+        "ko": "실버디 (풀타입)",
+        "isForm": 1,
+        "token": "GRASS"
+      }
+    },
+    {
+      "id": 1762,
+      "en": "Silvally Electric",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1762)",
+        "isForm": 1,
+        "token": "ELECTRIC"
+      },
+      "after": {
+        "ko": "실버디 (전기타입)",
+        "isForm": 1,
+        "token": "ELECTRIC"
+      }
+    },
+    {
+      "id": 1763,
+      "en": "Silvally Psychic",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1763)",
+        "isForm": 1,
+        "token": "PSYCHIC"
+      },
+      "after": {
+        "ko": "실버디 (에스퍼타입)",
+        "isForm": 1,
+        "token": "PSYCHIC"
+      }
+    },
+    {
+      "id": 1764,
+      "en": "Silvally Ice",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (ICE폼)",
+        "isForm": 1,
+        "token": "ICE"
+      },
+      "after": {
+        "ko": "실버디 (얼음타입)",
+        "isForm": 1,
+        "token": "ICE"
+      }
+    },
+    {
+      "id": 1765,
+      "en": "Silvally Dragon",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1765)",
+        "isForm": 1,
+        "token": "DRAGON"
+      },
+      "after": {
+        "ko": "실버디 (드래곤타입)",
+        "isForm": 1,
+        "token": "DRAGON"
+      }
+    },
+    {
+      "id": 1766,
+      "en": "Silvally Dark",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1766)",
+        "isForm": 1,
+        "token": "DARK"
+      },
+      "after": {
+        "ko": "실버디 (악타입)",
+        "isForm": 1,
+        "token": "DARK"
+      }
+    },
+    {
+      "id": 1767,
+      "en": "Silvally Fairy",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "실버디 (특수폼 #1767)",
+        "isForm": 1,
+        "token": "FAIRY"
+      },
+      "after": {
+        "ko": "실버디 (페어리타입)",
+        "isForm": 1,
+        "token": "FAIRY"
+      }
+    },
+    {
+      "id": 1785,
+      "en": "Magearna Original",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "마기아나 (특수폼 #1785)",
+        "isForm": 1,
+        "token": "ORIGINAL_COLOR"
+      },
+      "after": {
+        "ko": "마기아나 (500년 전의 색)",
+        "isForm": 1,
+        "token": "ORIGINAL_COLOR"
+      }
+    },
+    {
+      "id": 1786,
+      "en": "Cramorant Gulping",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "윽우지 (특수폼 #1786)",
+        "isForm": 1,
+        "token": "GULPING"
+      },
+      "after": {
+        "ko": "윽우지 (그대로 삼킨 모습)",
+        "isForm": 1,
+        "token": "GULPING"
+      }
+    },
+    {
+      "id": 1787,
+      "en": "Cramorant Gorging",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "윽우지 (특수폼 #1787)",
+        "isForm": 1,
+        "token": "GORGING"
+      },
+      "after": {
+        "ko": "윽우지 (통째로 삼킨 모습)",
+        "isForm": 1,
+        "token": "GORGING"
+      }
+    },
+    {
+      "id": 1789,
+      "en": "Sinistea Antique",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "데인차 (특수폼 #1789)",
+        "isForm": 1,
+        "token": "ANTIQUE"
+      },
+      "after": {
+        "ko": "데인차 (진작폼)",
+        "isForm": 1,
+        "token": "ANTIQUE"
+      }
+    },
+    {
+      "id": 1790,
+      "en": "Polteageist Antique",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "포트데스 (특수폼 #1790)",
+        "isForm": 1,
+        "token": "ANTIQUE"
+      },
+      "after": {
+        "ko": "포트데스 (진작폼)",
+        "isForm": 1,
+        "token": "ANTIQUE"
+      }
+    },
+    {
+      "id": 1791,
+      "en": "Alcremie Ruby",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "마휘핑 (특수폼 #1791)",
+        "isForm": 1,
+        "token": "RUBY_CREAM"
+      },
+      "after": {
+        "ko": "마휘핑 (밀키루비)",
+        "isForm": 1,
+        "token": "RUBY_CREAM"
+      }
+    },
+    {
+      "id": 1792,
+      "en": "Alcremie Matcha",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "마휘핑 (특수폼 #1792)",
+        "isForm": 1,
+        "token": "MATCHA_CREAM"
+      },
+      "after": {
+        "ko": "마휘핑 (밀키말차)",
+        "isForm": 1,
+        "token": "MATCHA_CREAM"
+      }
+    },
+    {
+      "id": 1793,
+      "en": "Alcremie Mint",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "마휘핑 (특수폼 #1793)",
+        "isForm": 1,
+        "token": "MINT_CREAM"
+      },
+      "after": {
+        "ko": "마휘핑 (밀키민트)",
+        "isForm": 1,
+        "token": "MINT_CREAM"
+      }
+    },
+    {
+      "id": 1794,
+      "en": "Alcremie Lemon",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "마휘핑 (특수폼 #1794)",
+        "isForm": 1,
+        "token": "LEMON_CREAM"
+      },
+      "after": {
+        "ko": "마휘핑 (밀키레몬)",
+        "isForm": 1,
+        "token": "LEMON_CREAM"
+      }
+    },
+    {
+      "id": 1795,
+      "en": "Alcremie Salted",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "마휘핑 (특수폼 #1795)",
+        "isForm": 1,
+        "token": "SALTED_CREAM"
+      },
+      "after": {
+        "ko": "마휘핑 (밀키솔트)",
+        "isForm": 1,
+        "token": "SALTED_CREAM"
+      }
+    },
+    {
+      "id": 1796,
+      "en": "Alcremie Ruby Swirl",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "마휘핑 (특수폼 #1796)",
+        "isForm": 1,
+        "token": "RUBY_SWIRL"
+      },
+      "after": {
+        "ko": "마휘핑 (루비믹스)",
+        "isForm": 1,
+        "token": "RUBY_SWIRL"
+      }
+    },
+    {
+      "id": 1797,
+      "en": "Alcremie Caramel",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "마휘핑 (특수폼 #1797)",
+        "isForm": 1,
+        "token": "CARAMEL_SWIRL"
+      },
+      "after": {
+        "ko": "마휘핑 (캐러멜믹스)",
+        "isForm": 1,
+        "token": "CARAMEL_SWIRL"
+      }
+    },
+    {
+      "id": 1798,
+      "en": "Alcremie Rainbow",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "마휘핑 (특수폼 #1798)",
+        "isForm": 1,
+        "token": "RAINBOW_SWIRL"
+      },
+      "after": {
+        "ko": "마휘핑 (트리플믹스)",
+        "isForm": 1,
+        "token": "RAINBOW_SWIRL"
+      }
+    },
+    {
+      "id": 1799,
+      "en": "Eiscue Noice Face",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "빙큐보 (특수폼 #1799)",
+        "isForm": 1,
+        "token": "NOICE_FACE"
+      },
+      "after": {
+        "ko": "빙큐보 (나이스페이스)",
+        "isForm": 1,
+        "token": "NOICE_FACE"
+      }
+    },
+    {
+      "id": 1806,
+      "en": "Zarude Dada",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "자루도 (특수폼 #1806)",
+        "isForm": 1,
+        "token": "DADA"
+      },
+      "after": {
+        "ko": "아빠 자루도",
+        "isForm": 1,
+        "token": "DADA"
+      }
+    },
+    {
+      "id": 1825,
+      "en": "Tauros Paldean Aqua Breed",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "켄타로스 (특수폼 #1825)",
+        "isForm": 1,
+        "token": "PALDEAN_AQUA_BREED"
+      },
+      "after": {
+        "ko": "켄타로스 (팔데아의 모습 / 워터종)",
+        "isForm": 1,
+        "token": "PALDEAN_AQUA_BREED"
+      }
+    },
+    {
+      "id": 1826,
+      "en": "Tauros Paldean Blaze Breed",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "켄타로스 (특수폼 #1826)",
+        "isForm": 1,
+        "token": "PALDEAN_BLAZE_BREED"
+      },
+      "after": {
+        "ko": "켄타로스 (팔데아의 모습 / 블레이즈종)",
+        "isForm": 1,
+        "token": "PALDEAN_BLAZE_BREED"
+      }
+    },
+    {
+      "id": 1827,
+      "en": "Tauros Paldean Combat Breed",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "켄타로스 (특수폼 #1827)",
+        "isForm": 1,
+        "token": "PALDEAN_COMBAT_BREED"
+      },
+      "after": {
+        "ko": "켄타로스 (팔데아의 모습 / 컴뱃종)",
+        "isForm": 1,
+        "token": "PALDEAN_COMBAT_BREED"
+      }
+    },
+    {
+      "id": 1831,
+      "en": "Maushold Four",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "파밀리쥐 (특수폼 #1831)",
+        "isForm": 1,
+        "token": "FOUR"
+      },
+      "after": {
+        "ko": "파밀리쥐 (네 식구)",
+        "isForm": 1,
+        "token": "FOUR"
+      }
+    },
+    {
+      "id": 1835,
+      "en": "Squawkabilly Green Plumage",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "시비꼬 (특수폼 #1835)",
+        "isForm": 1,
+        "token": "GREEN_PLUMAGE"
+      },
+      "after": {
+        "ko": "시비꼬 (그린 페더)",
+        "isForm": 1,
+        "token": "GREEN_PLUMAGE"
+      }
+    },
+    {
+      "id": 1836,
+      "en": "Squawkabilly Blue",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "시비꼬 (특수폼 #1836)",
+        "isForm": 1,
+        "token": "BLUE_PLUMAGE"
+      },
+      "after": {
+        "ko": "시비꼬 (블루 페더)",
+        "isForm": 1,
+        "token": "BLUE_PLUMAGE"
+      }
+    },
+    {
+      "id": 1837,
+      "en": "Squawkabilly Yellow",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "시비꼬 (특수폼 #1837)",
+        "isForm": 1,
+        "token": "YELLOW_PLUMAGE"
+      },
+      "after": {
+        "ko": "시비꼬 (옐로 페더)",
+        "isForm": 1,
+        "token": "YELLOW_PLUMAGE"
+      }
+    },
+    {
+      "id": 1838,
+      "en": "Squawkabilly White",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "시비꼬 (특수폼 #1838)",
+        "isForm": 1,
+        "token": "WHITE_PLUMAGE"
+      },
+      "after": {
+        "ko": "시비꼬 (화이트 페더)",
+        "isForm": 1,
+        "token": "WHITE_PLUMAGE"
+      }
+    },
+    {
+      "id": 1849,
+      "en": "Basculegion F",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "대쓰여너 (F폼)",
+        "isForm": 1,
+        "token": "F"
+      },
+      "after": {
+        "ko": "대쓰여너 (암컷의 모습)",
+        "isForm": 1,
+        "token": "F"
+      }
+    },
+    {
+      "id": 1892,
+      "en": "Absol Mega Z",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "앱솔 (메가 Z폼)",
+        "isForm": 1,
+        "token": "MEGA_Z"
+      },
+      "after": {
+        "ko": "메가앱솔Z",
+        "isForm": 1,
+        "token": "MEGA_Z"
+      }
+    },
+    {
+      "id": 1894,
+      "en": "Garchomp Mega Z",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "한카리아스 (메가 Z폼)",
+        "isForm": 1,
+        "token": "MEGA_Z"
+      },
+      "after": {
+        "ko": "메가한카리아스Z",
+        "isForm": 1,
+        "token": "MEGA_Z"
+      }
+    },
+    {
+      "id": 2159,
+      "en": "Lucario Mega Z",
+      "sourceClass": "OFFICIAL_KO",
+      "before": {
+        "ko": "루카리오 (메가 Z폼)",
+        "isForm": 1,
+        "token": "MEGA_Z"
+      },
+      "after": {
+        "ko": "메가루카리오Z",
+        "isForm": 1,
+        "token": "MEGA_Z"
+      }
+    },
+    {
+      "id": 2191,
+      "en": "Charizard Mega Z",
+      "sourceClass": "PATTERN_KO",
+      "before": {
+        "ko": "리자몽 (메가 Z폼)",
+        "isForm": 1,
+        "token": "MEGA_Z"
+      },
+      "after": {
+        "ko": "메가리자몽Z",
+        "isForm": 1,
+        "token": "MEGA_Z"
+      }
+    },
+    {
+      "id": 2146,
+      "en": "Alakazam Mega Redux",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "후딘 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      },
+      "after": {
+        "ko": "메가후딘 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      }
+    },
+    {
+      "id": 2147,
+      "en": "Beedrill Mega Redux",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "독침붕 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      },
+      "after": {
+        "ko": "메가독침붕 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      }
+    },
+    {
+      "id": 2148,
+      "en": "Machamp Mega Redux",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "괴력몬 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      },
+      "after": {
+        "ko": "메가괴력몬 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      }
+    },
+    {
+      "id": 2149,
+      "en": "Skarmory Mega",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "무장조 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      },
+      "after": {
+        "ko": "메가무장조 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      }
+    },
+    {
+      "id": 2150,
+      "en": "Arcanine Mega",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "윈디 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      },
+      "after": {
+        "ko": "메가윈디 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      }
+    },
+    {
+      "id": 2151,
+      "en": "Garchomp Mega Redux",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "한카리아스 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      },
+      "after": {
+        "ko": "메가한카리아스 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      }
+    },
+    {
+      "id": 2152,
+      "en": "Mawile Mega Redux",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "입치트 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      },
+      "after": {
+        "ko": "메가입치트 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      }
+    },
+    {
+      "id": 2153,
+      "en": "Sableye Mega Redux",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "깜까미 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      },
+      "after": {
+        "ko": "메가깜까미 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      }
+    },
+    {
+      "id": 2154,
+      "en": "Houndoom Mega Redux",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "헬가 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      },
+      "after": {
+        "ko": "메가헬가 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      }
+    },
+    {
+      "id": 2562,
+      "en": "Tyranitar Mega Redux",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "마기라스 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      },
+      "after": {
+        "ko": "메가마기라스 (리덕스폼)",
+        "isForm": 1,
+        "token": "MEGA_REDUX"
+      }
+    },
+    {
+      "id": 2166,
+      "en": "Rapidash Mega Galarian",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "날쌩마 (메가 가라르의 모습폼)",
+        "isForm": 1,
+        "token": "MEGA_GALARIAN"
+      },
+      "after": {
+        "ko": "메가날쌩마 (가라르의 모습)",
+        "isForm": 1,
+        "token": "MEGA_GALARIAN"
+      }
+    },
+    {
+      "id": 2229,
+      "en": "Slowbro Mega Galarian",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "야도란 (메가 가라르의 모습폼)",
+        "isForm": 1,
+        "token": "MEGA_GALARIAN"
+      },
+      "after": {
+        "ko": "메가야도란 (가라르의 모습)",
+        "isForm": 1,
+        "token": "MEGA_GALARIAN"
+      }
+    },
+    {
+      "id": 2230,
+      "en": "Slowking Mega Galarian",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "야도킹 (메가 가라르의 모습폼)",
+        "isForm": 1,
+        "token": "MEGA_GALARIAN"
+      },
+      "after": {
+        "ko": "메가야도킹 (가라르의 모습)",
+        "isForm": 1,
+        "token": "MEGA_GALARIAN"
+      }
+    },
+    {
+      "id": 1068,
+      "en": "Burmy Eterna",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "도롱충이 (특수폼 #1068)",
+        "isForm": 1,
+        "token": "ETERNA"
+      },
+      "after": {
+        "ko": "도롱충이 (에테르나폼)",
+        "isForm": 1,
+        "token": "ETERNA"
+      }
+    },
+    {
+      "id": 1846,
+      "en": "Polartic Bluemoon",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "툰폴라 (특수폼 #1846)",
+        "isForm": 1,
+        "token": "BLUEMOON"
+      },
+      "after": {
+        "ko": "툰폴라 (블루문폼)",
+        "isForm": 1,
+        "token": "BLUEMOON"
+      }
+    },
+    {
+      "id": 1851,
+      "en": "Hydroar F",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "하이드레오 (F폼)",
+        "isForm": 1,
+        "token": "F"
+      },
+      "after": {
+        "ko": "하이드레오 (암컷)",
+        "isForm": 1,
+        "token": "F"
+      }
+    },
+    {
+      "id": 1855,
+      "en": "Mimikyu Primal",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "따라큐 (특수폼 #1855)",
+        "isForm": 1,
+        "token": "RAYQUAZA_BUSTED"
+      },
+      "after": {
+        "ko": "원시따라큐",
+        "isForm": 1,
+        "token": "RAYQUAZA_BUSTED"
+      }
+    },
+    {
+      "id": 1856,
+      "en": "Slaking Mega Ape Shift",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "게을킹 (특수폼 #1856)",
+        "isForm": 1,
+        "token": "MEGA_APE_SHIFT"
+      },
+      "after": {
+        "ko": "메가게을킹 (에이프 시프트)",
+        "isForm": 1,
+        "token": "MEGA_APE_SHIFT"
+      }
+    },
+    {
+      "id": 1858,
+      "en": "Castform Foggy",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "캐스퐁 (특수폼 #1858)",
+        "isForm": 1,
+        "token": "FOGGY"
+      },
+      "after": {
+        "ko": "캐스퐁 (안개의 모습)",
+        "isForm": 1,
+        "token": "FOGGY"
+      }
+    },
+    {
+      "id": 1860,
+      "en": "Chesnaught Battle Bond",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "브리가론 (특수폼 #1860)",
+        "isForm": 1,
+        "token": "BATTLE_BOND"
+      },
+      "after": {
+        "ko": "브리가론 (유대변화)",
+        "isForm": 1,
+        "token": "BATTLE_BOND"
+      }
+    },
+    {
+      "id": 1861,
+      "en": "Clemont-Chesnaught",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "브리가론 (특수폼 #1861)",
+        "isForm": 1,
+        "token": "CLEMONT"
+      },
+      "after": {
+        "ko": "시트론 브리가론",
+        "isForm": 1,
+        "token": "CLEMONT"
+      }
+    },
+    {
+      "id": 1862,
+      "en": "Delphox Battle Bond",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "마폭시 (특수폼 #1862)",
+        "isForm": 1,
+        "token": "BATTLE_BOND"
+      },
+      "after": {
+        "ko": "마폭시 (유대변화)",
+        "isForm": 1,
+        "token": "BATTLE_BOND"
+      }
+    },
+    {
+      "id": 1863,
+      "en": "Serena-Delphox",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "마폭시 (특수폼 #1863)",
+        "isForm": 1,
+        "token": "SERENA"
+      },
+      "after": {
+        "ko": "세레나 마폭시",
+        "isForm": 1,
+        "token": "SERENA"
+      }
+    },
+    {
+      "id": 1865,
+      "en": "Unown Revelation",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "안농 (특수폼 #1865)",
+        "isForm": 1,
+        "token": "REVELATION"
+      },
+      "after": {
+        "ko": "안농 (계시폼)",
+        "isForm": 1,
+        "token": "REVELATION"
+      }
+    },
+    {
+      "id": 1866,
+      "en": "Lycanroc Eclipse",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "루가루암 (특수폼 #1866)",
+        "isForm": 1,
+        "token": "ECLIPSE"
+      },
+      "after": {
+        "ko": "루가루암 (이클립스폼)",
+        "isForm": 1,
+        "token": "ECLIPSE"
+      }
+    },
+    {
+      "id": 1867,
+      "en": "Lycanroc Twilight",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "루가루암 (특수폼 #1867)",
+        "isForm": 1,
+        "token": "TWILIGHT"
+      },
+      "after": {
+        "ko": "루가루암 (트와일라잇폼)",
+        "isForm": 1,
+        "token": "TWILIGHT"
+      }
+    },
+    {
+      "id": 2256,
+      "en": "Grotom Glass",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "그로토무 (특수폼 #2256)",
+        "isForm": 1,
+        "token": "GLASS"
+      },
+      "after": {
+        "ko": "그로토무 (글래스폼)",
+        "isForm": 1,
+        "token": "GLASS"
+      }
+    },
+    {
+      "id": 2257,
+      "en": "Grotom Roll",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "그로토무 (특수폼 #2257)",
+        "isForm": 1,
+        "token": "ROLL"
+      },
+      "after": {
+        "ko": "그로토무 (롤폼)",
+        "isForm": 1,
+        "token": "ROLL"
+      }
+    },
+    {
+      "id": 2258,
+      "en": "Grotom Drum",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "그로토무 (특수폼 #2258)",
+        "isForm": 1,
+        "token": "DRUM"
+      },
+      "after": {
+        "ko": "그로토무 (드럼폼)",
+        "isForm": 1,
+        "token": "DRUM"
+      }
+    },
+    {
+      "id": 2259,
+      "en": "Grotom Kick",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "그로토무 (특수폼 #2259)",
+        "isForm": 1,
+        "token": "KICK"
+      },
+      "after": {
+        "ko": "그로토무 (킥폼)",
+        "isForm": 1,
+        "token": "KICK"
+      }
+    },
+    {
+      "id": 2260,
+      "en": "Grotom Fill",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "그로토무 (특수폼 #2260)",
+        "isForm": 1,
+        "token": "FILL"
+      },
+      "after": {
+        "ko": "그로토무 (필폼)",
+        "isForm": 1,
+        "token": "FILL"
+      }
+    },
+    {
+      "id": 2262,
+      "en": "Wispywaspy Hivemind",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "유령벌레 (특수폼 #2262)",
+        "isForm": 1,
+        "token": "HIVEMIND"
+      },
+      "after": {
+        "ko": "유령벌레 (하이브마인드폼)",
+        "isForm": 1,
+        "token": "HIVEMIND"
+      }
+    },
+    {
+      "id": 2569,
+      "en": "Dragonite Delivery",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "망나뇽 (특수폼 #2569)",
+        "isForm": 1,
+        "token": "DELIVERY"
+      },
+      "after": {
+        "ko": "망나뇽 (딜리버리폼)",
+        "isForm": 1,
+        "token": "DELIVERY"
+      }
+    },
+    {
+      "id": 2582,
+      "en": "Abomasnow Santa",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "눈설왕 (특수폼 #2582)",
+        "isForm": 1,
+        "token": "SANTA"
+      },
+      "after": {
+        "ko": "눈설왕 (산타폼)",
+        "isForm": 1,
+        "token": "SANTA"
+      }
+    },
+    {
+      "id": 2583,
+      "en": "Bewear Angry",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "이븐곰 (특수폼 #2583)",
+        "isForm": 1,
+        "token": "ANGRY"
+      },
+      "after": {
+        "ko": "이븐곰 (앵그리폼)",
+        "isForm": 1,
+        "token": "ANGRY"
+      }
+    },
+    {
+      "id": 2584,
+      "en": "Mimikyu Rayquaza",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "따라큐 (특수폼 #2584)",
+        "isForm": 1,
+        "token": "RAYQUAZA"
+      },
+      "after": {
+        "ko": "따라큐 (레쿠쟈폼)",
+        "isForm": 1,
+        "token": "RAYQUAZA"
+      }
+    },
+    {
+      "id": 2585,
+      "en": "Espeon Primal",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "에브이 (특수폼 #2585)",
+        "isForm": 1,
+        "token": "GALAXY"
+      },
+      "after": {
+        "ko": "원시에브이",
+        "isForm": 1,
+        "token": "GALAXY"
+      }
+    },
+    {
+      "id": 2586,
+      "en": "Darkrai Nightmare",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "다크라이 (특수폼 #2586)",
+        "isForm": 1,
+        "token": "NIGHTMARE"
+      },
+      "after": {
+        "ko": "다크라이 (나이트메어폼)",
+        "isForm": 1,
+        "token": "NIGHTMARE"
+      }
+    },
+    {
+      "id": 2587,
+      "en": "Solrock System",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "솔록 (특수폼 #2587)",
+        "isForm": 1,
+        "token": "SYSTEM"
+      },
+      "after": {
+        "ko": "솔록 (시스템폼)",
+        "isForm": 1,
+        "token": "SYSTEM"
+      }
+    },
+    {
+      "id": 2588,
+      "en": "Spectrier Cloud",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "레이스포스 (특수폼 #2588)",
+        "isForm": 1,
+        "token": "CLOUD"
+      },
+      "after": {
+        "ko": "레이스포스 (클라우드폼)",
+        "isForm": 1,
+        "token": "CLOUD"
+      }
+    },
+    {
+      "id": 2589,
+      "en": "Calyrex Cloud Rider",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "버드렉스 (특수폼 #2589)",
+        "isForm": 1,
+        "token": "CLOUD_RIDER"
+      },
+      "after": {
+        "ko": "버드렉스 (클라우드 라이더)",
+        "isForm": 1,
+        "token": "CLOUD_RIDER"
+      }
+    },
+    {
+      "id": 2592,
+      "en": "Wigglytuff Apex",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "푸크린 (특수폼 #2592)",
+        "isForm": 1,
+        "token": "APEX"
+      },
+      "after": {
+        "ko": "푸크린 (에이펙스폼)",
+        "isForm": 1,
+        "token": "APEX"
+      }
+    },
+    {
+      "id": 2594,
+      "en": "Kartana Fallen",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "종이신도 (특수폼 #2594)",
+        "isForm": 1,
+        "token": "FALLEN"
+      },
+      "after": {
+        "ko": "종이신도 (타락폼)",
+        "isForm": 1,
+        "token": "FALLEN"
+      }
+    },
+    {
+      "id": 2638,
+      "en": "Mimikyu Apex",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "따라큐 (특수폼 #2638)",
+        "isForm": 1,
+        "token": "APEX"
+      },
+      "after": {
+        "ko": "따라큐 (에이펙스폼)",
+        "isForm": 1,
+        "token": "APEX"
+      }
+    },
+    {
+      "id": 2639,
+      "en": "Mimikyu Apex Busted",
+      "sourceClass": "ER_DESCRIPTIVE",
+      "before": {
+        "ko": "따라큐 (특수폼 #2639)",
+        "isForm": 1,
+        "token": "APEX_BUSTED"
+      },
+      "after": {
+        "ko": "따라큐 (에이펙스폼 / 들킨 모습)",
+        "isForm": 1,
+        "token": "APEX_BUSTED"
+      }
+    }
+  ],
+  "remainingSpecial": [],
+  "awkward": []
+}
