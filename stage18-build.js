@@ -1,7 +1,7 @@
 const fs=require('fs'),vm=require('vm');
 const SOURCE='https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65.4.json';
 const MOVE_FILES=['moves-1.js','moves-2.js','moves-3.js','move-short-1.js','move-short-2.js','move-short-3.js','move-short-4.js','move-long-1.js','move-long-2.js','move-long-3.js','move-long-4.js'];
-const ABI_FILES=['abilities-1.js','abilities-2.js','abilities-3.js','ability-short-1.js','ability-short-2.js','ability-short-3.js','ability-short-4.js','ability-long-1.js','ability-long-2a.js','ability-long-2b.js','ability-long-3a.js','ability-long-3b.js','ability-long-4.js'];
+const ABI_FILES=['abilities-1.js','abilities-2.js','abilities-3.js','ability-short-1.js','ability-short-2.js','ability-short-3.js','ability-short-4.js','ability-long-1.js','ability-long-2a.js','ability-long-2b.js','ability-long-3a.js','ability-long-3b.js','ability-long-4.js','ability-stage18.js'];
 function load(files){const c={window:{}};vm.createContext(c);for(const f of files)vm.runInContext(fs.readFileSync(f,'utf8'),c,{filename:f});return c.window}
 function mapRows(a){return new Map((Array.isArray(a)?a:[]).map(r=>[Number(r[0]),String(r[1]??'')]))}
 function validKo(s){s=String(s||'').trim();return !!s&&s!=="'-"&&s!=='-'&&s!=='-------'}
