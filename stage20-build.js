@@ -15,7 +15,7 @@ function valid(s){s=String(s||'').trim();return !!s&&s!=="'-"&&s!=='-'&&s!=='---
   const ordinaryKinds=new Set(['EVO_LEVEL','EVO_LEVEL_FEMALE','EVO_LEVEL_MALE']);
   const specialKinds=new Set(['EVO_MEGA_EVOLUTION','EVO_MOVE_MEGA_EVOLUTION','EVO_PRIMAL_REVERSION']);
   const rows=new Map(web.map(r=>[Number(r[0]),{id:Number(r[0]),ko:String(r[2]||''),en:String(r[3]||''),ordinaryOut:[],ordinaryIn:[],specialOut:[],specialIn:[]} ]));
-  const unknownKinds=[],unresolvedTargets=[],missingSource=[],relations=[];
+  const unknownKinds=[],unresolvedTargets=[],unsetTargets=[],missingSource=[],relations=[];
   let rawRelations=0,ordinaryRelations=0,specialRelations=0,indexToIdRemaps=0;
   for(const s of species){
     const fromId=Number(s.id),fromWeb=webBy.get(fromId);
@@ -23,8 +23,9 @@ function valid(s){s=String(s||'').trim();return !!s&&s!=="'-"&&s!=='-'&&s!=='---
     const evos=Array.isArray(s.evolutions)?s.evolutions:[];
     for(const e of evos){
       rawRelations++;
-      const rawIndex=Number(e.in),targetObj=rawSpecies[rawIndex],targetId=Number(targetObj?.id)||0;
-      const kind=String(g.evoKindT?.[Number(e.kd)]||`UNKNOWN_${Number(e.kd)}`),reason=String(e.rs??'');
+      const rawIndex=Number(e.in),kind=String(g.evoKindT?.[Number(e.kd)]||`UNKNOWN_${Number(e.kd)}`),reason=String(e.rs??'');
+      if(rawIndex===-1){unsetTargets.push({fromId,from:s.name,rawIndex,kind,reason});continue}
+      const targetObj=rawSpecies[rawIndex],targetId=Number(targetObj?.id)||0;
       if(!targetObj||targetId<=0||!webBy.has(targetId)){
         unresolvedTargets.push({fromId,from:s.name,rawIndex,targetId,targetName:String(targetObj?.name||''),kind,reason});
         continue;
@@ -50,13 +51,12 @@ function valid(s){s=String(s||'').trim();return !!s&&s!=="'-"&&s!=='-'&&s!=='---
   const withOrdinary=payloadRows.filter(r=>r[3].length||r[4].length).length;
   const withSpecial=payloadRows.filter(r=>r[5].length||r[6].length).length;
   const fatal=missingSource.length||unresolvedTargets.length||unknownKinds.length||payloadRows.length!==web.length||species.length!==web.length;
-  const payload={meta:{stage:'STAGE20',source:SOURCE,species:payloadRows.length,rawRelations,ordinaryRelations,specialRelations},species:payloadRows};
+  const payload={meta:{stage:'STAGE20',source:SOURCE,species:payloadRows.length,rawRelations,displayRelations:relations.length,ordinaryRelations,specialRelations,unsetTargets:unsetTargets.length},species:payloadRows};
   fs.writeFileSync('stage20-data.js',`window.ER_STAGE20_DATA=${JSON.stringify(payload)};\n`);
-  const report={stage:'STAGE20',generatedAt:new Date().toISOString(),baseline:'STAGE19 user-confirmed normal',source:SOURCE,counts:{officialSpecies:species.length,webSpecies:web.length,payloadSpecies:payloadRows.length,rawRelations,displayRelations:relations.length,ordinaryRelations,specialRelations,indexToIdRemaps,withOrdinary,withSpecial,missingSource:missingSource.length,unresolvedTargets:unresolvedTargets.length,unknownKinds:unknownKinds.length},ordinaryKinds:[...ordinaryKinds],specialKinds:[...specialKinds],missingSource,unresolvedTargets,unknownKinds,samples:{bulbasaur:relations.filter(r=>r[0]===1),snorunt:relations.filter(r=>r[0]===361),blastoise:relations.filter(r=>r[0]===9),rayquaza:relations.filter(r=>r[0]===384),kyogre:relations.filter(r=>r[0]===382)}};
+  const report={stage:'STAGE20',generatedAt:new Date().toISOString(),baseline:'STAGE19 user-confirmed normal',source:SOURCE,counts:{officialSpecies:species.length,webSpecies:web.length,payloadSpecies:payloadRows.length,rawRelations,displayRelations:relations.length,ordinaryRelations,specialRelations,indexToIdRemaps,withOrdinary,withSpecial,unsetTargets:unsetTargets.length,missingSource:missingSource.length,unresolvedTargets:unresolvedTargets.length,unknownKinds:unknownKinds.length},ordinaryKinds:[...ordinaryKinds],specialKinds:[...specialKinds],unsetTargets,missingSource,unresolvedTargets,unknownKinds,samples:{bulbasaur:relations.filter(r=>r[0]===1),snorunt:relations.filter(r=>r[0]===361),blastoise:relations.filter(r=>r[0]===9),rayquaza:relations.filter(r=>r[0]===384),kyogre:relations.filter(r=>r[0]===382)}};
   fs.writeFileSync('stage20-audit.json',JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify(report.counts,null,2));
   console.log(JSON.stringify(report.samples,null,2));
-  if(unresolvedTargets.length)console.log('UNRESOLVED',JSON.stringify(unresolvedTargets,null,2));
-  if(unknownKinds.length)console.log('UNKNOWN',JSON.stringify(unknownKinds,null,2));
+  console.log('UNSET_OFFICIAL_TARGETS',JSON.stringify(unsetTargets,null,2));
   if(fatal)throw Error('STAGE20 evolution audit has unresolved mappings');
 })();
