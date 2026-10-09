@@ -13,7 +13,7 @@ function load(files){const c={window:{}};vm.createContext(c);for(const f of file
   const species=rawSpecies.filter(s=>s&&Number(s.id)>0&&String(s.name||'').trim());
   const rows=new Map(web.map(r=>[Number(r[0]),{id:Number(r[0]),ko:String(r[2]||''),en:String(r[3]||''),natural:new Map(),scripted:new Map()}]));
   const maps=Array.isArray(g.locations?.maps)?g.locations.maps:[];
-  const unresolvedNatural=[],missingMapNames=[],invalidScriptedHow=[],missingSource=[];
+  const unsetNaturalSlots=[],unresolvedNatural=[],missingMapNames=[],invalidScriptedHow=[],missingSource=[];
   let rawNaturalSlots=0,naturalIndexToIdRemaps=0;
   const rawByField=Object.fromEntries(FIELDS.map(f=>[f,0]));
   for(const [mapIndex,map] of maps.entries()){
@@ -26,7 +26,8 @@ function load(files){const c={window:{}};vm.createContext(c);for(const f of file
         rawNaturalSlots++;rawByField[field]++;
         const minLv=Number(slot?.[0])||0,maxLv=Number(slot?.[1])||0,rawIndex=Number(slot?.[2]);
         const targetObj=rawSpecies[rawIndex],targetId=Number(targetObj?.id)||0;
-        if(!targetObj||targetId<=0||!webBy.has(targetId)){
+        if(rawIndex<=0||targetId<=0){unsetNaturalSlots.push({mapIndex,mapId,mapName,field,slot,rawIndex,targetId,targetName:String(targetObj?.name||'')});continue}
+        if(!targetObj||!webBy.has(targetId)){
           unresolvedNatural.push({mapIndex,mapId,mapName,field,slot,rawIndex,targetId,targetName:String(targetObj?.name||'')});
           continue;
         }
@@ -64,9 +65,8 @@ function load(files){const c={window:{}};vm.createContext(c);for(const f of file
   const withNatural=payloadRows.filter(r=>r[3].length).length,withScripted=payloadRows.filter(r=>r[4].length).length,withAny=payloadRows.filter(r=>r[3].length||r[4].length).length;
   const payload={meta:{stage:'STAGE21',source:SOURCE,species:payloadRows.length,fieldKo:FIELD_KO,howKo:HOW_KO},species:payloadRows};
   fs.writeFileSync('stage21-data.js',`window.ER_STAGE21_DATA=${JSON.stringify(payload)};\n`);
-  const report={stage:'STAGE21',generatedAt:new Date().toISOString(),baseline:'STAGE20 user-confirmed normal',source:SOURCE,counts:{officialSpecies:species.length,webSpecies:web.length,payloadSpecies:payloadRows.length,maps:maps.filter(Boolean).length,rawNaturalSlots,displayNaturalGroups,naturalIndexToIdRemaps,rawScriptedRows,displayScriptedGroups,scriptedDuplicates,withNatural,withScripted,withAny,unresolvedNatural:unresolvedNatural.length,missingMapNames:missingMapNames.length,invalidScriptedHow:invalidScriptedHow.length,missingSource:missingSource.length},rawByField,rawHowCounts,fieldKo:FIELD_KO,howKo:HOW_KO,unresolvedNatural:unresolvedNatural.slice(0,50),missingMapNames:missingMapNames.slice(0,50),invalidScriptedHow,missingSource:missingSource.slice(0,50),samples:{bulbasaur:payloadRows.find(r=>r[0]===1),pikachu:payloadRows.find(r=>r[0]===25),articuno:payloadRows.find(r=>r[0]===144),mewtwo:payloadRows.find(r=>r[0]===150),rayquaza:payloadRows.find(r=>r[0]===384)}};
+  const report={stage:'STAGE21',generatedAt:new Date().toISOString(),baseline:'STAGE20 user-confirmed normal',source:SOURCE,counts:{officialSpecies:species.length,webSpecies:web.length,payloadSpecies:payloadRows.length,maps:maps.filter(Boolean).length,rawNaturalSlots,unsetNaturalSlots:unsetNaturalSlots.length,displayNaturalGroups,naturalIndexToIdRemaps,rawScriptedRows,displayScriptedGroups,scriptedDuplicates,withNatural,withScripted,withAny,unresolvedNatural:unresolvedNatural.length,missingMapNames:missingMapNames.length,invalidScriptedHow:invalidScriptedHow.length,missingSource:missingSource.length},rawByField,rawHowCounts,fieldKo:FIELD_KO,howKo:HOW_KO,unsetNaturalSlots,unresolvedNatural:unresolvedNatural.slice(0,50),missingMapNames:missingMapNames.slice(0,50),invalidScriptedHow,missingSource:missingSource.slice(0,50),samples:{bulbasaur:payloadRows.find(r=>r[0]===1),pikachu:payloadRows.find(r=>r[0]===25),articuno:payloadRows.find(r=>r[0]===144),mewtwo:payloadRows.find(r=>r[0]===150),rayquaza:payloadRows.find(r=>r[0]===384)}};
   fs.writeFileSync('stage21-audit.json',JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify(report.counts,null,2));console.log(JSON.stringify(rawByField,null,2));console.log(JSON.stringify(rawHowCounts,null,2));
-  if(unresolvedNatural.length)console.log('UNRESOLVED_NATURAL',JSON.stringify(unresolvedNatural,null,2));
   if(species.length!==web.length||payloadRows.length!==web.length||unresolvedNatural.length||missingMapNames.length||invalidScriptedHow.length||missingSource.length)throw Error('STAGE21 encounter audit has unresolved mappings');
 })();
