@@ -6,7 +6,12 @@ const PREFIX=[
 const EXACT={
 'Tree StageSprouted':'나무 성장 단계 · 새싹','Tree StageTaller':'나무 성장 단계 · 성장','Tree StageFlowering':'나무 성장 단계 · 개화','Tree StageBerries':'나무 성장 단계 · 열매',
 'Victory Road CRoom':'챔피언로드 별실 1','Victory Road Froom':'챔피언로드 별실 2','Victory Road Rework':'챔피언로드 개편 구역',
-'Route 111 Sunhollow Ruins':'111번도로 태양골 유적','Evergrande City Mono Champ Room 1':'그랜드시티 단일타입 챔피언실 1'
+'Route 111 Sunhollow Ruins':'111번도로 태양골 유적','Evergrande City Mono Champ Room 1':'그랜드시티 단일타입 챔피언실 1',
+'Cave Of Origin Unused Ruby Sapphire Map 1':'각성의 사당 미사용 루비·사파이어 구역 1','Cave Of Origin Unused Ruby Sapphire Map 2':'각성의 사당 미사용 루비·사파이어 구역 2','Cave Of Origin Unused Ruby Sapphire Map 3':'각성의 사당 미사용 루비·사파이어 구역 3',
+'Route 111 Ruins Exterior':'111번도로 유적 외부',
+'Safari Zone Northeast':'사파리존 북동쪽','Safari Zone Northwest':'사파리존 북서쪽','Safari Zone Southeast':'사파리존 남동쪽','Safari Zone Southwest':'사파리존 남서쪽',
+'Sealed Chamber Inner Room':'봉인된 방 안쪽 방',
+'Shoal Cave Low Tide Ice Room':'여울의 동굴 썰물 얼음 방','Shoal Cave Low Tide Inner Room':'여울의 동굴 썰물 안쪽 방','Shoal Cave Low Tide Lower Room':'여울의 동굴 썰물 아래쪽 방','Shoal Cave Low Tide Stairs Room':'여울의 동굴 썰물 계단 방'
 };
 function floorify(s){
  return s.replace(/\bB(\d+)F\b/g,'지하 $1층').replace(/\b(\d+)F\b/g,'$1층').replace(/\b(\d+)R\b/g,'$1구역');
