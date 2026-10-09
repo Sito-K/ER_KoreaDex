@@ -19,18 +19,21 @@ jobs:
         run: |
           node <<'NODE'
           const fs=require('fs'),vm=require('vm');
-          const c={window:{}};vm.createContext(c);for(const f of ['master-species-2654-1.js','master-species-2654-2.js','master-species-2654-3.js','master-species-2654-4.js'])vm.runInContext(fs.readFileSync(f,'utf8'),c);
-          const master=c.window.ER_MASTER_SPECIES_2654||[];
-          const norm=s=>String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
-          const key=s=>String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]+/g,'_').replace(/^_+|_+$/g,'');
-          const byId=new Map(master.map(r=>[+r[0],{id:+r[0],en:String(r[1]),ko:String(r[2])}]));
-          const b=new Map();for(const r of master){const n=norm(r[1]);if(!b.has(n))b.set(n,[]);b.get(n).push({id:+r[0],en:String(r[1]),ko:String(r[2])})}
-          const agreed=new Map();for(const [n,a] of b){const ks=[...new Set(a.map(x=>x.ko))];if(ks.length===1)agreed.set(n,{en:a[0].en,ko:ks[0],ids:a.map(x=>x.id)})}
-          const keys=[...agreed.values()].map(r=>({...r,key:key(r.en)})).filter(r=>r.key).sort((a,b)=>b.key.length-a.key.length);
-          function select(m){const idr=byId.get(+m.id),sprite=String(m.NAME||'').replace(/^SPECIES_/,'');if(idr){const k=key(idr.en);if(norm(idr.en)===norm(m.name)||sprite===k||sprite.startsWith(k+'_'))return idr}const d=agreed.get(norm(m.name));if(d)return d;for(const r of keys)if(sprite===r.key||sprite.startsWith(r.key+'_'))return r;return null}
-          const g=await (await fetch('https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65.4.json')).json();
-          const mons=(g.species||[]).filter(m=>m&&m.name&&+m?.dex?.id>0&&+m.id>0);
-          const unresolved=mons.filter(m=>!select(m)).map(m=>({id:+m.id,dex:+m.dex.id,name:m.name,NAME:m.NAME,idMaster:byId.get(+m.id)||null}));
-          console.log(JSON.stringify({count:unresolved.length,unresolved},null,2));
-          if(unresolved.length!==3)throw new Error(`expected 3 unresolved, got ${unresolved.length}`);
+          (async()=>{
+            const c={window:{}};vm.createContext(c);
+            for(const f of ['master-species-2654-1.js','master-species-2654-2.js','master-species-2654-3.js','master-species-2654-4.js'])vm.runInContext(fs.readFileSync(f,'utf8'),c);
+            const master=c.window.ER_MASTER_SPECIES_2654||[];
+            const norm=s=>String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+            const key=s=>String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]+/g,'_').replace(/^_+|_+$/g,'');
+            const byId=new Map(master.map(r=>[+r[0],{id:+r[0],en:String(r[1]),ko:String(r[2])}]));
+            const b=new Map();for(const r of master){const n=norm(r[1]);if(!b.has(n))b.set(n,[]);b.get(n).push({id:+r[0],en:String(r[1]),ko:String(r[2])})}
+            const agreed=new Map();for(const [n,a] of b){const ks=[...new Set(a.map(x=>x.ko))];if(ks.length===1)agreed.set(n,{en:a[0].en,ko:ks[0],ids:a.map(x=>x.id)})}
+            const keys=[...agreed.values()].map(r=>({...r,key:key(r.en)})).filter(r=>r.key).sort((a,b)=>b.key.length-a.key.length);
+            function select(m){const idr=byId.get(+m.id),sprite=String(m.NAME||'').replace(/^SPECIES_/,'');if(idr){const k=key(idr.en);if(norm(idr.en)===norm(m.name)||sprite===k||sprite.startsWith(k+'_'))return idr}const d=agreed.get(norm(m.name));if(d)return d;for(const r of keys)if(sprite===r.key||sprite.startsWith(r.key+'_'))return r;return null}
+            const g=await (await fetch('https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65.4.json')).json();
+            const mons=(g.species||[]).filter(m=>m&&m.name&&+m?.dex?.id>0&&+m.id>0);
+            const unresolved=mons.filter(m=>!select(m)).map(m=>({id:+m.id,dex:+m.dex.id,name:m.name,NAME:m.NAME,idMaster:byId.get(+m.id)||null}));
+            console.log(JSON.stringify({count:unresolved.length,unresolved},null,2));
+            if(unresolved.length!==3)throw new Error(`expected 3 unresolved, got ${unresolved.length}`);
+          })().catch(e=>{console.error(e);process.exit(1)});
           NODE
