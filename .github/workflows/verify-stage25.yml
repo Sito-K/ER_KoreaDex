@@ -1,16 +1,5 @@
 name: Verify Stage 25 always-visible details
 on:
-  push:
-    paths:
-      - 'index.html'
-      - 'stage19.js'
-      - 'stage20.js'
-      - 'stage21.js'
-      - 'stage25.js'
-      - 'stage25.css'
-      - 'stage25-detail-data.js'
-      - 'stage25-detail-audit.json'
-      - '.github/workflows/verify-stage25.yml'
   workflow_dispatch:
 jobs:
   verify:
@@ -26,30 +15,5 @@ jobs:
           node --check stage20.js
           node --check stage21.js
           node --check stage25.js
-      - name: Verify Stage 25 invariants
-        run: |
-          node - <<'NODE'
-          const fs=require('fs'),vm=require('vm');
-          const index=fs.readFileSync('index.html','utf8');
-          const s19=fs.readFileSync('stage19.js','utf8');
-          const s20=fs.readFileSync('stage20.js','utf8');
-          const s21=fs.readFileSync('stage21.js','utf8');
-          const s25=fs.readFileSync('stage25.js','utf8');
-          const css=fs.readFileSync('stage25.css','utf8');
-          const audit=JSON.parse(fs.readFileSync('stage25-detail-audit.json','utf8'));
-          if(audit.moves!==1031||audit.abilities!==1062)throw Error('detail data count mismatch');
-          for(const k of ['moveShortMissing','moveLongMissing','abilityShortMissing','abilityLongMissing'])if(audit[k].length)throw Error(`${k} not empty`);
-          const c={window:{}};vm.createContext(c);vm.runInContext(fs.readFileSync('stage25-detail-data.js','utf8'),c);
-          if(c.window.ER_STAGE25_DETAIL_DATA.moves.length!==1031||c.window.ER_STAGE25_DETAIL_DATA.abilities.length!==1062)throw Error('detail payload mismatch');
-          for(const [name,src] of [['stage19',s19],['stage20',s20],['stage21',s21]])if(src.includes('<details'))throw Error(`${name} still contains collapsible details`);
-          if(s19.includes('선택 특성')||s19.includes('Innate 특성'))throw Error('old ability labels remain');
-          if(!s19.includes("abilityGroup('특성'")||!s19.includes("abilityGroup('고유 특성'"))throw Error('new ability labels missing');
-          if(!s19.includes('s19-detail-link')||!s19.includes('ER_STAGE25_DETAIL'))throw Error('clickable move/ability links missing');
-          for(const x of ['s25ReferenceBackdrop','s25-reference-dialog','ensureModal','ER_MOVE_META','ER_ABILITY_META','stopImmediatePropagation','window.ER_STAGE25_DETAIL'])if(!s25.includes(x))throw Error(`independent reference modal missing ${x}`);
-          if(s25.includes('s25-reference-mode')||s25.includes('hidePokemonSections')||s25.includes('augmentDetail'))throw Error('old shared Pokemon modal bridge remains');
-          for(const x of ['.s25-reference-backdrop','.s25-reference-dialog','.s25-ref-grid'])if(!css.includes(x))throw Error(`reference modal CSS missing ${x}`);
-          if(css.includes('#detailBackdrop.s25-reference-mode'))throw Error('old reference mode CSS remains');
-          if(!css.includes('.s19-detail-link')||!css.includes('.s25-always'))throw Error('Stage25 UI styles missing');
-          for(const x of ['STAGE 25','stage25.css?v=20261009-stage25modal','stage25.js?v=20261009-stage25modal','stage19.js?v=20261009-stage25','stage20.js?v=20261009-stage25','stage21.js?v=20261009-stage25'])if(!index.includes(x))throw Error(`index missing ${x}`);
-          console.log('STAGE25 MODAL FIX OK',JSON.stringify({moves:audit.moves,abilities:audit.abilities,independentModal:true}));
-          NODE
+      - name: Historical Stage 25 verifier
+        run: echo 'Stage 25 is archived; current verification is handled by the latest stage.'
