@@ -1,6 +1,6 @@
 (()=>{'use strict';
 let DATA=null,loading=null,speciesMap=null,mapKoById=null,mapKoByEn=null;
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]))}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function host(){const body=document.querySelector('.detail-body');if(!body)return null;let box=document.getElementById('stage21EncounterDetail');if(!box){box=document.createElement('section');box.id='stage21EncounterDetail';box.className='detail-section s21-detail';box.hidden=true;const s19=document.getElementById('stage19SpeciesDetail');if(s19)s19.insertAdjacentElement('beforebegin',box);else body.appendChild(box)}return box}
 function hide(){const box=document.getElementById('stage21EncounterDetail');if(box)box.hidden=true}
 function initMapKo(){const d=window.ER_STAGE22_MAP_KO;if(!d||!Array.isArray(d.maps)){mapKoById=null;mapKoByEn=null;return}mapKoById=new Map(d.maps.map(r=>[Number(r[0]),String(r[2]||'')]));mapKoByEn=new Map(d.maps.map(r=>[String(r[1]||''),String(r[2]||'')]))}
