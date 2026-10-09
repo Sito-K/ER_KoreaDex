@@ -1,0 +1,5 @@
+.auto-load-sentinel{min-height:64px;padding:18px 0 10px;display:flex;align-items:center;justify-content:center}
+.auto-load-sentinel .load-more{display:none!important}
+.auto-load-sentinel .load-state{margin:0;color:#8792a2;font-size:12px;text-align:center}
+.auto-load-sentinel .load-state:not(:empty)::after{content:' · 아래로 스크롤하면 자동으로 계속 불러옵니다';color:#667180}
+@media(max-width:720px){.auto-load-sentinel{min-height:58px;padding:14px 0 8px}.auto-load-sentinel .load-state{font-size:11px}}
