@@ -1,40 +1,8 @@
-name: Verify Stage 19 species abilities and learnsets
+name: Historical Verify Stage 19 species abilities and learnsets
 on:
-  push:
-    paths:
-      - 'stage19-data.js'
-      - 'stage19-audit.json'
-      - 'stage19.js'
-      - 'stage19.css'
-      - 'index.html'
-      - '.github/workflows/verify-stage19.yml'
   workflow_dispatch:
 jobs:
-  verify:
+  archived:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - name: Verify Stage 19 invariants
-        run: |
-          node <<'NODE'
-          const fs=require('fs'),vm=require('vm');
-          const audit=JSON.parse(fs.readFileSync('stage19-audit.json','utf8'));
-          if(audit.stage!=='STAGE19')throw Error('wrong audit stage');
-          const c=audit.counts||{};
-          const zero=['missingSpecies','extraSpecies','moveMissingOfficial','moveMissingKorean','abilityMissingOfficial','abilityMissingKorean'];
-          if(c.officialSpecies!==1922||c.webSpecies!==1922||c.matchedSpecies!==1922)throw Error('species coverage mismatch');
-          for(const k of zero)if(c[k]!==0)throw Error(`${k}=${c[k]}`);
-          const ctx={window:{}};vm.createContext(ctx);vm.runInContext(fs.readFileSync('stage19-data.js','utf8'),ctx);
-          const d=ctx.window.ER_STAGE19_DATA;if(!d)throw Error('stage19 data missing');
-          if(!Array.isArray(d.species)||d.species.length!==1922)throw Error('stage19 species length');
-          if(!Array.isArray(d.moveNames)||d.moveNames.length!==1031)throw Error('move name coverage');
-          if(!Array.isArray(d.abilityNames)||d.abilityNames.length!==1062)throw Error('ability name coverage');
-          const move=new Set(d.moveNames.map(r=>Number(r[0]))),abi=new Set(d.abilityNames.map(r=>Number(r[0]))),seen=new Set();
-          for(const r of d.species){const id=Number(r[0]);if(id<=0||seen.has(id))throw Error(`bad species id ${id}`);seen.add(id);for(const a of [...(r[1]||[]),...(r[2]||[])])if(!abi.has(Number(a)))throw Error(`missing ability ${a} for species ${id}`);for(const x of (r[3]||[]))if(!move.has(Number(x[1])))throw Error(`missing level move ${x[1]} for species ${id}`);for(const m of [...(r[4]||[]),...(r[5]||[]),...(r[6]||[])])if(!move.has(Number(m)))throw Error(`missing move ${m} for species ${id}`)}
-          const html=fs.readFileSync('index.html','utf8');if(!html.includes('STAGE 19')||!html.includes('stage19.js?v=20261009-stage19')||!html.includes('stage19.css?v=20261009-stage19'))throw Error('index not promoted');
-          const ui=fs.readFileSync('stage19.js','utf8');if(!ui.includes('stage19-data.js?v=20261009-stage19')||!ui.includes('Innate 특성')||!ui.includes('레벨업 기술'))throw Error('stage19 UI wiring missing');
-          console.log('STAGE19 verification OK');
-          NODE
+      - run: echo "STAGE19 is a historical user-confirmed baseline; current verification is handled by the latest stage workflow."
