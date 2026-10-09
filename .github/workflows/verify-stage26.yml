@@ -1,4 +1,4 @@
-name: Verify Stage 26 Korean evolution items
+name: Verify evolution item Korean names
 on:
   push:
     paths:
@@ -27,7 +27,7 @@ jobs:
           vm.runInContext(fs.readFileSync('stage20-data.js','utf8'),ctx,{filename:'stage20-data.js'});
           vm.runInContext(fs.readFileSync('stage26-item-names.js','utf8'),ctx,{filename:'stage26-item-names.js'});
           const data=ctx.window.ER_STAGE20_DATA, resolver=ctx.window.ER_STAGE26_ITEM_NAMES;
-          if(!data||!resolver?.build)throw Error('Stage26 inputs missing');
+          if(!data||!resolver?.build)throw Error('evolution item inputs missing');
           const built=resolver.build(data.species||[]);
           if(built.unresolved.length)throw Error('unresolved item codes: '+JSON.stringify(built.unresolved));
           if(built.conflicts.length)throw Error('conflicting item names: '+JSON.stringify(built.conflicts));
@@ -41,14 +41,16 @@ jobs:
             ITEM_BLUE_ORB:'쪽빛구슬',ITEM_RED_ORB:'주홍구슬',ITEM_ADAMANT_ORB:'금강옥',ITEM_LUSTROUS_ORB:'백옥',ITEM_GRISEOUS_ORB:'백금옥',
             ITEM_RUSTED_SWORD:'녹슨검',ITEM_RUSTED_SHIELD:'녹슨방패',ITEM_TEAL_MASK:'청록의 가면',ITEM_WELLSPRING_MASK:'우물의 가면',
             ITEM_HEARTHFLAME_MASK:'화덕의 가면',ITEM_CORNERSTONE_MASK:'주춧돌의 가면',ITEM_TERA_ORB:'테라스탈오브',ITEM_ULTRANECROZIUM_P:'울트라네크로Z',
-            ITEM_SANDSLASHITE_A:'고지나이트(알로라)',ITEM_RAPIDASHITE_G:'날쌩마나이트(가라르)',ITEM_ARCANITE_H:'윈디나이트(히스이)',
-            ITEM_TYRANITARITE_R:'마기라스나이트(리덕스)',ITEM_FLYGONITE_R_B:'플라이곤나이트(리덕스 B)',ITEM_ABOMASITE_S:'눈설왕나이트(산타)',
+            ITEM_SANDSLASHITE_A:'고지나이트A',ITEM_RAPIDASHITE_G:'날쌩마나이트G',ITEM_ARCANITE_H:'윈디나이트H',
+            ITEM_TYRANITARITE_R:'마기라스나이트R',ITEM_FLYGONITE_R_B:'플라이곤나이트RB',ITEM_ABOMASITE_S:'눈설왕나이트S',
             ITEM_PIKANITE:'피카츄나이트',ITEM_DUDUDUNITE:'노고고고치나이트',ITEM_KILOZUNITE:'하리즈나나이트'
           };
           for(const [c,n] of Object.entries(expected))if(built.map.get(c)!==n)throw Error(`${c}: ${built.map.get(c)} != ${n}`);
+          const parenStones=[...built.map].filter(([code,name])=>/ITE(?:_(?:R_B|R|A|G|H|S|X|Y|Z))?$/.test(code)&&/[()]/.test(name));
+          if(parenStones.length)throw Error('parenthetical Mega Stone names remain '+JSON.stringify(parenStones));
           const ui=fs.readFileSync('stage20.js','utf8');
-          for(const x of ['ER_STAGE26_ITEM_NAMES','s26-item-ko','메가·특수 변화에 사용되는 아이템은 한국어 이름으로 표시'])if(!ui.includes(x))throw Error('Stage26 UI wiring missing '+x);
+          for(const x of ['ER_STAGE26_ITEM_NAMES','s26-item-ko','메가·특수 변화에 사용되는 아이템은 한국어 이름으로 표시'])if(!ui.includes(x))throw Error('evolution item UI wiring missing '+x);
           const index=fs.readFileSync('index.html','utf8');
-          for(const x of ['STAGE 26','stage26-item-names.js?v=20261009-stage26','stage20.js?v=20261009-stage26'])if(!index.includes(x))throw Error('Stage26 index wiring missing '+x);
-          console.log('STAGE26 OK '+JSON.stringify({uniqueEvolutionItems:codes.size,mapped:built.map.size,unresolved:0,conflicts:0}));
+          for(const x of ['STAGE 28','stage26-item-names.js?v=20261009-stage28','stage20.js?v=20261009-stage26'])if(!index.includes(x))throw Error('Stage28 index wiring missing '+x);
+          console.log('STAGE28 ITEM NAMES OK '+JSON.stringify({uniqueEvolutionItems:codes.size,mapped:built.map.size,unresolved:0,conflicts:0,parentheticalMegaStones:0}));
           NODE
