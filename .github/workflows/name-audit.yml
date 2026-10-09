@@ -1,0 +1,64 @@
+name: Audit Pokemon name joins
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/name-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit-names:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Audit official names against local Korean table
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          function loadLocal(){
+            const rows=[];
+            for(const f of ['species-1.js','species-2.js','species-3.js','species-4.js']){
+              const s=fs.readFileSync(f,'utf8');
+              const m=s.match(/\.concat\((\[[\s\S]*\])\);\s*$/);
+              if(!m) throw new Error('cannot parse '+f);
+              rows.push(...JSON.parse(m[1]));
+            }
+            return rows.map(r=>({id:Number(r[0]),en:String(r[1]||''),ko:String(r[2]||'')}));
+          }
+          function norm(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'')}
+          function lev(a,b){a=norm(a);b=norm(b);const dp=Array.from({length:b.length+1},(_,j)=>j);for(let i=1;i<=a.length;i++){let prev=dp[0];dp[0]=i;for(let j=1;j<=b.length;j++){const cur=dp[j];dp[j]=Math.min(dp[j]+1,dp[j-1]+1,prev+(a[i-1]===b[j-1]?0:1));prev=cur}}return dp[b.length]}
+          (async()=>{
+            const local=loadLocal();
+            const byName=new Map(local.map(x=>[x.en,x]));
+            const res=await fetch('https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65beta.json');
+            if(!res.ok)throw new Error('NextDex '+res.status);
+            const g=await res.json();
+            const groups=new Map();
+            for(const m of g.species||[]){if(!m||!m.name||Number(m?.dex?.id)<=0)continue;const d=Number(m.dex.id);if(!groups.has(d))groups.set(d,[]);groups.get(d).push(m)}
+            const risk=[];
+            for(const [dex,ms] of [...groups].sort((a,b)=>a[0]-b[0])){
+              const root=ms.find(m=>Number(m.id)===dex)||ms.find(m=>Number(m.id)===dex-1)||ms.find(m=>byName.has(m.name))||ms[0];
+              if(byName.has(root.name)) continue;
+              const candidates=local.map(x=>({en:x.en,ko:x.ko,id:x.id,d:lev(root.name,x.en)})).sort((a,b)=>a.d-b.d||a.id-b.id).slice(0,5);
+              risk.push({dex,officialId:Number(root.id),officialName:root.name,constant:String(root.NAME||''),currentByOldId:local.find(x=>x.id===dex-1)||null,currentByOfficialId:local.find(x=>x.id===Number(root.id))||null,candidates});
+            }
+            fs.writeFileSync('name-audit.json',JSON.stringify({generatedAt:new Date().toISOString(),riskCount:risk.length,risk},null,2));
+            console.log('riskCount',risk.length);
+            console.log(risk);
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+      - name: Commit audit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add name-audit.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit Pokemon name joins"
+          git push origin HEAD:main
