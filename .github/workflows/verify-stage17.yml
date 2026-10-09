@@ -1,0 +1,45 @@
+name: Verify Stage 17 Pokemon data
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'forms.js'
+      - 'pokemon-data.js'
+      - 'stage17-data-audit.json'
+      - 'stage17-fix-audit.json'
+      - '.github/workflows/verify-stage17.yml'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify Stage 17 invariants
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          function load(path){const c={window:{}};vm.createContext(c);vm.runInContext(fs.readFileSync(path,'utf8'),c,{filename:path});return c.window;}
+          const f=load('forms.js').ER_OFFICIAL_SPECIES||[];
+          const p=load('pokemon-data.js').ER_POKEMON_DATA||[];
+          if(f.length!==1922||p.length!==1922)throw Error(`row counts ${f.length}/${p.length}`);
+          const audit=JSON.parse(fs.readFileSync('stage17-data-audit.json','utf8'));
+          const c=audit.counts||{};
+          for(const k of ['duplicateCurrent','missingCurrent','extraCurrent','identityMismatch','typeMismatch','statMismatch','megaClassMismatch','formInvariantMismatch'])if(Number(c[k])!==0)throw Error(`${k}=${c[k]}`);
+          if(Number(c.officialIncomplete)!==2)throw Error(`unexpected officialIncomplete=${c.officialIncomplete}`);
+          const inc=audit.officialIncomplete||[];
+          if(inc.length!==2||inc.some(x=>+x.id!==2502))throw Error('official incomplete row changed');
+          const ids=[1856,1892,1894,2146,2147,2148,2149,2150,2151,2152,2153,2154,2159,2166,2191,2229,2230,2562];
+          for(const id of ids){const r=p.find(x=>+x[0]===id);if(!r||r[14]!=='MEGA')throw Error(`Mega category token not fixed for ${id}`);}
+          const d=p.find(r=>+r[0]===2211);if(!d||d[2]!=='메가두랄루돈'||d[14]!=='MEGA')throw Error('Duraludon regression');
+          const fm=new Map(f.map(r=>[+r[0],r]));
+          const cross=p.filter(r=>{const x=fm.get(+r[0]);return !x||String(x[2])!==String(r[2])||+x[4]!==+r[13]||String(x[5]||'')!==String(r[14]||'')});
+          if(cross.length)throw Error(`cross mismatch ${cross.length}`);
+          const html=fs.readFileSync('index.html','utf8');if(!html.includes('STAGE 17')||!html.includes('stage17'))throw Error('index not Stage 17');
+          console.log('STAGE17 OK',{rows:p.length,megaFixes:ids.length,officialIncomplete:inc});
+          NODE
