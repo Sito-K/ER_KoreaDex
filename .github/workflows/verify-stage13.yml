@@ -1,0 +1,45 @@
+name: Verify Stage 13 filters
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-stage13.js'
+      - 'stage13.css'
+      - 'index.html'
+      - '.github/workflows/verify-stage13.yml'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Syntax check
+        run: node --check app-stage13.js
+      - name: Verify filter UI and logic
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const app=fs.readFileSync('app-stage13.js','utf8');
+          const html=fs.readFileSync('index.html','utf8');
+          const css=fs.readFileSync('stage13.css','utf8');
+          const checks=[
+            [html.includes('id="categoryFilters"'),'category filters missing'],
+            [html.includes('id="typeFilters"'),'type filters missing'],
+            [html.includes('타입(속성)'),'type label missing'],
+            [app.includes("activeCategories=new Set(['base','form','mega']),activeTypes=new Set()"),'combined filter state missing'],
+            [app.includes('if(activeTypes.size)out=out.filter'),'type filtering logic missing'],
+            [app.includes('renderTypeFilters()'),'type render missing'],
+            [css.includes('data-category="base"].active'),'base active color missing'],
+            [css.includes('data-category="form"].active'),'form active color missing'],
+            [css.includes('data-category="mega"].active'),'mega active color missing'],
+            [css.includes("content:'✓'"),'active check indicator missing']
+          ];
+          const bad=checks.filter(x=>!x[0]).map(x=>x[1]);
+          console.log(JSON.stringify({checks:checks.length,failed:bad},null,2));
+          if(bad.length)throw new Error(bad.join('; '));
+          NODE
