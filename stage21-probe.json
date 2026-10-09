@@ -1,0 +1,932 @@
+{
+  "stage": "STAGE21_PROBE",
+  "source": "https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65.4.json",
+  "generatedAt": "2026-10-09T04:20:16.256Z",
+  "counts": {
+    "species": 1922,
+    "maps": 176,
+    "naturalRows": 3114,
+    "naturalSpecies": 767,
+    "scriptedRows": 200,
+    "scriptedSpecies": 144,
+    "invalidNatural": 130,
+    "invalidScripted": 0
+  },
+  "naturalByField": {
+    "land": 1872,
+    "water": 248,
+    "fish": 600,
+    "honey": 216,
+    "rock": 112,
+    "hidden": 66
+  },
+  "scriptedHowCounts": {
+    "scripted not wild": 90,
+    "given with custom moves": 41,
+    "scripted wild": 29,
+    "given": 40
+  },
+  "scriptedHowTable": [
+    "scripted wild",
+    "scripted not wild",
+    "given with custom moves",
+    "given"
+  ],
+  "mapExamples": [
+    {
+      "mapIndex": 0,
+      "mapId": 316,
+      "mapName": "Route 101",
+      "rows": 18,
+      "keys": [
+        "id",
+        "land",
+        "landR",
+        "honey",
+        "honeyR"
+      ]
+    },
+    {
+      "mapIndex": 1,
+      "mapId": 317,
+      "mapName": "Route 102",
+      "rows": 35,
+      "keys": [
+        "id",
+        "land",
+        "landR",
+        "water",
+        "waterR",
+        "fish",
+        "fishR",
+        "honey",
+        "honeyR",
+        "hidden",
+        "hiddenR"
+      ]
+    },
+    {
+      "mapIndex": 2,
+      "mapId": 318,
+      "mapName": "Route 103",
+      "rows": 36,
+      "keys": [
+        "id",
+        "land",
+        "landR",
+        "water",
+        "waterR",
+        "fish",
+        "fishR",
+        "honey",
+        "honeyR",
+        "rock",
+        "rockR"
+      ]
+    },
+    {
+      "mapIndex": 3,
+      "mapId": 319,
+      "mapName": "Route 104",
+      "rows": 32,
+      "keys": [
+        "id",
+        "land",
+        "landR",
+        "water",
+        "waterR",
+        "fish",
+        "fishR",
+        "honey",
+        "honeyR"
+      ]
+    },
+    {
+      "mapIndex": 4,
+      "mapId": 324,
+      "mapName": "Route 105",
+      "rows": 26,
+      "keys": [
+        "id",
+        "land",
+        "landR",
+        "water",
+        "waterR",
+        "fish",
+        "fishR"
+      ]
+    },
+    {
+      "mapIndex": 5,
+      "mapId": 330,
+      "mapName": "Route 110",
+      "rows": 32,
+      "keys": [
+        "id",
+        "land",
+        "landR",
+        "water",
+        "waterR",
+        "fish",
+        "fishR",
+        "honey",
+        "honeyR"
+      ]
+    },
+    {
+      "mapIndex": 6,
+      "mapId": 344,
+      "mapName": "Route 111",
+      "rows": 33,
+      "keys": [
+        "id",
+        "land",
+        "landR",
+        "water",
+        "waterR",
+        "fish",
+        "fishR",
+        "rock",
+        "rockR",
+        "hidden",
+        "hiddenR"
+      ]
+    },
+    {
+      "mapIndex": 7,
+      "mapId": 356,
+      "mapName": "Route 112",
+      "rows": 18,
+      "keys": [
+        "id",
+        "land",
+        "landR",
+        "honey",
+        "honeyR"
+      ]
+    },
+    {
+      "mapIndex": 8,
+      "mapId": 358,
+      "mapName": "Route 113",
+      "rows": 21,
+      "keys": [
+        "id",
+        "land",
+        "landR",
+        "honey",
+        "honeyR",
+        "hidden",
+        "hiddenR"
+      ]
+    },
+    {
+      "mapIndex": 9,
+      "mapId": 360,
+      "mapName": "Route 114",
+      "rows": 39,
+      "keys": [
+        "id",
+        "land",
+        "landR",
+        "water",
+        "waterR",
+        "fish",
+        "fishR",
+        "honey",
+        "honeyR",
+        "rock",
+        "rockR",
+        "hidden",
+        "hiddenR"
+      ]
+    },
+    {
+      "mapIndex": 10,
+      "mapId": 365,
+      "mapName": "Route 116",
+      "rows": 25,
+      "keys": [
+        "id",
+        "land",
+        "landR",
+        "honey",
+        "honeyR",
+        "rock",
+        "rockR",
+        "hidden",
+        "hiddenR"
+      ]
+    },
+    {
+      "mapIndex": 11,
+      "mapId": 367,
+      "mapName": "Route 117",
+      "rows": 39,
+      "keys": [
+        "id",
+        "land",
+        "landR",
+        "water",
+        "waterR",
+        "fish",
+        "fishR",
+        "honey",
+        "honeyR",
+        "rock",
+        "rockR",
+        "hidden",
+        "hiddenR"
+      ]
+    }
+  ],
+  "scriptedExamples": [
+    {
+      "speciesId": 1,
+      "species": "Bulbasaur",
+      "howId": 1,
+      "how": "scripted not wild",
+      "map": 221,
+      "mapName": "Mauville City Game Corner",
+      "enc": {
+        "map": 221,
+        "how": 1
+      }
+    },
+    {
+      "speciesId": 4,
+      "species": "Charmander",
+      "howId": 1,
+      "how": "scripted not wild",
+      "map": 221,
+      "mapName": "Mauville City Game Corner",
+      "enc": {
+        "map": 221,
+        "how": 1
+      }
+    },
+    {
+      "speciesId": 7,
+      "species": "Squirtle",
+      "howId": 1,
+      "how": "scripted not wild",
+      "map": 221,
+      "mapName": "Mauville City Game Corner",
+      "enc": {
+        "map": 221,
+        "how": 1
+      }
+    },
+    {
+      "speciesId": 9,
+      "species": "Blastoise",
+      "howId": 2,
+      "how": "given with custom moves",
+      "map": 402,
+      "mapName": "Rustboro City Gym",
+      "enc": {
+        "map": 402,
+        "how": 2
+      }
+    },
+    {
+      "speciesId": 28,
+      "species": "Sandslash",
+      "howId": 0,
+      "how": "scripted wild",
+      "map": 344,
+      "mapName": "Route 111",
+      "enc": {
+        "map": 344,
+        "how": 0
+      }
+    },
+    {
+      "speciesId": 28,
+      "species": "Sandslash",
+      "howId": 1,
+      "how": "scripted not wild",
+      "map": 344,
+      "mapName": "Route 111",
+      "enc": {
+        "map": 344,
+        "how": 1
+      }
+    },
+    {
+      "speciesId": 28,
+      "species": "Sandslash",
+      "howId": 2,
+      "how": "given with custom moves",
+      "map": 344,
+      "mapName": "Route 111",
+      "enc": {
+        "map": 344,
+        "how": 2
+      }
+    },
+    {
+      "speciesId": 80,
+      "species": "Slowbro",
+      "howId": 2,
+      "how": "given with custom moves",
+      "map": 472,
+      "mapName": "Shoal Cave Low Tide Entrance Room",
+      "enc": {
+        "map": 472,
+        "how": 2
+      }
+    },
+    {
+      "speciesId": 87,
+      "species": "Dewgong",
+      "howId": 0,
+      "how": "scripted wild",
+      "map": 444,
+      "mapName": "Seaspray Cave B1F",
+      "enc": {
+        "map": 444,
+        "how": 0
+      }
+    },
+    {
+      "speciesId": 87,
+      "species": "Dewgong",
+      "howId": 1,
+      "how": "scripted not wild",
+      "map": 444,
+      "mapName": "Seaspray Cave B1F",
+      "enc": {
+        "map": 444,
+        "how": 1
+      }
+    },
+    {
+      "speciesId": 87,
+      "species": "Dewgong",
+      "howId": 2,
+      "how": "given with custom moves",
+      "map": 444,
+      "mapName": "Seaspray Cave B1F",
+      "enc": {
+        "map": 444,
+        "how": 2
+      }
+    },
+    {
+      "speciesId": 94,
+      "species": "Gengar",
+      "howId": 2,
+      "how": "given with custom moves",
+      "map": 485,
+      "mapName": "Slateport City",
+      "enc": {
+        "map": 485,
+        "how": 2
+      }
+    },
+    {
+      "speciesId": 101,
+      "species": "Electrode",
+      "howId": 0,
+      "how": "scripted wild",
+      "map": 18,
+      "mapName": "Aqua Hideout B1F",
+      "enc": {
+        "map": 18,
+        "how": 0
+      }
+    },
+    {
+      "speciesId": 101,
+      "species": "Electrode",
+      "howId": 0,
+      "how": "scripted wild",
+      "map": 18,
+      "mapName": "Aqua Hideout B1F",
+      "enc": {
+        "map": 18,
+        "how": 0
+      }
+    },
+    {
+      "speciesId": 101,
+      "species": "Electrode",
+      "howId": 0,
+      "how": "scripted wild",
+      "map": 288,
+      "mapName": "New Mauville Inside",
+      "enc": {
+        "map": 288,
+        "how": 0
+      }
+    },
+    {
+      "speciesId": 101,
+      "species": "Electrode",
+      "howId": 0,
+      "how": "scripted wild",
+      "map": 288,
+      "mapName": "New Mauville Inside",
+      "enc": {
+        "map": 288,
+        "how": 0
+      }
+    },
+    {
+      "speciesId": 101,
+      "species": "Electrode",
+      "howId": 0,
+      "how": "scripted wild",
+      "map": 288,
+      "mapName": "New Mauville Inside",
+      "enc": {
+        "map": 288,
+        "how": 0
+      }
+    },
+    {
+      "speciesId": 107,
+      "species": "Hitmonchan",
+      "howId": 2,
+      "how": "given with custom moves",
+      "map": 113,
+      "mapName": "Dewford Town Gym",
+      "enc": {
+        "map": 113,
+        "how": 2
+      }
+    },
+    {
+      "speciesId": 113,
+      "species": "Chansey",
+      "howId": 2,
+      "how": "given with custom moves",
+      "map": 344,
+      "mapName": "Route 111",
+      "enc": {
+        "map": 344,
+        "how": 2
+      }
+    },
+    {
+      "speciesId": 115,
+      "species": "Kangaskhan",
+      "howId": 2,
+      "how": "given with custom moves",
+      "map": 304,
+      "mapName": "Petalburg City Gym",
+      "enc": {
+        "map": 304,
+        "how": 2
+      }
+    },
+    {
+      "speciesId": 127,
+      "species": "Pinsir",
+      "howId": 2,
+      "how": "given with custom moves",
+      "map": 355,
+      "mapName": "Route 111 Winstrate Familys House",
+      "enc": {
+        "map": 355,
+        "how": 2
+      }
+    },
+    {
+      "speciesId": 129,
+      "species": "Magikarp",
+      "howId": 2,
+      "how": "given with custom moves",
+      "map": 369,
+      "mapName": "Route 118",
+      "enc": {
+        "map": 369,
+        "how": 2
+      }
+    },
+    {
+      "speciesId": 130,
+      "species": "Gyarados",
+      "howId": 0,
+      "how": "scripted wild",
+      "map": 389,
+      "mapName": "Route 132",
+      "enc": {
+        "map": 389,
+        "how": 0
+      }
+    },
+    {
+      "speciesId": 130,
+      "species": "Gyarados",
+      "howId": 1,
+      "how": "scripted not wild",
+      "map": 389,
+      "mapName": "Route 132",
+      "enc": {
+        "map": 389,
+        "how": 1
+      }
+    }
+  ],
+  "samples": {
+    "1": {
+      "name": "Bulbasaur",
+      "SEnc": [
+        {
+          "map": 221,
+          "how": 1
+        }
+      ]
+    },
+    "25": {
+      "name": "Pikachu",
+      "SEnc": []
+    },
+    "133": {
+      "name": "Eevee",
+      "SEnc": []
+    },
+    "144": {
+      "name": "Articuno",
+      "SEnc": [
+        {
+          "map": 473,
+          "how": 0
+        },
+        {
+          "map": 473,
+          "how": 1
+        }
+      ]
+    },
+    "150": {
+      "name": "Mewtwo",
+      "SEnc": [
+        {
+          "map": 15,
+          "how": 0
+        },
+        {
+          "map": 15,
+          "how": 1
+        }
+      ]
+    },
+    "384": {
+      "name": "Rayquaza",
+      "SEnc": [
+        {
+          "map": 484,
+          "how": 0
+        },
+        {
+          "map": 484,
+          "how": 1
+        }
+      ]
+    },
+    "493": {
+      "name": "Arceus",
+      "SEnc": []
+    },
+    "1026": {
+      "name": "Phantowl",
+      "SEnc": []
+    }
+  },
+  "invalidNatural": [
+    {
+      "mapIndex": 0,
+      "mapId": 316,
+      "mapName": "Route 101",
+      "field": "land",
+      "row": [
+        3,
+        3,
+        1199
+      ]
+    },
+    {
+      "mapIndex": 4,
+      "mapId": 324,
+      "mapName": "Route 105",
+      "field": "land",
+      "row": [
+        5,
+        5,
+        1184
+      ]
+    },
+    {
+      "mapIndex": 4,
+      "mapId": 324,
+      "mapName": "Route 105",
+      "field": "land",
+      "row": [
+        3,
+        3,
+        1184
+      ]
+    },
+    {
+      "mapIndex": 8,
+      "mapId": 358,
+      "mapName": "Route 113",
+      "field": "land",
+      "row": [
+        14,
+        14,
+        1186
+      ]
+    },
+    {
+      "mapIndex": 8,
+      "mapId": 358,
+      "mapName": "Route 113",
+      "field": "hidden",
+      "row": [
+        5,
+        5,
+        1194
+      ]
+    },
+    {
+      "mapIndex": 8,
+      "mapId": 358,
+      "mapName": "Route 113",
+      "field": "hidden",
+      "row": [
+        5,
+        5,
+        1195
+      ]
+    },
+    {
+      "mapIndex": 8,
+      "mapId": 358,
+      "mapName": "Route 113",
+      "field": "hidden",
+      "row": [
+        5,
+        5,
+        1196
+      ]
+    },
+    {
+      "mapIndex": 9,
+      "mapId": 360,
+      "mapName": "Route 114",
+      "field": "land",
+      "row": [
+        16,
+        16,
+        1914
+      ]
+    },
+    {
+      "mapIndex": 10,
+      "mapId": 365,
+      "mapName": "Route 116",
+      "field": "land",
+      "row": [
+        8,
+        10,
+        1440
+      ]
+    },
+    {
+      "mapIndex": 12,
+      "mapId": 369,
+      "mapName": "Route 118",
+      "field": "land",
+      "row": [
+        27,
+        27,
+        1429
+      ]
+    },
+    {
+      "mapIndex": 16,
+      "mapId": 313,
+      "mapName": "Petalburg Woods 3",
+      "field": "land",
+      "row": [
+        13,
+        15,
+        1189
+      ]
+    },
+    {
+      "mapIndex": 18,
+      "mapId": 161,
+      "mapName": "Granite Cave 1F",
+      "field": "land",
+      "row": [
+        12,
+        14,
+        1191
+      ]
+    },
+    {
+      "mapIndex": 18,
+      "mapId": 161,
+      "mapName": "Granite Cave 1F",
+      "field": "land",
+      "row": [
+        12,
+        14,
+        1204
+      ]
+    },
+    {
+      "mapIndex": 18,
+      "mapId": 161,
+      "mapName": "Granite Cave 1F",
+      "field": "land",
+      "row": [
+        12,
+        14,
+        1177
+      ]
+    },
+    {
+      "mapIndex": 22,
+      "mapId": 419,
+      "mapName": "Safari Zone South",
+      "field": "land",
+      "row": [
+        25,
+        25,
+        1177
+      ]
+    },
+    {
+      "mapIndex": 22,
+      "mapId": 419,
+      "mapName": "Safari Zone South",
+      "field": "land",
+      "row": [
+        27,
+        27,
+        1186
+      ]
+    },
+    {
+      "mapIndex": 22,
+      "mapId": 419,
+      "mapName": "Safari Zone South",
+      "field": "land",
+      "row": [
+        25,
+        25,
+        1178
+      ]
+    },
+    {
+      "mapIndex": 22,
+      "mapId": 419,
+      "mapName": "Safari Zone South",
+      "field": "land",
+      "row": [
+        27,
+        27,
+        1170
+      ]
+    },
+    {
+      "mapIndex": 22,
+      "mapId": 419,
+      "mapName": "Safari Zone South",
+      "field": "land",
+      "row": [
+        27,
+        27,
+        1430
+      ]
+    },
+    {
+      "mapIndex": 22,
+      "mapId": 419,
+      "mapName": "Safari Zone South",
+      "field": "land",
+      "row": [
+        27,
+        27,
+        1178
+      ]
+    },
+    {
+      "mapIndex": 22,
+      "mapId": 419,
+      "mapName": "Safari Zone South",
+      "field": "land",
+      "row": [
+        29,
+        29,
+        1170
+      ]
+    },
+    {
+      "mapIndex": 24,
+      "mapId": 10,
+      "mapName": "Abandoned Ship Rooms B1F",
+      "field": "water",
+      "row": [
+        5,
+        35,
+        1198
+      ]
+    },
+    {
+      "mapIndex": 29,
+      "mapId": 325,
+      "mapName": "Route 106",
+      "field": "land",
+      "row": [
+        3,
+        3,
+        1182
+      ]
+    },
+    {
+      "mapIndex": 31,
+      "mapId": 327,
+      "mapName": "Route 108",
+      "field": "water",
+      "row": [
+        5,
+        35,
+        1426
+      ]
+    },
+    {
+      "mapIndex": 33,
+      "mapId": 364,
+      "mapName": "Route 115",
+      "field": "land",
+      "row": [
+        25,
+        25,
+        1432
+      ]
+    },
+    {
+      "mapIndex": 33,
+      "mapId": 364,
+      "mapName": "Route 115",
+      "field": "land",
+      "row": [
+        25,
+        25,
+        1432
+      ]
+    },
+    {
+      "mapIndex": 35,
+      "mapId": 370,
+      "mapName": "Route 119",
+      "field": "water",
+      "row": [
+        5,
+        35,
+        1259
+      ]
+    },
+    {
+      "mapIndex": 37,
+      "mapId": 375,
+      "mapName": "Route 121",
+      "field": "land",
+      "row": [
+        28,
+        28,
+        1198
+      ]
+    },
+    {
+      "mapIndex": 37,
+      "mapId": 375,
+      "mapName": "Route 121",
+      "field": "land",
+      "row": [
+        28,
+        28,
+        1444
+      ]
+    },
+    {
+      "mapIndex": 37,
+      "mapId": 375,
+      "mapName": "Route 121",
+      "field": "land",
+      "row": [
+        27,
+        27,
+        1443
+      ]
+    }
+  ],
+  "invalidScripted": []
+}
