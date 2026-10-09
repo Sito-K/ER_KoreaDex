@@ -1,0 +1,62 @@
+name: Verify Stage 14 latest baseline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-stage14.yml'
+      - 'index.html'
+      - 'pokemon-data.js'
+      - 'forms.js'
+      - 'stage14-audit.json'
+      - 'stage14-infinite.js'
+      - 'stage14.css'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Syntax check
+        run: |
+          node --check stage14-build.js
+          node --check stage14-infinite.js
+          node --check app-stage13.js
+      - name: Verify latest 2.65.4 data and mappings
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          const ctx={window:{}};vm.createContext(ctx);vm.runInContext(fs.readFileSync('pokemon-data.js','utf8'),ctx);
+          const rows=ctx.window.ER_POKEMON_DATA||[],meta=ctx.window.ER_POKEMON_META||{};
+          const byEn=n=>rows.filter(r=>String(r[3]||'').toLowerCase()===n.toLowerCase());
+          const isMega=r=>/^MEGA(?:_[XY])?$/.test(String(r[14]||''))||/_MEGA(?:_[XY])?$/.test(String(r[4]||''));
+          const counts={base:0,form:0,mega:0};for(const r of rows){if(isMega(r))counts.mega++;else if(r[13])counts.form++;else counts.base++;}
+          if(rows.length!==1922)throw Error(`rows ${rows.length}`);
+          if(meta.source!=='ForwardFeed/ER-nextdex gameDataV2.65.4.json')throw Error(`source ${meta.source}`);
+          if(meta.unresolvedCount!==0)throw Error(`unresolved ${meta.unresolvedCount}`);
+          if(meta.matchModes?.id!==1919||meta.matchModes?.alias!==3)throw Error(`match modes ${JSON.stringify(meta.matchModes)}`);
+          if(counts.base!==1137||counts.form!==534||counts.mega!==251)throw Error(`category counts ${JSON.stringify(counts)}`);
+          const bew=byEn('Bewarden Redux')[0];if(!bew||bew[2]!=='이븐대장 (리덕스폼)')throw Error(`Bewarden Redux ${JSON.stringify(bew)}`);
+          const pen=byEn('Pentawug')[0];if(!pen||pen[2]!=='바닥펜타')throw Error(`Pentawug ${JSON.stringify(pen)}`);
+          const kec=byEn('Kecleong')[0];if(!kec||kec[2]!=='케클레옹'||kec[2]==='쥬레곤')throw Error(`Kecleong ${JSON.stringify(kec)}`);
+          for(const r of rows.filter(r=>/Luxzero/i.test(r[3])))if(!String(r[2]).includes('렌트제로'))throw Error(`Luxzero ${JSON.stringify(r)}`);
+          for(const r of rows.filter(r=>/Kilozuna/i.test(r[3])))if(!String(r[2]).includes('하리즈나'))throw Error(`Kilozuna ${JSON.stringify(r)}`);
+          for(const r of rows.filter(r=>/Swampage/i.test(r[3])))if(!String(r[2]).includes('대짱룡'))throw Error(`Swampage ${JSON.stringify(r)}`);
+          console.log(JSON.stringify({rows:rows.length,source:meta.source,matchModes:meta.matchModes,counts,bewarden:bew,pentawug:pen,kecleong:kec},null,2));
+          NODE
+      - name: Verify UI and infinite scroll
+        run: |
+          grep -q 'ELITE REDUX 2.65.4' index.html
+          grep -q 'typeFilters' index.html
+          grep -q 'categoryFilters' index.html
+          grep -q 'stage14-infinite.js' index.html
+          ! grep -q 'stage10-names.js' index.html
+          ! grep -q 'stage11-mega.js' index.html
+          grep -q 'IntersectionObserver' stage14-infinite.js
+          grep -q '#loadMore{display:none!important}' stage14.css
+          grep -q 'PAGE_SIZE={pokemon:48' app-stage13.js
+          echo 'Stage 14 UI/infinite-scroll checks passed'
