@@ -1,52 +1,8 @@
-name: Verify Stage 22 Korean locations
+name: Historical Verify Stage 22 Korean locations
 on:
-  push:
-    paths:
-      - 'index.html'
-      - 'stage19.js'
-      - 'stage20.js'
-      - 'stage21.js'
-      - 'stage22.js'
-      - 'stage22.css'
-      - 'stage22-map-ko.js'
-      - 'stage22-map-audit.json'
-      - '.github/workflows/verify-stage22.yml'
   workflow_dispatch:
 jobs:
-  verify:
+  archived:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - name: Syntax check Stage 22 scripts
-        run: |
-          node --check stage19.js
-          node --check stage20.js
-          node --check stage21.js
-          node --check stage22.js
-      - name: Verify Stage 22 invariants
-        run: |
-          node - <<'NODE'
-          const fs=require('fs'),vm=require('vm');
-          const audit=JSON.parse(fs.readFileSync('stage22-map-audit.json','utf8'));
-          if(audit.count!==200||audit.unresolvedCount!==0||audit.duplicateKoCount!==0) throw Error('map audit mismatch');
-          const c={window:{}};vm.createContext(c);vm.runInContext(fs.readFileSync('stage22-map-ko.js','utf8'),c);
-          const d=c.window.ER_STAGE22_MAP_KO;if(!d||d.meta.count!==200||d.maps.length!==200)throw Error('map payload mismatch');
-          for(const r of d.maps){if(/[A-Za-z]/.test(String(r[2]||'')))throw Error(`English remains in Korean map: ${r[1]} => ${r[2]}`)}
-          const byEn=new Map(d.maps.map(r=>[r[1],r[2]]));
-          const expected={
-            'Route 101':'101번도로','Petalburg City':'등화도시','Rustboro City':'금탄도시','Mauville City':'보라시티','Fortree City':'검방울시티','Mt Pyre Summit':'송화산 정상','Seafloor Cavern Entrance':'해저동굴 입구','Sky Pillar Top':'하늘기둥 정상','Shoal Cave Low Tide Ice Room':'여울의 동굴 썰물 얼음 방'
-          };
-          for(const [en,ko] of Object.entries(expected))if(byEn.get(en)!==ko)throw Error(`${en} localization mismatch: ${byEn.get(en)}`);
-          const index=fs.readFileSync('index.html','utf8');
-          for(const x of ['STAGE 22','stage22.css?v=20261009-stage22','stage22-map-ko.js?v=20261009-stage22','stage22.js?v=20261009-stage22fix1'])if(!index.includes(x))throw Error(`index missing ${x}`);
-          const s19=fs.readFileSync('stage19.js','utf8'),s20=fs.readFileSync('stage20.js','utf8'),s21=fs.readFileSync('stage21.js','utf8'),s22=fs.readFileSync('stage22.js','utf8');
-          if(!s19.includes('s22-fold')||!s20.includes('s22-fold')||!s21.includes('s22-fold'))throw Error('fold UI missing');
-          if(!s21.includes('ER_STAGE22_MAP_KO'))throw Error('Korean map lookup missing');
-          if(!s22.includes('전체 펼치기')||!s22.includes('전체 접기'))throw Error('detail controls missing');
-          if(s22.includes('MutationObserver'))throw Error('Stage22 regression: self-observing MutationObserver can cause infinite loading loop');
-          if(!s22.includes('setHidden')||!s22.includes('deferredSync'))throw Error('safe Stage22 UI sync missing');
-          console.log('STAGE22 OK',JSON.stringify({maps:d.maps.length,unresolved:audit.unresolvedCount,observerLoop:false}));
-          NODE
+      - run: echo "STAGE22 is a historical user-confirmed baseline; current verification is handled by the latest stage workflow."
