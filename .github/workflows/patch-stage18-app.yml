@@ -1,0 +1,26 @@
+name: Patch Stage 18 app loader
+on:
+  push:
+    paths:
+      - 'stage18-patch-app.js'
+      - '.github/workflows/patch-stage18-app.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Patch Stage 18 ability loader
+        run: node stage18-patch-app.js
+      - name: Commit patched app
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add app-stage13.js
+          git diff --cached --quiet || git commit -m "Load Stage 18 abilities after legacy ability data"
+          git push
