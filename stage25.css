@@ -1,5 +1,10 @@
 /* STAGE25: all Pokemon detail groups stay visible; move/ability chips open explanation detail. */
 .s25-always{display:block!important}
+#detailBackdrop.s25-reference-mode #detailPokemonExtra,
+#detailBackdrop.s25-reference-mode #detailFormsSection,
+#detailBackdrop.s25-reference-mode #stage19SpeciesDetail,
+#detailBackdrop.s25-reference-mode #stage20EvolutionDetail,
+#detailBackdrop.s25-reference-mode #stage21EncounterDetail{display:none!important}
 .s19-block-title,.s20-block-title,.s21-group-head,.s19-learn-head{display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:850}
 .s19-block-title{color:var(--s23-cyan,#67e8f9);font-size:.9rem;margin-bottom:10px}
 .s19-block-title span,.s19-learn-head span,.s20-block-title span,.s21-group-head span{font-size:.7rem;color:var(--s23-yellow,#fde68a);font-weight:750}
