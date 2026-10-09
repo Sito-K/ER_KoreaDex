@@ -1,0 +1,36 @@
+name: Build Stage 14 strict NextDex 2.65.4 data
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-stage14-2654-v2.yml'
+      - 'stage14-build.js'
+      - 'master-species-2654-1.js'
+      - 'master-species-2654-2.js'
+      - 'master-species-2654-3.js'
+      - 'master-species-2654-4.js'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Generate latest 2.65.4 data
+        run: node stage14-build.js
+      - name: Commit generated data
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add pokemon-data.js forms.js stage14-audit.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Generate Stage 14 strict 2.65.4 data"
+          git pull --rebase origin main
+          git push origin HEAD:main
