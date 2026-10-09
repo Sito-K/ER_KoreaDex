@@ -1,0 +1,441 @@
+{
+  "stage": "STAGE18",
+  "generatedAt": "2026-10-09T03:39:59.079Z",
+  "baseline": "STAGE17 user-confirmed normal",
+  "source": "https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65.4.json",
+  "counts": {
+    "officialMoveSlots": 1032,
+    "officialMoves": 1031,
+    "koreanMoves": 1031,
+    "officialAbilitySlots": 1063,
+    "officialAbilities": 1062,
+    "koreanAbilities": 1033,
+    "moveMissing": 0,
+    "moveExtra": 0,
+    "abilityMissing": 29,
+    "abilityExtra": 0,
+    "moveShortMissing": 0,
+    "moveLongMissing": 0,
+    "abilityShortMissing": 29,
+    "abilityLongMissing": 29
+  },
+  "moveMissing": [],
+  "moveExtra": [],
+  "abilityMissing": [
+    {
+      "id": 1034,
+      "en": "Butterfly Wings"
+    },
+    {
+      "id": 1035,
+      "en": "Sand Titan"
+    },
+    {
+      "id": 1036,
+      "en": "Familia Bond"
+    },
+    {
+      "id": 1037,
+      "en": "Mega Sol"
+    },
+    {
+      "id": 1038,
+      "en": "Petroleum Jelly"
+    },
+    {
+      "id": 1039,
+      "en": "Spicy Spray"
+    },
+    {
+      "id": 1040,
+      "en": "Crimson Crown"
+    },
+    {
+      "id": 1041,
+      "en": "Mana Coat"
+    },
+    {
+      "id": 1042,
+      "en": "Hemorrhage"
+    },
+    {
+      "id": 1043,
+      "en": "Overclock"
+    },
+    {
+      "id": 1044,
+      "en": "Bad Guy"
+    },
+    {
+      "id": 1045,
+      "en": "Ignition"
+    },
+    {
+      "id": 1046,
+      "en": "Smarty Pants"
+    },
+    {
+      "id": 1047,
+      "en": "Bird Type"
+    },
+    {
+      "id": 1048,
+      "en": "Insect Eater"
+    },
+    {
+      "id": 1049,
+      "en": "Creepy Crawlie"
+    },
+    {
+      "id": 1050,
+      "en": "Third-Degree Burn"
+    },
+    {
+      "id": 1051,
+      "en": "Engulf"
+    },
+    {
+      "id": 1052,
+      "en": "Grimace"
+    },
+    {
+      "id": 1053,
+      "en": "Thermal Dweller"
+    },
+    {
+      "id": 1054,
+      "en": "Lethal Touch"
+    },
+    {
+      "id": 1055,
+      "en": "Frosty"
+    },
+    {
+      "id": 1056,
+      "en": "Poison Upsurge"
+    },
+    {
+      "id": 1057,
+      "en": "Packed Ice"
+    },
+    {
+      "id": 1058,
+      "en": "Bush Rush"
+    },
+    {
+      "id": 1059,
+      "en": "Guerilla Fighter"
+    },
+    {
+      "id": 1060,
+      "en": "Sour Apple"
+    },
+    {
+      "id": 1061,
+      "en": "Searchlight"
+    },
+    {
+      "id": 1062,
+      "en": "Light Wield"
+    }
+  ],
+  "abilityExtra": [],
+  "descriptionCoverage": {
+    "moveShortMissing": [],
+    "moveLongMissing": [],
+    "abilityShortMissing": [
+      {
+        "id": 1034,
+        "en": "Butterfly Wings",
+        "ko": ""
+      },
+      {
+        "id": 1035,
+        "en": "Sand Titan",
+        "ko": ""
+      },
+      {
+        "id": 1036,
+        "en": "Familia Bond",
+        "ko": ""
+      },
+      {
+        "id": 1037,
+        "en": "Mega Sol",
+        "ko": ""
+      },
+      {
+        "id": 1038,
+        "en": "Petroleum Jelly",
+        "ko": ""
+      },
+      {
+        "id": 1039,
+        "en": "Spicy Spray",
+        "ko": ""
+      },
+      {
+        "id": 1040,
+        "en": "Crimson Crown",
+        "ko": ""
+      },
+      {
+        "id": 1041,
+        "en": "Mana Coat",
+        "ko": ""
+      },
+      {
+        "id": 1042,
+        "en": "Hemorrhage",
+        "ko": ""
+      },
+      {
+        "id": 1043,
+        "en": "Overclock",
+        "ko": ""
+      },
+      {
+        "id": 1044,
+        "en": "Bad Guy",
+        "ko": ""
+      },
+      {
+        "id": 1045,
+        "en": "Ignition",
+        "ko": ""
+      },
+      {
+        "id": 1046,
+        "en": "Smarty Pants",
+        "ko": ""
+      },
+      {
+        "id": 1047,
+        "en": "Bird Type",
+        "ko": ""
+      },
+      {
+        "id": 1048,
+        "en": "Insect Eater",
+        "ko": ""
+      },
+      {
+        "id": 1049,
+        "en": "Creepy Crawlie",
+        "ko": ""
+      },
+      {
+        "id": 1050,
+        "en": "Third-Degree Burn",
+        "ko": ""
+      },
+      {
+        "id": 1051,
+        "en": "Engulf",
+        "ko": ""
+      },
+      {
+        "id": 1052,
+        "en": "Grimace",
+        "ko": ""
+      },
+      {
+        "id": 1053,
+        "en": "Thermal Dweller",
+        "ko": ""
+      },
+      {
+        "id": 1054,
+        "en": "Lethal Touch",
+        "ko": ""
+      },
+      {
+        "id": 1055,
+        "en": "Frosty",
+        "ko": ""
+      },
+      {
+        "id": 1056,
+        "en": "Poison Upsurge",
+        "ko": ""
+      },
+      {
+        "id": 1057,
+        "en": "Packed Ice",
+        "ko": ""
+      },
+      {
+        "id": 1058,
+        "en": "Bush Rush",
+        "ko": ""
+      },
+      {
+        "id": 1059,
+        "en": "Guerilla Fighter",
+        "ko": ""
+      },
+      {
+        "id": 1060,
+        "en": "Sour Apple",
+        "ko": ""
+      },
+      {
+        "id": 1061,
+        "en": "Searchlight",
+        "ko": ""
+      },
+      {
+        "id": 1062,
+        "en": "Light Wield",
+        "ko": ""
+      }
+    ],
+    "abilityLongMissing": [
+      {
+        "id": 1034,
+        "en": "Butterfly Wings",
+        "ko": ""
+      },
+      {
+        "id": 1035,
+        "en": "Sand Titan",
+        "ko": ""
+      },
+      {
+        "id": 1036,
+        "en": "Familia Bond",
+        "ko": ""
+      },
+      {
+        "id": 1037,
+        "en": "Mega Sol",
+        "ko": ""
+      },
+      {
+        "id": 1038,
+        "en": "Petroleum Jelly",
+        "ko": ""
+      },
+      {
+        "id": 1039,
+        "en": "Spicy Spray",
+        "ko": ""
+      },
+      {
+        "id": 1040,
+        "en": "Crimson Crown",
+        "ko": ""
+      },
+      {
+        "id": 1041,
+        "en": "Mana Coat",
+        "ko": ""
+      },
+      {
+        "id": 1042,
+        "en": "Hemorrhage",
+        "ko": ""
+      },
+      {
+        "id": 1043,
+        "en": "Overclock",
+        "ko": ""
+      },
+      {
+        "id": 1044,
+        "en": "Bad Guy",
+        "ko": ""
+      },
+      {
+        "id": 1045,
+        "en": "Ignition",
+        "ko": ""
+      },
+      {
+        "id": 1046,
+        "en": "Smarty Pants",
+        "ko": ""
+      },
+      {
+        "id": 1047,
+        "en": "Bird Type",
+        "ko": ""
+      },
+      {
+        "id": 1048,
+        "en": "Insect Eater",
+        "ko": ""
+      },
+      {
+        "id": 1049,
+        "en": "Creepy Crawlie",
+        "ko": ""
+      },
+      {
+        "id": 1050,
+        "en": "Third-Degree Burn",
+        "ko": ""
+      },
+      {
+        "id": 1051,
+        "en": "Engulf",
+        "ko": ""
+      },
+      {
+        "id": 1052,
+        "en": "Grimace",
+        "ko": ""
+      },
+      {
+        "id": 1053,
+        "en": "Thermal Dweller",
+        "ko": ""
+      },
+      {
+        "id": 1054,
+        "en": "Lethal Touch",
+        "ko": ""
+      },
+      {
+        "id": 1055,
+        "en": "Frosty",
+        "ko": ""
+      },
+      {
+        "id": 1056,
+        "en": "Poison Upsurge",
+        "ko": ""
+      },
+      {
+        "id": 1057,
+        "en": "Packed Ice",
+        "ko": ""
+      },
+      {
+        "id": 1058,
+        "en": "Bush Rush",
+        "ko": ""
+      },
+      {
+        "id": 1059,
+        "en": "Guerilla Fighter",
+        "ko": ""
+      },
+      {
+        "id": 1060,
+        "en": "Sour Apple",
+        "ko": ""
+      },
+      {
+        "id": 1061,
+        "en": "Searchlight",
+        "ko": ""
+      },
+      {
+        "id": 1062,
+        "en": "Light Wield",
+        "ko": ""
+      }
+    ]
+  }
+}
