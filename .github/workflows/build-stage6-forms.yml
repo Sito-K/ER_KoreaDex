@@ -1,0 +1,123 @@
+name: Build Stage 6 static forms
+
+on:
+  push:
+    branches: [stage6-static-forms-build]
+    paths-ignore:
+      - forms.js
+
+permissions:
+  contents: write
+
+jobs:
+  build-forms:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: stage6-static-forms-build
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Generate static forms.js from official NextDex v2.65beta
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const url='https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65beta.json';
+          const FORM={
+            ALOLAN:'알로라의 모습',ALOLA:'알로라의 모습',GALARIAN:'가라르의 모습',GALAR:'가라르의 모습',
+            HISUIAN:'히스이의 모습',HISUI:'히스이의 모습',PALDEAN:'팔데아의 모습',PALDEA:'팔데아의 모습',
+            ORIGIN:'오리진폼',THERIAN:'영물폼',INCARNATE:'화신폼',ATTACK:'어택폼',DEFENSE:'디펜스폼',SPEED:'스피드폼',
+            MEGA:'메가진화',MEGA_X:'메가진화 X',MEGA_Y:'메가진화 Y',PRIMAL:'원시회귀',REDUX:'리덕스폼',GMAX:'거다이맥스',
+            SANDY:'모래땅도롱',TRASH:'슈레도롱',PLANT:'초목도롱',EAST:'동쪽바다',WEST:'서쪽바다',
+            HEAT:'히트로토무',WASH:'워시로토무',FROST:'프로스트로토무',FAN:'스핀로토무',MOW:'커트로토무',
+            BLACK:'블랙큐레무',WHITE:'화이트큐레무',BLADE:'블레이드폼',SHIELD:'실드폼',ASH:'지우폼',
+            COMPLETE:'퍼펙트폼',MIDDAY:'한낮의 모습',MIDNIGHT:'한밤중의 모습',DUSK:'황혼의 모습',
+            SCHOOL:'군집의 모습',SOLO:'단독의 모습',METEOR:'유성의 모습',CORE:'코어의 모습',
+            DUSK_MANE:'황혼의 갈기',DAWN_WINGS:'새벽의 날개',ULTRA:'울트라폼',AMPED:'하이한 모습',LOW_KEY:'로우한 모습',
+            HANGRY:'배고픈 모습',CROWNED_SWORD:'검왕의 모습',CROWNED_SHIELD:'방패왕의 모습',ETERNAMAX:'무한다이맥스',
+            SINGLE_STRIKE:'일격의 태세',RAPID_STRIKE:'연격의 태세',ICE_RIDER:'백마 탄 모습',SHADOW_RIDER:'흑마 탄 모습',
+            HERO:'마이티폼',ZERO:'나이브폼',CURLY:'늘어진 모습',DROOPY:'처진 모습',STRETCHY:'뻗은 모습',
+            TWO_SEGMENT:'두 마디폼',THREE_SEGMENT:'세 마디폼',CHEST:'상자폼',ROAMING:'도보폼',
+            TEAL_MASK:'벽록의 가면',HEARTHFLAME_MASK:'화덕의 가면',WELLSPRING_MASK:'우물의 가면',CORNERSTONE_MASK:'주춧돌의 가면',
+            TERASTAL:'테라스탈폼',STELLAR:'스텔라폼',BLOODMOON:'붉은 달의 모습',ZEN:'달마모드',ZEN_GALAR:'가라르 달마모드',
+            STANDARD:'노말모드',SUNSHINE:'포지폼',OVERCAST:'네거폼',RESOLUTE:'각오의 모습',PIROUETTE:'스텝폼',UNBOUND:'굴레를 벗어난 모습',
+            BAILE:'플라멩코스타일',POM_POM:'파칙파칙스타일',PAU:'훌라훌라스타일',SENSU:'하늘하늘스타일',
+            DISGUISED:'둔갑한 모습',BUSTED:'들킨 모습',ICE_FACE:'아이스페이스',NOICE:'나이스페이스',
+            ORIGINAL_CAP:'오리지널캡',HOENN_CAP:'호연캡',SINNOH_CAP:'신오캡',UNOVA_CAP:'하나캡',KALOS_CAP:'칼로스캡',ALOLA_CAP:'알로라캡',PARTNER_CAP:'너로정했다캡',WORLD_CAP:'월드캡',
+            ROCK_STAR:'하드록',BELLE:'마담',POP_STAR:'아이돌',PHD:'닥터',LIBRE:'마스크드',COSPLAY:'코스튬',
+            SPRING:'봄의 모습',SUMMER:'여름의 모습',AUTUMN:'가을의 모습',WINTER:'겨울의 모습',
+            SMALL:'작은 사이즈',AVERAGE:'보통 사이즈',LARGE:'큰 사이즈',SUPER:'특대 사이즈',
+            FAMILY_OF_THREE:'세 식구',FAMILY_OF_FOUR:'네 식구',COMBAT:'컴뱃종',BLAZE:'블레이즈종',AQUA:'워터종',
+            MALE:'수컷',FEMALE:'암컷',SUNNY:'태양의 모습',RAINY:'빗방울의 모습',SNOWY:'설운의 모습'
+          };
+          const PART={RED:'빨강',ORANGE:'주황',YELLOW:'노랑',GREEN:'초록',BLUE:'파랑',INDIGO:'남색',VIOLET:'보라',PINK:'분홍',WHITE:'하양',BLACK:'검정',BROWN:'갈색',MALE:'수컷',FEMALE:'암컷',SPRING:'봄',SUMMER:'여름',AUTUMN:'가을',WINTER:'겨울',SUN:'태양',MOON:'달',DAWN:'새벽',DUSK:'황혼',MEGA:'메가',REDUX:'리덕스',GMAX:'거다이맥스',ORIGIN:'오리진',THERIAN:'영물',INCARNATE:'화신',ATTACK:'어택',DEFENSE:'디펜스',SPEED:'스피드',RUBY:'루비',MATCHA:'말차',MINT:'민트',LEMON:'레몬',SALTED:'솔티',VANILLA:'바닐라',CREAM:'크림',STRAWBERRY:'딸기',BERRY:'베리',LOVE:'하트',STAR:'스타',CLOVER:'네잎클로버',FLOWER:'꽃',RIBBON:'리본',HEART:'하트',DIAMOND:'다이아',ELEGANT:'우아',MARINE:'마린',MEADOW:'목초',MODERN:'모던',MONSOON:'우기',OCEAN:'오션',POLAR:'설국',RIVER:'대하',SANDSTORM:'사막',SAVANNA:'사바나',TUNDRA:'빙설'};
+          function label(t){
+            t=String(t||'').replace(/^SPECIES_/,'').replace(/^FORM_/,'').replace(/_FORM(E)?$/,'');
+            if(!t)return '';
+            if(FORM[t])return FORM[t];
+            if(/^UNOWN_[A-Z]$/.test(t))return t.slice(-1)+'폼';
+            if(/^UNOWN_(EMARK|EXCLAMATION)$/.test(t))return '!폼';
+            if(/^UNOWN_(QMARK|QUESTION)$/.test(t))return '?폼';
+            if(/REDUX/.test(t))return '리덕스폼';
+            if(/MEGA_X/.test(t))return '메가진화 X';
+            if(/MEGA_Y/.test(t))return '메가진화 Y';
+            if(/MEGA/.test(t))return '메가진화';
+            if(/GMAX|GIGANTAMAX/.test(t))return '거다이맥스';
+            const out=[];
+            for(const p of t.split('_')){if(PART[p])out.push(PART[p]);else if(/^[A-Z0-9]+$/.test(p)&&p.length<=3)out.push(p);else return '특수폼';}
+            return out.length?out.join(' ')+'폼':'특수폼';
+          }
+          function loadLocal(){
+            const rows=[];
+            for(const f of ['species-1.js','species-2.js','species-3.js','species-4.js']){
+              const s=fs.readFileSync(f,'utf8');
+              const m=s.match(/\.concat\((\[[\s\S]*\])\);\s*$/); if(!m)throw Error('cannot parse '+f);
+              rows.push(...JSON.parse(m[1]));
+            }
+            return rows;
+          }
+          (async()=>{
+            const r=await fetch(url); if(!r.ok)throw Error('NextDex '+r.status);
+            const g=await r.json(),sp=(g.species||[]).filter(x=>x&&x.name&&Number(x?.dex?.id)>0);
+            const local=loadLocal(),byName=new Map(),byId=new Map();
+            for(const row of local){const o={id:+row[0],en:String(row[1]||''),ko:String(row[2]||'')};if(o.en&&o.ko&&!byName.has(o.en))byName.set(o.en,o);if(o.ko&&!byId.has(o.id))byId.set(o.id,o)}
+            const groups=new Map();for(const m of sp){const d=+m.dex.id;if(!groups.has(d))groups.set(d,[]);groups.get(d).push(m)}
+            const rows=[];let generic=0,formMembers=0,groupCount=0;
+            for(const [dex,ms] of [...groups].sort((a,b)=>a[0]-b[0])){
+              if(ms.length>1)groupCount++;
+              let root=ms.find(m=>+m.id===dex-1)||ms.find(m=>byName.has(m.name))||ms[0];
+              const localRoot=byId.get(dex-1)||byName.get(root.name);
+              const rootKo=localRoot?.ko||byName.get(root.name)?.ko||'포켓몬';
+              const rootConst=String(root.NAME||'').replace(/^SPECIES_/,'');
+              for(let j=0;j<ms.length;j++){
+                const m=ms[j],exact=byName.get(m.name)?.ko||'';
+                let ko=exact,token='',isForm=ms.length>1&&m!==root;
+                if(isForm){
+                  formMembers++;
+                  const childConst=String(m.NAME||'').replace(/^SPECIES_/,'');
+                  if(rootConst&&childConst.startsWith(rootConst+'_'))token=childConst.slice(rootConst.length+1);
+                  if(!token){
+                    const rn=String(root.name||''),mn=String(m.name||'');
+                    if(mn.toLowerCase().startsWith(rn.toLowerCase()))token=mn.slice(rn.length).replace(/^[ _-]+/,'').replace(/[ -]+/g,'_').toUpperCase();
+                    else if(mn.toLowerCase().endsWith(rn.toLowerCase()))token=mn.slice(0,mn.length-rn.length).replace(/[ _-]+$/,'').replace(/[ -]+/g,'_').toUpperCase();
+                  }
+                  if(!ko||ko===rootKo){const lab=label(token);ko=lab==='특수폼'?`${rootKo} (특수폼 #${m.id})`:token==='MEGA'?`메가${rootKo}`:token==='MEGA_X'?`메가${rootKo}X`:token==='MEGA_Y'?`메가${rootKo}Y`:token==='PRIMAL'?`원시${rootKo}`:`${rootKo} (${lab})`;}
+                  if(/특수폼 #/.test(ko))generic++;
+                }else if(!ko)ko=rootKo;
+                rows.push([+m.id,String(m.name),ko,dex,isForm?1:0,token]);
+              }
+            }
+            const meta={source:'ForwardFeed/ER-nextdex gameDataV2.65beta.json',species:rows.length,dexGroups:groups.size,multiFormGroups:groupCount,formMembers,genericLabels:generic,generatedAt:new Date().toISOString()};
+            fs.writeFileSync('forms.js',`window.ER_FORM_META=${JSON.stringify(meta)};\nwindow.ER_OFFICIAL_SPECIES=${JSON.stringify(rows)};\n`);
+            console.log(meta);
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+      - name: Commit generated static form data
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add forms.js
+          git diff --cached --quiet && exit 0
+          git commit -m "Generate Stage 6 static official form data"
+          git push origin HEAD:stage6-static-forms-build
