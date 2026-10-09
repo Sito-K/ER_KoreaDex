@@ -1,0 +1,196 @@
+{
+  "stage": "STAGE17_AUDIT",
+  "generatedAt": "2026-10-09T03:31:59.670Z",
+  "baseline": "STAGE16 user-confirmed normal",
+  "source": "https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65.4.json",
+  "counts": {
+    "current": 1922,
+    "official": 1922,
+    "duplicateCurrent": 0,
+    "missingCurrent": 0,
+    "extraCurrent": 0,
+    "identityMismatch": 0,
+    "typeMismatch": 0,
+    "statMismatch": 0,
+    "megaClassMismatch": 18,
+    "formInvariantMismatch": 0,
+    "officialIncomplete": 2
+  },
+  "duplicateCurrent": [],
+  "missingCurrent": [],
+  "extraCurrent": [],
+  "identity": [],
+  "types": [],
+  "stats": [],
+  "megaClass": [
+    {
+      "id": 1856,
+      "name": "Slaking Mega Ape Shift",
+      "sprite": "SLAKING_MEGA_APE_SHIFT",
+      "token": "MEGA_APE_SHIFT",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 1892,
+      "name": "Absol Mega Z",
+      "sprite": "ABSOL_MEGA_Z",
+      "token": "MEGA_Z",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 1894,
+      "name": "Garchomp Mega Z",
+      "sprite": "GARCHOMP_MEGA_Z",
+      "token": "MEGA_Z",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2146,
+      "name": "Alakazam Mega Redux",
+      "sprite": "ALAKAZAM_MEGA_REDUX",
+      "token": "MEGA_REDUX",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2147,
+      "name": "Beedrill Mega Redux",
+      "sprite": "BEEDRILL_MEGA_REDUX",
+      "token": "MEGA_REDUX",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2148,
+      "name": "Machamp Mega Redux",
+      "sprite": "MACHAMP_MEGA_REDUX",
+      "token": "MEGA_REDUX",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2149,
+      "name": "Skarmory Mega",
+      "sprite": "SKARMORY_MEGA_REDUX",
+      "token": "MEGA_REDUX",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2150,
+      "name": "Arcanine Mega",
+      "sprite": "ARCANINE_MEGA_REDUX",
+      "token": "MEGA_REDUX",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2151,
+      "name": "Garchomp Mega Redux",
+      "sprite": "GARCHOMP_MEGA_REDUX",
+      "token": "MEGA_REDUX",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2152,
+      "name": "Mawile Mega Redux",
+      "sprite": "MAWILE_MEGA_REDUX",
+      "token": "MEGA_REDUX",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2153,
+      "name": "Sableye Mega Redux",
+      "sprite": "SABLEYE_MEGA_REDUX",
+      "token": "MEGA_REDUX",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2154,
+      "name": "Houndoom Mega Redux",
+      "sprite": "HOUNDOOM_MEGA_REDUX",
+      "token": "MEGA_REDUX",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2159,
+      "name": "Lucario Mega Z",
+      "sprite": "LUCARIO_MEGA_Z",
+      "token": "MEGA_Z",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2166,
+      "name": "Rapidash Mega Galarian",
+      "sprite": "RAPIDASH_MEGA_GALARIAN",
+      "token": "MEGA_GALARIAN",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2191,
+      "name": "Charizard Mega Z",
+      "sprite": "CHARIZARD_MEGA_Z",
+      "token": "MEGA_Z",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2229,
+      "name": "Slowbro Mega Galarian",
+      "sprite": "SLOWBRO_MEGA_GALARIAN",
+      "token": "MEGA_GALARIAN",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2230,
+      "name": "Slowking Mega Galarian",
+      "sprite": "SLOWKING_MEGA_GALARIAN",
+      "token": "MEGA_GALARIAN",
+      "currentCategory": "form",
+      "officialMega": true
+    },
+    {
+      "id": 2562,
+      "name": "Tyranitar Mega Redux",
+      "sprite": "TYRANITAR_MEGA_REDUX",
+      "token": "MEGA_REDUX",
+      "currentCategory": "form",
+      "officialMega": true
+    }
+  ],
+  "formInvariant": [],
+  "officialIncomplete": [
+    {
+      "id": 2502,
+      "name": "Infernape Redux B",
+      "kind": "types",
+      "raw": [
+        19,
+        19
+      ]
+    },
+    {
+      "id": 2502,
+      "name": "Infernape Redux B",
+      "kind": "stats",
+      "raw": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}
