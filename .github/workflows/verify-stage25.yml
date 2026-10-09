@@ -1,0 +1,52 @@
+name: Verify Stage 25 always-visible details
+on:
+  push:
+    paths:
+      - 'index.html'
+      - 'stage19.js'
+      - 'stage20.js'
+      - 'stage21.js'
+      - 'stage25.js'
+      - 'stage25.css'
+      - 'stage25-detail-data.js'
+      - 'stage25-detail-audit.json'
+      - '.github/workflows/verify-stage25.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check Stage 25 scripts
+        run: |
+          node --check stage19.js
+          node --check stage20.js
+          node --check stage21.js
+          node --check stage25.js
+      - name: Verify Stage 25 invariants
+        run: |
+          node - <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          const index=fs.readFileSync('index.html','utf8');
+          const s19=fs.readFileSync('stage19.js','utf8');
+          const s20=fs.readFileSync('stage20.js','utf8');
+          const s21=fs.readFileSync('stage21.js','utf8');
+          const s25=fs.readFileSync('stage25.js','utf8');
+          const css=fs.readFileSync('stage25.css','utf8');
+          const audit=JSON.parse(fs.readFileSync('stage25-detail-audit.json','utf8'));
+          if(audit.moves!==1031||audit.abilities!==1062)throw Error('detail data count mismatch');
+          for(const k of ['moveShortMissing','moveLongMissing','abilityShortMissing','abilityLongMissing'])if(audit[k].length)throw Error(`${k} not empty`);
+          const c={window:{}};vm.createContext(c);vm.runInContext(fs.readFileSync('stage25-detail-data.js','utf8'),c);
+          if(c.window.ER_STAGE25_DETAIL_DATA.moves.length!==1031||c.window.ER_STAGE25_DETAIL_DATA.abilities.length!==1062)throw Error('detail payload mismatch');
+          for(const [name,src] of [['stage19',s19],['stage20',s20],['stage21',s21]])if(src.includes('<details'))throw Error(`${name} still contains collapsible details`);
+          if(s19.includes('선택 특성')||s19.includes('Innate 특성'))throw Error('old ability labels remain');
+          if(!s19.includes("abilityGroup('특성'")||!s19.includes("abilityGroup('고유 특성'"))throw Error('new ability labels missing');
+          if(!s19.includes('s19-detail-link')||!s19.includes('ER_STAGE25_DETAIL'))throw Error('clickable move/ability links missing');
+          if(!s25.includes('stage25-detail-data.js')||!s25.includes('ER_STAGE18')||!s25.includes('augmentDetail'))throw Error('detail explanation bridge missing');
+          if(!css.includes('.s19-detail-link')||!css.includes('.s25-always'))throw Error('Stage25 UI styles missing');
+          for(const x of ['STAGE 25','stage25.css?v=20261009-stage25','stage25.js?v=20261009-stage25','stage19.js?v=20261009-stage25','stage20.js?v=20261009-stage25','stage21.js?v=20261009-stage25'])if(!index.includes(x))throw Error(`index missing ${x}`);
+          console.log('STAGE25 OK',JSON.stringify({moves:audit.moves,abilities:audit.abilities}));
+          NODE
