@@ -1,0 +1,283 @@
+{
+  "stage": "STAGE21",
+  "generatedAt": "2026-10-09T04:23:16.716Z",
+  "baseline": "STAGE20 user-confirmed normal",
+  "source": "https://raw.githubusercontent.com/ForwardFeed/ER-nextdex/main/static/js/data/gameDataV2.65.4.json",
+  "counts": {
+    "officialSpecies": 1922,
+    "webSpecies": 1922,
+    "payloadSpecies": 1922,
+    "maps": 176,
+    "rawNaturalSlots": 3114,
+    "unsetNaturalSlots": 7,
+    "displayNaturalGroups": 1918,
+    "naturalIndexToIdRemaps": 169,
+    "rawScriptedRows": 200,
+    "displayScriptedGroups": 185,
+    "scriptedDuplicates": 15,
+    "withNatural": 767,
+    "withScripted": 144,
+    "withAny": 854,
+    "unresolvedNatural": 0,
+    "missingMapNames": 0,
+    "invalidScriptedHow": 0,
+    "missingSource": 0
+  },
+  "rawByField": {
+    "land": 1872,
+    "water": 248,
+    "fish": 600,
+    "honey": 216,
+    "rock": 112,
+    "hidden": 66
+  },
+  "rawHowCounts": {
+    "scripted not wild": 90,
+    "given with custom moves": 41,
+    "scripted wild": 29,
+    "given": 40
+  },
+  "fieldKo": {
+    "land": "풀숲",
+    "water": "수상",
+    "fish": "낚시",
+    "honey": "꿀",
+    "rock": "바위깨기",
+    "hidden": "숨은 출현"
+  },
+  "howKo": {
+    "0": "고정 야생",
+    "1": "이벤트 출현(비야생)",
+    "2": "지급(특수 기술)",
+    "3": "지급"
+  },
+  "unsetNaturalSlots": [
+    {
+      "mapIndex": 1,
+      "mapId": 317,
+      "mapName": "Route 102",
+      "field": "honey",
+      "slot": [
+        5,
+        5,
+        0
+      ],
+      "rawIndex": 0,
+      "targetId": -1,
+      "targetName": "??????????"
+    },
+    {
+      "mapIndex": 1,
+      "mapId": 317,
+      "mapName": "Route 102",
+      "field": "hidden",
+      "slot": [
+        50,
+        50,
+        0
+      ],
+      "rawIndex": 0,
+      "targetId": -1,
+      "targetName": "??????????"
+    },
+    {
+      "mapIndex": 1,
+      "mapId": 317,
+      "mapName": "Route 102",
+      "field": "hidden",
+      "slot": [
+        50,
+        50,
+        0
+      ],
+      "rawIndex": 0,
+      "targetId": -1,
+      "targetName": "??????????"
+    },
+    {
+      "mapIndex": 1,
+      "mapId": 317,
+      "mapName": "Route 102",
+      "field": "hidden",
+      "slot": [
+        50,
+        50,
+        0
+      ],
+      "rawIndex": 0,
+      "targetId": -1,
+      "targetName": "??????????"
+    },
+    {
+      "mapIndex": 32,
+      "mapId": 328,
+      "mapName": "Route 109",
+      "field": "hidden",
+      "slot": [
+        5,
+        5,
+        0
+      ],
+      "rawIndex": 0,
+      "targetId": -1,
+      "targetName": "??????????"
+    },
+    {
+      "mapIndex": 54,
+      "mapId": 388,
+      "mapName": "Route 131",
+      "field": "hidden",
+      "slot": [
+        5,
+        5,
+        0
+      ],
+      "rawIndex": 0,
+      "targetId": -1,
+      "targetName": "??????????"
+    },
+    {
+      "mapIndex": 54,
+      "mapId": 388,
+      "mapName": "Route 131",
+      "field": "hidden",
+      "slot": [
+        5,
+        5,
+        0
+      ],
+      "rawIndex": 0,
+      "targetId": -1,
+      "targetName": "??????????"
+    }
+  ],
+  "unresolvedNatural": [],
+  "missingMapNames": [],
+  "invalidScriptedHow": [],
+  "missingSource": [],
+  "samples": {
+    "bulbasaur": [
+      1,
+      "이상해씨",
+      "Bulbasaur",
+      [],
+      [
+        [
+          221,
+          "Mauville City Game Corner",
+          1,
+          "scripted not wild",
+          "이벤트 출현(비야생)",
+          1
+        ]
+      ]
+    ],
+    "pikachu": [
+      25,
+      "피카츄",
+      "Pikachu",
+      [
+        [
+          158,
+          149,
+          "Fortree City",
+          "land",
+          5,
+          5,
+          1
+        ],
+        [
+          14,
+          311,
+          "Petalburg Woods",
+          "honey",
+          2,
+          3,
+          2
+        ],
+        [
+          22,
+          419,
+          "Safari Zone South",
+          "land",
+          27,
+          27,
+          1
+        ]
+      ],
+      []
+    ],
+    "articuno": [
+      144,
+      "프리져",
+      "Articuno",
+      [],
+      [
+        [
+          473,
+          "Shoal Cave Low Tide Ice Room",
+          0,
+          "scripted wild",
+          "고정 야생",
+          1
+        ],
+        [
+          473,
+          "Shoal Cave Low Tide Ice Room",
+          1,
+          "scripted not wild",
+          "이벤트 출현(비야생)",
+          1
+        ]
+      ]
+    ],
+    "mewtwo": [
+      150,
+      "뮤츠",
+      "Mewtwo",
+      [],
+      [
+        [
+          15,
+          "Altering Cave B1F",
+          0,
+          "scripted wild",
+          "고정 야생",
+          1
+        ],
+        [
+          15,
+          "Altering Cave B1F",
+          1,
+          "scripted not wild",
+          "이벤트 출현(비야생)",
+          1
+        ]
+      ]
+    ],
+    "rayquaza": [
+      384,
+      "레쿠쟈",
+      "Rayquaza",
+      [],
+      [
+        [
+          484,
+          "Sky Pillar Top",
+          0,
+          "scripted wild",
+          "고정 야생",
+          1
+        ],
+        [
+          484,
+          "Sky Pillar Top",
+          1,
+          "scripted not wild",
+          "이벤트 출현(비야생)",
+          1
+        ]
+      ]
+    ]
+  }
+}
