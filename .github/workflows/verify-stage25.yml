@@ -45,10 +45,11 @@ jobs:
           if(s19.includes('선택 특성')||s19.includes('Innate 특성'))throw Error('old ability labels remain');
           if(!s19.includes("abilityGroup('특성'")||!s19.includes("abilityGroup('고유 특성'"))throw Error('new ability labels missing');
           if(!s19.includes('s19-detail-link')||!s19.includes('ER_STAGE25_DETAIL'))throw Error('clickable move/ability links missing');
-          for(const x of ['stage25-detail-data.js','ER_STAGE18','augmentDetail','s25-reference-mode','setReferenceMode(true)','setReferenceMode(false)'])if(!s25.includes(x))throw Error(`detail explanation bridge missing ${x}`);
-          for(const x of ['#detailPokemonExtra','#detailFormsSection','#stage19SpeciesDetail','#stage20EvolutionDetail','#stage21EncounterDetail'])if(!css.includes(x))throw Error(`reference mode hide selector missing ${x}`);
-          if(!css.includes('#detailBackdrop.s25-reference-mode'))throw Error('reference mode CSS missing');
+          for(const x of ['s25ReferenceBackdrop','s25-reference-dialog','ensureModal','ER_MOVE_META','ER_ABILITY_META','stopImmediatePropagation','window.ER_STAGE25_DETAIL'])if(!s25.includes(x))throw Error(`independent reference modal missing ${x}`);
+          if(s25.includes('s25-reference-mode')||s25.includes('hidePokemonSections')||s25.includes('augmentDetail'))throw Error('old shared Pokemon modal bridge remains');
+          for(const x of ['.s25-reference-backdrop','.s25-reference-dialog','.s25-ref-grid'])if(!css.includes(x))throw Error(`reference modal CSS missing ${x}`);
+          if(css.includes('#detailBackdrop.s25-reference-mode'))throw Error('old reference mode CSS remains');
           if(!css.includes('.s19-detail-link')||!css.includes('.s25-always'))throw Error('Stage25 UI styles missing');
-          for(const x of ['STAGE 25','stage25.css?v=20261009-stage25','stage25.js?v=20261009-stage25','stage19.js?v=20261009-stage25','stage20.js?v=20261009-stage25','stage21.js?v=20261009-stage25'])if(!index.includes(x))throw Error(`index missing ${x}`);
-          console.log('STAGE25 FIX OK',JSON.stringify({moves:audit.moves,abilities:audit.abilities,referenceMode:true}));
+          for(const x of ['STAGE 25','stage25.css?v=20261009-stage25modal','stage25.js?v=20261009-stage25modal','stage19.js?v=20261009-stage25','stage20.js?v=20261009-stage25','stage21.js?v=20261009-stage25'])if(!index.includes(x))throw Error(`index missing ${x}`);
+          console.log('STAGE25 MODAL FIX OK',JSON.stringify({moves:audit.moves,abilities:audit.abilities,independentModal:true}));
           NODE
