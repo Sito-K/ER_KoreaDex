@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f131a">
-<title>Elite Redux 한글 도감 · STAGE 17</title>
+<title>Elite Redux 한글 도감 · STAGE 18</title>
 <link rel="stylesheet" href="styles.css?v=20261009-clean3">
 <link rel="stylesheet" href="stage4.css?v=20261009-clean4">
 <link rel="stylesheet" href="stage5.css?v=20261009-clean5">
@@ -16,18 +16,19 @@
 <link rel="stylesheet" href="stage12.css?v=20261009-stage12">
 <link rel="stylesheet" href="stage13.css?v=20261009-stage13">
 <link rel="stylesheet" href="stage14.css?v=20261009-stage14b">
+<link rel="stylesheet" href="stage18.css?v=20261009-stage18">
 </head>
 <body>
 <header class="top">
-  <div class="brand"><b>ER</b><div><strong>Elite Redux 한글 도감</strong><small>CLEAN REBUILD · STAGE 17</small></div></div>
+  <div class="brand"><b>ER</b><div><strong>Elite Redux 한글 도감</strong><small>CLEAN REBUILD · STAGE 18</small></div></div>
   <label class="search"><span>⌕</span><input id="q" type="search" placeholder="포켓몬 이름 또는 도감 번호를 검색해주세요" autocomplete="off"></label>
 </header>
 <main>
   <section class="hero">
-    <div><small>ELITE REDUX 2.65.4</small><h1>포켓몬 도감</h1><p>공식 NextDex v2.65.4 데이터와 최신 STAGE101 한국어 마스터를 대조해 포켓몬·폼·메가진화·타입·종족값을 표시합니다.</p></div>
+    <div><small>ELITE REDUX 2.65.4</small><h1>포켓몬 도감</h1><p>공식 NextDex v2.65.4 데이터와 최신 한국어 데이터를 대조해 포켓몬·폼·메가진화·기술·특성을 표시합니다.</p></div>
     <div class="status"><b id="count">0</b><span id="countLabel">불러온 포켓몬·폼</span></div>
   </section>
-  <section class="notice">STAGE 17: 공식 NextDex 2.65.4와 1,922개 전 항목의 ID·도감번호·영문명·내부명·타입·종족값을 재대조했습니다. 실제 데이터 불일치는 0건이며, Mega Z·Mega Redux·Mega Galarian 등 18개 항목의 분류만 FORM에서 MEGA로 교정했습니다. 공식 원본 자체에 타입·종족값이 비어 있는 Infernape Redux B는 임의 보정하지 않습니다.</section>
+  <section class="notice">STAGE 18: STAGE17 정상 기준에서 기술 1,031개와 특성 1,062개를 공식 NextDex 2.65.4와 전수 대조했습니다. 기술의 한국어 이름·요약·상세 설명은 전 항목 완비되었고, 최신 특성 ID 1034~1062의 29개 누락을 한국어 이름·설명으로 추가했습니다. 기술 상세에는 타입·분류·위력·명중·PP·우선도 등 공식 전투 데이터도 함께 표시합니다.</section>
   <nav class="tabs" aria-label="도감 분류">
     <button class="tab active" data-view="pokemon">포켓몬</button>
     <button class="tab" data-view="moves">기술</button>
@@ -79,9 +80,12 @@
 <script src="species-4.js?v=clean1"></script>
 <script src="forms.js?v=20261009-stage17"></script>
 <script src="pokemon-data.js?v=20261009-stage17"></script>
-<script src="app-stage13.js?v=20261009-stage14"></script>
+<script src="move-meta.js?v=20261009-stage18"></script>
+<script src="ability-meta.js?v=20261009-stage18"></script>
+<script src="app-stage13.js?v=20261009-stage18"></script>
 <script src="stage14-infinite.js?v=20261009-stage14b"></script>
 <script src="stage8.js?v=20261009-stage8"></script>
 <script src="stage9.js?v=20261009-stage9"></script>
+<script src="stage18.js?v=20261009-stage18"></script>
 </body>
 </html>
