@@ -1,0 +1,37 @@
+name: Build maintenance export
+on:
+  push:
+    paths:
+      - 'build-maintenance-export.js'
+      - '.github/workflows/build-maintenance-export.yml'
+      - 'pokemon-data.js'
+      - 'stage25-detail-data.js'
+      - 'move-meta.js'
+      - 'ability-meta.js'
+      - 'stage22-map-ko.js'
+      - 'stage20-data.js'
+      - 'stage26-item-names.js'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build editable master source data
+        run: node build-maintenance-export.js
+      - name: Validate counts
+        run: |
+          node - <<'NODE'
+          const s=require('./maintenance-export/summary.json');
+          const e={pokemon:1922,moves:1031,abilities:1062,locations:200,evolution_items:281};
+          for(const [k,v] of Object.entries(e))if(s.counts[k]!==v)throw Error(`${k}: ${s.counts[k]} != ${v}`);
+          console.log('MAINTENANCE EXPORT OK',s.counts);
+          NODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: elite-redux-stage27-maintenance-export
+          path: maintenance-export/*.json
+          if-no-files-found: error
