@@ -1,0 +1,1611 @@
+{
+  "stage": "STAGE22",
+  "baseline": "STAGE21 user-confirmed normal",
+  "count": 200,
+  "unresolvedCount": 0,
+  "duplicateKoCount": 0,
+  "unresolved": [],
+  "duplicateKo": [],
+  "rows": [
+    {
+      "mapId": 4,
+      "mapIndex": 58,
+      "name": "Abandoned Ship Hidden Floor Corridors",
+      "naturalSlots": 14,
+      "scripted": 0,
+      "ko": "버려진 배 숨겨진 층 복도"
+    },
+    {
+      "mapId": 6,
+      "mapIndex": null,
+      "name": "Abandoned Ship Room B1F",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "버려진 배 방 지하 1층"
+    },
+    {
+      "mapId": 10,
+      "mapIndex": 24,
+      "name": "Abandoned Ship Rooms B1F",
+      "naturalSlots": 14,
+      "scripted": 0,
+      "ko": "버려진 배 객실 지하 1층"
+    },
+    {
+      "mapId": 13,
+      "mapIndex": 149,
+      "name": "Altering Cave",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "변화의 동굴"
+    },
+    {
+      "mapId": 14,
+      "mapIndex": 150,
+      "name": "Altering Cave 1F",
+      "naturalSlots": 22,
+      "scripted": 0,
+      "ko": "변화의 동굴 1층"
+    },
+    {
+      "mapId": 15,
+      "mapIndex": 151,
+      "name": "Altering Cave B1F",
+      "naturalSlots": 36,
+      "scripted": 2,
+      "ko": "변화의 동굴 지하 1층"
+    },
+    {
+      "mapId": 16,
+      "mapIndex": null,
+      "name": "Ancient Tomb",
+      "naturalSlots": 0,
+      "scripted": 2,
+      "ko": "고대무덤"
+    },
+    {
+      "mapId": 18,
+      "mapIndex": null,
+      "name": "Aqua Hideout B1F",
+      "naturalSlots": 0,
+      "scripted": 2,
+      "ko": "아쿠아단 아지트 지하 1층"
+    },
+    {
+      "mapId": 23,
+      "mapIndex": 140,
+      "name": "Artisan Cave 1F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "장인의 동굴 1층"
+    },
+    {
+      "mapId": 24,
+      "mapIndex": 123,
+      "name": "Artisan Cave B1F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "장인의 동굴 지하 1층"
+    },
+    {
+      "mapId": 25,
+      "mapIndex": 127,
+      "name": "Ashen Woods",
+      "naturalSlots": 18,
+      "scripted": 0,
+      "ko": "재의 숲"
+    },
+    {
+      "mapId": 68,
+      "mapIndex": null,
+      "name": "Battle Frontier Outside East",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "배틀프런티어 동쪽 외부"
+    },
+    {
+      "mapId": 91,
+      "mapIndex": null,
+      "name": "Birth Island Exterior",
+      "naturalSlots": 0,
+      "scripted": 3,
+      "ko": "탄생의 섬 외부"
+    },
+    {
+      "mapId": 93,
+      "mapIndex": 69,
+      "name": "Cave Of Origin 1F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "각성의 사당 1층"
+    },
+    {
+      "mapId": 95,
+      "mapIndex": 73,
+      "name": "Cave Of Origin Diancies Room",
+      "naturalSlots": 12,
+      "scripted": 2,
+      "ko": "각성의 사당 디안시의 방"
+    },
+    {
+      "mapId": 96,
+      "mapIndex": 68,
+      "name": "Cave Of Origin Entrance",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "각성의 사당 입구"
+    },
+    {
+      "mapId": 97,
+      "mapIndex": 70,
+      "name": "Cave Of Origin Unused Ruby Sapphire Map 1",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "각성의 사당 미사용 루비·사파이어 구역 1"
+    },
+    {
+      "mapId": 98,
+      "mapIndex": 71,
+      "name": "Cave Of Origin Unused Ruby Sapphire Map 2",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "각성의 사당 미사용 루비·사파이어 구역 2"
+    },
+    {
+      "mapId": 99,
+      "mapIndex": 72,
+      "name": "Cave Of Origin Unused Ruby Sapphire Map 3",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "각성의 사당 미사용 루비·사파이어 구역 3"
+    },
+    {
+      "mapId": 108,
+      "mapIndex": null,
+      "name": "Desert Ruins",
+      "naturalSlots": 0,
+      "scripted": 2,
+      "ko": "사막유적"
+    },
+    {
+      "mapId": 109,
+      "mapIndex": 122,
+      "name": "Desert Underpass",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "사막지하도"
+    },
+    {
+      "mapId": 110,
+      "mapIndex": 134,
+      "name": "Dewford Manor 1F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "무로저택 1층"
+    },
+    {
+      "mapId": 111,
+      "mapIndex": 133,
+      "name": "Dewford Meadow",
+      "naturalSlots": 18,
+      "scripted": 0,
+      "ko": "무로초원"
+    },
+    {
+      "mapId": 112,
+      "mapIndex": 90,
+      "name": "Dewford Town",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "무로마을"
+    },
+    {
+      "mapId": 113,
+      "mapIndex": null,
+      "name": "Dewford Town Gym",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "무로마을 체육관"
+    },
+    {
+      "mapId": 119,
+      "mapIndex": 126,
+      "name": "Ember Path",
+      "naturalSlots": 12,
+      "scripted": 2,
+      "ko": "불씨길"
+    },
+    {
+      "mapId": 120,
+      "mapIndex": 98,
+      "name": "Ever Grande City",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "그랜드시티"
+    },
+    {
+      "mapId": 136,
+      "mapIndex": null,
+      "name": "Evergrande City Mono Champ Room 1",
+      "naturalSlots": 0,
+      "scripted": 12,
+      "ko": "그랜드시티 단일타입 챔피언실 1"
+    },
+    {
+      "mapId": 137,
+      "mapIndex": 160,
+      "name": "Fallarbor Town",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "단풍마을"
+    },
+    {
+      "mapId": 141,
+      "mapIndex": null,
+      "name": "Fallarbor Town Cozmos House",
+      "naturalSlots": 0,
+      "scripted": 6,
+      "ko": "단풍마을 공석박사의 집"
+    },
+    {
+      "mapId": 147,
+      "mapIndex": null,
+      "name": "Faraway Island Interior",
+      "naturalSlots": 0,
+      "scripted": 3,
+      "ko": "머나먼고도 내부"
+    },
+    {
+      "mapId": 148,
+      "mapIndex": 26,
+      "name": "Fiery Path",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "불꽃샛길"
+    },
+    {
+      "mapId": 149,
+      "mapIndex": 158,
+      "name": "Fortree City",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "검방울시티"
+    },
+    {
+      "mapId": 151,
+      "mapIndex": null,
+      "name": "Fortree City Gym",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "검방울시티 체육관"
+    },
+    {
+      "mapId": 158,
+      "mapIndex": null,
+      "name": "Fortree City Mart",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "검방울시티 프렌들리숍"
+    },
+    {
+      "mapId": 161,
+      "mapIndex": 18,
+      "name": "Granite Cave 1F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "돌의 동굴 1층"
+    },
+    {
+      "mapId": 162,
+      "mapIndex": 19,
+      "name": "Granite Cave B1F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "돌의 동굴 지하 1층"
+    },
+    {
+      "mapId": 163,
+      "mapIndex": 25,
+      "name": "Granite Cave B2F",
+      "naturalSlots": 16,
+      "scripted": 0,
+      "ko": "돌의 동굴 지하 2층"
+    },
+    {
+      "mapId": 165,
+      "mapIndex": 47,
+      "name": "Granite Cave Stevens Room",
+      "naturalSlots": 12,
+      "scripted": 1,
+      "ko": "돌의 동굴 성호의 방"
+    },
+    {
+      "mapId": 167,
+      "mapIndex": null,
+      "name": "Island Cave",
+      "naturalSlots": 0,
+      "scripted": 2,
+      "ko": "작은 섬 옆굴"
+    },
+    {
+      "mapId": 168,
+      "mapIndex": 28,
+      "name": "Jagged Pass",
+      "naturalSlots": 18,
+      "scripted": 0,
+      "ko": "울퉁불퉁산길"
+    },
+    {
+      "mapId": 169,
+      "mapIndex": 159,
+      "name": "Lavaridge Town",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "용암마을"
+    },
+    {
+      "mapId": 170,
+      "mapIndex": null,
+      "name": "Lavaridge Town Gym 1F",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "용암마을 체육관 1층"
+    },
+    {
+      "mapId": 175,
+      "mapIndex": null,
+      "name": "Lavaridge Town Pokemon Center 1F",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "용암마을 포켓몬센터 1층"
+    },
+    {
+      "mapId": 178,
+      "mapIndex": 88,
+      "name": "Lilycove City",
+      "naturalSlots": 12,
+      "scripted": 1,
+      "ko": "해안시티"
+    },
+    {
+      "mapId": 203,
+      "mapIndex": 165,
+      "name": "Littleroot Town",
+      "naturalSlots": 18,
+      "scripted": 0,
+      "ko": "미로마을"
+    },
+    {
+      "mapId": 208,
+      "mapIndex": null,
+      "name": "Littleroot Town Professor Birchs Lab",
+      "naturalSlots": 0,
+      "scripted": 9,
+      "ko": "미로마을 털보박사 연구소"
+    },
+    {
+      "mapId": 209,
+      "mapIndex": 109,
+      "name": "Magma Hideout 1F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "마그마단 아지트 1층"
+    },
+    {
+      "mapId": 210,
+      "mapIndex": 110,
+      "name": "Magma Hideout 2F 1R",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "마그마단 아지트 2층 1구역"
+    },
+    {
+      "mapId": 211,
+      "mapIndex": 111,
+      "name": "Magma Hideout 2F 2R",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "마그마단 아지트 2층 2구역"
+    },
+    {
+      "mapId": 212,
+      "mapIndex": 116,
+      "name": "Magma Hideout 2F 3R",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "마그마단 아지트 2층 3구역"
+    },
+    {
+      "mapId": 213,
+      "mapIndex": 112,
+      "name": "Magma Hideout 3F 1R",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "마그마단 아지트 3층 1구역"
+    },
+    {
+      "mapId": 214,
+      "mapIndex": 113,
+      "name": "Magma Hideout 3F 2R",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "마그마단 아지트 3층 2구역"
+    },
+    {
+      "mapId": 215,
+      "mapIndex": 115,
+      "name": "Magma Hideout 3F 3R",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "마그마단 아지트 3층 3구역"
+    },
+    {
+      "mapId": 216,
+      "mapIndex": 114,
+      "name": "Magma Hideout 4F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "마그마단 아지트 4층"
+    },
+    {
+      "mapId": 217,
+      "mapIndex": null,
+      "name": "Marine Cave End",
+      "naturalSlots": 0,
+      "scripted": 2,
+      "ko": "바다동굴 끝"
+    },
+    {
+      "mapId": 219,
+      "mapIndex": 157,
+      "name": "Mauville City",
+      "naturalSlots": 12,
+      "scripted": 1,
+      "ko": "보라시티"
+    },
+    {
+      "mapId": 221,
+      "mapIndex": null,
+      "name": "Mauville City Game Corner",
+      "naturalSlots": 0,
+      "scripted": 39,
+      "ko": "보라시티 게임코너"
+    },
+    {
+      "mapId": 222,
+      "mapIndex": null,
+      "name": "Mauville City Gym",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "보라시티 체육관"
+    },
+    {
+      "mapId": 228,
+      "mapIndex": 80,
+      "name": "Meteor Falls 1F 1R",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "유성의 폭포 1층 1구역"
+    },
+    {
+      "mapId": 229,
+      "mapIndex": 81,
+      "name": "Meteor Falls 1F 2R",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "유성의 폭포 1층 2구역"
+    },
+    {
+      "mapId": 230,
+      "mapIndex": 82,
+      "name": "Meteor Falls B1F 1R",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "유성의 폭포 지하 1층 1구역"
+    },
+    {
+      "mapId": 231,
+      "mapIndex": 27,
+      "name": "Meteor Falls B1F 2R",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "유성의 폭포 지하 1층 2구역"
+    },
+    {
+      "mapId": 232,
+      "mapIndex": null,
+      "name": "Meteor Falls Haxorus Room",
+      "naturalSlots": 0,
+      "scripted": 3,
+      "ko": "유성의 폭포 액스라이즈의 방"
+    },
+    {
+      "mapId": 233,
+      "mapIndex": null,
+      "name": "Meteor Falls Jirachis Room",
+      "naturalSlots": 0,
+      "scripted": 2,
+      "ko": "유성의 폭포 지라치의 방"
+    },
+    {
+      "mapId": 234,
+      "mapIndex": 152,
+      "name": "Meteor Falls Stevens Cave",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "유성의 폭포 성호의 동굴"
+    },
+    {
+      "mapId": 235,
+      "mapIndex": 117,
+      "name": "Mirage Tower 1F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "환상탑 1층"
+    },
+    {
+      "mapId": 236,
+      "mapIndex": 118,
+      "name": "Mirage Tower 2F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "환상탑 2층"
+    },
+    {
+      "mapId": 237,
+      "mapIndex": 119,
+      "name": "Mirage Tower 3F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "환상탑 3층"
+    },
+    {
+      "mapId": 238,
+      "mapIndex": 120,
+      "name": "Mirage Tower 4F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "환상탑 4층"
+    },
+    {
+      "mapId": 239,
+      "mapIndex": 121,
+      "name": "Mirage Tower B1F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "환상탑 지하 1층"
+    },
+    {
+      "mapId": 241,
+      "mapIndex": 94,
+      "name": "Mossdeep City",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "이끼시티"
+    },
+    {
+      "mapId": 244,
+      "mapIndex": null,
+      "name": "Mossdeep City Gym",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "이끼시티 체육관"
+    },
+    {
+      "mapId": 254,
+      "mapIndex": null,
+      "name": "Mossdeep City Stevens House",
+      "naturalSlots": 0,
+      "scripted": 2,
+      "ko": "이끼시티 성호의 집"
+    },
+    {
+      "mapId": 257,
+      "mapIndex": 20,
+      "name": "Mt Pyre 1F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "송화산 1층"
+    },
+    {
+      "mapId": 258,
+      "mapIndex": 40,
+      "name": "Mt Pyre 2F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "송화산 2층"
+    },
+    {
+      "mapId": 259,
+      "mapIndex": 41,
+      "name": "Mt Pyre 3F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "송화산 3층"
+    },
+    {
+      "mapId": 260,
+      "mapIndex": 42,
+      "name": "Mt Pyre 4F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "송화산 4층"
+    },
+    {
+      "mapId": 261,
+      "mapIndex": 43,
+      "name": "Mt Pyre 5F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "송화산 5층"
+    },
+    {
+      "mapId": 262,
+      "mapIndex": 44,
+      "name": "Mt Pyre 6F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "송화산 6층"
+    },
+    {
+      "mapId": 263,
+      "mapIndex": 45,
+      "name": "Mt Pyre Exterior",
+      "naturalSlots": 18,
+      "scripted": 0,
+      "ko": "송화산 외부"
+    },
+    {
+      "mapId": 264,
+      "mapIndex": 46,
+      "name": "Mt Pyre Summit",
+      "naturalSlots": 18,
+      "scripted": 0,
+      "ko": "송화산 정상"
+    },
+    {
+      "mapId": 266,
+      "mapIndex": null,
+      "name": "Navel Rock Bottom",
+      "naturalSlots": 0,
+      "scripted": 3,
+      "ko": "배꼽바위 최하층"
+    },
+    {
+      "mapId": 282,
+      "mapIndex": null,
+      "name": "Navel Rock Top",
+      "naturalSlots": 0,
+      "scripted": 3,
+      "ko": "배꼽바위 정상"
+    },
+    {
+      "mapId": 287,
+      "mapIndex": 74,
+      "name": "New Mauville Entrance",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "뉴보라 입구"
+    },
+    {
+      "mapId": 288,
+      "mapIndex": 34,
+      "name": "New Mauville Inside",
+      "naturalSlots": 12,
+      "scripted": 6,
+      "ko": "뉴보라 내부"
+    },
+    {
+      "mapId": 289,
+      "mapIndex": 154,
+      "name": "Oldale Town",
+      "naturalSlots": 18,
+      "scripted": 0,
+      "ko": "고도마을"
+    },
+    {
+      "mapId": 295,
+      "mapIndex": 96,
+      "name": "Pacifidlog Town",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "황금마을"
+    },
+    {
+      "mapId": 303,
+      "mapIndex": 99,
+      "name": "Petalburg City",
+      "naturalSlots": 32,
+      "scripted": 0,
+      "ko": "등화도시"
+    },
+    {
+      "mapId": 304,
+      "mapIndex": null,
+      "name": "Petalburg City Gym",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "등화도시 체육관"
+    },
+    {
+      "mapId": 311,
+      "mapIndex": 14,
+      "name": "Petalburg Woods",
+      "naturalSlots": 22,
+      "scripted": 1,
+      "ko": "등화숲"
+    },
+    {
+      "mapId": 312,
+      "mapIndex": 15,
+      "name": "Petalburg Woods 2",
+      "naturalSlots": 22,
+      "scripted": 0,
+      "ko": "등화숲 2"
+    },
+    {
+      "mapId": 313,
+      "mapIndex": 16,
+      "name": "Petalburg Woods 3",
+      "naturalSlots": 36,
+      "scripted": 0,
+      "ko": "등화숲 3"
+    },
+    {
+      "mapId": 314,
+      "mapIndex": null,
+      "name": "Petalburg Woods Breloom Room",
+      "naturalSlots": 0,
+      "scripted": 3,
+      "ko": "등화숲 버섯모의 방"
+    },
+    {
+      "mapId": 316,
+      "mapIndex": 0,
+      "name": "Route 101",
+      "naturalSlots": 18,
+      "scripted": 0,
+      "ko": "101번도로"
+    },
+    {
+      "mapId": 317,
+      "mapIndex": 1,
+      "name": "Route 102",
+      "naturalSlots": 31,
+      "scripted": 1,
+      "ko": "102번도로"
+    },
+    {
+      "mapId": 318,
+      "mapIndex": 2,
+      "name": "Route 103",
+      "naturalSlots": 36,
+      "scripted": 0,
+      "ko": "103번도로"
+    },
+    {
+      "mapId": 319,
+      "mapIndex": 3,
+      "name": "Route 104",
+      "naturalSlots": 32,
+      "scripted": 2,
+      "ko": "104번도로"
+    },
+    {
+      "mapId": 324,
+      "mapIndex": 4,
+      "name": "Route 105",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "105번도로"
+    },
+    {
+      "mapId": 325,
+      "mapIndex": 29,
+      "name": "Route 106",
+      "naturalSlots": 30,
+      "scripted": 0,
+      "ko": "106번도로"
+    },
+    {
+      "mapId": 326,
+      "mapIndex": 30,
+      "name": "Route 107",
+      "naturalSlots": 14,
+      "scripted": 0,
+      "ko": "107번도로"
+    },
+    {
+      "mapId": 327,
+      "mapIndex": 31,
+      "name": "Route 108",
+      "naturalSlots": 14,
+      "scripted": 0,
+      "ko": "108번도로"
+    },
+    {
+      "mapId": 328,
+      "mapIndex": 32,
+      "name": "Route 109",
+      "naturalSlots": 20,
+      "scripted": 1,
+      "ko": "109번도로"
+    },
+    {
+      "mapId": 329,
+      "mapIndex": null,
+      "name": "Route 109 Seashore House",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "109번도로 바닷가의 집"
+    },
+    {
+      "mapId": 330,
+      "mapIndex": 5,
+      "name": "Route 110",
+      "naturalSlots": 32,
+      "scripted": 4,
+      "ko": "110번도로"
+    },
+    {
+      "mapId": 334,
+      "mapIndex": null,
+      "name": "Route 110 Trick House End",
+      "naturalSlots": 0,
+      "scripted": 8,
+      "ko": "110번도로 트릭하우스 끝"
+    },
+    {
+      "mapId": 344,
+      "mapIndex": 6,
+      "name": "Route 111",
+      "naturalSlots": 33,
+      "scripted": 7,
+      "ko": "111번도로"
+    },
+    {
+      "mapId": 346,
+      "mapIndex": 170,
+      "name": "Route 111 Desert",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "111번도로 사막"
+    },
+    {
+      "mapId": 347,
+      "mapIndex": 166,
+      "name": "Route 111 Desert Entrance",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "111번도로 사막 입구"
+    },
+    {
+      "mapId": 349,
+      "mapIndex": 132,
+      "name": "Route 111 Ruins Exterior",
+      "naturalSlots": 18,
+      "scripted": 0,
+      "ko": "111번도로 유적 외부"
+    },
+    {
+      "mapId": 350,
+      "mapIndex": 169,
+      "name": "Route 111 Sunhollow Ruins",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "111번도로 태양골 유적"
+    },
+    {
+      "mapId": 353,
+      "mapIndex": 168,
+      "name": "Route 111 Tunnel",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "111번도로 터널"
+    },
+    {
+      "mapId": 354,
+      "mapIndex": 171,
+      "name": "Route 111 Tunnel 2",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "111번도로 터널 2"
+    },
+    {
+      "mapId": 355,
+      "mapIndex": null,
+      "name": "Route 111 Winstrate Familys House",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "111번도로 윈스트레이트 가족의 집"
+    },
+    {
+      "mapId": 356,
+      "mapIndex": 7,
+      "name": "Route 112",
+      "naturalSlots": 18,
+      "scripted": 0,
+      "ko": "112번도로"
+    },
+    {
+      "mapId": 358,
+      "mapIndex": 8,
+      "name": "Route 113",
+      "naturalSlots": 21,
+      "scripted": 1,
+      "ko": "113번도로"
+    },
+    {
+      "mapId": 360,
+      "mapIndex": 9,
+      "name": "Route 114",
+      "naturalSlots": 39,
+      "scripted": 3,
+      "ko": "114번도로"
+    },
+    {
+      "mapId": 364,
+      "mapIndex": 33,
+      "name": "Route 115",
+      "naturalSlots": 35,
+      "scripted": 1,
+      "ko": "115번도로"
+    },
+    {
+      "mapId": 365,
+      "mapIndex": 10,
+      "name": "Route 116",
+      "naturalSlots": 25,
+      "scripted": 2,
+      "ko": "116번도로"
+    },
+    {
+      "mapId": 367,
+      "mapIndex": 11,
+      "name": "Route 117",
+      "naturalSlots": 39,
+      "scripted": 1,
+      "ko": "117번도로"
+    },
+    {
+      "mapId": 368,
+      "mapIndex": null,
+      "name": "Route 117 Pokemon Day Care",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "117번도로 키우미집"
+    },
+    {
+      "mapId": 369,
+      "mapIndex": 12,
+      "name": "Route 118",
+      "naturalSlots": 39,
+      "scripted": 3,
+      "ko": "118번도로"
+    },
+    {
+      "mapId": 370,
+      "mapIndex": 35,
+      "name": "Route 119",
+      "naturalSlots": 35,
+      "scripted": 1,
+      "ko": "119번도로"
+    },
+    {
+      "mapId": 373,
+      "mapIndex": null,
+      "name": "Route 119 Weather Institute 2F",
+      "naturalSlots": 0,
+      "scripted": 2,
+      "ko": "119번도로 날씨연구소 2층"
+    },
+    {
+      "mapId": 374,
+      "mapIndex": 36,
+      "name": "Route 120",
+      "naturalSlots": 39,
+      "scripted": 1,
+      "ko": "120번도로"
+    },
+    {
+      "mapId": 375,
+      "mapIndex": 37,
+      "name": "Route 121",
+      "naturalSlots": 39,
+      "scripted": 0,
+      "ko": "121번도로"
+    },
+    {
+      "mapId": 377,
+      "mapIndex": 38,
+      "name": "Route 122",
+      "naturalSlots": 14,
+      "scripted": 0,
+      "ko": "122번도로"
+    },
+    {
+      "mapId": 378,
+      "mapIndex": 39,
+      "name": "Route 123",
+      "naturalSlots": 39,
+      "scripted": 0,
+      "ko": "123번도로"
+    },
+    {
+      "mapId": 380,
+      "mapIndex": 13,
+      "name": "Route 124",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "124번도로"
+    },
+    {
+      "mapId": 382,
+      "mapIndex": 48,
+      "name": "Route 125",
+      "naturalSlots": 14,
+      "scripted": 0,
+      "ko": "125번도로"
+    },
+    {
+      "mapId": 383,
+      "mapIndex": 49,
+      "name": "Route 126",
+      "naturalSlots": 14,
+      "scripted": 0,
+      "ko": "126번도로"
+    },
+    {
+      "mapId": 384,
+      "mapIndex": 50,
+      "name": "Route 127",
+      "naturalSlots": 29,
+      "scripted": 0,
+      "ko": "127번도로"
+    },
+    {
+      "mapId": 385,
+      "mapIndex": 51,
+      "name": "Route 128",
+      "naturalSlots": 17,
+      "scripted": 0,
+      "ko": "128번도로"
+    },
+    {
+      "mapId": 386,
+      "mapIndex": 52,
+      "name": "Route 129",
+      "naturalSlots": 14,
+      "scripted": 0,
+      "ko": "129번도로"
+    },
+    {
+      "mapId": 387,
+      "mapIndex": 53,
+      "name": "Route 130",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "130번도로"
+    },
+    {
+      "mapId": 388,
+      "mapIndex": 54,
+      "name": "Route 131",
+      "naturalSlots": 15,
+      "scripted": 0,
+      "ko": "131번도로"
+    },
+    {
+      "mapId": 389,
+      "mapIndex": 55,
+      "name": "Route 132",
+      "naturalSlots": 17,
+      "scripted": 3,
+      "ko": "132번도로"
+    },
+    {
+      "mapId": 390,
+      "mapIndex": 56,
+      "name": "Route 133",
+      "naturalSlots": 17,
+      "scripted": 0,
+      "ko": "133번도로"
+    },
+    {
+      "mapId": 391,
+      "mapIndex": 57,
+      "name": "Route 134",
+      "naturalSlots": 17,
+      "scripted": 0,
+      "ko": "134번도로"
+    },
+    {
+      "mapId": 392,
+      "mapIndex": 153,
+      "name": "Rustboro City",
+      "naturalSlots": 18,
+      "scripted": 0,
+      "ko": "금탄도시"
+    },
+    {
+      "mapId": 402,
+      "mapIndex": null,
+      "name": "Rustboro City Gym",
+      "naturalSlots": 0,
+      "scripted": 4,
+      "ko": "금탄도시 체육관"
+    },
+    {
+      "mapId": 410,
+      "mapIndex": 17,
+      "name": "Rusturf Tunnel",
+      "naturalSlots": 18,
+      "scripted": 1,
+      "ko": "금잔터널"
+    },
+    {
+      "mapId": 411,
+      "mapIndex": 155,
+      "name": "Rusturf Tunnel 2F",
+      "naturalSlots": 16,
+      "scripted": 0,
+      "ko": "금잔터널 2층"
+    },
+    {
+      "mapId": 415,
+      "mapIndex": 76,
+      "name": "Safari Zone North",
+      "naturalSlots": 16,
+      "scripted": 0,
+      "ko": "사파리존 북쪽"
+    },
+    {
+      "mapId": 416,
+      "mapIndex": 108,
+      "name": "Safari Zone Northeast",
+      "naturalSlots": 16,
+      "scripted": 0,
+      "ko": "사파리존 북동쪽"
+    },
+    {
+      "mapId": 417,
+      "mapIndex": 77,
+      "name": "Safari Zone Northwest",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "사파리존 북서쪽"
+    },
+    {
+      "mapId": 419,
+      "mapIndex": 22,
+      "name": "Safari Zone South",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "사파리존 남쪽"
+    },
+    {
+      "mapId": 420,
+      "mapIndex": 107,
+      "name": "Safari Zone Southeast",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "사파리존 남동쪽"
+    },
+    {
+      "mapId": 421,
+      "mapIndex": 75,
+      "name": "Safari Zone Southwest",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "사파리존 남서쪽"
+    },
+    {
+      "mapId": 422,
+      "mapIndex": 128,
+      "name": "Sandstrewn Ruins",
+      "naturalSlots": 30,
+      "scripted": 0,
+      "ko": "모래유적"
+    },
+    {
+      "mapId": 423,
+      "mapIndex": 130,
+      "name": "Sandstrewn Ruins 2F",
+      "naturalSlots": 16,
+      "scripted": 0,
+      "ko": "모래유적 2층"
+    },
+    {
+      "mapId": 424,
+      "mapIndex": 131,
+      "name": "Sandstrewn Ruins 3F",
+      "naturalSlots": 16,
+      "scripted": 0,
+      "ko": "모래유적 3층"
+    },
+    {
+      "mapId": 425,
+      "mapIndex": 129,
+      "name": "Sandstrewn Ruins B1F",
+      "naturalSlots": 16,
+      "scripted": 0,
+      "ko": "모래유적 지하 1층"
+    },
+    {
+      "mapId": 426,
+      "mapIndex": 136,
+      "name": "Scorched Slab",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "가뭄의 암굴"
+    },
+    {
+      "mapId": 427,
+      "mapIndex": 137,
+      "name": "Scorched Slab B1F",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "가뭄의 암굴 지하 1층"
+    },
+    {
+      "mapId": 428,
+      "mapIndex": 138,
+      "name": "Scorched Slab B2F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "가뭄의 암굴 지하 2층"
+    },
+    {
+      "mapId": 429,
+      "mapIndex": 139,
+      "name": "Scorched Slab Heatrans Room",
+      "naturalSlots": 12,
+      "scripted": 2,
+      "ko": "가뭄의 암굴 히드런의 방"
+    },
+    {
+      "mapId": 431,
+      "mapIndex": 67,
+      "name": "Seafloor Cavern Entrance",
+      "naturalSlots": 14,
+      "scripted": 0,
+      "ko": "해저동굴 입구"
+    },
+    {
+      "mapId": 432,
+      "mapIndex": 59,
+      "name": "Seafloor Cavern Room 1",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "해저동굴 방 1"
+    },
+    {
+      "mapId": 433,
+      "mapIndex": 60,
+      "name": "Seafloor Cavern Room 2",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "해저동굴 방 2"
+    },
+    {
+      "mapId": 434,
+      "mapIndex": 61,
+      "name": "Seafloor Cavern Room 3",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "해저동굴 방 3"
+    },
+    {
+      "mapId": 435,
+      "mapIndex": 62,
+      "name": "Seafloor Cavern Room 4",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "해저동굴 방 4"
+    },
+    {
+      "mapId": 436,
+      "mapIndex": 63,
+      "name": "Seafloor Cavern Room 5",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "해저동굴 방 5"
+    },
+    {
+      "mapId": 437,
+      "mapIndex": 64,
+      "name": "Seafloor Cavern Room 6",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "해저동굴 방 6"
+    },
+    {
+      "mapId": 438,
+      "mapIndex": 65,
+      "name": "Seafloor Cavern Room 7",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "해저동굴 방 7"
+    },
+    {
+      "mapId": 439,
+      "mapIndex": 66,
+      "name": "Seafloor Cavern Room 8",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "해저동굴 방 8"
+    },
+    {
+      "mapId": 441,
+      "mapIndex": null,
+      "name": "Sealed Chamber Inner Room",
+      "naturalSlots": 0,
+      "scripted": 5,
+      "ko": "봉인된 방 안쪽 방"
+    },
+    {
+      "mapId": 443,
+      "mapIndex": 124,
+      "name": "Seaspray Cave",
+      "naturalSlots": 30,
+      "scripted": 0,
+      "ko": "해풍동굴"
+    },
+    {
+      "mapId": 444,
+      "mapIndex": 125,
+      "name": "Seaspray Cave B1F",
+      "naturalSlots": 18,
+      "scripted": 3,
+      "ko": "해풍동굴 지하 1층"
+    },
+    {
+      "mapId": 469,
+      "mapIndex": 156,
+      "name": "Secret Dungeon",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "비밀 던전"
+    },
+    {
+      "mapId": 472,
+      "mapIndex": 86,
+      "name": "Shoal Cave Low Tide Entrance Room",
+      "naturalSlots": 26,
+      "scripted": 1,
+      "ko": "여울의 동굴 썰물 입구 방"
+    },
+    {
+      "mapId": 473,
+      "mapIndex": 101,
+      "name": "Shoal Cave Low Tide Ice Room",
+      "naturalSlots": 12,
+      "scripted": 2,
+      "ko": "여울의 동굴 썰물 얼음 방"
+    },
+    {
+      "mapId": 474,
+      "mapIndex": 85,
+      "name": "Shoal Cave Low Tide Inner Room",
+      "naturalSlots": 26,
+      "scripted": 0,
+      "ko": "여울의 동굴 썰물 안쪽 방"
+    },
+    {
+      "mapId": 475,
+      "mapIndex": 84,
+      "name": "Shoal Cave Low Tide Lower Room",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "여울의 동굴 썰물 아래쪽 방"
+    },
+    {
+      "mapId": 476,
+      "mapIndex": 83,
+      "name": "Shoal Cave Low Tide Stairs Room",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "여울의 동굴 썰물 계단 방"
+    },
+    {
+      "mapId": 477,
+      "mapIndex": 102,
+      "name": "Sky Pillar 1F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "하늘기둥 1층"
+    },
+    {
+      "mapId": 479,
+      "mapIndex": 105,
+      "name": "Sky Pillar 3F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "하늘기둥 3층"
+    },
+    {
+      "mapId": 481,
+      "mapIndex": 106,
+      "name": "Sky Pillar 5F",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "하늘기둥 5층"
+    },
+    {
+      "mapId": 484,
+      "mapIndex": null,
+      "name": "Sky Pillar Top",
+      "naturalSlots": 0,
+      "scripted": 2,
+      "ko": "하늘기둥 정상"
+    },
+    {
+      "mapId": 485,
+      "mapIndex": 92,
+      "name": "Slateport City",
+      "naturalSlots": 12,
+      "scripted": 1,
+      "ko": "잿빛도시"
+    },
+    {
+      "mapId": 493,
+      "mapIndex": null,
+      "name": "Slateport City Oceanic Museum 1F",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "잿빛도시 해양박물관 1층"
+    },
+    {
+      "mapId": 500,
+      "mapIndex": 104,
+      "name": "Sootopolis City",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "루네시티"
+    },
+    {
+      "mapId": 501,
+      "mapIndex": null,
+      "name": "Sootopolis City Gym 1F",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "루네시티 체육관 1층"
+    },
+    {
+      "mapId": 517,
+      "mapIndex": null,
+      "name": "Southern Island Interior",
+      "naturalSlots": 0,
+      "scripted": 4,
+      "ko": "남쪽의 외딴섬 내부"
+    },
+    {
+      "mapId": 518,
+      "mapIndex": null,
+      "name": "Terra Cave End",
+      "naturalSlots": 0,
+      "scripted": 2,
+      "ko": "육지동굴 끝"
+    },
+    {
+      "mapId": 530,
+      "mapIndex": 100,
+      "name": "Underwater Route 124",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "124번수로 해저"
+    },
+    {
+      "mapId": 532,
+      "mapIndex": 23,
+      "name": "Underwater Route 126",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "126번수로 해저"
+    },
+    {
+      "mapId": 547,
+      "mapIndex": 135,
+      "name": "Verdanturf Meadow",
+      "naturalSlots": 18,
+      "scripted": 2,
+      "ko": "잔디초원"
+    },
+    {
+      "mapId": 548,
+      "mapIndex": 161,
+      "name": "Verdanturf Town",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "잔디마을"
+    },
+    {
+      "mapId": 557,
+      "mapIndex": null,
+      "name": "Verdanturf Town Wandas House",
+      "naturalSlots": 0,
+      "scripted": 1,
+      "ko": "잔디마을 완다의 집"
+    },
+    {
+      "mapId": 558,
+      "mapIndex": 164,
+      "name": "Victory Road CRoom",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "챔피언로드 별실 1"
+    },
+    {
+      "mapId": 559,
+      "mapIndex": 163,
+      "name": "Victory Road Froom",
+      "naturalSlots": 18,
+      "scripted": 0,
+      "ko": "챔피언로드 별실 2"
+    },
+    {
+      "mapId": 560,
+      "mapIndex": 162,
+      "name": "Victory Road Rework",
+      "naturalSlots": 16,
+      "scripted": 0,
+      "ko": "챔피언로드 개편 구역"
+    },
+    {
+      "mapId": 562,
+      "mapIndex": 21,
+      "name": "Victory Road 1F",
+      "naturalSlots": 15,
+      "scripted": 0,
+      "ko": "챔피언로드 1층"
+    },
+    {
+      "mapId": 563,
+      "mapIndex": 78,
+      "name": "Victory Road B1F",
+      "naturalSlots": 19,
+      "scripted": 0,
+      "ko": "챔피언로드 지하 1층"
+    },
+    {
+      "mapId": 564,
+      "mapIndex": 79,
+      "name": "Victory Road B2F",
+      "naturalSlots": 29,
+      "scripted": 0,
+      "ko": "챔피언로드 지하 2층"
+    },
+    {
+      "mapId": 565,
+      "mapIndex": 172,
+      "name": "Tree StageSprouted",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "나무 성장 단계 · 새싹"
+    },
+    {
+      "mapId": 566,
+      "mapIndex": 173,
+      "name": "Tree StageTaller",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "나무 성장 단계 · 성장"
+    },
+    {
+      "mapId": 567,
+      "mapIndex": 174,
+      "name": "Tree StageFlowering",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "나무 성장 단계 · 개화"
+    },
+    {
+      "mapId": 568,
+      "mapIndex": 175,
+      "name": "Tree StageBerries",
+      "naturalSlots": 12,
+      "scripted": 0,
+      "ko": "나무 성장 단계 · 열매"
+    }
+  ]
+}
