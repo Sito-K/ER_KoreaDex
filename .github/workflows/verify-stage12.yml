@@ -1,0 +1,49 @@
+name: Verify Stage 12 categories
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app-stage12.js'
+      - 'stage12.css'
+      - 'index.html'
+      - '.github/workflows/verify-stage12.yml'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Syntax check
+        run: node --check app-stage12.js
+      - name: Verify category split and Mega badge policy
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          const ctx={window:{}};vm.createContext(ctx);
+          for(const f of ['pokemon-data.js','stage10-names.js','stage11-mega.js']) vm.runInContext(fs.readFileSync(f,'utf8'),ctx);
+          const rows=ctx.window.ER_POKEMON_DATA||[];
+          function isMega(r){return /^MEGA(?:_[XY])?$/.test(String(r[14]||''))||/_MEGA(?:_[XY])?$/.test(String(r[4]||''))}
+          const counts={base:0,form:0,mega:0};
+          const bad=[];
+          for(const r of rows){
+            const mega=isMega(r),form=Boolean(r[13]);
+            const cat=mega?'mega':form?'form':'base';counts[cat]++;
+            if(mega&&cat!=='mega')bad.push(r[0]);
+          }
+          console.log(JSON.stringify({total:rows.length,counts,badCount:bad.length},null,2));
+          if(rows.length!==1906) throw new Error(`expected 1906 rows, got ${rows.length}`);
+          if(counts.mega!==251) throw new Error(`expected 251 Mega rows, got ${counts.mega}`);
+          if(counts.base+counts.form+counts.mega!==rows.length) throw new Error('category sum mismatch');
+          if(bad.length) throw new Error(`bad Mega classification: ${bad.length}`);
+          const app=fs.readFileSync('app-stage12.js','utf8');
+          if(!app.includes('mega-badge">MEGA')) throw new Error('MEGA badge missing');
+          if(!app.includes("activeCategories=new Set(['base','form','mega'])")) throw new Error('category filter state missing');
+          const html=fs.readFileSync('index.html','utf8');
+          if(html.includes('typeFilters')) throw new Error('type filter still present in HTML');
+          for(const k of ['base','form','mega']) if(!html.includes(`data-category="${k}"`)) throw new Error(`missing ${k} filter`);
+          NODE
