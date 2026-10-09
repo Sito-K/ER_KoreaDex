@@ -17,11 +17,7 @@ function requestMore(){
 }
 const observer=new IntersectionObserver(entries=>{
   if(entries.some(e=>e.isIntersecting))requestMore();
-},{root:null,rootMargin:'900px 0px 900px 0px',threshold:0});
+},{root:null,rootMargin:'700px 0px 700px 0px',threshold:0});
 observer.observe(wrap);
-const stateObserver=new MutationObserver(()=>{
-  if(hasMore())requestMore();
-});
-stateObserver.observe(wrap,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
 window.ER_STAGE14_SCROLL_META={stage:14,mode:'intersection-observer',pageSize:48,buttonVisible:false};
 })();
