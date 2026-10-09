@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'stage18-build.js'
+      - 'ability-stage18.js'
       - '.github/workflows/build-stage18.yml'
   workflow_dispatch:
 permissions:
