@@ -11,7 +11,6 @@ function valid(s){s=String(s||'').trim();return !!s&&s!=="'-"&&s!=='-'&&s!=='---
   const res=await fetch(SOURCE);if(!res.ok)throw Error(`NextDex HTTP ${res.status}`);const g=await res.json();
   const rawSpecies=Array.isArray(g.species)?g.species:[];
   const species=rawSpecies.filter(s=>s&&Number(s.id)>0&&String(s.name||'').trim());
-  const sourceById=new Map(species.map(s=>[Number(s.id),s]));
   const moveByToken=new Map((Array.isArray(g.moves)?g.moves:[]).filter(m=>m&&Number(m.id)>0).map(m=>[String(m.NAME||''),Number(m.id)]));
   const ordinaryKinds=new Set(['EVO_LEVEL','EVO_LEVEL_FEMALE','EVO_LEVEL_MALE']);
   const specialKinds=new Set(['EVO_MEGA_EVOLUTION','EVO_MOVE_MEGA_EVOLUTION','EVO_PRIMAL_REVERSION']);
@@ -57,5 +56,7 @@ function valid(s){s=String(s||'').trim();return !!s&&s!=="'-"&&s!=='-'&&s!=='---
   fs.writeFileSync('stage20-audit.json',JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify(report.counts,null,2));
   console.log(JSON.stringify(report.samples,null,2));
+  if(unresolvedTargets.length)console.log('UNRESOLVED',JSON.stringify(unresolvedTargets,null,2));
+  if(unknownKinds.length)console.log('UNKNOWN',JSON.stringify(unknownKinds,null,2));
   if(fatal)throw Error('STAGE20 evolution audit has unresolved mappings');
 })();
