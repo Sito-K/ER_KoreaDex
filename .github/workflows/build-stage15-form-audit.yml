@@ -1,0 +1,34 @@
+name: Build Stage 15 form correction and audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'stage15-fix.js'
+      - '.github/workflows/build-stage15-form-audit.yml'
+      - 'forms.js'
+      - 'pokemon-data.js'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Apply Stage 15 form correction and audit
+        run: node stage15-fix.js
+      - name: Commit generated Stage 15 data
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add forms.js pokemon-data.js stage15-form-audit.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Generate Stage 15 form correction and audit"
+          git pull --rebase origin main
+          git push origin HEAD:main
