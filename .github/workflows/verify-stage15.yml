@@ -1,0 +1,46 @@
+name: Verify Stage 15 form correction
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'forms.js'
+      - 'pokemon-data.js'
+      - 'stage15-form-audit.json'
+      - 'stage15-fix.js'
+      - '.github/workflows/verify-stage15.yml'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify Stage 15 invariants
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          function load(path){const c={window:{}};vm.createContext(c);vm.runInContext(fs.readFileSync(path,'utf8'),c,{filename:path});return c.window;}
+          const f=load('forms.js').ER_OFFICIAL_SPECIES||[];
+          const p=load('pokemon-data.js').ER_POKEMON_DATA||[];
+          if(f.length!==1922)throw Error(`forms count ${f.length}`);
+          if(p.length!==1922)throw Error(`pokemon count ${p.length}`);
+          const fr=f.find(r=>+r[0]===2211), pr=p.find(r=>+r[0]===2211);
+          if(!fr||fr[1]!=='Duraludon Mega'||fr[2]!=='메가두랄루돈'||fr[5]!=='MEGA')throw Error(`bad forms Duraludon: ${JSON.stringify(fr)}`);
+          if(!pr||pr[3]!=='Duraludon Mega'||pr[2]!=='메가두랄루돈'||pr[14]!=='MEGA')throw Error(`bad pokemon Duraludon: ${JSON.stringify(pr)}`);
+          const partner=f.filter(r=>r[5]==='PARTNER_MEGA').map(r=>r[1]).sort();
+          const expected=['Eevee Mega','Meowth Mega','Pikachu Mega'];
+          if(JSON.stringify(partner)!==JSON.stringify(expected))throw Error(`PARTNER_MEGA mismatch: ${JSON.stringify(partner)}`);
+          const pm=new Map(p.map(r=>[+r[0],r]));
+          const mismatch=f.filter(r=>{const x=pm.get(+r[0]);return !x||String(r[2])!==String(x[2])||+r[4]!==+x[13]||String(r[5]||'')!==String(x[14]||'')});
+          if(mismatch.length)throw Error(`cross mismatch ${mismatch.length}`);
+          const audit=JSON.parse(fs.readFileSync('stage15-form-audit.json','utf8'));
+          if(audit.stage!=='STAGE15'||audit.counts.crossMismatches!==0||audit.confirmedFix?.ko!=='메가두랄루돈')throw Error('bad stage15 audit');
+          const html=fs.readFileSync('index.html','utf8');
+          if(!html.includes('STAGE 15')||!html.includes('stage15'))throw Error('index not promoted to Stage 15');
+          console.log('STAGE15 OK', {forms:f.length, pokemon:p.length, partnerMega:partner, duraludon:fr.slice(0,6)});
+          NODE
