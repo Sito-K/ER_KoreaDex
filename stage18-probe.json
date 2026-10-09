@@ -1,0 +1,630 @@
+{
+  "stage": "STAGE18_PROBE",
+  "generatedAt": "2026-10-09T03:38:16.203Z",
+  "topLevel": [
+    {
+      "key": "abilities",
+      "type": "array",
+      "length": 1063,
+      "sample": {
+        "name": "-------",
+        "desc": "Empty ability slot.",
+        "id": 0
+      },
+      "sampleKeys": [
+        "name",
+        "desc",
+        "id"
+      ]
+    },
+    {
+      "key": "moves",
+      "type": "array",
+      "length": 1032,
+      "sample": {
+        "name": "-",
+        "NAME": "MOVE_NONE",
+        "sName": "-",
+        "eff": 0,
+        "pwr": 0,
+        "types": [
+          0
+        ],
+        "acc": 0,
+        "pp": 0,
+        "chance": 0,
+        "target": 0,
+        "prio": 0,
+        "split": 0,
+        "flags": [],
+        "arg": "",
+        "desc": "",
+        "lDesc": "",
+        "id": 0,
+        "usesHpType": false
+      },
+      "sampleKeys": [
+        "name",
+        "NAME",
+        "sName",
+        "eff",
+        "pwr",
+        "types",
+        "acc",
+        "pp",
+        "chance",
+        "target",
+        "prio",
+        "split",
+        "flags",
+        "arg",
+        "desc",
+        "lDesc",
+        "id",
+        "usesHpType"
+      ]
+    },
+    {
+      "key": "species",
+      "type": "array",
+      "length": 1923,
+      "sample": {
+        "name": "??????????",
+        "NAME": "SPECIES_NONE",
+        "stats": {
+          "base": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "types": [
+            19,
+            19
+          ],
+          "catchR": 0,
+          "exp": 0,
+          "EVY": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "gender": 0,
+          "eggC": 0,
+          "fren": 0,
+          "grow": 0,
+          "eggG": [],
+          "abis": [],
+          "inns": [],
+          "col": 0,
+          "noFlip": false,
+          "flags": ""
+        },
+        "evolutions": [],
+        "eggMoves": [],
+        "levelUpMoves": [],
+        "TMHMMoves": [],
+        "tutor": [
+          213,
+          203,
+          270,
+          237,
+          182,
+          156,
+          216,
+          290,
+          214,
+          164
+        ],
+        "forms": [],
+        "SEnc": [],
+        "dex": {
+          "id": 0,
+          "desc": "",
+          "hw": [
+            0,
+            0
+          ]
+        },
+        "id": -1
+      },
+      "sampleKeys": [
+        "name",
+        "NAME",
+        "stats",
+        "evolutions",
+        "eggMoves",
+        "levelUpMoves",
+        "TMHMMoves",
+        "tutor",
+        "forms",
+        "SEnc",
+        "dex",
+        "id"
+      ]
+    },
+    {
+      "key": "locations",
+      "type": "object",
+      "keys": [
+        "landRate",
+        "waterRate",
+        "fishRate",
+        "honeyRate",
+        "rockRate",
+        "hiddenRate",
+        "rodGrade",
+        "maps"
+      ]
+    },
+    {
+      "key": "trainers",
+      "type": "array",
+      "length": 895,
+      "sample": {
+        "name": "May Route 103 Treecko",
+        "tclass": 15,
+        "db": false,
+        "party": [
+          {
+            "spc": 255,
+            "abi": 0,
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              0,
+              252,
+              0,
+              4,
+              0,
+              252
+            ],
+            "item": 195,
+            "nature": 11,
+            "moves": [
+              126,
+              17,
+              98,
+              203
+            ],
+            "hpType": 0
+          },
+          {
+            "spc": 704,
+            "abi": 1,
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              252,
+              0,
+              0
+            ],
+            "item": 0,
+            "nature": 15,
+            "moves": [
+              237,
+              72,
+              352,
+              182
+            ],
+            "hpType": 2
+          }
+        ],
+        "insane": [
+          {
+            "spc": 175,
+            "abi": 2,
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              160,
+              0,
+              96,
+              0
+            ],
+            "item": 0,
+            "nature": 5,
+            "moves": [
+              227,
+              281,
+              577,
+              237
+            ],
+            "hpType": 2
+          },
+          {
+            "spc": 147,
+            "abi": 0,
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              0,
+              252,
+              4,
+              0,
+              0,
+              252
+            ],
+            "item": 118,
+            "nature": 13,
+            "moves": [
+              401,
+              245,
+              712,
+              976
+            ],
+            "hpType": 0
+          },
+          {
+            "spc": 255,
+            "abi": 2,
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              0,
+              252,
+              4,
+              0,
+              0,
+              252
+            ],
+            "item": 3,
+            "nature": 13,
+            "moves": [
+              17,
+              481,
+              661,
+              910
+            ],
+            "hpType": 0
+          }
+        ],
+        "hell": [
+          {
+            "spc": 256,
+            "abi": 2,
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              180,
+              252,
+              0,
+              0,
+              0,
+              76
+            ],
+            "item": 36,
+            "nature": 13,
+            "moves": [
+              24,
+              83,
+              17,
+              197
+            ],
+            "hpType": 0
+          },
+          {
+            "spc": 61,
+            "abi": 2,
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "item": 1,
+            "nature": 3,
+            "moves": [
+              214,
+              265,
+              156,
+              290
+            ],
+            "hpType": 4
+          },
+          {
+            "spc": 1469,
+            "abi": 2,
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              0,
+              100,
+              0,
+              156,
+              0,
+              252
+            ],
+            "item": 181,
+            "nature": 14,
+            "moves": [
+              57,
+              376,
+              344,
+              19
+            ],
+            "hpType": 0
+          },
+          {
+            "spc": 153,
+            "abi": 0,
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              128,
+              0,
+              128,
+              0
+            ],
+            "item": 1,
+            "nature": 5,
+            "moves": [
+              235,
+              202,
+              77,
+              73
+            ],
+            "hpType": 0
+          }
+        ],
+        "rem": [],
+        "map": 318,
+        "id": 532
+      },
+      "sampleKeys": [
+        "name",
+        "tclass",
+        "db",
+        "party",
+        "insane",
+        "hell",
+        "rem",
+        "map",
+        "id"
+      ]
+    },
+    {
+      "key": "typeT",
+      "type": "array",
+      "length": 21,
+      "sample": "Normal"
+    },
+    {
+      "key": "targetT",
+      "type": "array",
+      "length": 10,
+      "sample": "SELECTED"
+    },
+    {
+      "key": "flagsT",
+      "type": "array",
+      "length": 18,
+      "sample": "Makes Contact"
+    },
+    {
+      "key": "effT",
+      "type": "array",
+      "length": 413,
+      "sample": "Hit"
+    },
+    {
+      "key": "splitT",
+      "type": "array",
+      "length": 7,
+      "sample": "PHYSICAL"
+    },
+    {
+      "key": "eggT",
+      "type": "array",
+      "length": 15,
+      "sample": "EGG_GROUP_MONSTER"
+    },
+    {
+      "key": "growT",
+      "type": "array",
+      "length": 1,
+      "sample": ""
+    },
+    {
+      "key": "colT",
+      "type": "array",
+      "length": 10,
+      "sample": "RED"
+    },
+    {
+      "key": "evoKindT",
+      "type": "array",
+      "length": 6,
+      "sample": "EVO_LEVEL"
+    },
+    {
+      "key": "items",
+      "type": "array",
+      "length": 929,
+      "sample": {
+        "name": "Eviolite",
+        "NAME": "ITEM_EVIOLITE",
+        "id": 310
+      },
+      "sampleKeys": [
+        "name",
+        "NAME",
+        "id"
+      ]
+    },
+    {
+      "key": "natureT",
+      "type": "array",
+      "length": 25,
+      "sample": "Hardy"
+    },
+    {
+      "key": "scriptedEncoutersHowT",
+      "type": "array",
+      "length": 4,
+      "sample": "scripted wild"
+    },
+    {
+      "key": "mapsT",
+      "type": "array",
+      "length": 569,
+      "sample": "Abandoned Ship Captains Office"
+    },
+    {
+      "key": "MAPST",
+      "type": "array",
+      "length": 569,
+      "sample": "MAP_ABANDONED_SHIP_CAPTAINS_OFFICE"
+    },
+    {
+      "key": "tclassT",
+      "type": "array",
+      "length": 64,
+      "sample": "Hiker"
+    },
+    {
+      "key": "creationDate",
+      "type": "number"
+    }
+  ],
+  "candidates": {
+    "abilities": {
+      "key": "abilities",
+      "type": "array",
+      "length": 1063,
+      "sample": {
+        "name": "-------",
+        "desc": "Empty ability slot.",
+        "id": 0
+      },
+      "sampleKeys": [
+        "name",
+        "desc",
+        "id"
+      ]
+    },
+    "moves": {
+      "key": "moves",
+      "type": "array",
+      "length": 1032,
+      "sample": {
+        "name": "-",
+        "NAME": "MOVE_NONE",
+        "sName": "-",
+        "eff": 0,
+        "pwr": 0,
+        "types": [
+          0
+        ],
+        "acc": 0,
+        "pp": 0,
+        "chance": 0,
+        "target": 0,
+        "prio": 0,
+        "split": 0,
+        "flags": [],
+        "arg": "",
+        "desc": "",
+        "lDesc": "",
+        "id": 0,
+        "usesHpType": false
+      },
+      "sampleKeys": [
+        "name",
+        "NAME",
+        "sName",
+        "eff",
+        "pwr",
+        "types",
+        "acc",
+        "pp",
+        "chance",
+        "target",
+        "prio",
+        "split",
+        "flags",
+        "arg",
+        "desc",
+        "lDesc",
+        "id",
+        "usesHpType"
+      ]
+    },
+    "typeT": {
+      "key": "typeT",
+      "type": "array",
+      "length": 21,
+      "sample": "Normal"
+    }
+  }
+}
