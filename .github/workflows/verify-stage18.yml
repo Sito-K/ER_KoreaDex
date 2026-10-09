@@ -1,0 +1,48 @@
+name: Verify Stage 18 moves and abilities
+on:
+  push:
+    paths:
+      - 'index.html'
+      - 'app-stage13.js'
+      - 'stage18.js'
+      - 'stage18.css'
+      - 'stage18-audit.json'
+      - 'ability-stage18.js'
+      - 'move-meta.js'
+      - 'ability-meta.js'
+      - '.github/workflows/verify-stage18.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify Stage 18 invariants
+        run: |
+          node --check stage18.js
+          node --check ability-stage18.js
+          node <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          const audit=JSON.parse(fs.readFileSync('stage18-audit.json','utf8'));
+          const c=audit.counts;
+          const expect={officialMoves:1031,koreanMoves:1031,officialAbilities:1062,koreanAbilities:1062,moveMissing:0,moveExtra:0,abilityMissing:0,abilityExtra:0,moveShortMissing:0,moveLongMissing:0,abilityShortMissing:0,abilityLongMissing:0};
+          for(const [k,v] of Object.entries(expect)) if(c[k]!==v) throw new Error(`${k}: ${c[k]} != ${v}`);
+          function load(file){const ctx={window:{}};vm.createContext(ctx);vm.runInContext(fs.readFileSync(file,'utf8'),ctx,{filename:file});return ctx.window}
+          const mm=load('move-meta.js').ER_MOVE_META,am=load('ability-meta.js').ER_ABILITY_META;
+          if(!Array.isArray(mm)||mm.length!==1031)throw new Error(`move meta ${mm?.length}`);
+          if(!Array.isArray(am)||am.length!==1062)throw new Error(`ability meta ${am?.length}`);
+          const a18=load('ability-stage18.js').ER_STAGE18_ABILITY_ROWS;
+          if(!Array.isArray(a18)||a18.length!==29)throw new Error(`stage18 abilities ${a18?.length}`);
+          const ids=a18.map(r=>r[0]);
+          for(let id=1034;id<=1062;id++)if(!ids.includes(id))throw new Error(`missing stage18 ability ${id}`);
+          const app=fs.readFileSync('app-stage13.js','utf8');
+          const anchor="'ability-long-3b.js','ability-long-4.js','ability-stage18.js']";
+          if(!app.includes(anchor))throw new Error('ability-stage18.js is not last in ability lazy loader');
+          const html=fs.readFileSync('index.html','utf8');
+          for(const s of ['STAGE 18','stage18.css?v=20261009-stage18','move-meta.js?v=20261009-stage18','ability-meta.js?v=20261009-stage18','app-stage13.js?v=20261009-stage18','stage18.js?v=20261009-stage18'])if(!html.includes(s))throw new Error(`index missing ${s}`);
+          if(html.includes('<script src="ability-stage18.js'))throw new Error('ability-stage18.js must stay lazy-loaded to preserve ID order');
+          console.log('Stage 18 verification passed');
+          NODE
