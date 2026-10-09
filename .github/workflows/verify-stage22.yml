@@ -41,10 +41,12 @@ jobs:
           };
           for(const [en,ko] of Object.entries(expected))if(byEn.get(en)!==ko)throw Error(`${en} localization mismatch: ${byEn.get(en)}`);
           const index=fs.readFileSync('index.html','utf8');
-          for(const x of ['STAGE 22','stage22.css?v=20261009-stage22','stage22-map-ko.js?v=20261009-stage22','stage22.js?v=20261009-stage22'])if(!index.includes(x))throw Error(`index missing ${x}`);
+          for(const x of ['STAGE 22','stage22.css?v=20261009-stage22','stage22-map-ko.js?v=20261009-stage22','stage22.js?v=20261009-stage22fix1'])if(!index.includes(x))throw Error(`index missing ${x}`);
           const s19=fs.readFileSync('stage19.js','utf8'),s20=fs.readFileSync('stage20.js','utf8'),s21=fs.readFileSync('stage21.js','utf8'),s22=fs.readFileSync('stage22.js','utf8');
           if(!s19.includes('s22-fold')||!s20.includes('s22-fold')||!s21.includes('s22-fold'))throw Error('fold UI missing');
           if(!s21.includes('ER_STAGE22_MAP_KO'))throw Error('Korean map lookup missing');
           if(!s22.includes('전체 펼치기')||!s22.includes('전체 접기'))throw Error('detail controls missing');
-          console.log('STAGE22 OK',JSON.stringify({maps:d.maps.length,unresolved:audit.unresolvedCount}));
+          if(s22.includes('MutationObserver'))throw Error('Stage22 regression: self-observing MutationObserver can cause infinite loading loop');
+          if(!s22.includes('setHidden')||!s22.includes('deferredSync'))throw Error('safe Stage22 UI sync missing');
+          console.log('STAGE22 OK',JSON.stringify({maps:d.maps.length,unresolved:audit.unresolvedCount,observerLoop:false}));
           NODE
