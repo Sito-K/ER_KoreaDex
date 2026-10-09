@@ -1,7 +1,7 @@
 (()=>{'use strict';
 const FIXED=Object.freeze({
   ITEM_ALAKAZITE:'후디나이트',
-  ITEM_ALAKAZITE_R:'후디나이트(리덕스)',
+  ITEM_ALAKAZITE_R:'후디나이트R',
   ITEM_BLUE_ORB:'쪽빛구슬',
   ITEM_RED_ORB:'주홍구슬',
   ITEM_ADAMANT_ORB:'금강옥',
@@ -24,7 +24,7 @@ const FIXED=Object.freeze({
   ITEM_PHANTOM_METEOR:'팬텀메테오'
 });
 const VARIANTS=[
-  ['_R_B','(리덕스 B)'],['_R','(리덕스)'],['_A','(알로라)'],['_G','(가라르)'],['_H','(히스이)'],['_S','(산타)'],['_X','X'],['_Y','Y'],['_Z','Z']
+  ['_R_B','RB'],['_R','R'],['_A','A'],['_G','G'],['_H','H'],['_S','S'],['_X','X'],['_Y','Y'],['_Z','Z']
 ];
 function baseKo(name){return String(name||'').replace(/\s*\([^)]*\).*$/,'').trim()}
 function variant(code){for(const [tail,label] of VARIANTS)if(String(code).endsWith(tail))return label;return''}
