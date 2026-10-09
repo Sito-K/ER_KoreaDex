@@ -1,0 +1,22 @@
+name: Verify Stage 21 encounters
+on:
+  push:
+    paths:
+      - 'stage21-data.js'
+      - 'stage21-audit.json'
+      - 'stage21.js'
+      - 'stage21.css'
+      - 'index.html'
+      - 'verify-stage21.js'
+      - '.github/workflows/verify-stage21.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify Stage 21 encounter invariants
+        run: node verify-stage21.js
