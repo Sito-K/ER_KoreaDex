@@ -1,0 +1,261 @@
+{
+  "source": "ForwardFeed/ER-nextdex gameDataV2.65.4.json",
+  "master": "Elite_Redux_2.65.4.1b_Korean_MASTER_STAGE100_CONFIRMED_OXK_20261008.xlsx / STAGE101 sync",
+  "generatedAt": "2026-10-09T02:23:00.007Z",
+  "officialSpecies": 1922,
+  "generatedSpecies": 1922,
+  "masterAppliedSpecies": 1922,
+  "matchModes": {
+    "id": 1919,
+    "name": 0,
+    "key": 0,
+    "alias": 3
+  },
+  "baseCount": 1137,
+  "formCount": 534,
+  "megaCount": 251,
+  "unresolvedCount": 0,
+  "unresolved": [],
+  "mismatchCount": 1,
+  "mismatches": [
+    {
+      "id": 2501,
+      "official": "Kecleong",
+      "NAME": "SPECIES_KECLEONG",
+      "masterAtSameId": {
+        "id": 2501,
+        "en": "Dewgong",
+        "ko": "쥬레곤"
+      },
+      "selected": {
+        "en": "Kecleong",
+        "ko": "케클레옹"
+      },
+      "mode": "alias"
+    }
+  ],
+  "aliasesUsed": [
+    {
+      "id": 1574,
+      "official": "Farfetchd Galarian",
+      "NAME": "SPECIES_FARFETCHD_GALARIAN",
+      "master": {
+        "id": 1574,
+        "en": "Farfetch'd",
+        "ko": "파오리"
+      },
+      "token": "GALARIAN",
+      "reason": "official punctuation/suffix differs from master Farfetch'd"
+    },
+    {
+      "id": 1847,
+      "official": "Lumbering Sloth Engulfed",
+      "NAME": "SPECIES_LUMBERING_SLOTH_ENGULFED",
+      "master": {
+        "id": 1847,
+        "en": "Lumber Sloth",
+        "ko": "우거진갈기"
+      },
+      "token": "ENGULFED",
+      "reason": "official 2.65.4 expanded Lumber Sloth name"
+    },
+    {
+      "id": 2501,
+      "official": "Kecleong",
+      "NAME": "SPECIES_KECLEONG",
+      "master": {
+        "id": 2501,
+        "en": "Kecleong",
+        "ko": "케클레옹"
+      },
+      "token": "",
+      "reason": "official 2.65.4 renamed/replaced species; master ID2501 still says Dewgong, so stale Korean value is intentionally not reused"
+    }
+  ],
+  "missingTypes": 1,
+  "missingStats": 1,
+  "checks": {
+    "bewarden": [
+      [
+        1063,
+        1103,
+        "이븐대장 (리덕스폼)",
+        "Bewarden Redux",
+        "BEWARDEN_REDUX",
+        "노말",
+        "페어리",
+        130,
+        120,
+        70,
+        100,
+        60,
+        70,
+        1,
+        "REDUX"
+      ],
+      [
+        1108,
+        1103,
+        "이븐대장",
+        "Bewarden",
+        "BEWARDEN",
+        "노말",
+        "격투",
+        130,
+        135,
+        70,
+        75,
+        70,
+        70,
+        0,
+        ""
+      ]
+    ],
+    "pentawug": [
+      [
+        1103,
+        1096,
+        "바닥펜타",
+        "Pentawug",
+        "PENTAWUG",
+        "물",
+        "",
+        70,
+        120,
+        75,
+        55,
+        75,
+        130,
+        0,
+        ""
+      ]
+    ],
+    "kecleong": [
+      [
+        2501,
+        87,
+        "케클레옹",
+        "Kecleong",
+        "KECLEONG",
+        "얼음",
+        "노말",
+        90,
+        90,
+        70,
+        95,
+        120,
+        95,
+        0,
+        ""
+      ]
+    ],
+    "luxzero": [
+      [
+        2307,
+        1118,
+        "메가렌트제로",
+        "Luxzero Mega",
+        "LUXZERO_MEGA",
+        "전기",
+        "얼음",
+        75,
+        125,
+        84,
+        125,
+        94,
+        130,
+        1,
+        "MEGA"
+      ],
+      [
+        2505,
+        1118,
+        "렌트제로",
+        "Luxzero",
+        "LUXZERO",
+        "전기",
+        "얼음",
+        75,
+        110,
+        74,
+        90,
+        74,
+        110,
+        0,
+        ""
+      ]
+    ],
+    "kilozuna": [
+      [
+        2663,
+        1079,
+        "하리즈나",
+        "Kilozuna",
+        "KILOZUNA",
+        "불꽃",
+        "강철",
+        105,
+        90,
+        135,
+        55,
+        110,
+        75,
+        0,
+        ""
+      ],
+      [
+        2664,
+        1079,
+        "메가하리즈나",
+        "Kilozuna Mega",
+        "KILOZUNA_MEGA",
+        "강철",
+        "불꽃",
+        105,
+        130,
+        150,
+        65,
+        120,
+        100,
+        1,
+        "MEGA"
+      ]
+    ],
+    "swampage": [
+      [
+        2238,
+        1088,
+        "대짱룡",
+        "Swampage",
+        "SWAMPAGE",
+        "드래곤",
+        "독",
+        95,
+        115,
+        75,
+        60,
+        73,
+        117,
+        0,
+        ""
+      ],
+      [
+        2239,
+        1088,
+        "메가대짱룡",
+        "Swampage Mega",
+        "SWAMPAGE_MEGA",
+        "드래곤",
+        "독",
+        95,
+        143,
+        98,
+        112,
+        95,
+        92,
+        1,
+        "MEGA"
+      ]
+    ]
+  }
+}
