@@ -1,0 +1,32 @@
+name: Build Stage 16 form-name cleanup
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'stage16-fix.js'
+      - '.github/workflows/build-stage16-form-names.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Apply Stage 16 form-name cleanup
+        run: node stage16-fix.js
+      - name: Commit generated Stage 16 data
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add forms.js pokemon-data.js stage16-form-audit.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Generate Stage 16 form-name cleanup"
+          git pull --rebase origin main
+          git push origin HEAD:main
