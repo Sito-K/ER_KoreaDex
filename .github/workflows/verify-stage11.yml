@@ -1,57 +1,8 @@
-name: Verify Stage 11 site
-
+name: Historical Verify Stage 11
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'stage11-mega.js'
-      - 'app-stage11.js'
-      - 'stage11.css'
-      - 'index.html'
-      - '.github/workflows/verify-stage11.yml'
   workflow_dispatch:
-
 jobs:
-  verify:
+  archived:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Syntax check
-        run: |
-          node --check app-stage11.js
-          node --check stage11-mega.js
-          node --check stage10-names.js
-      - name: Verify Mega relinking
-        run: |
-          node <<'NODE'
-          const fs=require('fs'),vm=require('vm');
-          const ctx={window:{}};vm.createContext(ctx);
-          for(const f of ['pokemon-data.js','stage10-names.js','stage11-mega.js'])vm.runInContext(fs.readFileSync(f,'utf8'),ctx);
-          const rows=ctx.window.ER_POKEMON_DATA||[];
-          const byKey=new Map(rows.map(r=>[String(r[4]||''),r]));
-          let mega=0,linked=0;const bad=[];
-          for(const r of rows){
-            const key=String(r[4]||''),m=key.match(/^(.*)_MEGA(?:_([XY]))?$/);if(!m)continue;mega++;
-            const parent=byKey.get(m[1]);if(parent)linked++;
-            const expectedToken=m[2]?`MEGA_${m[2]}`:'MEGA';
-            if(!parent||Number(r[1])!==Number(parent[1])||String(r[14]||'')!==expectedToken||!String(r[2]||'').startsWith('메가'))bad.push({id:r[0],key,ko:r[2],dex:r[1],token:r[14],parent:parent&&{id:parent[0],ko:parent[2],dex:parent[1]}});
-          }
-          const ids=new Map(rows.map(r=>[Number(r[0]),r]));
-          const samples=[1081,2174,2218,2307,2577].map(id=>({id,ko:ids.get(id)?.[2],en:ids.get(id)?.[3],token:ids.get(id)?.[14]}));
-          console.log(JSON.stringify({mega,linked,badCount:bad.length,meta:ctx.window.ER_MEGA_FIX_META,samples,bad:bad.slice(0,20)},null,2));
-          if(mega!==251)throw new Error(`expected 251 Mega rows, got ${mega}`);
-          if(linked!==mega)throw new Error(`unlinked Mega rows: ${mega-linked}`);
-          if(bad.length)throw new Error(`bad Mega rows: ${bad.length}`);
-          const lux=ids.get(2307);if(!lux||lux[2]!=='메가럭스제로')throw new Error('Luxzero Mega correction failed');
-          NODE
-      - name: Verify initial-load split
-        run: |
-          grep -q 'app-stage11.js' index.html
-          grep -q 'stage11-mega.js' index.html
-          ! grep -q '<script src="moves-1.js' index.html
-          ! grep -q '<script src="abilities-1.js' index.html
-          grep -q 'PAGE_SIZE={pokemon:48' app-stage11.js
-          grep -q 'loadScript' app-stage11.js
+      - run: echo "Stage 11 was user-confirmed and is archived. Use the latest stage verifier for current-site validation."
