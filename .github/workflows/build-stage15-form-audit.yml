@@ -6,8 +6,6 @@ on:
     paths:
       - 'stage15-fix.js'
       - '.github/workflows/build-stage15-form-audit.yml'
-      - 'forms.js'
-      - 'pokemon-data.js'
   workflow_dispatch:
 
 permissions:
