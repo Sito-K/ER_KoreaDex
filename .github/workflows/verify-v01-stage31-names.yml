@@ -1,0 +1,49 @@
+name: Verify v0.1 Stage31 Pokémon names
+on:
+  push:
+    paths:
+      - 'index.html'
+      - 'pokemon-data.js'
+      - 'species-name-overrides-v01.js'
+      - 'stage20.js'
+      - '.github/workflows/verify-v01-stage31-names.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check
+        run: |
+          node --check species-name-overrides-v01.js
+          node --check stage20.js
+      - name: Verify exactly 10 updated Pokémon names
+        run: |
+          node - <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          const ctx={window:{}};vm.createContext(ctx);
+          vm.runInContext(fs.readFileSync('pokemon-data.js','utf8'),ctx,{filename:'pokemon-data.js'});
+          vm.runInContext(fs.readFileSync('species-name-overrides-v01.js','utf8'),ctx,{filename:'species-name-overrides-v01.js'});
+          const expected=new Map([
+            [1042,'코템플'],[1088,'분쇄하는귀'],[2681,'깨비테러'],[2162,'아보두사'],[2316,'네오마스'],
+            [2310,'질척이'],[2313,'코리머드'],[2317,'네오노트'],[2321,'아이귀'],[2322,'아이슬래시']
+          ]);
+          const overrides=ctx.window.ER_SPECIES_NAME_OVERRIDES;
+          if(!overrides||Object.keys(overrides).length!==10)throw Error('override count must be exactly 10');
+          const rows=new Map((ctx.window.ER_POKEMON_DATA||[]).map(r=>[Number(r[0]),r]));
+          for(const [id,name] of expected){
+            if(overrides[id]!==name)throw Error(`override ${id}: ${overrides[id]} != ${name}`);
+            if(rows.get(id)?.[2]!==name)throw Error(`pokemon-data ${id}: ${rows.get(id)?.[2]} != ${name}`);
+          }
+          const index=fs.readFileSync('index.html','utf8');
+          const p=index.indexOf('pokemon-data.js');
+          const o=index.indexOf('species-name-overrides-v01.js');
+          const a=index.indexOf('app-stage13.js');
+          if(!(p>=0&&o>p&&a>o))throw Error('name override script order is wrong');
+          const evo=fs.readFileSync('stage20.js','utf8');
+          if(!evo.includes('ER_SPECIES_NAME_OVERRIDES'))throw Error('evolution UI does not use name overrides');
+          console.log('V0.1 STAGE31 NAMES OK '+JSON.stringify({updated:expected.size}));
+          NODE
