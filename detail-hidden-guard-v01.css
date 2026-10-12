@@ -1,0 +1,10 @@
+/* Version 0.1: hidden detail sections must stay hidden even when stage CSS assigns display:grid/block. */
+.detail-section[hidden],
+#detailPokemonExtra[hidden],
+#detailFormsSection[hidden],
+#stage19SpeciesDetail[hidden],
+#stage20EvolutionDetail[hidden],
+#stage21EncounterDetail[hidden],
+#stage18Meta[hidden]{
+  display:none!important;
+}
