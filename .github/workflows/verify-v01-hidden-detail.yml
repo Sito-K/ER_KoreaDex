@@ -1,0 +1,24 @@
+name: Verify v0.1 hidden detail guard
+on:
+  push:
+    paths:
+      - 'detail-hidden-guard-v01.css'
+      - 'index.html'
+      - '.github/workflows/verify-v01-hidden-detail.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify hidden detail guard
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const css=fs.readFileSync('detail-hidden-guard-v01.css','utf8');
+          const index=fs.readFileSync('index.html','utf8');
+          for(const id of ['detailPokemonExtra','detailFormsSection','stage19SpeciesDetail','stage20EvolutionDetail','stage21EncounterDetail','stage18Meta']) if(!css.includes(`#${id}[hidden]`)) throw Error('missing hidden guard '+id);
+          if(!css.includes('display:none!important')) throw Error('missing forced hidden display');
+          if(!index.includes('detail-hidden-guard-v01.css?v=20261012-hiddenfix1')) throw Error('guard css not loaded');
+          console.log('HIDDEN DETAIL GUARD OK');
+          NODE
