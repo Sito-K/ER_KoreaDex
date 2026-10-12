@@ -1,0 +1,29 @@
+name: Verify v0.1 detail state isolation
+on:
+  push:
+    paths:
+      - 'detail-state-fix-v01.js'
+      - 'index.html'
+      - '.github/workflows/verify-v01-detail-state.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check
+        run: node --check detail-state-fix-v01.js
+      - name: Verify detail isolation wiring
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const fix=fs.readFileSync('detail-state-fix-v01.js','utf8');
+          const index=fs.readFileSync('index.html','utf8');
+          for(const x of ['detailPokemonExtra','detailFormsSection','stage19SpeciesDetail','stage20EvolutionDetail','stage21EncounterDetail','referenceMode','MutationObserver'])if(!fix.includes(x))throw Error('missing state cleanup '+x);
+          for(const x of ['.move-card[data-kind="moves"]','.move-card[data-kind="abilities"]'])if(!fix.includes(x))throw Error('missing reference-card guard '+x);
+          if(!index.includes('detail-state-fix-v01.js?v=20261012-detailstate1'))throw Error('detail-state fix not loaded');
+          console.log('DETAIL STATE ISOLATION OK');
+          NODE
