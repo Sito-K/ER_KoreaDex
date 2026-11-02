@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+'use strict';
+const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert');
+const root=path.resolve(process.argv[2]||'.'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
+const html=read('index.html');
+assert(html.includes('v1.1 (최신 버전)')&&html.includes('class="latest-version">최신 버전')&&html.includes('원본 소스 2.65.4.2'));
+assert(html.includes('stage32-version.css?v=20261103-release')&&html.includes('noindex,nofollow,noarchive'));
+assert(read('stage32-version.css').includes('max-width: 400px'));
+const scripts=[...html.matchAll(/<script src="([^"?]+)(?:\?[^"]*)?"/g)].map(m=>m[1]);
+const styles=[...html.matchAll(/<link rel="stylesheet" href="([^"?]+)(?:\?[^"]*)?"/g)].map(m=>m[1]);
+assert(scripts.length>=21&&styles.length>=25&&scripts.length===new Set(scripts).size);
+for(const item of [...scripts,...styles])assert(!item.includes('..')&&fs.existsSync(path.join(root,item)),item);
+const pos=n=>scripts.indexOf(n);
+assert(pos('pokemon-data.js')<pos('species-name-overrides-v01.js')&&pos('species-name-overrides-v01.js')<pos('stage30-name-disambiguation.js')&&pos('stage30-name-disambiguation.js')<pos('app-stage13.js'));
+const ctx={window:{},console:{error:(...a)=>{throw Error(a.join(' '))},log:()=>{}}};vm.createContext(ctx);
+for(const f of ['pokemon-data.js','species-name-overrides-v01.js','stage30-name-disambiguation.js','stage19-data.js','stage20-data.js','stage21-data.js','stage25-detail-data.js'])vm.runInContext(read(f),ctx,{filename:f});
+const w=ctx.window,d=w.ER_POKEMON_DATA;
+assert(d.length===1938&&new Set(d.map(x=>x[0])).size===1938&&new Set(d.map(x=>x[2])).size===1938);
+assert(w.ER_STAGE19_DATA.species.length===1938&&w.ER_STAGE20_DATA.species.length===1938&&w.ER_STAGE21_DATA.species.length===1938);
+assert(w.ER_STAGE25_DETAIL_DATA.moves.length===1040&&w.ER_STAGE25_DETAIL_DATA.abilities.length===1083);
+assert(fs.readdirSync(path.join(root,'assets/pokemon')).filter(x=>x.endsWith('.png')).length===1938);
+const app=read('app-stage13.js');
+for(const t of ["switchView(next,btn)","openDetail(card.dataset.kind","loadMore.addEventListener","resetFilters.addEventListener","detailClose.addEventListener"])assert(app.includes(t));
+console.log('STAGE32 PASS: v1.1/latest/source 2.65.4.2; 1938 species/sprites, 1040 moves, 1083 abilities; no duplicate names; browser/device QA still pending');

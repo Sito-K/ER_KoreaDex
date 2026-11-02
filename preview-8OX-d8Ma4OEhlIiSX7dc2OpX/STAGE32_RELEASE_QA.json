@@ -1,0 +1,46 @@
+{
+  "stage": 32,
+  "date": "2026-11-03",
+  "scope": "isolated preview only; production root v1 unchanged",
+  "gameSourceCommit": "888d826064ba45d9febfa3a64d8a2b9d34503360",
+  "gameSourceBaseline": "2.65.4.2",
+  "koreanRelease": "v1.1",
+  "dexVersion": "v1.1",
+  "displayTag": "최신 버전",
+  "counts": {
+    "species": 1938,
+    "sprites": 1938,
+    "moves": 1040,
+    "abilities": 1083,
+    "duplicatedNames": 0
+  },
+  "checks": {
+    "updatedStage9": "13/13 PASS",
+    "stage21": "PASS_STATIC_NOT_BROWSER",
+    "stage22": "PASS_STATIC_NOT_BROWSER_NOT_DEPLOYED",
+    "stage23": "PASS_LOCAL_PREVIEW_STATIC_HTTP_NO_BROWSER",
+    "stage24": "PASS",
+    "stage25": "PASS",
+    "stage26": "PASS",
+    "stage30": "PASS",
+    "stage31": "PASS",
+    "stage32": "PASS_STATIC_VM_NOT_BROWSER"
+  },
+  "obsoleteStage9Conditions": [
+    "hardcoded script count",
+    "scripted acquisitions zero assumed: now 215",
+    "hardcoded lazy source cache version"
+  ],
+  "browser": {
+    "attempted": [
+      "Chromium 1280x900",
+      "mobile viewport 390x844",
+      "mobile viewport 360x740"
+    ],
+    "result": "ERR_BLOCKED_BY_ADMINISTRATOR",
+    "mobileSafari": "NOT_TESTED",
+    "screenReader": "NOT_TESTED"
+  },
+  "production": "HOLD pending final browser/device review or explicit release instruction",
+  "note": "Latest means Korean Pokédex release relative to this project, not automatic tracking of newer upstream source."
+}

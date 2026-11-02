@@ -1,0 +1,4 @@
+/* v1.1 version marker: layout-only, no functional changes. */
+.top .brand .dex-version { display: flex; align-items: center; flex-wrap: wrap; gap: 0.3rem; }
+.top .brand .latest-version { display: inline-block; border: 1px solid currentColor; border-radius: 99px; padding: 0.05rem 0.38rem; font-size: 0.7em; font-weight: 600; white-space: nowrap; opacity: .9; }
+@media (max-width: 400px) { .top .brand .dex-version { gap: 0.2rem; } .top .brand .latest-version { font-size: .66em; padding: 0.04rem 0.3rem; } }
