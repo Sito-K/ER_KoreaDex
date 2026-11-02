@@ -1,0 +1,135 @@
+{
+  "stage": 30,
+  "date": "2026-11-02",
+  "scope": "unlisted-preview-only",
+  "sourceGame": "Sito-K/EliteReduxKorean korean@888d826064ba45d9febfa3a64d8a2b9d34503360",
+  "siteBaseCommit": "9c06dad97e111a9445e36cbee2103a1c1cdf864c",
+  "sourceSiteBlobSha": "bbc102213c4ebaef86fdffb0cecc912967031d2c",
+  "totalSpecies": 1938,
+  "before": {
+    "duplicateLabelGroups": 10,
+    "affectedRows": 22
+  },
+  "after": {
+    "duplicateLabelGroups": 0,
+    "affectedRows": 0
+  },
+  "minimalDisplayOverrides": 12,
+  "retainedOriginalGroupNames": 10,
+  "sourceDataIntact": true,
+  "imageCountUntouched": 1938,
+  "namePolicy": "Preserve an existing baseline label for one record per collision group; append only source-grounded form identifiers on 12 alternate rows. B and FUZZ remain unlocalized technical identifiers; they are not asserted as official Korean names.",
+  "rows": [
+    {
+      "id": 1740,
+      "expectedName": "지가르데 (10%폼)",
+      "expectedSymbol": "ZYGARDE_10_POWER_CONSTRUCT",
+      "english": "Zygarde 10 Power Construct",
+      "newName": "지가르데 (10%폼·스웜체인지)",
+      "dex": 718,
+      "note": "Source-anchored display-only suffix; game text unchanged"
+    },
+    {
+      "id": 2169,
+      "expectedName": "메가킬가르도 (리덕스폼)",
+      "expectedSymbol": "AEGISLASH_BLADE_REDUX_MEGA",
+      "english": "Aegislash Blade Redux Mega",
+      "newName": "메가킬가르도 (리덕스폼·블레이드폼)",
+      "dex": 681,
+      "note": "Source-anchored display-only suffix; game text unchanged"
+    },
+    {
+      "id": 2179,
+      "expectedName": "메가스트린더 (리덕스폼)",
+      "expectedSymbol": "TOXTRICITY_REDUX_FUZZ_MEGA",
+      "english": "Toxtricity Redux Fuzz Mega",
+      "newName": "메가스트린더 (리덕스폼·FUZZ)",
+      "dex": 849,
+      "note": "Source-anchored display-only suffix; game text unchanged"
+    },
+    {
+      "id": 2510,
+      "expectedName": "킬가르도 (리덕스폼)",
+      "expectedSymbol": "AEGISLASH_BLADE_REDUX",
+      "english": "Aegislash Blade Redux",
+      "newName": "킬가르도 (리덕스폼·블레이드폼)",
+      "dex": 681,
+      "note": "Source-anchored display-only suffix; game text unchanged"
+    },
+    {
+      "id": 2576,
+      "expectedName": "플라이곤 (리덕스폼)",
+      "expectedSymbol": "FLYGON_REDUX_B",
+      "english": "Flygon Redux B",
+      "newName": "플라이곤 (리덕스폼 B)",
+      "dex": 330,
+      "note": "Source-anchored display-only suffix; game text unchanged"
+    },
+    {
+      "id": 2577,
+      "expectedName": "메가플라이곤 (리덕스폼)",
+      "expectedSymbol": "FLYGON_REDUX_B_MEGA",
+      "english": "Flygon Redux B Mega",
+      "newName": "메가플라이곤 (리덕스폼 B)",
+      "dex": 330,
+      "note": "Source-anchored display-only suffix; game text unchanged"
+    },
+    {
+      "id": 2590,
+      "expectedName": "입치트 (리덕스폼)",
+      "expectedSymbol": "MAWILE_REDUX_B",
+      "english": "Mawile Redux B",
+      "newName": "입치트 (리덕스폼 B)",
+      "dex": 303,
+      "note": "Source-anchored display-only suffix; game text unchanged"
+    },
+    {
+      "id": 2591,
+      "expectedName": "메가입치트 (리덕스폼)",
+      "expectedSymbol": "MAWILE_REDUX_B_MEGA",
+      "english": "Mawile Redux B Mega",
+      "newName": "메가입치트 (리덕스폼 B)",
+      "dex": 303,
+      "note": "Source-anchored display-only suffix; game text unchanged"
+    },
+    {
+      "id": 2610,
+      "expectedName": "스트린더 (리덕스폼)",
+      "expectedSymbol": "TOXTRICITY_REDUX_FUZZ",
+      "english": "Toxtricity Redux Fuzz",
+      "newName": "스트린더 (리덕스폼·FUZZ)",
+      "dex": 849,
+      "note": "Source-anchored display-only suffix; game text unchanged"
+    },
+    {
+      "id": 2629,
+      "expectedName": "불비달마 (리덕스폼)",
+      "expectedSymbol": "DARMANITAN_REDUX_AURA",
+      "english": "Darmanitan Aura",
+      "newName": "불비달마 (리덕스폼·오라)",
+      "dex": 555,
+      "note": "Source-anchored display-only suffix; game text unchanged"
+    },
+    {
+      "id": 2630,
+      "expectedName": "불비달마 (리덕스폼)",
+      "expectedSymbol": "DARMANITAN_REDUX_BOND",
+      "english": "Darmanitan Redux Bond",
+      "newName": "불비달마 (리덕스폼·본드)",
+      "dex": 555,
+      "note": "Source-anchored display-only suffix; game text unchanged"
+    },
+    {
+      "id": 2635,
+      "expectedName": "불비달마 (리덕스폼)",
+      "expectedSymbol": "DARMANITAN_REDUX_BLUNDER",
+      "english": "Blunder-Darmanitan",
+      "newName": "불비달마 (리덕스폼·블런더)",
+      "dex": 555,
+      "note": "Source-anchored display-only suffix; game text unchanged"
+    }
+  ],
+  "runtimeAsset": "stage30-name-disambiguation.js",
+  "sourceAsset": "pokemon-data.js",
+  "requiredOrder": "pokemon-data.js, species-name-overrides-v01.js, stage30-name-disambiguation.js, app-stage13.js"
+}
