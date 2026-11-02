@@ -1,0 +1,13 @@
+Elite Redux 한국어 도감 STAGE31 — 팬메이드 오리지널 포켓몬 표시명 8건 최종 검수 (2026-11-03)
+원본 기준: Sito-K/EliteReduxKorean korean@888d826064ba45d9febfa3a64d8a2b9d34503360 (STAGE24 원본 이름 스냅샷)
+사이트: Sito-K/ER_KoreaDex main, 별도 preview 폴더만 작업
+검토 대상: 2126 아미카불, 2334 콜드리칸, 2335 넘버그, 2336 카메버그, 2337 마니버그, 2338 스웜모스, 2339 카무돈, 2502 발톱미믹
+도감 pokemon-data.js, 진화 stage20-data.js, 출현 stage21-data.js 각 1938건에서 8건의 ID/영문명/한글명 확인.
+결론: 8건 모두 도감/진화/획득 한국어 표기 일치. 영문명/심볼과 ID 일치. 명백한 오류 0건, 자동 교정 0건, 기존 이름 8건 모두 유지.
+영문명은 원본 스냅샷(STAGE24) 기준이며, STAGE31에서 게임 SpeciesList.textproto 전체 원문을 새로 재추출하지 않았음.
+발톱미믹은 Clawed Mimic의 혼합 의미 번역이며, 모든 이름은 정식 공식 한국어명이 아닌 팬게임 표시명.
+STAGE30 12건 구별 패치 적용 후 전체 표시명 중복 0건 재확인. 포켓몬 검색에서 원본 영어명도 검색할 수 있는 기존 로직 확인.
+기존 pokemon-data.js, stage20-data.js, stage21-data.js, index.html, UI/CSS/이미지, 게임 소스, ROM, Excel, 운영 v1 루트 무변경.
+검증: node tools/stage31/verify_stage31.js . ; STAGE30 게이트 별도 재검사.
+실제 iOS Safari/브라우저 수동 테스트는 이번 단계에서 수행하지 않았음.
+NEXT STAGE32: 모바일/브라우저 QA 및 구형 STAGE9 검증 조건 조사.
