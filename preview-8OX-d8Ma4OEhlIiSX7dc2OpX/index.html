@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+<head>\n<meta name="robots" content="noindex,nofollow,noarchive">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f131a">
+<title>Elite Redux 한글 도감 · v1</title>
+<link rel="stylesheet" href="styles.css?v=20261009-clean3">
+<link rel="stylesheet" href="stage4.css?v=20261009-clean4">
+<link rel="stylesheet" href="stage5.css?v=20261009-clean5">
+<link rel="stylesheet" href="stage6.css?v=20261009-clean6">
+<link rel="stylesheet" href="stage7.css?v=20261009-stage7">
+<link rel="stylesheet" href="stage8.css?v=20261009-stage8">
+<link rel="stylesheet" href="stage9.css?v=20261009-stage9">
+<link rel="stylesheet" href="stage11.css?v=20261009-stage11">
+<link rel="stylesheet" href="stage12.css?v=20261009-stage12">
+<link rel="stylesheet" href="stage13.css?v=20261009-stage13">
+<link rel="stylesheet" href="stage14.css?v=20261009-stage14b">
+<link rel="stylesheet" href="stage18.css?v=20261009-stage18">
+<link rel="stylesheet" href="stage19.css?v=20261009-stage19">
+<link rel="stylesheet" href="stage20.css?v=20261009-stage20">
+<link rel="stylesheet" href="stage17.css?v=20261102-stage17">
+<link rel="stylesheet" href="stage21.css?v=stage14-badge-bp">
+<link rel="stylesheet" href="stage22.css?v=20261009-stage22">
+<link rel="stylesheet" href="stage23.css?v=20261009-stage23">
+<link rel="stylesheet" href="stage24.css?v=20261009-stage24">
+<link rel="stylesheet" href="stage25.css?v=20261009-stage25modal">
+<link rel="stylesheet" href="detail-hidden-guard-v01.css?v=20261012-hiddenfix1">
+<link rel="stylesheet" href="stage5-fallback.css?v=stage5-native">
+<link rel="stylesheet" href="stage27-mobile-modal.css?v=20261009-stage27">
+<link rel="stylesheet" href="stage20-accessibility.css?v=stage20-20261102">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><b>ER</b><div><strong>Elite Redux 한글 도감</strong><small>v1</small></div></div>
+  <label class="search"><span>⌕</span><input id="q" type="search" placeholder="포켓몬 이름 또는 도감 번호를 검색해주세요" autocomplete="off"></label>
+</header>
+<main>
+  <section class="hero">
+    <div><small>ELITE REDUX KOREAN v1 · 2.65.4.1b</small><h1>포켓몬 도감</h1></div>
+    <div class="status"><b id="count">0</b><span id="countLabel">포켓몬·폼</span></div>
+  </section>
+  <nav class="tabs" aria-label="도감 분류">
+    <button class="tab active" data-view="pokemon">포켓몬</button>
+    <button class="tab" data-view="moves">기술</button>
+    <button class="tab" data-view="abilities">특성</button>
+  </nav>
+  <section id="pokemonFilters" class="dex-controls" aria-label="포켓몬 필터">
+    <div class="filter-top"><strong>포켓몬 필터</strong><button id="resetFilters" class="filter-reset" type="button">초기화</button></div>
+    <div class="filter-section">
+      <div class="filter-section-title"><span>분류</span></div>
+      <div id="categoryFilters" class="category-filters" aria-label="포켓몬 분류 필터">
+        <button type="button" class="category-filter active" data-category="base" aria-pressed="true"><span class="category-label">기본</span><span class="category-count">0</span></button>
+        <button type="button" class="category-filter active" data-category="form" aria-pressed="true"><span class="category-label">폼</span><span class="category-count">0</span></button>
+        <button type="button" class="category-filter active" data-category="mega" aria-pressed="true"><span class="category-label">메가</span><span class="category-count">0</span></button>
+      </div>
+    </div>
+    <div class="filter-divider"></div>
+    <div class="filter-section">
+      <div class="filter-section-title"><span>타입(속성)</span></div>
+      <div id="typeFilters" class="type-filters" aria-label="포켓몬 타입 필터"></div>
+    </div>
+    <div class="list-tools">
+      <label class="sort-control">정렬
+        <select id="sortPokemon">
+          <option value="dex">도감 번호순</option>
+          <option value="name">이름순</option>
+          <option value="bst">종족값 합계순</option>
+        </select>
+      </label>
+    </div>
+  </section>
+  <div class="head"><h2 id="title">포켓몬 도감</h2><span id="result"></span></div>
+  <div id="grid" class="grid pokemon-grid"></div>
+  <div id="empty" class="empty" hidden>검색 결과가 없습니다.</div>
+</main>
+<div id="detailBackdrop" class="detail-backdrop" hidden>
+  <section class="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="detail-top"><div><div id="detailType" class="detail-type"></div><h2 id="detailTitle" class="detail-title"></h2></div><button id="detailClose" class="detail-close" type="button" aria-label="상세 보기 닫기">×</button></div>
+    <div class="detail-body">
+      <section id="detailPokemonExtra" class="detail-section" hidden></section>
+      <section class="detail-section"><h3 id="detailShortLabel">요약 설명</h3><p id="detailShort" class="detail-text"></p></section>
+      <section class="detail-section"><h3 id="detailLongLabel">상세 설명</h3><p id="detailLong" class="detail-text"></p></section>
+      <section id="detailFormsSection" class="detail-section" hidden><h3>같은 도감 번호의 모습</h3><div id="detailForms" class="form-grid"></div></section>
+    </div>
+  </section>
+</div>
+<script src="pokemon-data.js?v=stage5-native"></script>
+<script src="species-name-overrides-v01.js?v=20261010-stage31names"></script>
+<script src="move-meta.js?v=stage5-native"></script>
+<script src="ability-meta.js?v=stage5-native"></script>
+<script src="stage6-legacy-maps-items.js?v=stage6-staging"></script>
+<script src="stage5-bridge.js?v=stage9-native"></script>
+<script src="stage11-source-gaps.js?v=stage11-provenance"></script>
+<script src="app-stage13.js?v=stage11-provenance"></script>
+<script src="stage14-infinite.js?v=20261009-stage14b"></script>
+<script src="stage8.js?v=20261009-stage8"></script>
+<script src="stage9.js?v=20261009-stage9"></script>
+<script src="stage18.js?v=20261009-v01clean"></script>
+<script src="stage19.js?v=stage6-staging"></script>
+<script src="stage26-item-names.js?v=20261009-stage28"></script>
+<script src="stage17-data.js?v=20261102-stage17-source"></script>
+<script src="stage20.js?v=20261102-stage17-forms-deev"></script>
+<script src="stage22-map-ko.js?v=20261009-stage22"></script>
+<script src="stage21.js?v=stage14-badge-bp"></script>
+<script src="detail-state-fix-v01.js?v=20261012-detailstate1"></script>
+<script src="stage25.js?v=stage11-provenance"></script>
+<script src="stage20-accessibility.js?v=stage20-20261102"></script>
+</body>
+</html>

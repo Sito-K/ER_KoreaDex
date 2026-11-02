@@ -1,0 +1,7 @@
+STAGE 15 — source-only, NOT DEPLOYED; source game pinned 888d826064ba45d9febfa3a64d8a2b9d34503360.
+Only stage20.js UI and index.html cache key updated. No data record/source file edited.
+Duplicate relations collapsed only at render: Litleo (#667) -> Pyroar (#668) EVO_LEVEL 35 twice in raw source-derived stage20-data; graph and metadata retain all 749 raw records.
+EVO_MOVE_MEGA_EVOLUTION MOVE_DRAGON_ASCENT shown with verified existing Korean move name 화룡점정 (move #620); raw condition is unchanged.
+Source audit: 749 ordinary EVO_LEVEL, 304 special (285 EVO_MEGA_EVOLUTION, 18 EVO_PRIMAL_REVERSION, 1 EVO_MOVE_MEGA_EVOLUTION). Original game source supports more methods; do NOT invent missing methods.
+16 NPC hooks (out of 19, excluding 2 BattleFrontier and 1 TrainerHill) remain evidence; site 73 general adoption entries use one representative Oldale shop each, not proof of gameplay access.
+All 149 shop records and 15 BP code claims remain unmodified. No PC/mobile browser or ROM gameplay verification.

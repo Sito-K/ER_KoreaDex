@@ -1,0 +1,8 @@
+.species-card{grid-template-columns:145px minmax(0,1fr);align-items:start}
+.card-head{grid-column:1/-1;min-width:0;width:100%;padding:1px 2px 5px}
+.card-head .num{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0;color:#7f8a9a;font-size:9px;font-weight:800}
+.card-head .ko{display:block;width:100%;max-width:none;margin:6px 0 0;color:var(--text);font-size:20px;font-weight:900;line-height:1.22;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;word-break:keep-all}
+.card-head .en{display:block;width:100%;max-width:none;margin:3px 0 0;color:#8a95a5;font-size:10px;line-height:1.3;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;word-break:break-word}
+.card-copy{align-self:stretch;display:flex;min-width:0;flex-direction:column}.card-copy .type-row{margin-top:2px}.card-copy .bst-card{margin-top:12px}.card-copy .detail-hint{margin-top:auto;padding-top:9px}
+@media(max-width:760px){.species-card{display:block}.card-head{padding:1px 1px 7px}.card-head .num{margin-top:0}.card-head .ko{font-size:17px;line-height:1.24}.card-head .en{font-size:9px;line-height:1.3}.sprite-wrap{margin-top:2px}.card-copy .type-row{margin-top:8px}.card-copy .detail-hint{margin-top:5px;padding-top:0}}
+@media(max-width:430px){.card-head .ko{font-size:16px;line-height:1.25}.card-head .en{font-size:8px}.card-head{min-height:52px}}

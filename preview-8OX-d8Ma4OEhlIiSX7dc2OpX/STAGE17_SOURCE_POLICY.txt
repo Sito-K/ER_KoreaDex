@@ -1,0 +1,10 @@
+Elite Redux Korean Dex STAGE17 / 2026-11-02
+Pinned game: Sito-K/EliteReduxKorean korean @ 888d826064ba45d9febfa3a64d8a2b9d34503360
+Native proto: proto/SpeciesList.textproto blob 0eec2ab7ee0dc46d9fbbf9f18aadef5c27cb44af
+Engine code: tools/codegen/src/er/data/EvolutionsGenerator.kt
+
+SOURCE-AUDIT: form_shift_of 113 records (gender 9: male 8, female 1); allow_deevolution_to true: Eevee and Necrozma.
+GENERATOR: form lists include EVO_FORM_SHIFT, EVO_FORM_SHIFT_GENDER; de-evolution generator reverses 8 Eevee evo entries + 2 Necrozma evo entries, total 10 (EVO_DEEVOLUTION).
+DISPLAY: source-defined associations not guaranteed directly playable. Form links and de-evolution are shown in separate labeled sections; do not treat these as 749 ordinary evolutions or 304 special mega/primal relations.
+EXPLICITLY NOT VERIFIED: gameplay activation, item/flag availability, bidirectional form selection, actual PC/mobile browser rendering.
+NO ACTION: no changes to GitHub operational main, game korean, ROM, translation Excel.

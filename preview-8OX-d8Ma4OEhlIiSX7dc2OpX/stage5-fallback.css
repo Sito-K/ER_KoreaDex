@@ -1,0 +1,2 @@
+/* STAGE 5 sprite failure fallback */
+.sprite-missing .sprite-fallback{display:flex!important;opacity:1!important;visibility:visible!important;}

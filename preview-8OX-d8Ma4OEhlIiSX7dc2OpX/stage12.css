@@ -1,0 +1,9 @@
+.category-filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.category-filter{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border:1px solid #303947;border-radius:12px;background:#171d26;color:#aeb8c7;font:800 14px/1 inherit;cursor:pointer;transition:border-color .15s,background .15s,color .15s,transform .15s}
+.category-filter:hover{border-color:#505c6e;background:#1d2530;color:#f4f6f9;transform:translateY(-1px)}
+.category-filter.active{border-color:#6f7e93;background:#27313f;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04)}
+.category-filter[data-category="mega"].active{border-color:#ef6670;background:#3a2228;color:#fff}
+.category-filter .category-count{display:inline-flex;align-items:center;justify-content:center;min-width:27px;height:22px;padding:0 7px;border-radius:999px;background:rgba(255,255,255,.08);font-size:11px;color:inherit}
+.mega-badge{border-color:#ef6670!important;background:#3a2228!important;color:#ffb7bc!important}
+.species-card.is-mega{box-shadow:inset 0 0 0 1px rgba(239,102,112,.08)}
+@media(max-width:560px){.category-filters{gap:7px}.category-filter{min-height:44px;font-size:13px;gap:5px}.category-filter .category-count{min-width:24px;padding:0 5px;font-size:10px}}

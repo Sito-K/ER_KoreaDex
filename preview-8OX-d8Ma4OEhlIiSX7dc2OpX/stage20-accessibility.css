@@ -1,0 +1,18 @@
+/* STAGE20: mobile touch targets, one-row primary tabs, and visible keyboard focus. */
+@media(max-width:650px){
+  .tabs{grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
+  .tab{min-height:44px;padding:11px 6px;white-space:nowrap}
+  .category-filter,.type-filter,.filter-reset,.form-link,.s20-evo-target,
+  .s19-detail-link,.s19-chip,.s19-level,.s21-place button,
+  #stage22DetailNav button{min-height:44px;touch-action:manipulation}
+  .detail-close{min-width:44px;min-height:44px}
+  .detail-body{overscroll-behavior:contain}
+}
+.detail-backdrop :is(button,a,input,select,textarea):focus-visible,
+.tabs .tab:focus-visible,.category-filter:focus-visible,.type-filter:focus-visible,
+.is-detail:focus-visible,.filter-reset:focus-visible{
+  outline:3px solid #ffbf47!important;outline-offset:3px!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .tabs *,.detail-backdrop *, .card, .type-filter{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}

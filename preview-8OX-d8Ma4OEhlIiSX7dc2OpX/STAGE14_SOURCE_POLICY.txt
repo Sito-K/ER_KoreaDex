@@ -1,0 +1,7 @@
+STAGE14 source-only candidate. NOT DEPLOYED.
+Game commit: 888d826064ba45d9febfa3a64d8a2b9d34503360
+GENERAL ADOPTION: 73 explicitly badge-tagged species from proto/SpeciesList.textproto, 0-8 tiers. NPC map hooks: 19; 3 BattleFrontier/TrainerHill excluded from general presentation.
+CURRENCY: setvar(VAR_SHOP_MONEY_TYPE, 1) = MART_MONEY_TYPE_BATTLE_POINTS; src/shop.c debits frontier battlePoints.
+PRICE: BaseStatsGenerator.kt does not assign shopPrice; src/shop.c defaults each species to DEFAULT_POKEMON_PRICE=15 in include/constants/global.h. Do not confuse with SpeciesList.bp_cost.
+All 76 fixed catalog display labels have 15 BP added; 73 general badge candidates displayed once each at verified Oldale Town shop as representative.
+No real-game purchase/availability test and no full PC/mobile browser QA. No operational GitHub updates.

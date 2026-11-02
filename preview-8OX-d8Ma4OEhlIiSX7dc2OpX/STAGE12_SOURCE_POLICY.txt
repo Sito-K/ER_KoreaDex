@@ -1,0 +1,1 @@
+STAGE12: Event records are from game source script commands, NOT verified playability/catchability. Some unreachable/debug scripts are excluded. Source refs and audit are in separate QA ZIP.

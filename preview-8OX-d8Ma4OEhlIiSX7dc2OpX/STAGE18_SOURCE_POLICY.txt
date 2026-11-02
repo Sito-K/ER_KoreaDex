@@ -1,0 +1,25 @@
+Elite Redux 한국어 도감 STAGE 18 소스 확인 정책 / 2026-11-02
+
+PINNED GAME: Sito-K/EliteReduxKorean korean @ 888d826064ba45d9febfa3a64d8a2b9d34503360
+SITE BASIS: STAGE17_SITE_CANDIDATE, main (operational) not changed.
+
+[검증된 실행 연결]
+- src/pokemon.c L6023-6060: GetFormChangeForMon reads gFormChangeTable; EVO_FORM_SHIFT returns target; EVO_FORM_SHIFT_GENDER checks GetMonGender against param. EVO_MEGA/PRIMAL additionally check permanentMegaMode + Mega Bracelet + Keystone flag + held/bag item.
+- src/party_menu.c L2440-2467: form and ordinary evolution submenus build action lists from valid targets.
+- src/party_menu.c L2554-2608: form-change selection calls BeginFormChangeScene; it changes MON_DATA_SPECIES and recalculates stats. Evolution route calls BeginEvolutionScene.
+- src/party_menu.c L2624-2676: main field menu requires enablePokemonChanges(); forms have further VarGet(FLAG_BADGE02_GET) expression.
+- src/pokemon.c L6082-6087: EVO_DEEVOLUTION returns the referenced species without separate level/item checks.
+- src/pokemon_storage_system.c L3752-3810,L3912-3942: PC evolution menu enumerates valid GetEvolutionForMon targets and applies the selected species change.
+- src/pokemon_summary_screen.c L5118-5156: evolution summary skips EVO_DEEVOLUTION as a normal evolution; normal form shifts are not included with mega/primal summary entries.
+
+[읽기 전용 코드 후보; 미수정]
+1. VAR badge expression: FLAG_BADGE02_GET is 2890 (include/constants/flags.h:L1322-1325), below VARS_START 0x4000 (include/constants/vars.h:L6). event_data.c:L174-188 VarGet returns the input ID when GetVarPointer returns NULL. Thus VarGet(FLAG_BADGE02_GET) is nonzero even before badge; this expression is NOT a functioning second-badge check. The full menu may still depend on enablePokemonChanges and other game state.
+2. party_menu.c:L2661 `for (i=0; i < gFormChangeTable[species][i].method; i++)` uses each entry's method (100+ for forms) rather than sentinel. In current 113 forms groups the maximum form-linked count is 9, so no direct observed truncation from this expression. Record as suspicious code only, NOT a confirmed game defect.
+3. pokemon.c:L6044-6050 MOVE_MEGA branch loops i but always checks MON_DATA_MOVE1 (not +i), suggesting that a move outside the first slot would be overlooked. Does not alter ordinary 113 form_shift_of links, which are independent of move-based mega forms. Actual gameplay not tested.
+4. party_menu.c:L2576 has `if (targetSpecies != SPECIES_NONE || TRUE)`; unconditional branch, but the called function rechecks target and can reject. No proven user-visible failure.
+
+[출력 정책]
+- STAGE17 113 form-shifts (male 8 / female 1) and 10 reverse de-evolution links unchanged.
+- Site UI may say 'menu/handler code confirmed', but must NOT claim any specific form is obtainable or playable, nor guarantee game menu availability.
+- STAGE17 ordinary evolution 749, special 304, PNG 1,938, shop/wild/event datasets and all non-target files untouched.
+- No modifications to GitHub operational main / game korean / ROM / master Excel.

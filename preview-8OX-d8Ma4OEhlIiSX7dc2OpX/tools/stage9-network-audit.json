@@ -1,0 +1,17 @@
+{
+  "stage": "STAGE9",
+  "kind": "Node DOM/mock network requests (not real browser)",
+  "initial_pokemon": 1938,
+  "moves": 1040,
+  "abilities": 1083,
+  "dynamic_requests": [
+    "move-names-canonical.js",
+    "move-short-canonical.js",
+    "move-long-canonical.js",
+    "ability-names-canonical.js",
+    "ability-short-canonical.js",
+    "ability-long-canonical.js"
+  ],
+  "noncanonical_requests": 0,
+  "status": "PASS"
+}

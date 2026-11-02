@@ -1,0 +1,123 @@
+{
+  "stage": "STAGE23",
+  "manual_qa_completed": false,
+  "release_authorized": false,
+  "test_date": null,
+  "tester": null,
+  "device_and_browser": null,
+  "notes": "Do not mark PASS without a real test and evidence. Q16 requires separate user approval.",
+  "tests": [
+    {
+      "id": "Q01",
+      "name": "Desktop first render",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q02",
+      "name": "Search",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q03",
+      "name": "Category/type/sort",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q04",
+      "name": "Move ability tabs",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q05",
+      "name": "Gender evolution",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q06",
+      "name": "Deevolution/forms",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q07",
+      "name": "Tablet 768",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q08",
+      "name": "Phone 375",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q09",
+      "name": "Phone 320",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q10",
+      "name": "Keyboard focus",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q11",
+      "name": "Screen reader",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q12",
+      "name": "Delayed responses",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q13",
+      "name": "Offline retry",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q14",
+      "name": "Rotate/navigation",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q15",
+      "name": "In-game compare",
+      "status": "NOT_TESTED",
+      "evidence": null,
+      "reproduction_steps": null
+    },
+    {
+      "id": "Q16",
+      "name": "Live workflow cutover",
+      "status": "BLOCKED",
+      "evidence": null,
+      "reproduction_steps": null
+    }
+  ]
+}

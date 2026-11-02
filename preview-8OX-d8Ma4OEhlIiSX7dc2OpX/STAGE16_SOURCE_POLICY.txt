@@ -1,0 +1,11 @@
+Elite Redux Korean Dex STAGE 16 / 2026-11-02
+Game pinned source: Sito-K/EliteReduxKorean korean @ 888d826064ba45d9febfa3a64d8a2b9d34503360
+Source raw: proto/SpeciesList.textproto, blob 0eec2ab7ee0dc46d9fbbf9f18aadef5c27cb44af
+Engine generator: tools/codegen/src/er/data/EvolutionsGenerator.kt
+Stage15 data preserved except 30 gender-specific evo METHOD corrections, reversed edges,
+source-audit metadata and cache-busting. No new species/edge and no external NextDex source.
+STAGE15's Litleo/Pyroar two records are male / female distinct and not duplicates.
+749 ordinary: EVO_LEVEL=719, EVO_LEVEL_MALE=15, EVO_LEVEL_FEMALE=15.
+304 special remain unchanged; form shifts/deevolutions are not counted as ordinary.
+This candidate is not deployed; no GitHub main, ROM or master Excel changes.
+Only source-level behavior checked. No PC/mobile browser or actual gameplay evolution test.

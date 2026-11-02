@@ -1,0 +1,6 @@
+STAGE13 source-based acquisition candidates. Real game play not yet verified.
+Shop entries: original Game Corner coin-prize scripts ignored; only NPC-hooked adoption-center catalog items.
+Monotype rewards: NPC entry warp and matching party+win branches checked in scripts.
+First Togepi egg: direct variable handoff to giveEgg; subsequent eggs variable.
+Battle Frontier: intentionally not displayed. Source reference only.
+Source game pinned 888d826064ba45d9febfa3a64d8a2b9d34503360
