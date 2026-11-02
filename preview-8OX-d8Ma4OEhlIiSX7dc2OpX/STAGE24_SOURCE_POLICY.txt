@@ -1,0 +1,7 @@
+Elite Redux Korean Dex — STAGE 24 / Source-to-site Pokémon data audit (2026-11-02)
+PINNED game: Sito-K/EliteReduxKorean korean @ 888d826064ba45d9febfa3a64d8a2b9d34503360
+Audit base extraction: 11b1582dfcd0394d65420b16798cb729d4d98111, verified against pinned proto/SpeciesList.textproto with normalized FNV-1a32 c1b64a16 over 1,938 rows (id,dex,type1,type2,HP,Atk,Def,SpAtk,SpDef,Spe).
+MATCHED: 1938 species/form ID, English symbol, national dex, types, 6 stats, ability/innate IDs with ignored zero padding, level learnsets and tutor learnsets. All canonical existing IDs and scores preserved.
+BUG FIXED: STAGE19 native data includes 39 zero-padded slots in 32 ability/innate records (3 ability records and 29 innate records). STAGE19 UI previously rendered these as fake #0 ability links. Filter only non-positive placeholder slots at render time; DO NOT edit the game data or remove legitimate duplicate ability slots.
+NAME POLICY: 815 site-vs-native labels differ: 790 form label clarifications, 25 base records (including seven original English/unofficial source names). No automatic renaming; user previously deferred custom name decisions. Display names not the source-normalization audit key.
+NOT CLAIMED: real in-game playability, network speed, on-device browser/VoiceOver behavior. Stage24 tests and review ZIP are QA artifacts, no changes to official root/ROM/Excel.
