@@ -1,0 +1,14 @@
+Elite Redux 한국어 도감 STAGE37 — v1.1 통합 검증 완료 (2026-11-03)
+현재 GitHub 운영 루트 v1: https://sito-k.github.io/ER_KoreaDex/
+분리 테스트 도감 v1.1: https://sito-k.github.io/ER_KoreaDex/preview-8OX-d8Ma4OEhlIiSX7dc2OpX/
+사이트 기준 소스 commit: ae9b4c87795698d0cc27be0fc271f940c33de9a3
+원본 한국어 게임: Sito-K/EliteReduxKorean korean@888d826064ba45d9febfa3a64d8a2b9d34503360
+배포 ZIP: ER_KoreaDex_STAGE37_V11_FINAL_CANDIDATE_HOLD_20261103.zip
+ZIP SHA256: 0bfff2ea3727b03006234a20f47c18a9bb91a4d4a219b9c35ef157418d55501a
+STAGE34 ZIP과 비교해 README를 현재 안전 상태로 수정: STAGE35에서 자동 쓰기 워크플로 17개 격리, STAGE36에서 불필요 파일 11개 및 임시 브랜치 2개 정리. 운영 ZIP index에는 noindex가 없고, 테스트 preview index에는 noindex가 있음.
+코드/이미지: 런타임 JS/CSS/동적 로더 58/58 GitHub Blob SHA 일치. 1,938 PNG의 모든 Git Blob을 합친 폴더 Git Tree SHA 일치, Pillow 형식 검사 및 도감 ID 1:1 매칭 완료. Pokemon 1,938; Move 1,040; Ability 1,083; 중복 표시명 0.
+Chromium local package full renderer: 데스크톱 1280, 태블릿 768, 모바일 390/360/320, 기능 125/125 및 반응형/접근성 45/45, JS 오류 0, 미존재 요청 0.
+주의: 로컬 route.fulfill 환경 테스트이며 실제 GitHub Pages 운영 주소에서 v1.1을 테스트하지 않았음. 실기기 iPhone Safari/VoiceOver 미실시.
+정식 배포: HOLD. 사용자의 명시적인 운영 v1→v1.1 전환 지시를 받기 전에는 root index / Pokemon data / workflows / ROM / Excel 수정 금지.
+현재 복구용 브랜치 backup-v1-before-v11-stage36-20261103는 운영 v1의 정리 전 안전본이며 SHA 09d809d3749378a065cf871e86601ca656d92868.
+정식 전환 시 58개 런타임 파일과 이미지 폴더, 운영용 sanitized index/README를 일괄 배포, GitHub Pages 성공 및 모바일 최종 확인. 문제 시 force push가 아닌 복구 커밋 사용.

@@ -1,0 +1,74 @@
+{
+  "stage": 37,
+  "date": "2026-11-03",
+  "status": "INTEGRATION_PASS_PRODUCTION_HOLD",
+  "repository": "Sito-K/ER_KoreaDex",
+  "baselineMainCommit": "ae9b4c87795698d0cc27be0fc271f940c33de9a3",
+  "gameSourceRef": "Sito-K/EliteReduxKorean korean@888d826064ba45d9febfa3a64d8a2b9d34503360",
+  "version": {
+    "dex": "v1.1",
+    "label": "최신 버전",
+    "gameSource": "2.65.4.2"
+  },
+  "releaseCandidate": {
+    "archive": "ER_KoreaDex_STAGE37_V11_FINAL_CANDIDATE_HOLD_20261103.zip",
+    "files": 1999,
+    "sha256": "0bfff2ea3727b03006234a20f47c18a9bb91a4d4a219b9c35ef157418d55501a",
+    "zipIntegrity": "PASS",
+    "operationalIndexNoindex": false,
+    "readmeUpdatedForStage35And36": true
+  },
+  "runtime": {
+    "javascript": 32,
+    "css": 26,
+    "htmlDirectJavaScript": 22,
+    "lazyJavaScript": 10,
+    "githubBlobShaMatch": "58/58",
+    "png": 1938,
+    "gitPngTreeSha": "75b62fbe19e4ea1ebef584e92680ced5aa0db0a3",
+    "pngImageValidation": "1938/1938",
+    "pokemonSpriteIdMatch": "1938/1938"
+  },
+  "data": {
+    "pokemonForms": 1938,
+    "uniqueIds": 1938,
+    "uniqueDisplayNames": 1938,
+    "moveCount": 1040,
+    "abilityCount": 1083,
+    "stage30Disambiguations": 12,
+    "sourceNameTranslationUnchanged": true
+  },
+  "browser": {
+    "engine": "Real Chromium, local route-fulfilled production package",
+    "viewports": [
+      "1280x900",
+      "768x1024",
+      "390x844",
+      "360x740",
+      "320x700"
+    ],
+    "functional": "125/125 PASS",
+    "responsiveAccessibility": "45/45 PASS",
+    "pageErrors": 0,
+    "badResponses": 0,
+    "missingAssets": 0,
+    "hostedGithubPagesRuntimeTested": false,
+    "iphoneSafariTested": false,
+    "voiceOverTested": false
+  },
+  "liveGithub": {
+    "currentMainBeforeStage37": "ae9b4c87795698d0cc27be0fc271f940c33de9a3",
+    "rootIndexBlobSha": "6bb82296fa9b3e1a7213459cc23c066011cc471a",
+    "previewIndexBlobSha": "b7e2d1843dc7ac664a610bd189252fe7087d2175",
+    "gameKoreanCommit": "888d826064ba45d9febfa3a64d8a2b9d34503360",
+    "workflows": 40,
+    "quarantinedLegacyWriters": 17,
+    "workflowDirectoryUnchangedSinceStage35": true,
+    "remainingBranches": [
+      "main",
+      "backup-pre-clean-rebuild-20261009",
+      "backup-v1-before-v11-stage36-20261103"
+    ]
+  },
+  "decision": "Verified final zip is ready for an explicitly requested production promotion. Do not publish automatically. Retain backup, perform live Pages smoke test after promotion; iOS device QA pending."
+}
