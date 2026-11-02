@@ -1,0 +1,235 @@
+{
+  "stage": 28,
+  "date": "2026-11-02",
+  "supersedes": "STAGE27_SOURCE_SYNC_AUDIT.json classifications for ABILITY_SCARECROW and ABILITY_INSECTEATER",
+  "source": {
+    "repository": "Sito-K/EliteReduxKorean",
+    "branch": "korean",
+    "commit": "888d826064ba45d9febfa3a64d8a2b9d34503360",
+    "abilityProto": "proto/AbilityList.textproto",
+    "protoBlobSha": "756cb10053ac122378afba7410fba681080f545a",
+    "enumBlobSha": "180f44e3f32d4ea317269602f23f8369adb17da4"
+  },
+  "site": {
+    "repository": "Sito-K/ER_KoreaDex",
+    "scope": "preview-8OX-d8Ma4OEhlIiSX7dc2OpX/ only",
+    "dataset": "stage25-detail-data.js",
+    "datasetBlobSha": "73c75552cfc19a10ca5c3b2da3735bd9d6fc05dd"
+  },
+  "parsing": "Parse ability { ... } with arbitrary whitespace before opening brace or field names; map enum symbolic IDs; if expanded_description is absent, use description as canonical display long text",
+  "results": {
+    "siteAbilityRows": 1083,
+    "sourceAbilityRowsExcludingIdZero": 1083,
+    "nameShortLongExactMatches": 1083,
+    "mismatched": 0,
+    "missing": 0,
+    "moveRowsUnchanged": 1040
+  },
+  "correctedFalsePositives": [
+    {
+      "id": 821,
+      "symbol": "ABILITY_SCARECROW",
+      "name": "허수아비",
+      "protoFieldsPresent": [
+        "name",
+        "description",
+        "expanded_description"
+      ],
+      "implementation": "src/abilities.cc:9983-9989",
+      "implementationSummary": "onEntry = UseIntimidateClone with Intimidate<ABILITY_SCARE>; onDefender = Impl<ABILITY_COTTON_DOWN>.onDefender",
+      "sourceMatchesSite": true
+    },
+    {
+      "id": 1048,
+      "symbol": "ABILITY_INSECTEATER",
+      "name": "벌레포식",
+      "protoFieldsPresent": [
+        "name",
+        "description",
+        "expanded_description"
+      ],
+      "implementation": "src/abilities.cc:4096-4108",
+      "implementationSummary": "target TYPE_BUG => offensive multiplier 1.5; attacker TYPE_BUG => defensive multiplier 0.5; breakable",
+      "sourceMatchesSite": true
+    }
+  ],
+  "fnv32Groups": {
+    "moves": {
+      "0": {
+        "count": 49,
+        "fnv32": "a5a837f1"
+      },
+      "1": {
+        "count": 50,
+        "fnv32": "5b66893d"
+      },
+      "2": {
+        "count": 50,
+        "fnv32": "adf3d3bc"
+      },
+      "3": {
+        "count": 50,
+        "fnv32": "4d732afa"
+      },
+      "4": {
+        "count": 50,
+        "fnv32": "1378180d"
+      },
+      "5": {
+        "count": 50,
+        "fnv32": "b60bb2a8"
+      },
+      "6": {
+        "count": 50,
+        "fnv32": "449aab7a"
+      },
+      "7": {
+        "count": 50,
+        "fnv32": "2e2595c1"
+      },
+      "8": {
+        "count": 50,
+        "fnv32": "a29f8bd8"
+      },
+      "9": {
+        "count": 50,
+        "fnv32": "05e11f95"
+      },
+      "10": {
+        "count": 50,
+        "fnv32": "3e2d63e5"
+      },
+      "11": {
+        "count": 50,
+        "fnv32": "69533a0a"
+      },
+      "12": {
+        "count": 50,
+        "fnv32": "d49cbde2"
+      },
+      "13": {
+        "count": 50,
+        "fnv32": "6e2555d4"
+      },
+      "14": {
+        "count": 50,
+        "fnv32": "84c9df71"
+      },
+      "15": {
+        "count": 50,
+        "fnv32": "c065bd63"
+      },
+      "16": {
+        "count": 50,
+        "fnv32": "540c4e71"
+      },
+      "17": {
+        "count": 50,
+        "fnv32": "917df25b"
+      },
+      "18": {
+        "count": 50,
+        "fnv32": "9e58c7e0"
+      },
+      "19": {
+        "count": 50,
+        "fnv32": "8564a121"
+      },
+      "20": {
+        "count": 41,
+        "fnv32": "0afa12d7"
+      }
+    },
+    "abilities": {
+      "0": {
+        "count": 49,
+        "fnv32": "7603f184"
+      },
+      "1": {
+        "count": 50,
+        "fnv32": "c3bb8b95"
+      },
+      "2": {
+        "count": 50,
+        "fnv32": "d2da698c"
+      },
+      "3": {
+        "count": 50,
+        "fnv32": "00cbc588"
+      },
+      "4": {
+        "count": 50,
+        "fnv32": "19a477f4"
+      },
+      "5": {
+        "count": 50,
+        "fnv32": "f8de3442"
+      },
+      "6": {
+        "count": 50,
+        "fnv32": "fcb86204"
+      },
+      "7": {
+        "count": 50,
+        "fnv32": "bfb4598b"
+      },
+      "8": {
+        "count": 50,
+        "fnv32": "92532807"
+      },
+      "9": {
+        "count": 50,
+        "fnv32": "1dd4aa3d"
+      },
+      "10": {
+        "count": 50,
+        "fnv32": "8f9ba0c4"
+      },
+      "11": {
+        "count": 50,
+        "fnv32": "99734f03"
+      },
+      "12": {
+        "count": 50,
+        "fnv32": "bca21bf9"
+      },
+      "13": {
+        "count": 50,
+        "fnv32": "656b563d"
+      },
+      "14": {
+        "count": 50,
+        "fnv32": "5e7e1254"
+      },
+      "15": {
+        "count": 50,
+        "fnv32": "bd812695"
+      },
+      "16": {
+        "count": 50,
+        "fnv32": "35860a40"
+      },
+      "17": {
+        "count": 50,
+        "fnv32": "aba96760"
+      },
+      "18": {
+        "count": 50,
+        "fnv32": "55897b5a"
+      },
+      "19": {
+        "count": 50,
+        "fnv32": "417f785f"
+      },
+      "20": {
+        "count": 50,
+        "fnv32": "674d8b19"
+      },
+      "21": {
+        "count": 34,
+        "fnv32": "17b8d4a7"
+      }
+    }
+  },
+  "caution": "Static source code and site text match; no emulator/gameplay testing. The STAGE27 report is preserved as historical output and corrected by STAGE28."
+}
