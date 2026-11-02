@@ -1,0 +1,12 @@
+Elite Redux 한국어 도감 — STAGE28 소스 직접 재검사 및 도감 브랜치/워크플로 정리 기록 (2026-11-02)
+기준 게임: Sito-K/EliteReduxKorean korean @ 888d826064ba45d9febfa3a64d8a2b9d34503360
+사이트: Sito-K/ER_KoreaDex main / 오직 preview 경로 데이터 무변경
+STAGE27 정정: 허수아비 ID821은 'ability { '의 공백 형태 때문에 검수기가 누락한 레코드였음. 벌레포식 ID1048은 description/expanded_description이 일반적인 들여쓰기와 달라 놓쳤음.
+실제 proto에는 두 특성 모두 한국어 이름/설명/상세 설명이 완전히 있으며, 사이트의 기존 문구와 정확히 일치한다.
+원본 AbilityEnum 821/1048 있음. 실제 소스 src/abilities.cc에서 두 능력 동작 구현 확인.
+정규화: 능력 블록의 공백 변형 허용, expanded_description이 없으면 description 대체.
+원본 ability 1083/1083 ↔ 도감 1083/1083 (ID 0 제외), 텍스트 불일치 0. 기술 1040건 기존 상태 유지.
+STAGE27 JSON과 스크립트는 조사 당시의 스냅샷으로 보존하되 두 예외 해석은 이 STAGE28 기록으로 대체.
+무변경: 게임 소스, 기존 포켓몬/기술/특성 데이터, 이미지 1938, 웹 UI, 정식 v1 루트 에셋.
+검증: node tools/stage28/verify_stage28.js . (스냅샷 해시 22개 특성 버킷 + 21개 기술 버킷; 두 ID 변조 반례)
+실기기/게임 플레이 검증은 하지 않았고 기존 브라우저 QA 보류 사항은 그대로이다.
