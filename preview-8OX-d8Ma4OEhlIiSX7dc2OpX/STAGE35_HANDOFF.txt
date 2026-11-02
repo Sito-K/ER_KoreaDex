@@ -1,0 +1,11 @@
+Elite Redux 한국어 도감 STAGE35 — 위험 GitHub Actions 격리 (2026-11-03)
+기준 GitHub main: f32f966c79c9bd8044aa6e581c7c46974ba205f1
+동작: 40개 workflow 중 17개에서 push 자동 트리거 제거, 수동 workflow_dispatch만 유지, contents:write -> contents:read, 모든 job에 if: ${{ false }} 적용.
+workflow 이름 및 원본 명령은 삭제하지 않음. Git 히스토리/이전 커밋 f32f966c79c9bd8044aa6e581c7c46974ba205f1에서 100% 복구 가능.
+나머지 23개 워크플로는 수정하지 않음. GitHub Pages 자체 빌드·배포는 workflow 파일에 속하지 않음.
+의도: 운영 v1 -> v1.1 전환 때 구형 빌드의 pokemon-data.js 및 진화·기술·특성 데이터 덮어쓰기를 예방.
+정식 root index.html / pokemon-data.js / CSS / PNG / README 등은 이번 단계에서 수정하지 않음.
+게임 소스 Sito-K/EliteReduxKorean korean@888d826064ba45d9febfa3a64d8a2b9d34503360, ROM, Excel 무변경.
+복구: 위험 작업 재활성화가 정말 필요한 경우 기존 main 스냅샷 f32f966c79c9bd8044aa6e581c7c46974ba205f1의 .github/workflows/<name> 원문을 새 커밋으로 복원한다. force push 금지.
+검사: 모든 17개 .yml에서 push/schedule/workflow_run 트리거 없음, 권한 contents:read, 모든 job에 if: ${{ false }}.
+STAGE36: 정식 운영 v1 -> v1.1 교체 전 최종 조립/회귀 점검, 백업 ref. 사용자 명시적 정식 배포 요청 전 실제 v1.1 전환은 보류.

@@ -1,15 +1,13 @@
+# STAGE35 QUARANTINED: old workflow retained for history, no automatic execution and jobs cannot run.
 name: Build Stage 18 moves and abilities
 on:
-  push:
-    paths:
-      - 'stage18-build.js'
-      - 'ability-stage18.js'
-      - '.github/workflows/build-stage18.yml'
   workflow_dispatch:
+
 permissions:
-  contents: write
+  contents: read
 jobs:
   build:
+    if: ${{ false }} # STAGE35: disabled until reviewed for v1.1
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

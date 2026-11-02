@@ -1,0 +1,98 @@
+{
+  "stage": 35,
+  "date": "2026-11-03",
+  "repository": "Sito-K/ER_KoreaDex",
+  "originalMainCommit": "f32f966c79c9bd8044aa6e581c7c46974ba205f1",
+  "originalRootIndexBlob": "6bb82296fa9b3e1a7213459cc23c066011cc471a",
+  "releaseScope": "Only GitHub Actions 17 legacy write-capable workflows; Korean game repo and operational site v1 untouched",
+  "action": "reversible quarantine; preserves historical workflow bodies and Git history",
+  "policy": {
+    "automatedTriggers": "removed push triggers; workflow_dispatch remains for inspection",
+    "permission": "downgrade contents: write to contents: read",
+    "guard": "all job-level if: ${{ false }}",
+    "neverRunEvenIfManual": "yes, while STAGE35 guard remains",
+    "restore": "New non-force revert commit restoring old workflow blobs from originalMainCommit, after separate approval"
+  },
+  "workflowsBefore": 40,
+  "workflowsQuarantined": 17,
+  "workflowsUnchanged": 23,
+  "protectedReadOnlyVerifiersRemain": true,
+  "productionRootUnchanged": true,
+  "siteContentChange": false,
+  "gameSourceUnchanged": true,
+  "files": [
+    {
+      "name": "audit-stage11-mega.yml",
+      "oldSha": "ff43c958028874172a45722ed46f5dc8fc94f2b3"
+    },
+    {
+      "name": "audit-stage17-data.yml",
+      "oldSha": "de973757e5df492a0c637587b7dc6a0c0a1922aa"
+    },
+    {
+      "name": "build-stage14-2654-v2.yml",
+      "oldSha": "fd2fa55c966a232b89046c08a5ad0b5677c96d4e"
+    },
+    {
+      "name": "build-stage14-2654.yml",
+      "oldSha": "5dbcf9bf065c1ef99f1f5bca6246c9e0906aae2a"
+    },
+    {
+      "name": "build-stage15-form-audit.yml",
+      "oldSha": "36833cfc4ec9b6f91d7374562389bce9e98fde0f"
+    },
+    {
+      "name": "build-stage16-form-names.yml",
+      "oldSha": "ff51239f887e2ec315fb4beba1cf3fed2b729d79"
+    },
+    {
+      "name": "build-stage17-data-fix.yml",
+      "oldSha": "7972f7bb21b86b5463d16fc3e088b668edbd6815"
+    },
+    {
+      "name": "build-stage18.yml",
+      "oldSha": "c7834f0d623acc4ba8f6b4c9e768025d9de7c6e8"
+    },
+    {
+      "name": "build-stage19.yml",
+      "oldSha": "9a23efec95f0b5a24ed762aecf9d72c10ba6cae1"
+    },
+    {
+      "name": "build-stage20.yml",
+      "oldSha": "ee8ef4de77c84665ac10af13fc982e0dbcd1c27d"
+    },
+    {
+      "name": "build-stage21.yml",
+      "oldSha": "134033ba38c0b49909126a3927dc87b7a00b55cf"
+    },
+    {
+      "name": "build-stage22-map-ko.yml",
+      "oldSha": "7eaa445f09125d53cf00379a1b91f8d0649c5870"
+    },
+    {
+      "name": "build-stage25-detail-data.yml",
+      "oldSha": "324648b2ad76c0384f5451ba962dc384c91cd16b"
+    },
+    {
+      "name": "build-stage7-pokemon-data.yml",
+      "oldSha": "3883673fe374241c38c9431d32cd674acce66f52"
+    },
+    {
+      "name": "dex-stage23-hidden-preview.yml",
+      "oldSha": "7ab4e9e2dea124d1d1449bc892bc29ba61333030"
+    },
+    {
+      "name": "name-audit.yml",
+      "oldSha": "a234689c8d1d97806fa26760587bde6432f9995e"
+    },
+    {
+      "name": "patch-stage18-app.yml",
+      "oldSha": "d89ec53013407d260bc64261bd5eef441f3395ca"
+    }
+  ],
+  "risksRemoved": [
+    "legacy builds may overwrite pokemon-data.js, forms.js, stage19/20/21/25-data.js on production upgrade",
+    "hidden preview build could rewrite preview branch"
+  ],
+  "next": "STAGE36 test pre-production v1.1 dependency promotion and backup branch with protected read-only checks; production remains v1 until explicit promotion"
+}

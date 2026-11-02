@@ -1,22 +1,13 @@
+# STAGE35 QUARANTINED: old workflow retained for history, no automatic execution and jobs cannot run.
 name: Build Stage 19 species abilities and learnsets
 on:
-  push:
-    paths:
-      - 'stage19-build.js'
-      - '.github/workflows/build-stage19.yml'
-      - 'moves-1.js'
-      - 'moves-2.js'
-      - 'moves-3.js'
-      - 'abilities-1.js'
-      - 'abilities-2.js'
-      - 'abilities-3.js'
-      - 'ability-stage18.js'
-      - 'pokemon-data.js'
   workflow_dispatch:
+
 permissions:
-  contents: write
+  contents: read
 jobs:
   build:
+    if: ${{ false }} # STAGE35: disabled until reviewed for v1.1
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

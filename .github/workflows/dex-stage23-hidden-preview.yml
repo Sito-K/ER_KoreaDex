@@ -1,14 +1,13 @@
+# STAGE35 QUARANTINED: old workflow retained for history, no automatic execution and jobs cannot run.
 name: Build isolated STAGE23 test preview
 on:
-  push:
-    branches: [main]
-    paths:
-      - .github/workflows/dex-stage23-hidden-preview.yml
   workflow_dispatch:
+
 permissions:
-  contents: write
+  contents: read
 jobs:
   build_preview:
+    if: ${{ false }} # STAGE35: disabled until reviewed for v1.1
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

@@ -1,18 +1,14 @@
+# STAGE35 QUARANTINED: old workflow retained for history, no automatic execution and jobs cannot run.
 name: Build Stage 15 form correction and audit
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'stage15-fix.js'
-      - '.github/workflows/build-stage15-form-audit.yml'
   workflow_dispatch:
 
 permissions:
-  contents: write
-
+  contents: read
 jobs:
   build:
+    if: ${{ false }} # STAGE35: disabled until reviewed for v1.1
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -1,21 +1,14 @@
+# STAGE35 QUARANTINED: old workflow retained for history, no automatic execution and jobs cannot run.
 name: Build Stage 14 NextDex 2.65.4 data
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/build-stage14-2654.yml'
-      - 'master-species-2654-1.js'
-      - 'master-species-2654-2.js'
-      - 'master-species-2654-3.js'
-      - 'master-species-2654-4.js'
   workflow_dispatch:
 
 permissions:
-  contents: write
-
+  contents: read
 jobs:
   build:
+    if: ${{ false }} # STAGE35: disabled until reviewed for v1.1
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
