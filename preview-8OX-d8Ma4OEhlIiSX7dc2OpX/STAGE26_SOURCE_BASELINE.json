@@ -1,0 +1,38 @@
+{
+  "stage": "STAGE26",
+  "sourceGameRepo": "Sito-K/EliteReduxKorean",
+  "sourceGameBranch": "korean",
+  "sourceGameCommit": "888d826064ba45d9febfa3a64d8a2b9d34503360",
+  "siteRepo": "Sito-K/ER_KoreaDex",
+  "previousPreviewCommit": "9a1bc819044b1729a663fbbdd8260b6c122bbd11",
+  "scope": "source-pinned semantic fingerprint; not automatic current GitHub head check",
+  "records": {
+    "pokemonForms": 1938,
+    "moves": 1040,
+    "abilities": 1083,
+    "ordinaryEvolution": 749,
+    "specialChanges": 304,
+    "formShifts": 113,
+    "deevLinks": 10,
+    "wildSourceRecords": 2572,
+    "wildMapIDs": 156,
+    "scriptAcquisition": 215
+  },
+  "dataSHA256": {
+    "pokemon-data.js": "b2ced183abab62ec53452184d51b73010bf5775feb480a3680cb690246fe8b54",
+    "stage19-data.js": "1544917747974628a1fa74ee97ac3079d159a94dc7ab97ec5949193cf47d7a34",
+    "stage20-data.js": "69d2b440b6a0fae4fbbc8cf4a68a8dc36dad87c7231d1fe7fbc3d8856f5c2e2b",
+    "stage21-data.js": "856c5c0252aab0a16ea3c892f5e7d266dad0ab7eb83b9bea043ec239a44b294d",
+    "stage17-data.js": "039a22ba5cd3f3b0b3182936111fe2fbc48ee5bb599f02e5992a6db06ea6e943",
+    "stage25-detail-data.js": "91db6b6b49507ea397a0786364328e3226bd00b8cfb78bdbaee703c063514381",
+    "move-meta.js": "1da915b4ff23e7c3737b1f754a23685e5ba19ae7a394b5a2f5a8a59397a294c3",
+    "ability-meta.js": "061ad7053e644794e842cfff6791eaf4f6450da4e1689a20e2090d402687af83",
+    "move-names-canonical.js": "e62a0a01c8466e7c9eb8e962bf536c29ace6a940c0c156189b2e70ca6de7708c"
+  },
+  "spriteCount": 1938,
+  "importantNotes": [
+    "Changes in a game source branch need a controlled re-extraction and reconciliation; do not silently overwrite translated labels or derived provenance.",
+    "Historical STAGE3 extraction commit differs from pinned game commit but numerical/ability/learnset relationships were cross-audited in STAGE24/25.",
+    "This local checker verifies baseline file hashes and row counts; live GitHub game head is checked separately through the connector."
+  ]
+}

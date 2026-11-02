@@ -24,7 +24,7 @@ let view='pokemon',filtered=[],renderedCount=0,tabGeneration=0;const activeCateg
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function current(){return view==='moves'?moves:view==='abilities'?abilities:species}
 function bst(x){if(!x.stats)return 0;return x.stats.hp+x.stats.atk+x.stats.def+x.stats.spa+x.stats.spd+x.stats.spe}
-function matches(x,term){if(!term)return true;if(view==='pokemon')return x.ko.toLocaleLowerCase('ko-KR').includes(term)||x.en.toLowerCase().includes(term)||String(x.dex).includes(term);const en=(view==='moves'?moveSearchEn:abilitySearchEn).get(Number(x.id))||'';return x.ko.toLocaleLowerCase('ko-KR').includes(term)||en.toLocaleLowerCase('en-US').includes(term)}
+function matches(x,term){if(!term)return true;if(view==='pokemon'){const numberQuery=term.match(/^(?:no\.?\s*#?\s*|#\s*)?0*(\d+)$/i);return x.ko.toLocaleLowerCase('ko-KR').includes(term)||x.en.toLowerCase().includes(term)||String(x.dex).includes(term)||(numberQuery&&Number(numberQuery[1])===x.dex)}const en=(view==='moves'?moveSearchEn:abilitySearchEn).get(Number(x.id))||'';return x.ko.toLocaleLowerCase('ko-KR').includes(term)||en.toLocaleLowerCase('en-US').includes(term)}
 function meta(){if(view==='moves')return['기술 도감','불러온 기술','기술 이름 검색'];if(view==='abilities')return['특성 도감','불러온 특성','특성 이름 검색'];return['포켓몬 도감','불러온 포켓몬·폼','포켓몬 이름 또는 도감 번호를 검색해주세요']}
 function spriteUrl(x){return Number(x?.id)>0?`assets/pokemon/${Number(x.id)}.png`:''}
 function typeChips(types){return types.length?types.map(t=>`<span class="type-chip" data-type="${esc(t)}">${esc(t)}</span>`).join(''):'<span class="stats-unavailable">타입 데이터 준비 중</span>'}
