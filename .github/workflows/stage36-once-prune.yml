@@ -1,40 +1,33 @@
-name: STAGE36 One-Shot Prune Merged Preview Branches
+name: STAGE36 Temporary Branch Pruning
 on:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
-      - '.github/workflows/stage36-once-prune.yml'
+      - .github/workflows/stage36-once-prune.yml
 permissions:
   contents: write
 jobs:
-  delete-only-confirmed-obsolete-branches:
-    if: ${{ github.repository == 'Sito-K/ER_KoreaDex' && github.ref == 'refs/heads/main' && github.event.head_commit.message == 'dex(stage36): temporary one-shot branch pruning' }}
+  prune:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    env:
-      GH_TOKEN: ${{ github.token }}
-      REPO: ${{ github.repository }}
     steps:
-      - name: Require v1 rollback branch and the current integrated preview
-        shell: bash
+      - name: Check backup, repository, and deployed v1.1 preview
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          v1_backup="$(gh api "repos/$REPO/branches/backup-v1-before-v11-stage36-20261103" --jq '.commit.sha')"
-          test "$v1_backup" = '09d809d3749378a065cf871e86601ca656d92868'
-          gh api "repos/$REPO/contents/preview-8OX-d8Ma4OEhlIiSX7dc2OpX/index.html?ref=main" --jq '.sha' | grep -qx 'b7e2d1843dc7ac664a610bd189252fe7087d2175'
-      - name: Remove two exact verified obsolete temporary branches
-        shell: bash
+          test "$GITHUB_REPOSITORY" = "Sito-K/ER_KoreaDex"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/branches/backup-v1-before-v11-stage36-20261103" --jq '.commit.sha')" = "09d809d3749378a065cf871e86601ca656d92868"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/contents/preview-8OX-d8Ma4OEhlIiSX7dc2OpX/index.html?ref=main" --jq '.sha')" = "b7e2d1843dc7ac664a610bd189252fe7087d2175"
+      - name: Delete exact outdated preview branches, no other branches
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          prune() {
-            local branch="$1" expected="$2" remote_sha
-            remote_sha="$(gh api "repos/$REPO/branches/$branch" --jq '.commit.sha')"
-            if [[ "$remote_sha" != "$expected" ]]; then
-              echo "::error::Ref $branch changed, refusing deletion"
-              exit 1
-            fi
-            gh api --method DELETE "repos/$REPO/git/refs/heads/$branch"
-            echo "Deleted verified obsolete branch: $branch"
-          }
-          prune stage23-preview-built-20261102 2524d0d4f9e31f00c26b1ebef2446e8ae35a4063
-          prune stage23-preview-source-20261102 d2099bfbe2ec946ffd8e29e27c5ab50ec50c640d
+          for entry in "stage23-preview-built-20261102:2524d0d4f9e31f00c26b1ebef2446e8ae35a4063" "stage23-preview-source-20261102:d2099bfbe2ec946ffd8e29e27c5ab50ec50c640d"; do
+            branch="${entry%%:*}"
+            sha="${entry#*:}"
+            test "$(gh api "repos/$GITHUB_REPOSITORY/branches/$branch" --jq '.commit.sha')" = "$sha"
+            gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$branch"
+            echo "Deleted $branch"
+          done
