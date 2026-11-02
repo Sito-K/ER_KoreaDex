@@ -26,22 +26,27 @@
       "verify-stage21.js"
     ],
     "criterion": "not loaded by root index.html direct script/CSS references or app-stage13.js lazy-loading list; historical outputs and obsolete app builds are recoverable from backup branch",
-    "notPruned": "active root/preview site dependencies, source-game assets, 40 workflows incl. 17 protected, source-generation code and stage audit documentation"
+    "notPruned": "active root/preview site dependencies, source-game assets, 40 workflows incl. 17 protected, source-generation code and stage audit documentation",
+    "status": "deleted (verified in commit c4be1e5e98686ed4468beb71523674b1a2cc28b7)"
   },
   "obsoleteBranches": [
     {
       "name": "stage23-preview-built-20261102",
       "sha": "2524d0d4f9e31f00c26b1ebef2446e8ae35a4063",
-      "isAncestorOfMain": true
+      "isAncestorOfMain": true,
+      "deleted": true,
+      "deletedByRun": 41479178825
     },
     {
       "name": "stage23-preview-source-20261102",
       "sha": "d2099bfbe2ec946ffd8e29e27c5ab50ec50c640d",
       "isAncestorOfMain": false,
-      "uniqueData": "13 staging transfer chunks; superseded by current integrated main preview and Stage34 release candidate"
+      "uniqueData": "13 staging transfer chunks; superseded by current integrated main preview and Stage34 release candidate",
+      "deleted": true,
+      "deletedByRun": 41479178825
     }
   ],
-  "branchDeleteRequiresSeparateOperation": true,
+  "branchDeleteRequiresSeparateOperation": false,
   "notDeleted": [
     "main",
     "backup-pre-clean-rebuild-20261009",
@@ -54,5 +59,30 @@
     "previewRuntimeRequired": 58,
     "pokemonSprites": 1938,
     "namesUnique": true
+  },
+  "branchCleanup": {
+    "status": "SUCCESS",
+    "deletedCount": 2,
+    "deleted": [
+      "stage23-preview-built-20261102",
+      "stage23-preview-source-20261102"
+    ],
+    "actionRun": 41479178825,
+    "actionConclusion": "success",
+    "temporaryWorkflowRemovedByCommit": "a3148351230b94fef47c5cb7d8fa860c31bf0bb8",
+    "remaining": [
+      "main",
+      "backup-pre-clean-rebuild-20261009",
+      "backup-v1-before-v11-stage36-20261103"
+    ]
+  },
+  "completed": {
+    "backupCreated": true,
+    "branchesDeleted": 2,
+    "rootFilesDeleted": 11,
+    "temporaryWorkflowRemoved": true,
+    "rootProductionSiteChanged": false,
+    "previewDataChanged": false,
+    "gameRepoChanged": false
   }
 }

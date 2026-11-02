@@ -9,3 +9,11 @@ Obsolete source branch stage23-preview-source-20261102 has 13 unique temporary t
 Do not delete 'main' nor restoration branches.
 Do not promote production root to v1.1 without explicit instruction. No game source, ROM, Excel edits.
 Restore any deleted file by using an ordinary non-force commit copying its file blob from the backup branch.
+
+
+FINAL VERIFIED RESULTS — STAGE36 (2026-11-03)
+Deleted root unused files: 11 (commit c4be1e5e98686ed4468beb71523674b1a2cc28b7).
+Deleted obsolete staging branches: stage23-preview-built-20261102 and stage23-preview-source-20261102 (GitHub Actions run 41479178825 success).
+Temporary one-shot branch deletion GitHub workflow removed (commit a3148351230b94fef47c5cb7d8fa860c31bf0bb8).
+Remaining branches: main, backup-pre-clean-rebuild-20261009, backup-v1-before-v11-stage36-20261103.
+Safety: Existing production v1 root, isolated v1.1 site data, 40 workflows (17 quarantined) preserved. Production v1.1 promotion still HOLD.
