@@ -1,0 +1,165 @@
+{
+  "stage": 31,
+  "date": "2026-11-03",
+  "scope": "preview evidence only; no runtime or core data edits",
+  "game": {
+    "repository": "Sito-K/EliteReduxKorean",
+    "branch": "korean",
+    "sourceCommit": "888d826064ba45d9febfa3a64d8a2b9d34503360",
+    "nativeNameEvidence": "STAGE24_SOURCE_NAME_DIFF_815.csv via STAGE29_NAME_REVIEW_815.csv; not a fresh full native source extraction"
+  },
+  "site": {
+    "repository": "Sito-K/ER_KoreaDex",
+    "branch": "main",
+    "previewPath": "preview-8OX-d8Ma4OEhlIiSX7dc2OpX/",
+    "baselineCommit": "42028fc5c96aa6b052fd8ab6c45a1e9741ae4f6c"
+  },
+  "results": {
+    "candidateCount": 8,
+    "matchedAcrossThreeDatasets": 8,
+    "idSymbolEnglishMatched": 8,
+    "unambiguousDefects": 0,
+    "namesChanged": 0,
+    "namesKept": 8,
+    "siteSpeciesRows": 1938,
+    "duplicateRenderedLabelGroupsAfterStage30": 0,
+    "ambiguityPending": 0
+  },
+  "policy": {
+    "namesAreFanTranslationsNotOfficial": true,
+    "englishNamesStaySearchable": true,
+    "preserveIntentionalCustomNames": true,
+    "doNotModifyGameOrProductionSite": true
+  },
+  "rows": [
+    {
+      "id": 2126,
+      "symbol": "SPECIES_AMICABULL",
+      "english": "Amicabull",
+      "korean": "아미카불",
+      "dex": 1148,
+      "status": "keep existing fan Korean display name",
+      "displayType": "existing Korean adaptation/transliteration",
+      "evidence": {
+        "stage24NativeName": "Amicabull",
+        "pokemonData": true,
+        "evolutionData": true,
+        "acquisitionData": true
+      },
+      "englishAliasSearch": true
+    },
+    {
+      "id": 2334,
+      "symbol": "SPECIES_CAULDRICAN",
+      "english": "Cauldrican",
+      "korean": "콜드리칸",
+      "dex": 1217,
+      "status": "keep existing fan Korean display name",
+      "displayType": "existing Korean adaptation/transliteration",
+      "evidence": {
+        "stage24NativeName": "Cauldrican",
+        "pokemonData": true,
+        "evolutionData": true,
+        "acquisitionData": true
+      },
+      "englishAliasSearch": true
+    },
+    {
+      "id": 2335,
+      "symbol": "SPECIES_NUMBERG",
+      "english": "Numberg",
+      "korean": "넘버그",
+      "dex": 1143,
+      "status": "keep existing fan Korean display name",
+      "displayType": "existing Korean adaptation/transliteration",
+      "evidence": {
+        "stage24NativeName": "Numberg",
+        "pokemonData": true,
+        "evolutionData": true,
+        "acquisitionData": true
+      },
+      "englishAliasSearch": true
+    },
+    {
+      "id": 2336,
+      "symbol": "SPECIES_CAMEBERG",
+      "english": "Cameberg",
+      "korean": "카메버그",
+      "dex": 1144,
+      "status": "keep existing fan Korean display name",
+      "displayType": "existing Korean adaptation/transliteration",
+      "evidence": {
+        "stage24NativeName": "Cameberg",
+        "pokemonData": true,
+        "evolutionData": true,
+        "acquisitionData": true
+      },
+      "englishAliasSearch": true
+    },
+    {
+      "id": 2337,
+      "symbol": "SPECIES_MANIBERG",
+      "english": "Maniberg",
+      "korean": "마니버그",
+      "dex": 1145,
+      "status": "keep existing fan Korean display name",
+      "displayType": "existing Korean adaptation/transliteration",
+      "evidence": {
+        "stage24NativeName": "Maniberg",
+        "pokemonData": true,
+        "evolutionData": true,
+        "acquisitionData": true
+      },
+      "englishAliasSearch": true
+    },
+    {
+      "id": 2338,
+      "symbol": "SPECIES_SWARMOS",
+      "english": "Swarmos",
+      "korean": "스웜모스",
+      "dex": 1146,
+      "status": "keep existing fan Korean display name",
+      "displayType": "existing Korean adaptation/transliteration",
+      "evidence": {
+        "stage24NativeName": "Swarmos",
+        "pokemonData": true,
+        "evolutionData": true,
+        "acquisitionData": true
+      },
+      "englishAliasSearch": true
+    },
+    {
+      "id": 2339,
+      "symbol": "SPECIES_CAMOUDON",
+      "english": "Camoudon",
+      "korean": "카무돈",
+      "dex": 1147,
+      "status": "keep existing fan Korean display name",
+      "displayType": "existing Korean adaptation/transliteration",
+      "evidence": {
+        "stage24NativeName": "Camoudon",
+        "pokemonData": true,
+        "evolutionData": true,
+        "acquisitionData": true
+      },
+      "englishAliasSearch": true
+    },
+    {
+      "id": 2502,
+      "symbol": "SPECIES_CLAWED_MIMIC",
+      "english": "Clawed Mimic",
+      "korean": "발톱미믹",
+      "dex": 1219,
+      "status": "keep existing fan Korean display name",
+      "displayType": "mixed semantic loan translation",
+      "evidence": {
+        "stage24NativeName": "Clawed Mimic",
+        "pokemonData": true,
+        "evolutionData": true,
+        "acquisitionData": true
+      },
+      "englishAliasSearch": true
+    }
+  ],
+  "next": "STAGE32 mobile/browser rendering, search/interaction, and older verification condition cleanup"
+}
