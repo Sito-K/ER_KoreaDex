@@ -1,0 +1,11 @@
+Elite Redux 한국어 도감 STAGE29 — 포켓몬 815건 원본/사이트 명칭 차이 전수분류 (2026-11-02)
+Source pin: Sito-K/EliteReduxKorean korean@888d826064ba45d9febfa3a64d8a2b9d34503360
+Site baseline: Sito-K/ER_KoreaDex (preview only), pokemon-data.js blob bbc102213c4ebaef86fdffb0cecc912967031d2c
+증거: 앞선 STAGE24 검수 ZIP의 review/STAGE24_SOURCE_NAME_DIFF_815.csv + 최신 preview 내 전체 포켓몬 레코드 1938개 (ID/심볼/기존 표시명 815건 전수 대조).
+결과: 기본형 25건(16 원본 폼표기 차이/8 비공식 종명 한국어 음역/1 Redux), 추가 폼 790건(기타 281, 메가 225, Redux 219, 리전 59, 원시 6), 합계 815.
+815건은 차이 개수이지 오역 건수 아님. 원본은 기본종 이름만 쓰더라도 도감은 폼 식별을 위해 구별 이름을 사용할 수 있다.
+중요 발견: 10개 한국어 이름이 각각 2~4개 다른 ID에 중복되어 총 22개 레코드를 혼동할 수 있음. 각종 폼 ID와 종족값은 달라도 화면 이름이 같다. 상세 후보는 STAGE29_NAME_COLLISION_AUDIT.json 참조.
+후속 우선순위: 22건 폼 구분명 정리(원문 코드와 타입/폼 구별하여, 기존 한국어 임의 변경 금지), 한국어 음역 8건 수동 검토.
+검수 스냅샷: source native name 비교는 STAGE24 추출 당시의 CSV에 근거함. STAGE29에서 현재 거대한 SpeciesList.textproto 전체 이름 원문을 새로 재추출한 것은 아니므로 완전한 최신 이름 동기화로 오인하지 말 것.
+변경 정책: 기존 pokemon-data.js, UI, 이미지, 게임 저장소, ROM, 번역 Excel 및 정식 운영 v1은 전혀 변경하지 않음. 이 STAGE는 audit 자료만 추가.
+검증 실행: node tools/stage29/verify_stage29.js .
