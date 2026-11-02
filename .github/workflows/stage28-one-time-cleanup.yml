@@ -19,16 +19,7 @@ jobs:
         run: |
           set -euo pipefail
           branches=(
-            "stage4-short-descriptions-work"
-            "stage4-short-descriptions-work-2"
-            "stage4-short-descriptions-work-3"
             "stage6-static-forms-build"
-            "tmp5"
-            "tmp6"
-            "tmp-do-not-use"
-            "tmp-ignore"
-            "tmp-name-verify"
-            "tmp-name-verify2"
           )
           for branch in "${branches[@]}"; do
             echo "Evaluating branch: $branch"
