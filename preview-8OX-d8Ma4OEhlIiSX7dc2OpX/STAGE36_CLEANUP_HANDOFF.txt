@@ -1,0 +1,11 @@
+Elite Redux Korean Pokédex STAGE36 — repo branch/file cleanup, release backup / 2026-11-03
+Production v1 pre-cleanup main: 09d809d3749378a065cf871e86601ca656d92868
+Emergency restore branch (created): backup-v1-before-v11-stage36-20261103 → 09d809d3749378a065cf871e86601ca656d92868
+Older restore: backup-pre-clean-rebuild-20261009 (keep for previous versions)
+Root runtime index.html, pokemon-data.js, active CSS/JS, 40 GitHub workflows are preserved. v1.1 preview preserved.
+Deletion candidates (11 root old apps/probes): app.js, app-stage11.js, app-stage12.js, stage18-probe.js, stage18-probe.json, stage20-probe.js, stage20-probe.json, stage21-probe.js, stage21-probe.json, stage22-probe-maps.js, verify-stage21.js.
+Obsolete branch stage23-preview-built-20261102 is fully incorporated in main.
+Obsolete source branch stage23-preview-source-20261102 has 13 unique temporary transfer chunks only; preview has already been rebuilt in main, original source reference in audit.
+Do not delete 'main' nor restoration branches.
+Do not promote production root to v1.1 without explicit instruction. No game source, ROM, Excel edits.
+Restore any deleted file by using an ordinary non-force commit copying its file blob from the backup branch.

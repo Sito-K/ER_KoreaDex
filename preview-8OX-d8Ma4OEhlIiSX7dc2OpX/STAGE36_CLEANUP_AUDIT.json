@@ -1,0 +1,58 @@
+{
+  "stage": 36,
+  "date": "2026-11-03",
+  "scope": "v1.1 release backup + remove only unused root legacy app/probe files; stage23 obsolete branch cleanup separately",
+  "siteRepo": "Sito-K/ER_KoreaDex",
+  "sourceGameRepo": "Sito-K/EliteReduxKorean",
+  "sourceGameCommit": "888d826064ba45d9febfa3a64d8a2b9d34503360",
+  "initialMainCommit": "09d809d3749378a065cf871e86601ca656d92868",
+  "restoreBranch": "backup-v1-before-v11-stage36-20261103",
+  "olderRestoreBranch": "backup-pre-clean-rebuild-20261009",
+  "operationalRootV1": "unchanged",
+  "previewV11": "unchanged",
+  "rootPrune": {
+    "count": 11,
+    "files": [
+      "app.js",
+      "app-stage11.js",
+      "app-stage12.js",
+      "stage18-probe.js",
+      "stage18-probe.json",
+      "stage20-probe.js",
+      "stage20-probe.json",
+      "stage21-probe.js",
+      "stage21-probe.json",
+      "stage22-probe-maps.js",
+      "verify-stage21.js"
+    ],
+    "criterion": "not loaded by root index.html direct script/CSS references or app-stage13.js lazy-loading list; historical outputs and obsolete app builds are recoverable from backup branch",
+    "notPruned": "active root/preview site dependencies, source-game assets, 40 workflows incl. 17 protected, source-generation code and stage audit documentation"
+  },
+  "obsoleteBranches": [
+    {
+      "name": "stage23-preview-built-20261102",
+      "sha": "2524d0d4f9e31f00c26b1ebef2446e8ae35a4063",
+      "isAncestorOfMain": true
+    },
+    {
+      "name": "stage23-preview-source-20261102",
+      "sha": "d2099bfbe2ec946ffd8e29e27c5ab50ec50c640d",
+      "isAncestorOfMain": false,
+      "uniqueData": "13 staging transfer chunks; superseded by current integrated main preview and Stage34 release candidate"
+    }
+  ],
+  "branchDeleteRequiresSeparateOperation": true,
+  "notDeleted": [
+    "main",
+    "backup-pre-clean-rebuild-20261009",
+    "backup-v1-before-v11-stage36-20261103"
+  ],
+  "mainSiteNotPromotedToV11": true,
+  "qa": {
+    "rootDirectAssets": 43,
+    "rootLazyOldAppJs": 25,
+    "previewRuntimeRequired": 58,
+    "pokemonSprites": 1938,
+    "namesUnique": true
+  }
+}
