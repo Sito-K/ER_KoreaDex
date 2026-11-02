@@ -1,0 +1,63 @@
+name: Build isolated STAGE23 test preview
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/dex-stage23-hidden-preview.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build_preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Fetch isolated source bundle
+        run: git fetch --no-tags --depth=1 origin stage23-preview-source-20261102
+      - name: Expand and audit full preview without changing the public homepage
+        shell: bash
+        env:
+          PREVIEW_DIR: preview-8OX-d8Ma4OEhlIiSX7dc2OpX
+          STAGE23_SHA256: 1934abc1e29dc865aa35ddac2a3d88aca1450b09ffc0d415f4d5424ab98998e9
+        run: |
+          python - <<'PYTHON'
+          import base64, hashlib, io, os, pathlib, subprocess, zipfile
+          output = pathlib.Path(os.environ['PREVIEW_DIR'])
+          chunks = [subprocess.check_output(['git','show',f'FETCH_HEAD:_private_preview_payload/chunk_{i:02d}.txt']).strip() for i in range(13)]
+          data = base64.b64decode(b''.join(chunks), validate=True)
+          assert hashlib.sha256(data).hexdigest() == os.environ['STAGE23_SHA256'], 'Source ZIP checksum mismatch'
+          with zipfile.ZipFile(io.BytesIO(data)) as archive:
+              assert archive.testzip() is None, 'Corrupt archive member'
+              count = 0
+              for entry in archive.infolist():
+                  if entry.is_dir(): continue
+                  original = pathlib.PurePosixPath(entry.filename)
+                  assert original.parts[0] == 'site' and '..' not in original.parts and len(original.parts) > 1
+                  relative = pathlib.Path(*original.parts[1:])
+                  dest = output / relative
+                  dest.parent.mkdir(parents=True, exist_ok=True)
+                  body = archive.read(entry)
+                  if relative.as_posix() == 'index.html':
+                      html = body.decode('utf-8')
+                      assert '<head>' in html
+                      body = html.replace('<head>', '<head>\\n<meta name="robots" content="noindex,nofollow,noarchive">', 1).encode('utf-8')
+                  dest.write_bytes(body)
+                  count += 1
+          assert count == 2032, f'Unexpected file count: {count}'
+          assert len(list((output/'assets/pokemon').glob('*.png'))) == 1938, 'Pokemon sprite count mismatch'
+          print(f'Isolated preview expanded: {count} files; SHA-256 verified')
+          PYTHON
+      - name: Commit to isolated review branch only
+        shell: bash
+        env:
+          PREVIEW_DIR: preview-8OX-d8Ma4OEhlIiSX7dc2OpX
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c stage23-preview-built-20261102
+          git add -- "$PREVIEW_DIR"
+          git diff --cached --quiet || git commit -m "Prepare STAGE23 unlisted preview; keep production files intact"
+          git push origin HEAD:refs/heads/stage23-preview-built-20261102
