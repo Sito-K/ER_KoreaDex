@@ -1,0 +1,15 @@
+Elite Redux Korean Dex — STAGE 34 release preflight / 2026-11-03
+VERSION: Korean Dex v1.1 최신 버전 / game source display 2.65.4.2
+PRODUCTION v1 remains intact. Root index Git blob 6bb82296fa9b3e1a7213459cc23c066011cc471a.
+PREVIEW SOURCE: Sito-K/ER_KoreaDex main @ a36879d033347a38c0608f6897775127a5be1b0f, preview-8OX-d8Ma4OEhlIiSX7dc2OpX/
+GAME PIN: Sito-K/EliteReduxKorean korean@888d826064ba45d9febfa3a64d8a2b9d34503360
+RESULT: v1.1 offline package READY for controlled future release; production HOLD.
+- Runtime dependency closure: 22 direct JS, 26 CSS, 10 lazy-loaded JS = 58 assets. No missing dependencies.
+- Pokemon IDs vs local PNG and GitHub tree: exactly 1938/1938; no missing/orphans. 1040 moves, 1083 abilities; duplicate display names 0.
+- Runtime release ZIP includes 1999 files (HTML sanitized, README, .nojekyll, JS 32, CSS 26, images 1938).
+- CRITICAL: preview page uses robots noindex. Sanitize production index by removing it before publishing. This has been done in the offline HOLD candidate, not in the preview site.
+- CRITICAL: 40 root workflows remain. 17 have GitHub contents:write or automatic commit/push. build-stage20.yml and build-stage21.yml watch pokemon-data.js, which could rewrite newly copied data.
+- In future: pin current main SHA; make immutable backup/ref before release; safely disable/retarget legacy writers; atomically copy the minimal runtime dependency files, assets subtree and sanitized index/README; verify Pages build and live device; rollback by a new restore commit, not force push.
+- STAGE32 regression checker note: a local archived script failed because the version text became a nested span in STAGE33. Current GitHub version already supports the phrase and does not need a fix.
+- DO NOT delete production legacy files, overwrite root assets, disable workflows, publish v1.1 or alter Korean game source/ROM/Excel at STAGE34.
+Rollback baseline root index hash: 6bb82296fa9b3e1a7213459cc23c066011cc471a. Preview is not authoritative for upstream future game changes.

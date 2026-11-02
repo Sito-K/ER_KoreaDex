@@ -1,0 +1,497 @@
+{
+  "stage": 34,
+  "date": "2026-11-03",
+  "status": "HOLD_NOT_DEPLOYED",
+  "siteRepo": "Sito-K/ER_KoreaDex",
+  "previewPath": "preview-8OX-d8Ma4OEhlIiSX7dc2OpX/",
+  "previewSourceCommit": "a36879d033347a38c0608f6897775127a5be1b0f",
+  "gameSourceCommit": "888d826064ba45d9febfa3a64d8a2b9d34503360",
+  "version": {
+    "dex": "v1.1",
+    "gameSourceDisplay": "2.65.4.2",
+    "latestBadge": "최신 버전"
+  },
+  "rollbackBaseline": {
+    "rootIndexBlobSha": "6bb82296fa9b3e1a7213459cc23c066011cc471a",
+    "rootReadmeBlobSha": "cd953151189484b2e3ea699ee53626e637d157c7",
+    "previousMainCommit": "a36879d033347a38c0608f6897775127a5be1b0f",
+    "workflowDirectoryTreeSha": "18cee96bc5100dc5338ef30d56093d255318b126"
+  },
+  "counts": {
+    "rootTopLevelEntries": 122,
+    "previewTopLevelEntries": 98,
+    "previewOnlyFiles": 51,
+    "changedSharedFiles": 15,
+    "scriptTags": 22,
+    "stylesheetTags": 26,
+    "lazyJavascript": 10,
+    "runtimeDependencies": 58,
+    "pokemon": 1938,
+    "png": 1938,
+    "moves": 1040,
+    "abilities": 1083,
+    "collidingLabels": 0,
+    "buildPayloadFiles": 1999
+  },
+  "spriteAssetsTreeSha": "82567886a73d85d893b72e198e721e40f358b892",
+  "spritePokemonSubtreeSha": "75b62fbe19e4ea1ebef584e92680ced5aa0db0a3",
+  "imgMatch": "1938/1938 local+GitHub tree; zero missing or orphan",
+  "workflowRisk": {
+    "total": 40,
+    "writeCapableOrPush": 17,
+    "files": [
+      "audit-stage11-mega.yml",
+      "audit-stage17-data.yml",
+      "build-stage14-2654-v2.yml",
+      "build-stage14-2654.yml",
+      "build-stage15-form-audit.yml",
+      "build-stage16-form-names.yml",
+      "build-stage17-data-fix.yml",
+      "build-stage18.yml",
+      "build-stage19.yml",
+      "build-stage20.yml",
+      "build-stage21.yml",
+      "build-stage22-map-ko.yml",
+      "build-stage25-detail-data.yml",
+      "build-stage7-pokemon-data.yml",
+      "dex-stage23-hidden-preview.yml",
+      "name-audit.yml",
+      "patch-stage18-app.yml"
+    ],
+    "criticalDataTriggers": [
+      "build-stage20.yml",
+      "build-stage21.yml"
+    ],
+    "mitigated": false
+  },
+  "releaseBlockers": [
+    "owner has not explicitly requested publication of v1.1 to production root",
+    "17 legacy workflows with write capacity should be disabled/retargeted before copying production data",
+    "preview index contains noindex and requires sanitized production variant",
+    "real iPhone Safari/VoiceOver device QA not performed"
+  ],
+  "qa": {
+    "stage33ChromeFunctional": "125/125",
+    "stage33Responsive": "45/45",
+    "stage30CollisionFixes": 12,
+    "archivedLocalStage32Checker": "older local archived checker had outdated full-string assertion; remote GitHub checker already accepts substring and is correct"
+  },
+  "filePromotion": [
+    {
+      "path": "pokemon-data.js",
+      "previewBlobSha": "bbc102213c4ebaef86fdffb0cecc912967031d2c",
+      "liveRootBlobSha": "acbf163327621dc7e8b0f876cd49c8347ed5c6a9",
+      "operation": "replace",
+      "sizeBytes": 190549
+    },
+    {
+      "path": "species-name-overrides-v01.js",
+      "previewBlobSha": "c02e1ce6da4e72ef55d0ba317df7d2be11160a46",
+      "liveRootBlobSha": "c02e1ce6da4e72ef55d0ba317df7d2be11160a46",
+      "operation": "reuse",
+      "sizeBytes": 922
+    },
+    {
+      "path": "stage30-name-disambiguation.js",
+      "previewBlobSha": "87e58986173eb0c0f85836374cdab0f7b4baa483",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 2430
+    },
+    {
+      "path": "move-meta.js",
+      "previewBlobSha": "b1c986b090464a2f8bce2f0faf0493006e6b6d6b",
+      "liveRootBlobSha": "3dc84fdbe37a13b9b36eb83f2efd8019cff4a3bc",
+      "operation": "replace",
+      "sizeBytes": 206728
+    },
+    {
+      "path": "ability-meta.js",
+      "previewBlobSha": "a945d4c5598d9d06fa1fab516a5ace81eb00cf36",
+      "liveRootBlobSha": "d5fe53bc90dfb1f8c5f6949658d7a2b2a47bf636",
+      "operation": "replace",
+      "sizeBytes": 72891
+    },
+    {
+      "path": "stage6-legacy-maps-items.js",
+      "previewBlobSha": "9999d106cc00d290e3d84739ceef3038dd590b4b",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 19124
+    },
+    {
+      "path": "stage5-bridge.js",
+      "previewBlobSha": "451ff3dea579fa55422b81ef95a3e971a8ad9bf8",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 1136
+    },
+    {
+      "path": "stage11-source-gaps.js",
+      "previewBlobSha": "c395471db84a1783c60663f4ad860ae15ec2dbfc",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 1145
+    },
+    {
+      "path": "app-stage13.js",
+      "previewBlobSha": "7b4c85ad8b667aee96886f2980c5cc24244db986",
+      "liveRootBlobSha": "6ca92c859192624fb4b2adc83f42d3f2b0500dc3",
+      "operation": "replace",
+      "sizeBytes": 18154
+    },
+    {
+      "path": "stage14-infinite.js",
+      "previewBlobSha": "3263a7fa17fb07779c76112903fcc01cabe077be",
+      "liveRootBlobSha": "3263a7fa17fb07779c76112903fcc01cabe077be",
+      "operation": "reuse",
+      "sizeBytes": 767
+    },
+    {
+      "path": "stage8.js",
+      "previewBlobSha": "77b27ca2bf478d3798b082602826d470336be8c1",
+      "liveRootBlobSha": "77b27ca2bf478d3798b082602826d470336be8c1",
+      "operation": "reuse",
+      "sizeBytes": 4068
+    },
+    {
+      "path": "stage9.js",
+      "previewBlobSha": "323b69c74da317a8c9657d915d0bb4d86fe9a898",
+      "liveRootBlobSha": "323b69c74da317a8c9657d915d0bb4d86fe9a898",
+      "operation": "reuse",
+      "sizeBytes": 947
+    },
+    {
+      "path": "stage18.js",
+      "previewBlobSha": "82430ab48d276b61b14c54d7e1982df37c75feae",
+      "liveRootBlobSha": "82430ab48d276b61b14c54d7e1982df37c75feae",
+      "operation": "reuse",
+      "sizeBytes": 4198
+    },
+    {
+      "path": "stage19.js",
+      "previewBlobSha": "c0ee34f3cf739d4ee47edc76a8d850331879afd1",
+      "liveRootBlobSha": "4b20d310524eaa3055462b66981a26c85333e179",
+      "operation": "replace",
+      "sizeBytes": 6603
+    },
+    {
+      "path": "stage26-item-names.js",
+      "previewBlobSha": "ad80e5bab11bb672219ceea2288bc2ffe40e02ce",
+      "liveRootBlobSha": "ad80e5bab11bb672219ceea2288bc2ffe40e02ce",
+      "operation": "reuse",
+      "sizeBytes": 2116
+    },
+    {
+      "path": "stage17-data.js",
+      "previewBlobSha": "6320c3c94eefbbc6bd793e3a5b8b2c767d082ac7",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 2518
+    },
+    {
+      "path": "stage20.js",
+      "previewBlobSha": "40e5e5e95f0b5df47a60ef4b8242d36ab8fac181",
+      "liveRootBlobSha": "b21ba514f2787ab3b66565ce1edf6343e8891f64",
+      "operation": "replace",
+      "sizeBytes": 9430
+    },
+    {
+      "path": "stage22-map-ko.js",
+      "previewBlobSha": "79444fd8360d80b4efa5af5ca78a342f82811588",
+      "liveRootBlobSha": "79444fd8360d80b4efa5af5ca78a342f82811588",
+      "operation": "reuse",
+      "sizeBytes": 10125
+    },
+    {
+      "path": "stage21.js",
+      "previewBlobSha": "58caff49464510a653ced9499562bacea2763808",
+      "liveRootBlobSha": "7facb655fb8ccbe4e9b4c017e0758c6c6ee84290",
+      "operation": "replace",
+      "sizeBytes": 6570
+    },
+    {
+      "path": "detail-state-fix-v01.js",
+      "previewBlobSha": "c377aa3536f9114aef2a759095272049d64a03ee",
+      "liveRootBlobSha": "c377aa3536f9114aef2a759095272049d64a03ee",
+      "operation": "reuse",
+      "sizeBytes": 2018
+    },
+    {
+      "path": "stage25.js",
+      "previewBlobSha": "df1eacf00e1b6febcadb31b6941e7cb24e64f91c",
+      "liveRootBlobSha": "435db78c9fcedd0af6ae3f617f2e27daee83f014",
+      "operation": "replace",
+      "sizeBytes": 6908
+    },
+    {
+      "path": "stage20-accessibility.js",
+      "previewBlobSha": "3dce8a2d5edb2b1059c91d9b4fdbd333001965df",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 4282
+    },
+    {
+      "path": "styles.css",
+      "previewBlobSha": "e191ce3ad4e0a96899cb7f485ba086a4e568900a",
+      "liveRootBlobSha": "e191ce3ad4e0a96899cb7f485ba086a4e568900a",
+      "operation": "reuse",
+      "sizeBytes": 3721
+    },
+    {
+      "path": "stage4.css",
+      "previewBlobSha": "600efa07506f490e36c1ad82226c84b4e50b1d41",
+      "liveRootBlobSha": "600efa07506f490e36c1ad82226c84b4e50b1d41",
+      "operation": "reuse",
+      "sizeBytes": 367
+    },
+    {
+      "path": "stage5.css",
+      "previewBlobSha": "926e5f4c94a46f4c0934d99312dd81c3026bc80f",
+      "liveRootBlobSha": "926e5f4c94a46f4c0934d99312dd81c3026bc80f",
+      "operation": "reuse",
+      "sizeBytes": 1788
+    },
+    {
+      "path": "stage6.css",
+      "previewBlobSha": "5dffa1f4a4fc469aa425d683b4bce82de7a7dafd",
+      "liveRootBlobSha": "5dffa1f4a4fc469aa425d683b4bce82de7a7dafd",
+      "operation": "reuse",
+      "sizeBytes": 1120
+    },
+    {
+      "path": "stage7.css",
+      "previewBlobSha": "d57ad21b0ab76a45bd21398e998dd368a21fd1eb",
+      "liveRootBlobSha": "d57ad21b0ab76a45bd21398e998dd368a21fd1eb",
+      "operation": "reuse",
+      "sizeBytes": 8653
+    },
+    {
+      "path": "stage8.css",
+      "previewBlobSha": "306a43af4b8a0154b0cf00308c676202b0294dde",
+      "liveRootBlobSha": "306a43af4b8a0154b0cf00308c676202b0294dde",
+      "operation": "reuse",
+      "sizeBytes": 6024
+    },
+    {
+      "path": "stage9.css",
+      "previewBlobSha": "e9946f1f108bf39cbf0736abbfd18d81da774170",
+      "liveRootBlobSha": "e9946f1f108bf39cbf0736abbfd18d81da774170",
+      "operation": "reuse",
+      "sizeBytes": 1397
+    },
+    {
+      "path": "stage11.css",
+      "previewBlobSha": "94979e2e7340cec557bbfa4a14cf64ce4cbcaabb",
+      "liveRootBlobSha": "94979e2e7340cec557bbfa4a14cf64ce4cbcaabb",
+      "operation": "reuse",
+      "sizeBytes": 719
+    },
+    {
+      "path": "stage12.css",
+      "previewBlobSha": "3e58fad20fd32a983656e160cdd1bb5aa67c43f2",
+      "liveRootBlobSha": "3e58fad20fd32a983656e160cdd1bb5aa67c43f2",
+      "operation": "reuse",
+      "sizeBytes": 1288
+    },
+    {
+      "path": "stage13.css",
+      "previewBlobSha": "48edd7c62d2c4f7e65e72db23f1172eb556ce3eb",
+      "liveRootBlobSha": "48edd7c62d2c4f7e65e72db23f1172eb556ce3eb",
+      "operation": "reuse",
+      "sizeBytes": 2053
+    },
+    {
+      "path": "stage14.css",
+      "previewBlobSha": "ab27b8300a6ff0621f82ad0f2da78cb63b3fa05c",
+      "liveRootBlobSha": "ab27b8300a6ff0621f82ad0f2da78cb63b3fa05c",
+      "operation": "reuse",
+      "sizeBytes": 560
+    },
+    {
+      "path": "stage18.css",
+      "previewBlobSha": "49a29d33138b3f8ca98cbc23b1dd73d887418d0c",
+      "liveRootBlobSha": "49a29d33138b3f8ca98cbc23b1dd73d887418d0c",
+      "operation": "reuse",
+      "sizeBytes": 1347
+    },
+    {
+      "path": "stage19.css",
+      "previewBlobSha": "c5b9ceba6ad858b9fd37c2f7a006f1ee183c6b61",
+      "liveRootBlobSha": "c5b9ceba6ad858b9fd37c2f7a006f1ee183c6b61",
+      "operation": "reuse",
+      "sizeBytes": 2019
+    },
+    {
+      "path": "stage20.css",
+      "previewBlobSha": "eee0e4377a8fd6263f25a91c56830aa676c0d907",
+      "liveRootBlobSha": "eee0e4377a8fd6263f25a91c56830aa676c0d907",
+      "operation": "reuse",
+      "sizeBytes": 1909
+    },
+    {
+      "path": "stage17.css",
+      "previewBlobSha": "cf355b4e524b62e1b1b82830d53d6191e0b77c76",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 444
+    },
+    {
+      "path": "stage21.css",
+      "previewBlobSha": "bef73f5f44d541f87628f441f0418e7ef6b386cf",
+      "liveRootBlobSha": "88e1c9b607a8240b5ae14a48766f615ba5a763d5",
+      "operation": "replace",
+      "sizeBytes": 1806
+    },
+    {
+      "path": "stage22.css",
+      "previewBlobSha": "263afae093ba654dcad7cff1adc3a41a91a1c4a1",
+      "liveRootBlobSha": "263afae093ba654dcad7cff1adc3a41a91a1c4a1",
+      "operation": "reuse",
+      "sizeBytes": 1298
+    },
+    {
+      "path": "stage23.css",
+      "previewBlobSha": "126711cd27b0c919fb31421a32659f9ecdc75576",
+      "liveRootBlobSha": "126711cd27b0c919fb31421a32659f9ecdc75576",
+      "operation": "reuse",
+      "sizeBytes": 2220
+    },
+    {
+      "path": "stage24.css",
+      "previewBlobSha": "47c1770f9cbc6fdf4a534f179d4334a4bcc26579",
+      "liveRootBlobSha": "47c1770f9cbc6fdf4a534f179d4334a4bcc26579",
+      "operation": "reuse",
+      "sizeBytes": 321
+    },
+    {
+      "path": "stage25.css",
+      "previewBlobSha": "3fb0e49447a261b2c96c8a51739048b6ca08a3b2",
+      "liveRootBlobSha": "3fb0e49447a261b2c96c8a51739048b6ca08a3b2",
+      "operation": "reuse",
+      "sizeBytes": 2860
+    },
+    {
+      "path": "detail-hidden-guard-v01.css",
+      "previewBlobSha": "9b97e5dae28aa1cf8cb9b290c86a1e3f6c361582",
+      "liveRootBlobSha": "9b97e5dae28aa1cf8cb9b290c86a1e3f6c361582",
+      "operation": "reuse",
+      "sizeBytes": 337
+    },
+    {
+      "path": "stage5-fallback.css",
+      "previewBlobSha": "5383311e230e0c5266ec04f9c2b1fad70614446f",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 145
+    },
+    {
+      "path": "stage27-mobile-modal.css",
+      "previewBlobSha": "bea3dceaa1bb0bb53a8f07a0291a8dec4d1f30c5",
+      "liveRootBlobSha": "bea3dceaa1bb0bb53a8f07a0291a8dec4d1f30c5",
+      "operation": "reuse",
+      "sizeBytes": 1595
+    },
+    {
+      "path": "stage20-accessibility.css",
+      "previewBlobSha": "ec5556ddde849f3bdfee6a03a86339a59ac1b255",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 985
+    },
+    {
+      "path": "stage32-version.css",
+      "previewBlobSha": "f345c5b7110c35cf085c199440655fb2bee41861",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 509
+    },
+    {
+      "path": "stage33-mobile-a11y.css",
+      "previewBlobSha": "265b15287e4046f17e31c628f518c84310972616",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 756
+    },
+    {
+      "path": "stage19-data.js",
+      "previewBlobSha": "b61e282d7ab277ba54e65e312888ef2aef85a54c",
+      "liveRootBlobSha": "de581899ddb1e37691a6d861a721e1674953e016",
+      "operation": "replace",
+      "sizeBytes": 696906
+    },
+    {
+      "path": "stage20-data.js",
+      "previewBlobSha": "cb1b00b69969fa27329e7bdedd63d05d29eadb55",
+      "liveRootBlobSha": "87c55950df08b300a12ebb1e917f3e61bbd8cb97",
+      "operation": "replace",
+      "sizeBytes": 166879
+    },
+    {
+      "path": "stage21-data.js",
+      "previewBlobSha": "83fb5fb4d5ed0c18da9c112f630f7e75e3ab0346",
+      "liveRootBlobSha": "21681a6ab70047765fda5557a45190260e38772a",
+      "operation": "replace",
+      "sizeBytes": 235558
+    },
+    {
+      "path": "stage25-detail-data.js",
+      "previewBlobSha": "73c75552cfc19a10ca5c3b2da3735bd9d6fc05dd",
+      "liveRootBlobSha": "d64601ba4ac883844f66a2ee224eb8fa6e17b257",
+      "operation": "replace",
+      "sizeBytes": 449248
+    },
+    {
+      "path": "move-names-canonical.js",
+      "previewBlobSha": "518bd77efdfdf22be5584533c8e9289c62e757d1",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 22272
+    },
+    {
+      "path": "move-short-canonical.js",
+      "previewBlobSha": "2b9f998af01aeb84166cf5bf2d00cb66c267577d",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 67215
+    },
+    {
+      "path": "move-long-canonical.js",
+      "previewBlobSha": "e19bb8c8ff9bad05282476edd205e5fa27ee15ec",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 103506
+    },
+    {
+      "path": "ability-names-canonical.js",
+      "previewBlobSha": "1e4f4130719245b581661b2225a769bcbc2dd53e",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 22525
+    },
+    {
+      "path": "ability-short-canonical.js",
+      "previewBlobSha": "d52ed6aa1dad37fd1d931080f9b1126b68b3add4",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 83452
+    },
+    {
+      "path": "ability-long-canonical.js",
+      "previewBlobSha": "4bec96a3751aacda2759fdf29e002080df56aad6",
+      "liveRootBlobSha": null,
+      "operation": "add",
+      "sizeBytes": 175669
+    }
+  ],
+  "requiredOtherChanges": [
+    "production index.html is sanitized preview version without noindex",
+    "production README.md update to v1.1",
+    "include assets/pokemon tree (1938 PNG) via subtree SHA",
+    "keep existing legacy nonruntime files unchanged until post-release audit",
+    "safely disable or retarget 17 write-capable workflows"
+  ],
+  "productionRootEdited": false,
+  "sourceGameEdited": false,
+  "romOrExcelEdited": false
+}

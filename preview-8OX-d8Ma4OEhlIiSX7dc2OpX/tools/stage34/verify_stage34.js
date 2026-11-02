@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+'use strict';
+const fs=require('fs'),path=require('path'),crypto=require('crypto'),vm=require('vm'),assert=require('assert');
+const root=path.resolve(process.argv[2]||'.'),read=p=>fs.readFileSync(path.join(root,p));
+const m=JSON.parse(read('STAGE34_PRODUCTION_PREFLIGHT.json').toString('utf8'));
+assert(m.status==='HOLD_NOT_DEPLOYED'&&m.filePromotion.length===58);
+assert(m.workflowRisk.total===40&&m.workflowRisk.writeCapableOrPush===17);
+const blobSha=buf=>crypto.createHash('sha1').update(Buffer.concat([Buffer.from('blob '+buf.length+'\0'),buf])).digest('hex');
+for(const e of m.filePromotion)assert.strictEqual(blobSha(read(e.path)),e.previewBlobSha,e.path);
+const index=read('index.html').toString('utf8');
+assert(index.includes('v1.1 (최신 버전)')&&index.includes('원본 소스 2.65.4.2')&&index.includes('noindex,nofollow,noarchive'));
+const w={window:{},console:{error:(...x)=>{throw Error(x.join(' '))}};vm.createContext(w);
+for(const file of ['pokemon-data.js','species-name-overrides-v01.js','stage30-name-disambiguation.js','stage25-detail-data.js'])vm.runInContext(read(file).toString('utf8'),w,{filename:file});
+const mons=w.window.ER_POKEMON_DATA;
+assert(mons.length===1938&&new Set(mons.map(x=>x[0])).size===1938&&new Set(mons.map(x=>x[2])).size===1938);
+const img=fs.readdirSync(path.join(root,'assets/pokemon')).filter(x=>x.endsWith('.png'));
+const ids=new Set(mons.map(x=>x[0]+'.png'));
+assert(img.length===1938&&img.every(x=>ids.has(x)));
+assert(w.window.ER_STAGE25_DETAIL_DATA.moves.length===1040&&w.window.ER_STAGE25_DETAIL_DATA.abilities.length===1083);
+console.log('STAGE34 preview preflight PASS (58 blob checks, 1938 sprite IDs, 1040 moves, 1083 abilities); production release HOLD');
