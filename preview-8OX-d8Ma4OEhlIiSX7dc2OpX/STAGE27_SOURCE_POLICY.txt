@@ -1,0 +1,10 @@
+Elite Redux 한국어 도감 STAGE27 — 기술 / 특성 한국어 이름·설명 고정 소스 정밀 대조 (2026-11-02)
+게임 korean HEAD = 고정 소스 888d826064ba45d9febfa3a64d8a2b9d34503360 (2026-11-02 재확인). 변경된 원본 데이터가 없으므로 재추출 및 무차별 덮어쓰기 불필요.
+게임 원본: proto/MoveEnum.proto, MoveList.textproto, AbilityEnum.proto, AbilityList.textproto (모두 동일한 pinned commit).
+사이트 기준: stage25-detail-data.js, 1040 기술 + 1083 특성의 id, name, short, long.
+비교 결과: 기술 1040/1040 정확히 일치. 특성 1081 레코드 이름·짧은·긴 설명 정확히 일치, 확인이 필요한 2 ID 별도 보존.
+특성 821 ABILITY_SCARECROW: Enum에 ID 존재하지만 AbilityList.textproto 본문에 해당 ID 레코드가 없음. 사이트는 허수아비 설명을 포함. 이를 삭제/덮어쓰지 말고 실제 능력 구현·출처 별도 조사.
+특성 1048 ABILITY_INSECTEATER: proto에는 이름 벌레포식만 있고 설명/확장 설명 없음. 사이트에는 보완 설명이 있음. 본문을 소스에 없는 번역이라고 표시하며 덮어쓰지 않는다. 설명의 실제 코드 효과 검증은 별도 단계.
+소스 비교용 정규화: Move short_description 없으면 description fallback, Ability expanded_description 없으면 description fallback. 821/1048 두 예외를 제외한 1081 능력 레코드 + 전체 1040 기술의 50 ID 묶음 FNV32 증빙은 STAGE27_SOURCE_SYNC_AUDIT.json에 저장.
+실제 변경: 새 증빙 JSON 및 읽기 전용 소스-동기화 가드, 안내 TXT. 기존 사이트 앱 JS, HTML, 데이터, 이미지, 게임, ROM, Excel, 정식 v1 파일을 수정하지 않음.
+주의: 이 도감의 일부 텍스트 보완 표현과 원본 실제 기능은 게임 플레이 검증으로 확정되지 않음. GitHub Pages 배포는 분리된 preview 폴더만 갱신.

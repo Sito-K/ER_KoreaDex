@@ -1,0 +1,242 @@
+{
+  "stage": 27,
+  "auditDate": "2026-11-02",
+  "gameRepository": "Sito-K/EliteReduxKorean",
+  "gameBranch": "korean",
+  "gameCommit": "888d826064ba45d9febfa3a64d8a2b9d34503360",
+  "gameProtoPaths": [
+    "proto/MoveList.textproto",
+    "proto/AbilityList.textproto",
+    "proto/MoveEnum.proto",
+    "proto/AbilityEnum.proto"
+  ],
+  "siteRepo": "Sito-K/ER_KoreaDex",
+  "siteBeforeCommit": "1bdcb4653dddd2c0e95d5d0341a7d34212f4aa5e",
+  "canonicalDataset": "stage25-detail-data.js",
+  "sourceVsSite": {
+    "moves": {
+      "siteRecords": 1040,
+      "gameRecords": 1040,
+      "exactNameShortLongMatches": 1040,
+      "exceptions": []
+    },
+    "abilities": {
+      "siteRecords": 1083,
+      "gameRecords": 1082,
+      "exactNameShortLongMatches": 1081,
+      "exceptions": [
+        {
+          "id": 821,
+          "symbol": "ABILITY_SCARECROW",
+          "siteName": "허수아비",
+          "classification": "missing source AbilityList.textproto record despite AbilityEnum.proto ID",
+          "decision": "retain site entry; no automatic deletion; gameplay implementation not verified"
+        },
+        {
+          "id": 1048,
+          "symbol": "ABILITY_INSECTEATER",
+          "siteName": "벌레포식",
+          "classification": "source textproto name present but short and expanded descriptions blank; site has supplementary Korean descriptions",
+          "decision": "retain supplemented site descriptions; do not claim canonical proto provenance for descriptions"
+        }
+      ]
+    }
+  },
+  "normalization": "Name/short/long from proto fields; move short_description absent -> description fallback; ability expanded_description absent -> description fallback; 821 and 1048 ability rows excluded from exact hashes; sorted by integer ID, grouped floor(ID/50).",
+  "fnv32Groups": {
+    "moves": {
+      "0": {
+        "count": 49,
+        "fnv32": "a5a837f1"
+      },
+      "1": {
+        "count": 50,
+        "fnv32": "5b66893d"
+      },
+      "2": {
+        "count": 50,
+        "fnv32": "adf3d3bc"
+      },
+      "3": {
+        "count": 50,
+        "fnv32": "4d732afa"
+      },
+      "4": {
+        "count": 50,
+        "fnv32": "1378180d"
+      },
+      "5": {
+        "count": 50,
+        "fnv32": "b60bb2a8"
+      },
+      "6": {
+        "count": 50,
+        "fnv32": "449aab7a"
+      },
+      "7": {
+        "count": 50,
+        "fnv32": "2e2595c1"
+      },
+      "8": {
+        "count": 50,
+        "fnv32": "a29f8bd8"
+      },
+      "9": {
+        "count": 50,
+        "fnv32": "05e11f95"
+      },
+      "10": {
+        "count": 50,
+        "fnv32": "3e2d63e5"
+      },
+      "11": {
+        "count": 50,
+        "fnv32": "69533a0a"
+      },
+      "12": {
+        "count": 50,
+        "fnv32": "d49cbde2"
+      },
+      "13": {
+        "count": 50,
+        "fnv32": "6e2555d4"
+      },
+      "14": {
+        "count": 50,
+        "fnv32": "84c9df71"
+      },
+      "15": {
+        "count": 50,
+        "fnv32": "c065bd63"
+      },
+      "16": {
+        "count": 50,
+        "fnv32": "540c4e71"
+      },
+      "17": {
+        "count": 50,
+        "fnv32": "917df25b"
+      },
+      "18": {
+        "count": 50,
+        "fnv32": "9e58c7e0"
+      },
+      "19": {
+        "count": 50,
+        "fnv32": "8564a121"
+      },
+      "20": {
+        "count": 41,
+        "fnv32": "0afa12d7"
+      }
+    },
+    "abilities": {
+      "0": {
+        "count": 49,
+        "fnv32": "7603f184"
+      },
+      "1": {
+        "count": 50,
+        "fnv32": "c3bb8b95"
+      },
+      "2": {
+        "count": 50,
+        "fnv32": "d2da698c"
+      },
+      "3": {
+        "count": 50,
+        "fnv32": "00cbc588"
+      },
+      "4": {
+        "count": 50,
+        "fnv32": "19a477f4"
+      },
+      "5": {
+        "count": 50,
+        "fnv32": "f8de3442"
+      },
+      "6": {
+        "count": 50,
+        "fnv32": "fcb86204"
+      },
+      "7": {
+        "count": 50,
+        "fnv32": "bfb4598b"
+      },
+      "8": {
+        "count": 50,
+        "fnv32": "92532807"
+      },
+      "9": {
+        "count": 50,
+        "fnv32": "1dd4aa3d"
+      },
+      "10": {
+        "count": 50,
+        "fnv32": "8f9ba0c4"
+      },
+      "11": {
+        "count": 50,
+        "fnv32": "99734f03"
+      },
+      "12": {
+        "count": 50,
+        "fnv32": "bca21bf9"
+      },
+      "13": {
+        "count": 50,
+        "fnv32": "656b563d"
+      },
+      "14": {
+        "count": 50,
+        "fnv32": "5e7e1254"
+      },
+      "15": {
+        "count": 50,
+        "fnv32": "bd812695"
+      },
+      "16": {
+        "count": 49,
+        "fnv32": "b28809ff"
+      },
+      "17": {
+        "count": 50,
+        "fnv32": "aba96760"
+      },
+      "18": {
+        "count": 50,
+        "fnv32": "55897b5a"
+      },
+      "19": {
+        "count": 50,
+        "fnv32": "417f785f"
+      },
+      "20": {
+        "count": 49,
+        "fnv32": "29115439"
+      },
+      "21": {
+        "count": 34,
+        "fnv32": "17b8d4a7"
+      }
+    }
+  },
+  "siteExceptions": {
+    "821": [
+      821,
+      "허수아비",
+      "등장 시 상대 특공 1랭크 감소. 피격 시 상대 전원 스피드를 1랭크 낮춘다.",
+      "등장하면 상대 모두의 특수공격을 1랭크 낮춘다. 공격을 받을 때마다 상대 모두의 스피드를 1랭크 낮춘다. 연속 공격은 타격마다 발동한다."
+    ],
+    "1048": [
+      1048,
+      "벌레포식",
+      "벌레타입에게 주는 데미지 1.5배, 벌레타입에게 받는 데미지 절반.",
+      "벌레타입 포켓몬에게 주는 데미지가 1.5배가 되고 벌레타입 포켓몬에게 받는 데미지는 절반이 된다. 기술의 타입이 아니라 공격자와 방어자의 포켓몬 타입을 기준으로 판정한다. 데미지 감소는 다른 효과와 곱해진다."
+    ]
+  },
+  "sourceHeadVerifiedEqualToPinned": true,
+  "frontendDataNotModified": true,
+  "userTranslationPolicy": "do not overwrite intentionally customized labels or site-only explanations without independent source confirmation",
+  "remainingVerification": "real gameplay, effective abilities for 821/1048, full browser/mobile QA not proven"
+}
