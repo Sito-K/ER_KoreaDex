@@ -1,0 +1,468 @@
+{
+  "stage": 29,
+  "date": "2026-11-02",
+  "scope": "Isolated preview only; audit metadata, not a rename or data patch",
+  "sources": {
+    "gameRepo": "Sito-K/EliteReduxKorean",
+    "gameRef": "korean@888d826064ba45d9febfa3a64d8a2b9d34503360",
+    "nameDiffBaseline": "STAGE24_SOURCE_NAME_DIFF_815.csv in external audit ZIP (not stored in site repo)",
+    "siteData": "pokemon-data.js",
+    "siteBlobSha": "bbc102213c4ebaef86fdffb0cecc912967031d2c"
+  },
+  "summary": {
+    "siteSpeciesRows": 1938,
+    "sourceVsSiteDisplayNameDifferences": 815,
+    "baseDiffs": 25,
+    "formDiffs": 790,
+    "collisionLabelGroups": 10,
+    "collisionSpeciesRows": 22,
+    "nonCollidingNameDifferences": 793,
+    "manualReviewCandidates": 30,
+    "manualReviewHigh": 22,
+    "manualReviewMedium": 8
+  },
+  "categories": {
+    "formVariantOther": 281,
+    "formMega": 225,
+    "formRedux": 219,
+    "formRegional": 59,
+    "formPrimal": 6,
+    "baseVariantDescriptor": 16,
+    "baseFanMadeTransliteration": 8,
+    "baseReduxDescriptor": 1
+  },
+  "groups": [
+    {
+      "name": "지가르데 (10%폼)",
+      "entries": [
+        {
+          "id": 1739,
+          "sourceSymbol": "SPECIES_ZYGARDE_10",
+          "englishName": "Zygarde 10",
+          "types": [
+            "드래곤",
+            "땅"
+          ],
+          "stats": [
+            74,
+            120,
+            71,
+            61,
+            85,
+            115
+          ]
+        },
+        {
+          "id": 1740,
+          "sourceSymbol": "SPECIES_ZYGARDE_10_POWER_CONSTRUCT",
+          "englishName": "Zygarde 10 Power Construct",
+          "types": [
+            "드래곤",
+            "땅"
+          ],
+          "stats": [
+            74,
+            120,
+            71,
+            61,
+            85,
+            115
+          ]
+        }
+      ]
+    },
+    {
+      "name": "메가입치트 (리덕스폼)",
+      "entries": [
+        {
+          "id": 2152,
+          "sourceSymbol": "SPECIES_MAWILE_MEGA_REDUX",
+          "englishName": "Mawile Mega Redux",
+          "types": [
+            "악",
+            "고스트"
+          ],
+          "stats": [
+            70,
+            105,
+            100,
+            55,
+            65,
+            115
+          ]
+        },
+        {
+          "id": 2591,
+          "sourceSymbol": "SPECIES_MAWILE_REDUX_B_MEGA",
+          "englishName": "Mawile Redux B Mega",
+          "types": [
+            "풀",
+            "독"
+          ],
+          "stats": [
+            70,
+            105,
+            110,
+            95,
+            105,
+            95
+          ]
+        }
+      ]
+    },
+    {
+      "name": "메가킬가르도 (리덕스폼)",
+      "entries": [
+        {
+          "id": 2168,
+          "sourceSymbol": "SPECIES_AEGISLASH_REDUX_MEGA",
+          "englishName": "Aegislash Mega",
+          "types": [
+            "격투",
+            "고스트"
+          ],
+          "stats": [
+            70,
+            200,
+            200,
+            20,
+            40,
+            70
+          ]
+        },
+        {
+          "id": 2169,
+          "sourceSymbol": "SPECIES_AEGISLASH_BLADE_REDUX_MEGA",
+          "englishName": "Aegislash Blade Redux Mega",
+          "types": [
+            "격투",
+            "고스트"
+          ],
+          "stats": [
+            70,
+            20,
+            40,
+            200,
+            200,
+            70
+          ]
+        }
+      ]
+    },
+    {
+      "name": "메가스트린더 (리덕스폼)",
+      "entries": [
+        {
+          "id": 2178,
+          "sourceSymbol": "SPECIES_TOXTRICITY_REDUX_MEGA",
+          "englishName": "Toxtricity Mega",
+          "types": [
+            "전기",
+            "악"
+          ],
+          "stats": [
+            80,
+            70,
+            115,
+            139,
+            80,
+            118
+          ]
+        },
+        {
+          "id": 2179,
+          "sourceSymbol": "SPECIES_TOXTRICITY_REDUX_FUZZ_MEGA",
+          "englishName": "Toxtricity Redux Fuzz Mega",
+          "types": [
+            "전기",
+            "악"
+          ],
+          "stats": [
+            80,
+            70,
+            80,
+            139,
+            115,
+            118
+          ]
+        }
+      ]
+    },
+    {
+      "name": "메가플라이곤 (리덕스폼)",
+      "entries": [
+        {
+          "id": 2180,
+          "sourceSymbol": "SPECIES_FLYGON_REDUX_MEGA",
+          "englishName": "Flygon Redux Mega",
+          "types": [
+            "얼음",
+            "벌레"
+          ],
+          "stats": [
+            80,
+            130,
+            85,
+            130,
+            90,
+            125
+          ]
+        },
+        {
+          "id": 2577,
+          "sourceSymbol": "SPECIES_FLYGON_REDUX_B_MEGA",
+          "englishName": "Flygon Redux B Mega",
+          "types": [
+            "전기",
+            "드래곤"
+          ],
+          "stats": [
+            88,
+            110,
+            95,
+            150,
+            95,
+            162
+          ]
+        }
+      ]
+    },
+    {
+      "name": "킬가르도 (리덕스폼)",
+      "entries": [
+        {
+          "id": 2509,
+          "sourceSymbol": "SPECIES_AEGISLASH_REDUX",
+          "englishName": "Aegislash Redux",
+          "types": [
+            "격투",
+            "고스트"
+          ],
+          "stats": [
+            70,
+            140,
+            140,
+            20,
+            70,
+            60
+          ]
+        },
+        {
+          "id": 2510,
+          "sourceSymbol": "SPECIES_AEGISLASH_BLADE_REDUX",
+          "englishName": "Aegislash Blade Redux",
+          "types": [
+            "격투",
+            "고스트"
+          ],
+          "stats": [
+            70,
+            20,
+            70,
+            140,
+            140,
+            60
+          ]
+        }
+      ]
+    },
+    {
+      "name": "입치트 (리덕스폼)",
+      "entries": [
+        {
+          "id": 2552,
+          "sourceSymbol": "SPECIES_MAWILE_REDUX",
+          "englishName": "Mawile Redux",
+          "types": [
+            "악",
+            "고스트"
+          ],
+          "stats": [
+            70,
+            95,
+            55,
+            55,
+            55,
+            80
+          ]
+        },
+        {
+          "id": 2590,
+          "sourceSymbol": "SPECIES_MAWILE_REDUX_B",
+          "englishName": "Mawile Redux B",
+          "types": [
+            "풀",
+            "독"
+          ],
+          "stats": [
+            70,
+            95,
+            75,
+            85,
+            80,
+            75
+          ]
+        }
+      ]
+    },
+    {
+      "name": "플라이곤 (리덕스폼)",
+      "entries": [
+        {
+          "id": 2576,
+          "sourceSymbol": "SPECIES_FLYGON_REDUX_B",
+          "englishName": "Flygon Redux B",
+          "types": [
+            "전기",
+            "드래곤"
+          ],
+          "stats": [
+            88,
+            100,
+            75,
+            120,
+            75,
+            142
+          ]
+        },
+        {
+          "id": 2613,
+          "sourceSymbol": "SPECIES_FLYGON_REDUX",
+          "englishName": "Flygon Redux",
+          "types": [
+            "얼음",
+            "벌레"
+          ],
+          "stats": [
+            80,
+            100,
+            80,
+            100,
+            80,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "name": "스트린더 (리덕스폼)",
+      "entries": [
+        {
+          "id": 2609,
+          "sourceSymbol": "SPECIES_TOXTRICITY_REDUX",
+          "englishName": "Toxtricity Redux",
+          "types": [
+            "전기",
+            "악"
+          ],
+          "stats": [
+            80,
+            65,
+            85,
+            114,
+            65,
+            93
+          ]
+        },
+        {
+          "id": 2610,
+          "sourceSymbol": "SPECIES_TOXTRICITY_REDUX_FUZZ",
+          "englishName": "Toxtricity Redux Fuzz",
+          "types": [
+            "전기",
+            "악"
+          ],
+          "stats": [
+            80,
+            65,
+            65,
+            114,
+            85,
+            93
+          ]
+        }
+      ]
+    },
+    {
+      "name": "불비달마 (리덕스폼)",
+      "entries": [
+        {
+          "id": 2628,
+          "sourceSymbol": "SPECIES_DARMANITAN_REDUX",
+          "englishName": "Darmanitan Redux",
+          "types": [
+            "땅",
+            "격투"
+          ],
+          "stats": [
+            80,
+            140,
+            80,
+            50,
+            80,
+            90
+          ]
+        },
+        {
+          "id": 2629,
+          "sourceSymbol": "SPECIES_DARMANITAN_REDUX_AURA",
+          "englishName": "Darmanitan Aura",
+          "types": [
+            "바위",
+            "격투"
+          ],
+          "stats": [
+            60,
+            50,
+            95,
+            150,
+            95,
+            70
+          ]
+        },
+        {
+          "id": 2630,
+          "sourceSymbol": "SPECIES_DARMANITAN_REDUX_BOND",
+          "englishName": "Darmanitan Redux Bond",
+          "types": [
+            "땅",
+            "격투"
+          ],
+          "stats": [
+            80,
+            140,
+            80,
+            50,
+            80,
+            90
+          ]
+        },
+        {
+          "id": 2635,
+          "sourceSymbol": "SPECIES_DARMANITAN_REDUX_BLUNDER",
+          "englishName": "Blunder-Darmanitan",
+          "types": [
+            "땅",
+            "격투"
+          ],
+          "stats": [
+            80,
+            170,
+            105,
+            60,
+            105,
+            110
+          ]
+        }
+      ]
+    }
+  ],
+  "policy": {
+    "displayNameDiffIsNotNecessarilyError": true,
+    "canonicalSpeciesIdsUnchanged": true,
+    "autoRename": false,
+    "sourceNameSnapshotFromStage24": true,
+    "sourceTextprotoFullFileRevalidation": "not performed in STAGE29",
+    "next": "evaluate 10 duplicate name groups and 8 custom-transliteration names using official naming policy"
+  }
+}
