@@ -1,0 +1,13 @@
+Elite Redux Korean Dex — STAGE33 모바일/접근성 QA (2026-11-03)
+게임: Sito-K/EliteReduxKorean korean@888d826064ba45d9febfa3a64d8a2b9d34503360
+STAGE32 사이트 base: 130517c66181782722234ea0dc6a9401b6ff0df9
+테스트 미리보기: https://sito-k.github.io/ER_KoreaDex/preview-8OX-d8Ma4OEhlIiSX7dc2OpX/
+정식 사이트: https://sito-k.github.io/ER_KoreaDex/ (현재 v1 무변경)
+버전: 도감 v1.1 / 최신 버전, 게임 소스 표시 2.65.4.2
+Chromium 브라우저 1280, 768, 390, 360, 320px에서 사이트 HTML/CSS/JS를 실제 렌더링하여 125/125 검색·정렬·필터·상세창·키보드·기술·특성 검증 통과.
+접근성·화면 배지·폼 레이블·버튼 크기 등 45/45 통과. JS 오류 0, 누락 로컬 리소스 0, 가로 스크롤 0.
+실제 URL 네트워크 이동은 관리자 정책 차단. Playwright page.set_content와 로컬 파일 route.fulfill로 사이트 실행. iPhone Safari, VoiceOver 실제 기기는 미검증.
+발견·수정 4건: 320px 기본/메가 한글 가운데 줄바꿈 / 모바일 최신 배지 미노출 / 원본 소스 게임 버전 부자연스런 줄바꿈 / 검색 접근성 레이블 및 검색 결과 라이브 알림.
+수정 범위: preview index.html + stage33-mobile-a11y.css, 이번 검수 증거 및 스크립트. 1,938종/폼, 1,040기술, 1,083특성, 1,938 이미지 변동 없음.
+정식 v1 배포 승격은 HOLD — 사용자의 명시적 요청에 따라 다음 단계에서 백업·복구/배포 진행.
+원본 브라우저 Python 검사와 스크린샷, 전체 JSON 결과는 인계 ZIP에 포함.

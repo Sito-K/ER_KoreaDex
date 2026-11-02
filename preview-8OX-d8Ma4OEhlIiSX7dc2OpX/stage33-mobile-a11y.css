@@ -1,0 +1,16 @@
+/* STAGE33: preview-only mobile readability and accessible version labels. */
+.s33-game-source { display:inline-block; white-space:nowrap; }
+.s33-mobile-latest { display:none; }
+@media (max-width:650px) {
+  .hero h1 .s33-mobile-latest {
+    display:inline-flex; vertical-align:middle; align-items:center;
+    margin-left:0.35rem; padding:0.15rem 0.55rem;
+    border:1px solid #a5b4c6; color:#d8e0ed; border-radius:999px;
+    font-size:0.32em; font-weight:700; letter-spacing:0; line-height:1.45;
+    white-space:nowrap;
+  }
+}
+@media (max-width:360px) {
+  .category-filter { flex-wrap:wrap; align-content:center; gap:3px 4px; min-height:60px; padding:7px 2px; }
+  .category-filter .category-label, .category-filter .category-count { white-space:nowrap; }
+}

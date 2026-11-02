@@ -1,0 +1,100 @@
+{
+  "stage": 33,
+  "date": "2026-11-03",
+  "siteRepository": "Sito-K/ER_KoreaDex",
+  "gameReference": "Sito-K/EliteReduxKorean korean@888d826064ba45d9febfa3a64d8a2b9d34503360",
+  "siteBeforeCommit": "130517c66181782722234ea0dc6a9401b6ff0df9",
+  "scope": "preview-only; production homepage and all game data unchanged",
+  "version": {
+    "dex": "v1.1",
+    "badge": "최신 버전",
+    "gameSource": "2.65.4.2"
+  },
+  "environment": {
+    "browser": "Chromium headless real renderer",
+    "loadMethod": "Playwright page.set_content + route.fulfill site assets from local preview snapshot",
+    "hostedPagesDirectTest": false,
+    "realDeviceSafari": false,
+    "androidChromeDevice": false,
+    "voiceOver": false,
+    "axeCore": false
+  },
+  "viewports": {
+    "desktop": "1280x900",
+    "tablet": "768x1024",
+    "mobile390": "390x844",
+    "mobile360": "360x740",
+    "mobile320": "320x700"
+  },
+  "chromiumBrowserActions": {
+    "passed": 125,
+    "total": 125,
+    "perViewport": 25,
+    "pageExceptions": 0,
+    "missingAssets": 0,
+    "consoleErrors": 0,
+    "checks": [
+      "search Korean and English, No.0001, custom forms",
+      "type filter/reset/sort and infinite scroll",
+      "card details and form views",
+      "dialog focus trap and Escape focus return",
+      "move/ability lazy loading and details",
+      "no horizontal overflow at all widths"
+    ]
+  },
+  "accessibilityAndResponsive": {
+    "passed": 45,
+    "total": 45,
+    "perViewport": 9,
+    "checks": [
+      "searchbox accessible name",
+      "live search result status",
+      "responsive mobile latest badge",
+      "whole source version phrase",
+      "single-line category words at narrow widths",
+      "mobile 44px targets",
+      "responsive brand visibility",
+      "no horizontal overflow",
+      "no page JavaScript errors"
+    ]
+  },
+  "fixes": [
+    {
+      "id": "S33-01",
+      "issue": "320px category basic/mega names wrap between syllables",
+      "resolution": "mobile <=360px wrap icon/label/count groups, preserve label and count as indivisible chunks"
+    },
+    {
+      "id": "S33-02",
+      "issue": "mobile header hides latest-version badge",
+      "resolution": "show latest-version badge by mobile hero title"
+    },
+    {
+      "id": "S33-03",
+      "issue": "source game label splits inside words at narrow widths",
+      "resolution": "non-breaking span for source-version text"
+    },
+    {
+      "id": "S33-04",
+      "issue": "search placeholder/decorative icon insufficient accessible name; search updates unannounced",
+      "resolution": "aria-label + aria-hidden icon + role=status aria-live=polite"
+    }
+  ],
+  "baseline": {
+    "species": 1938,
+    "moveCount": 1040,
+    "abilityCount": 1083,
+    "sprites": 1938,
+    "duplicateNames": 0
+  },
+  "unchanged": [
+    "production root v1",
+    "pokemon-data.js",
+    "all Pokemon sprites",
+    "game GitHub korean branch",
+    "ROM",
+    "translation master Excel"
+  ],
+  "decision": "PREVIEW READY FOR OWNER DEVICE QA. Production upgrade remains HOLD; only promote if user explicitly requests.",
+  "note": "The previous stage32 browser URL navigation was blocked by administrator; stage33 uses a local route-fulfilled real Chromium renderer, not actual hosted HTTP navigation."
+}
