@@ -1,0 +1,9 @@
+Elite Redux 한국어 도감 STAGE 25 — 진화 / 야생 / 스크립트 획득 / 15 BP 가격 감사 (2026-11-02)
+원본 게임: Sito-K/EliteReduxKorean korean @ 888d826064ba45d9febfa3a64d8a2b9d34503360
+게임 소스 참조: proto/SpeciesList.textproto, tools/codegen/src/er/data/EvolutionsGenerator.kt, src/shop.c (lines 572-581, 956-960, 1097-1100), include/constants/global.h (DEFAULT_POKEMON_PRICE 15).
+비교 추출물: STAGE3 게임 SpeciesList.textproto parse (11b1582...). 749 ordinary evolution IDs/levels, 304 special, 113 form shifts, 10 deev relations, 0 broken references. 30 gender evolutions previously audited against pinned raw proto (STAGE16).
+야생 출현: 2,572 행은 실제 장소 2,572곳이 아님. 맵 ID는 156종, 종족·맵 조합 1,809건, 나머지 763건은 같은 종족·맵의 다른 방법·슬롯 기록. 따라서 화면 '곳'을 '건'으로 변경하고 설명 추가. 출현 기록 수는 포켓몬 종족별 위치 개수가 아님.
+스크립트 후보: 총 215건 (상점 149, 선물/보상 39, 고정 전투 25, 알 지급 2). 원본 소스 코드에 없는 이벤트를 새로 만들지 않음.
+입양센터: 149건 모두 문구 15 BP 표기. src/shop.c는 species shopPrice가 0일 때 DEFAULT_POKEMON_PRICE를 쓰고 BP 모드에서 BP를 차감함. 실제 각 NPC의 판매 가능 여부, 각 종족 가격/구매 경로를 게임 플레이로 확인한 것은 아님.
+사이트 변경: stage21.js 야생 출현 건수 단위 오표기 1건과 안내 문구; index.html 캐시 키. 데이터/이미지/게임 소스/ROM/Excel 무변경.
+정식 v1 코드는 변경하지 말 것. preview-8OX-d8Ma4OEhlIiSX7dc2OpX/ prefix만 GitHub 갱신. 게임 내 획득 가능·브라우저 전체 검증을 성공으로 주장하지 않음.
