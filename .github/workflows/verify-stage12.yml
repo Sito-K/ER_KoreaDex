@@ -1,8 +1,0 @@
-name: Historical Verify Stage 12
-on:
-  workflow_dispatch:
-jobs:
-  archived:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Stage 12 was user-confirmed and is archived. Use the latest stage verifier for current-site validation."

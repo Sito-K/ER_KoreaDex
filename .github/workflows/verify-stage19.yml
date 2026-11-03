@@ -1,8 +1,0 @@
-name: Historical Verify Stage 19 species abilities and learnsets
-on:
-  workflow_dispatch:
-jobs:
-  archived:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "STAGE19 is a historical user-confirmed baseline; current verification is handled by the latest stage workflow."
