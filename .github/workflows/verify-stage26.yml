@@ -51,6 +51,6 @@ jobs:
           const ui=fs.readFileSync('stage20.js','utf8');
           for(const x of ['ER_STAGE26_ITEM_NAMES','s26-item-ko','해당 사항 없음'])if(!ui.includes(x))throw Error('evolution item UI wiring missing '+x);
           const index=fs.readFileSync('index.html','utf8');
-          for(const x of ['Version 0.1','stage26-item-names.js?v=20261009-stage28','stage20.js?v=20261009-nodata'])if(!index.includes(x))throw Error('public v0.1 index wiring missing '+x);
+          for(const x of ['v1.1 (최신 버전)','stage26-item-names.js?v=20261009-stage28','stage20.js?v=20261102-stage17-forms-deev'])if(!index.includes(x))throw Error('production v1.1 evolution item loader missing '+x);
           console.log('EVOLUTION ITEM NAMES OK '+JSON.stringify({uniqueEvolutionItems:codes.size,mapped:built.map.size,unresolved:0,conflicts:0,parentheticalMegaStones:0}));
           NODE
