@@ -26,7 +26,7 @@ function current(){return view==='moves'?moves:view==='abilities'?abilities:spec
 function bst(x){if(!x.stats)return 0;return x.stats.hp+x.stats.atk+x.stats.def+x.stats.spa+x.stats.spd+x.stats.spe}
 function matches(x,term){if(!term)return true;if(view==='pokemon'){const numberQuery=term.match(/^(?:no\.?\s*#?\s*|#\s*)?0*(\d+)$/i);return x.ko.toLocaleLowerCase('ko-KR').includes(term)||x.en.toLowerCase().includes(term)||String(x.dex).includes(term)||(numberQuery&&Number(numberQuery[1])===x.dex)}const en=(view==='moves'?moveSearchEn:abilitySearchEn).get(Number(x.id))||'';return x.ko.toLocaleLowerCase('ko-KR').includes(term)||en.toLocaleLowerCase('en-US').includes(term)}
 function meta(){if(view==='moves')return['기술 도감','불러온 기술','기술 이름 검색'];if(view==='abilities')return['특성 도감','불러온 특성','특성 이름 검색'];return['포켓몬 도감','불러온 포켓몬·폼','포켓몬 이름 또는 도감 번호를 검색해주세요']}
-function spriteUrl(x){return Number(x?.id)>0?`assets/pokemon/${Number(x.id)}.png`:''}
+function spriteUrl(x){const id=Number(x?.id);return id>0?`assets/pokemon/${id}.png${id===8?'?v=20261103-wartortle-alpha':''}`:''}
 function typeChips(types){return types.length?types.map(t=>`<span class="type-chip" data-type="${esc(t)}">${esc(t)}</span>`).join(''):'<span class="stats-unavailable">타입 데이터 준비 중</span>'}
 function statCells(x){if(!x.stats)return '<div class="stats-unavailable">종족값 데이터 준비 중</div>';return `<div class="mini-stats">${STAT_LABELS.map(([k,l])=>`<div><span>${l}</span><b>${x.stats[k]}</b></div>`).join('')}</div>`}
 function badge(x){if(x.category==='mega')return '<span class="form-badge mega-badge">MEGA</span>';if(x.category==='form')return '<span class="form-badge">FORM</span>';return ''}
