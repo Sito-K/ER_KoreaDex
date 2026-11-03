@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f131a">
-<title>Elite Redux 한글 도감 · v1</title>
+<title>Elite Redux 한글 도감 · v1.1 (최신 버전)</title>
 <link rel="stylesheet" href="styles.css?v=20261009-clean3">
 <link rel="stylesheet" href="stage4.css?v=20261009-clean4">
 <link rel="stylesheet" href="stage5.css?v=20261009-clean5">
@@ -19,22 +19,27 @@
 <link rel="stylesheet" href="stage18.css?v=20261009-stage18">
 <link rel="stylesheet" href="stage19.css?v=20261009-stage19">
 <link rel="stylesheet" href="stage20.css?v=20261009-stage20">
-<link rel="stylesheet" href="stage21.css?v=20261009-stage21">
+<link rel="stylesheet" href="stage17.css?v=20261102-stage17">
+<link rel="stylesheet" href="stage21.css?v=stage14-badge-bp">
 <link rel="stylesheet" href="stage22.css?v=20261009-stage22">
 <link rel="stylesheet" href="stage23.css?v=20261009-stage23">
 <link rel="stylesheet" href="stage24.css?v=20261009-stage24">
 <link rel="stylesheet" href="stage25.css?v=20261009-stage25modal">
 <link rel="stylesheet" href="detail-hidden-guard-v01.css?v=20261012-hiddenfix1">
+<link rel="stylesheet" href="stage5-fallback.css?v=stage5-native">
 <link rel="stylesheet" href="stage27-mobile-modal.css?v=20261009-stage27">
+<link rel="stylesheet" href="stage20-accessibility.css?v=stage20-20261102">
+<link rel="stylesheet" href="stage32-version.css?v=20261103-release">
+<link rel="stylesheet" href="stage33-mobile-a11y.css?v=20261103-stage33">
 </head>
 <body>
 <header class="top">
-  <div class="brand"><b>ER</b><div><strong>Elite Redux 한글 도감</strong><small>v1</small></div></div>
-  <label class="search"><span>⌕</span><input id="q" type="search" placeholder="포켓몬 이름 또는 도감 번호를 검색해주세요" autocomplete="off"></label>
+  <div class="brand"><b>ER</b><div><strong>Elite Redux 한글 도감</strong><small class="dex-version">v1.1 <span class="latest-version">최신 버전</span></small></div></div>
+  <label class="search"><span aria-hidden="true">⌕</span><input id="q" type="search" aria-label="포켓몬, 기술, 특성 이름 또는 도감 번호 검색" placeholder="포켓몬 이름 또는 도감 번호를 검색해주세요" autocomplete="off"></label>
 </header>
 <main>
   <section class="hero">
-    <div><small>ELITE REDUX KOREAN v1 · 2.65.4.1b</small><h1>포켓몬 도감</h1></div>
+    <div><small>ELITE REDUX KOREAN v1.1 · <span class="s33-game-source">원본 소스 2.65.4.2</span></small><h1>포켓몬 도감 <span class="s33-mobile-latest">최신 버전</span></h1></div>
     <div class="status"><b id="count">0</b><span id="countLabel">포켓몬·폼</span></div>
   </section>
   <nav class="tabs" aria-label="도감 분류">
@@ -67,7 +72,7 @@
       </label>
     </div>
   </section>
-  <div class="head"><h2 id="title">포켓몬 도감</h2><span id="result"></span></div>
+  <div class="head"><h2 id="title">포켓몬 도감</h2><span id="result" role="status" aria-live="polite" aria-atomic="true"></span></div>
   <div id="grid" class="grid pokemon-grid"></div>
   <div id="empty" class="empty" hidden>검색 결과가 없습니다.</div>
 </main>
@@ -82,27 +87,27 @@
     </div>
   </section>
 </div>
-<script src="species-1.js?v=clean1"></script>
-<script src="species-2.js?v=clean1"></script>
-<script src="species-3.js?v=clean1"></script>
-<script src="species-4.js?v=clean1"></script>
-<script src="forms.js?v=20261009-stage17"></script>
-<script src="pokemon-data.js?v=20261009-stage17"></script>
+<script src="pokemon-data.js?v=stage5-native"></script>
 <script src="species-name-overrides-v01.js?v=20261010-stage31names"></script>
-<script src="move-meta.js?v=20261009-stage18"></script>
-<script src="ability-meta.js?v=20261009-stage18"></script>
-<script src="v1-translation-sync.js?v=20261101-v1"></script>
-<script src="app-stage13.js?v=20261101-v1"></script>
+<script src="stage30-name-disambiguation.js?v=stage30-20261102"></script>
+<script src="move-meta.js?v=stage5-native"></script>
+<script src="ability-meta.js?v=stage5-native"></script>
+<script src="stage6-legacy-maps-items.js?v=stage6-staging"></script>
+<script src="stage5-bridge.js?v=stage9-native"></script>
+<script src="stage11-source-gaps.js?v=stage11-provenance"></script>
+<script src="app-stage13.js?v=stage26-dex-number-search-20261102"></script>
 <script src="stage14-infinite.js?v=20261009-stage14b"></script>
 <script src="stage8.js?v=20261009-stage8"></script>
 <script src="stage9.js?v=20261009-stage9"></script>
 <script src="stage18.js?v=20261009-v01clean"></script>
-<script src="stage19.js?v=20261009-v01clean"></script>
+<script src="stage19.js?v=20261102-stage24-blank-abilities"></script>
 <script src="stage26-item-names.js?v=20261009-stage28"></script>
-<script src="stage20.js?v=20261010-stage31names"></script>
+<script src="stage17-data.js?v=20261102-stage17-source"></script>
+<script src="stage20.js?v=20261102-stage17-forms-deev"></script>
 <script src="stage22-map-ko.js?v=20261009-stage22"></script>
-<script src="stage21.js?v=20261009-nodata"></script>
+<script src="stage21.js?v=stage25-wild-count-20261102"></script>
 <script src="detail-state-fix-v01.js?v=20261012-detailstate1"></script>
-<script src="stage25.js?v=20261009-stage25modal"></script>
+<script src="stage25.js?v=stage11-provenance"></script>
+<script src="stage20-accessibility.js?v=stage20-20261102"></script>
 </body>
 </html>
