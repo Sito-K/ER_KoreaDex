@@ -14,3 +14,20 @@
   .category-filter { flex-wrap:wrap; align-content:center; gap:3px 4px; min-height:60px; padding:7px 2px; }
   .category-filter .category-label, .category-filter .category-count { white-space:nowrap; }
 }
+
+/* STAGE40: keep short and detailed move/ability explanations together on phones.
+   Grid auto-stretched the three reference sections to fill the full-height modal. */
+@media (max-width:650px) {
+  .s25-reference-dialog > .detail-body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 14px;
+  }
+  .s25-reference-dialog > .detail-body > .detail-section {
+    flex: 0 0 auto;
+    min-height: 0;
+    margin-top: 0;
+  }
+}
